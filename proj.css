@@ -20,6 +20,31 @@
     font-size:1.5em;
 
 }
+.paragraph-align{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 19px;
+    text-align: center;
+
+}
+.asTitle{
+    font-size: 60px;
+    display: inline;
+    text-align: center;
+}
+
+.text-align{
+
+    margin: 80px;
+    text-align:justify;
+
+}
+
+.imgclass {
+    width: 100%;
+    margin: 0%;
+    height: 350px;
+}
 .head ul li {
     float: left;
     margin: 4px;
@@ -33,6 +58,7 @@
     color: white;
     text-align: center;
     padding: 14px 16px;
+    margin :0;
     text-decoration: none;
 }
 
