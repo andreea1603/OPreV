@@ -29,8 +29,16 @@
 }
 .asTitle{
     font-size: 60px;
-    display: inline;
     text-align: center;
+}
+.tableStyle{
+    margin: 30px;
+    margin-left: 50px;
+    font-size: 30px;
+    border-spacing: 3em;
+    border-color: #000;
+    border-style: dotted;
+
 }
 
 .text-align{
