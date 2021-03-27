@@ -1,15 +1,10 @@
 *{
     margin: 0;
 }
-.wrapper{
-    display:grid;
-    grid-template-columns: 1fr;
-    grid-gap:1em;
-}
 .nested{
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-auto-rows: minmax(400px,600px);
+    grid-template-columns: 2fr 8fr 1fr;
+    grid-auto-rows: minmax(400px,700px);
     grid-gap: 2em;
 }
 .head ul {
@@ -18,40 +13,6 @@
     overflow: hidden;
     background-color: #5876ee;
     font-size:1.5em;
-
-}
-.paragraph-align{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-radius: 19px;
-    text-align: center;
-
-}
-.asTitle{
-    font-size: 60px;
-    text-align: center;
-}
-.tableStyle{
-    margin: 30px;
-    margin-left: 50px;
-    font-size: 30px;
-    border-spacing: 3em;
-    border-color: #000;
-    border-style: dotted;
-
-}
-
-.text-align{
-
-    margin: 80px;
-    text-align:justify;
-
-}
-
-.imgclass {
-    width: 100%;
-    margin: 0%;
-    height: 350px;
 }
 .head ul li {
     float: left;
@@ -60,7 +21,6 @@
 .head ul li:last-child{
     float: right;
 }
-  
 .head li a {
     display: block;
     color: white;
@@ -80,8 +40,11 @@
     overflow-y: scroll;
     overflow-x: hidden;
     padding-top: 20px;
-    margin: 20px;
-    background-color: teal;
+    margin-left: 15px;
+    margin-top: 30px;
+    border-radius: 10px;
+    background-color: #4D8FA9
+    ;
 }
 .leftmenu h2{
     text-align: center;
@@ -90,8 +53,46 @@
 .filter{
     max-width: 350px;
     margin: auto;
-    border-radius: 5px;
     padding: 20px;
+}
+.statistica{
+    display: grid;
+    grid-template-rows: 600px;
+}
+.generare{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.generare img{
+    padding: 20px;
+    height:90%;
+    width: 90%;
+}
+.butoane{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.butoane div{
+    background-color: crimson;
+    margin: 20px;
+    width: 150px;
+    height: 60px;
+}
+.butoane div a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 15px;
+    margin :0;
+    text-decoration: none;
+    font-size:1.2em;
+}
+.butoane div a:hover{
+    background-color: cyan;
 }
 input[type=text] , select{
     width:100%;
