@@ -24,7 +24,7 @@
     text-decoration: none;
 }
 .head li a:hover {
-    background-color: #111;
+    background-color: rgba(33, 6, 133, 0.856);
 }
 
 #firstpic{
@@ -47,15 +47,60 @@
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-gap: 40px;
-    margin-left:150px;
+    margin-left:200px;
     margin-right: 150px;
 }
 .wrapped div{
     display: flex;
     justify-content: center;
-    background-color: grey;
+    padding: 10px;
+    width: 300px;
 }
 .wrapped img{
     height: 200px;
-    width: 300px;
 }
+.wrapped ul{
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    text-decoration: none;
+}
+.wrapped ul li{
+    display: flex;
+    justify-content: center;
+}
+.wrapped h2{
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    color: #323232;
+    margin-top: 0;
+    margin-bottom: .5rem;
+}
+#event-text{
+    font-size: 12px;
+    line-height: 18px;
+    color: #939598;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.button3{
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#277fa1;
+    text-align:center;
+    transition: all 0.2s;
+}
+.button3:hover{
+    color:#000000;
+    background-color:#FFFFFF;
+    }
