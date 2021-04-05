@@ -43,8 +43,7 @@
     margin-left: 15px;
     margin-top: 30px;
     border-radius: 10px;
-    background-color: #4D8FA9
-    ;
+    background-color: #4D8FA9;
 }
 .leftmenu h2{
     text-align: center;
@@ -71,10 +70,9 @@
     width: 90%;
 }
 .butoane{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+    display: grid;
+    margin:auto;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 .butoane div{
     background-color: crimson;
@@ -87,7 +85,6 @@
     color: white;
     text-align: center;
     padding: 20px 15px;
-    margin :0;
     text-decoration: none;
     font-size:1.2em;
 }
@@ -115,4 +112,205 @@ input[type=submit]{
 }
 input[type=submit]:hover{
     background: #000;
+}
+@media only screen and (max-width:1250px)
+{
+    .head{
+        display: grid;
+        background-color: #5876ee;
+        font-size:1.1em;
+        width: 100%; 
+    }
+    .nested{
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        grid-gap: 0;
+    }
+    .leftmenu{
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding-top: 20px;
+        border-radius: 10px;
+        width: 200px;
+        background-color: #4D8FA9;
+    }
+    .butoane div{
+        background-color: crimson;
+        margin: 20px;
+        width: 120px;
+        height: 50px;
+    }
+    .butoane div a{
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 15px 5px;
+        text-decoration: none;
+        font-size:1.2em;
+    }
+}
+@media only screen and (max-width:700px)
+{
+    .head{
+        display: grid;
+        background-color: #5876ee;
+        font-size:0.9em;
+        width: 100%; 
+    }
+    .nested{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-gap: 0;
+    }
+    .leftmenu{
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding-top: 20px;
+        border-radius: 10px;
+        width: 170px;
+        background-color: #4D8FA9;
+    }
+    .filter{
+        max-width: 200px;
+        margin: auto;
+        padding: 20px;
+    }
+    .statistica{
+        display: grid;
+    }
+    .generare img{
+        padding: 20px;
+        height:90%;
+        width: 90%;
+    }
+    .butoane div{
+        background-color: crimson;
+        margin: 20px;
+        width: 77px;
+        height: 40px;
+    }
+    .butoane div a{
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 10px 5px;
+        text-decoration: none;
+        font-size:1.2em;
+    }
+}
+
+@media only screen and (max-width:570px)
+{
+    .head{
+        display: grid;
+        background-color: #5876ee;
+        font-size:0.5em;
+        width: 100%; 
+    }
+    .head ul li {
+        float: left;
+        margin: 1px;
+    }
+    .nested{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+    .leftmenu{
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding-top: 20px;
+        border-radius: 10px;
+        width: 130px;
+        background-color: #4D8FA9;
+    }
+    .filter{
+        max-width: 200px;
+        margin: auto;
+        padding: 20px;
+    }
+    .statistica{
+        display: grid;
+    }
+    .generare img{
+        padding: 20px;
+        height:90%;
+        width: 90%;
+    }
+    .butoane div{
+        background-color: crimson;
+        margin: 5px;
+        width: 70px;
+        height: 30px;
+    }
+    .butoane div a{
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 8px 5px;
+        text-decoration: none;
+        font-size:0.9em;
+    }
+}
+@media only screen and (max-width:420px)
+{
+    .head{
+        display: grid;
+        background-color: #5876ee;
+        font-size:0.4em;
+        width: 100%; 
+    }
+    .head ul li {
+        float: left;
+        margin: 1px;
+    }
+    .nested{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-gap:0;
+    }
+    .leftmenu{
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding-top: 20px;
+        border-radius: 10px;
+        width: 80px;
+        background-color: #4D8FA9;
+    }
+    .leftmenu h2{
+        text-align: center;
+        padding-bottom: 10px;
+        font-size: small;
+    }
+    .filter{
+        max-width: 200px;
+        margin: auto;
+        padding: 20px;
+    }
+    .statistica{
+        display: grid;
+    }
+    .generare{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .generare img{
+        padding: 20px;
+        height:90%;
+        width: 90%;
+    }
+    .butoane div{
+        background-color: crimson;
+        margin: 5px;
+        width: 40px;
+        height: 30px;
+    }
+    .butoane div a{
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 8px 5px;
+        text-decoration: none;
+        font-size:0.9em;
+    }
 }
