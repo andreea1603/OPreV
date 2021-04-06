@@ -17,14 +17,12 @@ body{
     overflow: hidden;
     background-color: #5876ee;
     font-size:1.5em;
-
 }
 .paragraph-align{
     display: grid;
     grid-template-columns: 1fr 1fr;
     border-radius: 19px;
     text-align: center;
-
 }
 .asTitle{
     font-size: 200%;
@@ -33,14 +31,13 @@ body{
 }
 .tableStyle{
     margin: 10%;
-    margin-left: 5%;
+    margin-right: 36%;
     border-spacing: 1.4em;
     font-size:100%;
     color:rgb(255, 255, 255);
-
 }
 .textSize{
-    font-size: 90%;
+    font-size: 120%;
 }
 .first{
     display: flex;
@@ -49,10 +46,9 @@ body{
     margin-left: 10%;
     margin-right: 10%;
     align-items: center;
-
 }
 .container{
-    display: grid;
+ display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 60%;
     margin-top: 8%;
@@ -61,6 +57,9 @@ body{
     margin-right: 6%;
     box-shadow: 0 0 40px 0px rgb(104, 138, 186);
     border-radius: 50px;
+    height: 400px;
+    width: 900px;
+
     background: #7f7fd5; /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #7f7fd5, #86a8e7, #91d2ea); 
   background: linear-gradient(to right, #7f7fd5, #86a8e7, #91e1ea); 
@@ -84,6 +83,9 @@ body{
     text-decoration: none;
 }
 
+.head li a:hover {
+    background-color: #111;
+}
 @media only screen and (max-width:700px)
 {
     .wrapper{

@@ -21,6 +21,13 @@
     font-size:1.5em;
 
 }
+.fotr{
+    height: 60px;
+    background-color: #5876ee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .paragraph-align{
     display: grid;
     grid-template-columns: 1fr 1fr;

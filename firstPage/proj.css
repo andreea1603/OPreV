@@ -29,6 +29,13 @@
     margin :0;
     text-decoration: none;
 }
+.fotr{
+    height: 60px;
+    background-color: #5876ee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .head li a:hover {
     background-color: #111;
