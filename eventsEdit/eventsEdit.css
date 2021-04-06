@@ -1,0 +1,237 @@
+*{
+    margin: 0;
+}
+.head ul {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    background-color: #5876ee;
+    font-size:1.5em;
+}
+.head ul li {
+    float: left;
+    margin: 4px;
+}
+.head ul li:last-child{
+    float: right;
+}
+.head li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    margin :0;
+    text-decoration: none;
+}
+.head li a:hover {
+    background-color: rgba(33, 6, 133, 0.856);
+}
+
+#firstpic{
+    height:400px;
+    width: 100%;
+}
+.container{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container h1{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size:xx-large;
+}
+
+.wrapped{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 40px;
+}
+.wrapped div{
+    margin: auto;
+    width: 80%;
+}
+.wrapped img{
+    height: 200px;
+}
+.wrapped ul{
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    text-decoration: none;
+}
+.wrapped ul li{
+    display: flex;
+    justify-content: center;
+}
+.wrapped h2{
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    color: #323232;
+    margin-top: 0;
+    margin-bottom: .5rem;
+}
+.event-text{
+    font-size: 12px;
+    line-height: 18px;
+    color: #939598;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.button3{
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family: 'Times New Roman', Times, serif;
+    color:#277fa1;
+    text-align:center;
+    transition: all 0.2s;
+}
+.button3:hover{
+    color:#000000;
+    background-color:#FFFFFF;
+}
+.btn-adauga{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:50px;
+    margin-bottom: 50px;
+}
+.fotr{
+    height: 60px;
+    background-color: #277fa1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width:1250px)
+{
+    .head{
+        display: grid;
+        background-color: #5876ee;
+        font-size:1.3em;    
+    }
+    .head ul li {
+        float: left;
+        margin: 1px;
+    }
+    #firstpic{
+        height:250px;
+        width: 100%;
+    }
+    .wrapped{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 5px;
+        margin-left: 0;
+        
+    }
+    .wrapped div{
+        margin: auto;
+        width: 80%;
+      }
+      .wrapped img{
+        height: 150px;
+    }
+}
+@media only screen and (max-width:700px)
+{
+    .head{
+        display: grid;
+        background-color: #5876ee;
+        font-size:0.9em;    
+    }
+    .head ul li {
+        float: left;
+        margin: 1px;
+    }
+    #firstpic{
+        height:200px;
+        width: 100%;
+    }
+    .container{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .container h1{
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-size:large;
+    }
+    .wrapped{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+        margin-left: 0;
+    }
+    .wrapped div{
+        margin: auto;
+        width: 70%;
+      }
+    .wrapped img{
+        height: 150px;
+    }
+}
+@media only screen and (max-width:512px) and (min-width:361px){
+    .head{
+        background-color: #5876ee;
+        font-size:0.51em;    
+    }
+}
+@media only screen and (max-width:360px)
+{
+    .head{
+        background-color: #5876ee;
+        font-size:0.35em;    
+    }
+    .wrapped{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+        margin-left:10px;
+        margin-right: 10px;
+    }
+    .wrapped div{
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+      }
+    .wrapped img{
+        height: 100px;
+    }
+}
+@media only screen and (max-width:280px){
+    .head{
+        background-color: #5876ee;
+        font-size:0.3em;
+        width: 100%;  
+    }
+    .wrapped{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 0;
+    }
+    .wrapped div{
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+      }
+    .wrapped img{
+        height: 75px;
+    }
+}
