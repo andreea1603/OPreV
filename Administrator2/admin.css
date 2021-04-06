@@ -39,9 +39,6 @@ body{
     color:rgb(255, 255, 255);
 
 }
-.textSize{
-    font-size: 90%;
-}
 .first{
     display: flex;
     justify-content: center;
@@ -117,12 +114,20 @@ body{
         background-color: #5876ee;
     }
     .tableStyle{
-        margin: 10%;
-        margin-left: 5%;
+        margin: 5%;
         border-spacing: 1.4em;
-        font-size:100%;
         color:rgb(255, 255, 255);
-    
     }
+
+    .tableStyle tr td p {
+        color: rgb(255, 255, 255);
+        margin :0;
+        font-size: 70%;
+    }
+    .container{
+        margin-left: 10%;
+        margin: 10%;
+    }
+    
 
 }

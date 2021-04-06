@@ -94,7 +94,30 @@ body{
 
         grid-template-columns:105%;
         grid-gap:1em;
-        background-color: #5876ee;
+        background-color: #00020c;
     }
-
+    .container{
+        display: grid;
+           grid-template-columns: 1fr 1fr;
+           grid-template-rows: 60%;
+           margin-top: 8%;
+           margin-bottom: 8%;
+           margin-left: 6%;
+           margin-right: 6%;
+           box-shadow: 0 0 40px 0px rgb(104, 138, 186);       
+           background: #7f7fd5; /* fallback for old browsers */
+         background: -webkit-linear-gradient(to right, #7f7fd5, #86a8e7, #91d2ea); 
+         background: linear-gradient(to right, #7f7fd5, #86a8e7, #91e1ea); 
+       }
+       .first{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        margin-left: 10%;
+        margin-right: 10%;
+        align-items: center;
+    }
+    .textSize{
+        font-size: 180%;
+    }
 }
