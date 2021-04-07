@@ -30,7 +30,7 @@
 }
 
 .head li a:hover {
-    background-color: #111;
+    transform: scale(1.2);
 }
 
 .leftmenu{

@@ -28,9 +28,8 @@
 }
 
 .head li a:hover {
-    background-color: #111;
+    transform: scale(1.2);
 }
-
 
 .fotr{
     height: 60px;
@@ -84,17 +83,7 @@
     height: 100%;
 }
   
-.head li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    margin :0;
-    text-decoration: none;
-}
-.head li a:hover {
-    background-color: #111;
-}
+
 
 @media only screen and (max-width:700px)
 {

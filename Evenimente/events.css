@@ -24,7 +24,7 @@
     text-decoration: none;
 }
 .head li a:hover {
-    background-color: rgba(33, 6, 133, 0.856);
+    transform: scale(1.2);
 }
 
 #firstpic{
