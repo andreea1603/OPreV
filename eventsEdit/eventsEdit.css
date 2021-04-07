@@ -46,11 +46,12 @@
 .wrapped{
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    grid-gap: 40px;
+    grid-gap: 20px;
 }
 .wrapped div{
-    margin: auto;
-    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
 }
 .wrapped img{
     height: 200px;

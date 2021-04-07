@@ -53,6 +53,23 @@
     margin: auto;
     padding: 20px;
 }
+.filter button{
+    background-color: #4D8FA9;
+    border: none;
+}
+.filter button:hover{
+    transform: scale(1.2);
+}
+#div-add-filter-button{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#add-filter-button{
+    background-color: rgb(17, 83, 105);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
 .statistica{
     display: grid;
     grid-template-rows: 600px;
