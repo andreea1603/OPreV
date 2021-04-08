@@ -3,10 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="proj1.css">
+        <link rel="stylesheet" href="../OPreV/scholarly.css">
         <title>OPreV</title>
     </head>
     <body>
+
         <header>
             <h1>Software Requirements Specification OPrev</h1>
             <div>
@@ -28,6 +29,8 @@
                                     <a href="fax:+0733098595" property="schema:faxNumber">0733098595</a>
                                 </li>
                             </ul>
+                            </li>
+                            <li typeof="sa:ContributorRole" property="schema:author">
                             <span typeof="schema:Person">
                                 <meta property="schema:givenName" content="Andreea">
                                 <meta property="schema:familyName" content="Ciocan">
@@ -41,12 +44,14 @@
                                 <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
                                     <a href="fax:+0768766596" property="schema:faxNumber">0768766596</a>
                                 </li>
+                                </ul>
                             </ul>
-                        </li>
                     </ul>
+
                 </section>
             </div>
         </header>
+
         <section typeof="sa:Abstract" id="cuprins">
             <h2>Content</h2>
             <ol style="list-style-type: none;">
@@ -184,9 +189,13 @@
                     Purpose
                     </h3>
                         <p>
-                            ((The purpose of this document is to describe the web application Obesity Prevalence Visualizer, giving details 
-                            about the Interface, the system features,  etc.))The scope of the product is to provide information to the user on 
-                            the situation of obesity cases all over the world. On the site, the statistics are displayed according to certain criteria chosen by the user.
+                            The scope of the product is to provide information to the user on 
+                            the situation of obesity cases all over the world. On the site, the statistics
+                             are displayed according to certain criteria chosen by the user.
+                             <p>
+                            The main objective of this document is to describe the web application Obesity Prevalence Visualizer, giving details 
+                            about product scope, functions, the interface, the system features,  etc.
+                            </p>
                         </p>
                 </section>
 
@@ -206,8 +215,19 @@
                         Intended Audience and Reading Suggestions
                     </h3>
                         <p>
-                            This project is useful for any person who is interested in seeing statistics about obesity cases in their country or any other country.
-                            (????Also, this documentation is useful for programmers  who are interested in improving this application ????)
+                            This project and documentation is useful for any person who is interested in seeing statistics
+                             about obesity cases in their country or any other country.
+                           Also, this documentation is useful for programmers  who are interested in improving this application.
+
+                           <p>
+                           For an user, the most important section of this documentation is the introduction part and the user interface
+                           part.
+                           For a programmer, it is important to read the whole document in order to understand better the scope and the 
+                           organization of implementation
+
+                           </p>
+
+
                         </p>
                 </section>
 
@@ -255,11 +275,13 @@
                 Product Perspective
             </h3>
             <p>
-                --folosește ceva deja existent, OMS și eurostat si le imbunatateste 
-                --formatele în case exportă statisticile
-                --diagrama usecase? :(
-                    DE REFORMULAT!!!
-            
+                The OPreV is an application for everyone who is interested in overweight statistics and events 
+                related to that field. 
+            </p>
+                <p>
+                    The OPreV is following the example of  eurostat and who, websites that 
+                displays statistics for a lot of topics, and reproduces the topic about overweight cases over
+                the world.
             </p>
         </section>
 
@@ -269,11 +291,14 @@
                 Product Functions
             </h3>
             <p>The application will let the user to choose some filters(for example: age, country, sex) 
-                in order to see the distribution of the obesity cases.The result will be
-                 displayed  Also, the application will inform the user about new events all 
+                in order to see the distribution of the obesity cases and view them in different formats, then
+                there exists the possibility of download them. Also, the application will inform the user about new events all 
                  over the world(online or on site) in order to motivate him/her to have a healthy life.
-
-                 + INCA O DIAGRAMA SAU CE ERA IN POZA
+            </p>
+            <p>
+                Also, the user can see information about the main scope of the application.
+                For an administrator, there will be two functions in plus; he will be able to add or to erase events 
+                or filters and to see information about his own account.
             </p>
         </section>
 
@@ -286,7 +311,8 @@
                 There are two types of users who use the application :
                 <ul>
                 <li>typical user, a person who is interested in knowing more about the rate of obesity or events related to this problem;</li>
-               <li>administrator, that has permission to edit data in order to keep the information accurate and to be sure that there are no mistakes, for example, he can add events, remove event, add types of filters or delete types of filter;
+
+                <li>administrator, that has permission to edit data in order to keep the information accurate and to be sure that there are no mistakes, for example, he can add events, remove event, add types of filters or delete types of filter;
             </li>
             </ul>
             </p>
@@ -320,9 +346,15 @@
 
             </h3>
             <p>
-                NU STIU EXACT, DE COMPLETAT
 
+                The application is written in php, plus its useful tools for the backend part
+                 and the frontend part is in css and html. 
+
+            <p>
+            
+                 AICI INCA NU STIM
             </p>
+                </p>
         </section>
 
         <section id="UserDocumentation">
@@ -339,6 +371,9 @@
                     <li>
                         https://github.com/rick4470/IEEE-SRS-Tempate
                     </li>
+                    <li>
+                        https://profs.info.uaic.ro/~busaco/
+                    </li>
                 </ul>
 
             </p>
@@ -351,7 +386,10 @@
 
             </h3>
             <p>
-                AICI OARE NU TREBUIE?
+
+                We assume that the application will be used on mobile phone, tablets and on computers, but 
+                but mostly on computers and tablets, such as the statistics are displayed more clearly, 
+                so it will be easier to analyze.  
 
             </p>
         </section>
@@ -395,6 +433,17 @@
                         There exists a page where the administrator can change the events info, where he can add an event or remove an event or he can remove types of filter in case that there exists inconsistent data.
                     </p>
             </section>
+            <section id="UserInterfaces">
+
+                <h3>  <span>3.1   </span>
+                AICI DE ADAUGAT 3.3
+                </h3>
+                    <p>
+                        !!!!!!!!!!
+                       ADAUGA AICI!!!!!!
+                       !!!!!!!!!!!!
+                    </p>
+            </section>
    </section>
 
            <!-- partea a patra -->
@@ -411,7 +460,7 @@
             Statistics Management
         </h3>
             <p>
-                The site is equipped with a data filtering section, so that each person who accesses can view statistics based 
+                The site is equipped with a data filtering section, so that each person who accesses can download statistics based 
                 on the filters they have chosen. Moreover, the data can be viewed in several ways such as PDF , PNG, CSV so that it is easier for the user to manage the received data.
             </p>
     </section>
