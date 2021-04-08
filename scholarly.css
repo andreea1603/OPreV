@@ -1,8 +1,9 @@
 body{
     font-size: 15px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background: rgb(92, 125, 245);
-}
+    background: #56ccf2; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #56ccf2, #2f80ed); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #56ccf2, #2f80ed);  /* Chrome 10-25, Safari 5.1-6 */}
 
 section{
     color:black;
