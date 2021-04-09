@@ -67,6 +67,18 @@ body{
 .signin a{
     text-decoration: none;
 }
+a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    text-decoration: none;
+    background-color: rgb(92, 92, 247);
+    border-radius: 40px;
+    height: 40px;
+    width: 150px;
+    font-size: 20px;
+}
 .signin button{
     background-color: #4c5baf;
     color: white;

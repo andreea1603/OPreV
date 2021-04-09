@@ -46,6 +46,25 @@
     font-size:1.5em;
 
 }
+.footerAlign li {
+
+    float: left;
+    margin-left: 10px;
+    margin-right: 100px;
+}
+
+.footerAlign ul li a{
+    text-decoration: none;
+    color:white;
+    width: 100%;
+    display: inline;
+
+}
+.footerAlign ul{
+    float:left;
+    list-style-type: none;
+
+}
 .nested{
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
@@ -82,7 +101,8 @@
     margin: 0%;
     height: 100%;
 }
-  
+
+
 
 
 @media only screen and (max-width:700px)
@@ -121,4 +141,11 @@
         margin-bottom: 0px;
     }
 
+    .footerAlign li {
+
+        float: left;
+        font-size: 15px;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 }
