@@ -1,0 +1,90 @@
+
+.head ul li {
+    float: left;
+    margin: 4px;
+}
+  
+.head li a {
+    display: block;
+    color: rgb(64, 64, 64);
+    text-align: center;
+    padding: 14px 16px;
+    margin :0;
+    text-decoration: none;
+}
+body{
+    background: rgb(238,253,255);
+    background: radial-gradient(circle, rgba(238,253,255,1) 0%, rgb(255, 255, 255) 51%, rgb(247, 243, 255) 100%);
+}
+.head ul {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    font-size:1.7em;
+}
+.order{
+    display:grid;
+    grid-template-columns: 2fr 1.5fr;
+}
+.salut{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding:12%;
+}
+.salut ul li {
+    list-style-type: none;
+    height: 100px;
+}
+h1{
+    font-size: 50px;
+}
+h2{
+    padding:10px;
+}
+
+.image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+li:nth-child(3) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+img{
+    height: 90%;
+    width: 100%;
+}
+.title{
+    display: grid;
+    grid-template-columns: 1 fr ;
+    font-size: 80px;
+}
+button{
+    background-color: rgb(92, 92, 247);
+    color:white;
+    border-radius: 10px;
+    height: 60px;
+    width: 150px;
+    font-size: 20px;
+}
+div li a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    text-decoration: none;
+    background-color: rgb(92, 92, 247);
+    border-radius: 10px;
+    height: 60px;
+    width: 150px;
+    font-size: 20px;
+}
+div li a:hover{
+    transform: scale(1.2);
+
+    background-color: rgb(204, 0, 204);
+}
+
