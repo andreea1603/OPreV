@@ -44,10 +44,8 @@
     overflow: hidden;
     background-color: #5876ee;
     font-size:1.5em;
-
 }
 .footerAlign li {
-
     float: left;
     margin-left: 10px;
     margin-right: 100px;
@@ -58,12 +56,11 @@
     color:white;
     width: 100%;
     display: inline;
-
+    font-size: large;
 }
 .footerAlign ul{
     float:left;
     list-style-type: none;
-
 }
 .nested{
     display: grid;
