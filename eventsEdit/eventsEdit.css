@@ -1,31 +1,6 @@
 *{
     margin: 0;
 }
-.head ul {
-    list-style-type: none;
-    padding: 0;
-    overflow: hidden;
-    background-color: #5876ee;
-    font-size:1.5em;
-}
-.head ul li {
-    float: left;
-    margin: 4px;
-}
-.head ul li:last-child{
-    float: right;
-}
-.head li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    margin :0;
-    text-decoration: none;
-}
-.head li a:hover {
-    background-color: rgba(33, 6, 133, 0.856);
-}
 
 #firstpic{
     height:400px;
@@ -107,14 +82,6 @@
     margin-top:50px;
     margin-bottom: 50px;
 }
-.fotr{
-    height: 60px;
-    background-color: #277fa1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 @media only screen and (max-width:1250px)
 {
     .head{

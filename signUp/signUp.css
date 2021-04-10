@@ -68,7 +68,7 @@ p{
 .signin{
     display: grid;
     grid-template-columns: 1fr;
-    padding-top: 13%;
+    padding-top: 1%;
     padding-right: 8%;
     padding-left: 8%;
 }
@@ -101,7 +101,7 @@ input{
 
 }
 .align{
-    margin-top:20%;
+    margin-top:15%;
 
 }
 

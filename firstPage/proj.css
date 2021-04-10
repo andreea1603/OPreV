@@ -6,33 +6,6 @@
     grid-template-columns: 2fr 8fr 1fr;
     grid-gap: 2em;
 }
-.head ul {
-    list-style-type: none;
-    padding: 0;
-    overflow: hidden;
-    background-color: #5876ee;
-    font-size:1.5em;
-}
-.head ul li {
-    float: left;
-    margin: 4px;
-}
-.head ul li:last-child{
-    float: right;
-}
-.head li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    margin :0;
-    text-decoration: none;
-}
-
-.head li a:hover {
-    transform: scale(1.2);
-}
-
 .leftmenu{
     height: 85%;
     width: 100%;
@@ -114,28 +87,7 @@ input[type=submit]{
 input[type=submit]:hover{
     background: #000;
 }
-.fotr{
-    height: 60px;
-    background-color: #277fa1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.footerAlign li {
-    float: left;
-    margin-right: 100px;
-}
-.footerAlign ul li a{
-    text-decoration: none;
-    color:white;
-    width: 100%;
-    display: inline;
-    font-size: large;
-}
-.footerAlign ul{
-    float:left;
-    list-style-type: none;
-}
+
 @media only screen and (max-width:1250px)
 {
     .head{

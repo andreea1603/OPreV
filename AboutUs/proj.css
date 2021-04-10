@@ -4,63 +4,7 @@
 .wrapper{
     display:grid;
     grid-template-columns: 1fr;
-    grid-gap:1em;
     margin: 0px;
-}
-.head ul li:last-child{
-    float: right;
-}
-.head ul li {
-    float: left;
-    margin: 4px;
-}
-.head ul li:last-child{
-    float: right;
-}
-  
-.head li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    margin :0;
-    text-decoration: none;
-}
-
-.head li a:hover {
-    transform: scale(1.2);
-}
-
-.fotr{
-    height: 60px;
-    background-color: #5876ee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.head ul {
-    list-style-type: none;
-    padding: 0;
-    overflow: hidden;
-    background-color: #5876ee;
-    font-size:1.5em;
-}
-.footerAlign li {
-    float: left;
-    margin-left: 10px;
-    margin-right: 100px;
-}
-
-.footerAlign ul li a{
-    text-decoration: none;
-    color:white;
-    width: 100%;
-    display: inline;
-    font-size: large;
-}
-.footerAlign ul{
-    float:left;
-    list-style-type: none;
 }
 .nested{
     display: grid;
@@ -68,6 +12,7 @@
     grid-auto-rows: minmax(400px,600px);
     grid-gap: 2em;
 }
+
 .paragraph-align{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -90,16 +35,12 @@
 
 .imgclass {
     width: 80%;
-    margin: 0%;
     height: 80%;
 }
 .imgclassUP {
     width: 100%;
-    margin: 0%;
     height: 100%;
 }
-
-
 
 
 @media only screen and (max-width:700px)
@@ -107,8 +48,7 @@
     .wrapper{
         display:grid;
         grid-template-columns: 1fr;
-        grid-gap:1em;
-
+        
     }
     .text-align{
 
@@ -139,10 +79,7 @@
     }
 
     .footerAlign li {
-
         float: left;
-        font-size: 15px;
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-right: 50px;
     }
 }
