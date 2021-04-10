@@ -6,33 +6,6 @@
     grid-template-columns: 2fr 8fr 1fr;
     grid-gap: 2em;
 }
-.head ul {
-    list-style-type: none;
-    padding: 0;
-    overflow: hidden;
-    background-color: #5876ee;
-    font-size:1.5em;
-}
-.head ul li {
-    float: left;
-    margin: 4px;
-}
-.head ul li:last-child{
-    float: right;
-}
-.head li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    margin :0;
-    text-decoration: none;
-}
-
-.head li a:hover {
-    transform: scale(1.2);
-}
-
 .leftmenu{
     height: 85%;
     width: 100%;
@@ -238,15 +211,21 @@ input[type=submit]:hover{
     }
     .nested{
         display: grid;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr;
     }
     .leftmenu{
-        overflow-y: scroll;
-        overflow-x: hidden;
-        padding-top: 20px;
+        overflow-x: scroll;
+        padding-top: 5px;
         border-radius: 10px;
-        width: 130px;
+        width: 100%;
+        height: 100px;
         background-color: #4D8FA9;
+        margin-left: 0px;
+    }
+    .leftmenu h2{
+        text-align: center;
+        padding-bottom: 3px;
+        font-size: small;
     }
     .filter{
         max-width: 200px;
@@ -290,7 +269,7 @@ input[type=submit]:hover{
     }
     .nested{
         display: grid;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr;
         grid-gap:0;
     }
     .leftmenu{
@@ -298,12 +277,12 @@ input[type=submit]:hover{
         overflow-x: hidden;
         padding-top: 20px;
         border-radius: 10px;
-        width: 80px;
+        width: 100%;
         background-color: #4D8FA9;
     }
     .leftmenu h2{
         text-align: center;
-        padding-bottom: 10px;
+        padding-bottom: 3px;
         font-size: small;
     }
     .filter{
@@ -337,5 +316,9 @@ input[type=submit]:hover{
         padding: 8px 5px;
         text-decoration: none;
         font-size:0.9em;
+    }
+    .footerAlign li {
+        float: left;
+        margin-right: 20px;
     }
 }
