@@ -13,8 +13,7 @@
     text-decoration: none;
 }
 body{
-    background: rgb(238,253,255);
-    background: radial-gradient(circle, rgba(238,253,255,1) 0%, rgb(255, 255, 255) 51%, rgb(247, 243, 255) 100%);
+    background: linear-gradient(to right, rgb(119, 221, 235) 0%, rgb(154, 220, 248) 51%, rgb(210, 232, 241));
 }
 .head ul {
     list-style-type: none;
@@ -26,7 +25,11 @@ body{
     display:grid;
     grid-template-columns: 2fr 1.5fr;
 }
-
+.texti{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .texti ul li {
     list-style-type: none;
     height: 100px;
