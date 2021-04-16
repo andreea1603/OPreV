@@ -4,21 +4,22 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Dao {
-    public void insertMovie(Connection conn) throws SQLException {
+    public void insertMovie(Connection conn, int id, String titlu, int duration, int score) throws SQLException {
         Statement stm= conn.createStatement();
         String sql;
-        sql="INSERT INTO movies values(1, 'titlu', '2015-12-13', 14, 18)";
+        sql="INSERT INTO movies values (" + id+", '"+ titlu +"', '2015-12-13',"+ duration +"," + score +")";
+        System.out.println(sql);
         stm.executeUpdate(sql);
     }
-    public void insertGenres(Connection conn) throws SQLException {
+    public void insertGenres(Connection conn, int id, String name) throws SQLException {
         Statement stm= conn.createStatement();
         String sql;
-        sql="INSERT INTO genres values(1, 'pop')";
+        sql="INSERT INTO genres values( " + id + ", '" + name+"')";
         stm.executeUpdate(sql);
     }
     public void findMovie(int id, Connection conn) throws SQLException {
         Statement stm= conn.createStatement();
-        System.out.println("REZULTATUL CAUTARII ESTE: ");
+       // System.out.println("REZULTATUL CAUTARII ESTE: ");
 
         String sql="SELECT * FROM movies where id=" + id;
         ResultSet res=stm.executeQuery(sql);
