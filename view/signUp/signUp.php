@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+   include('D:\Xamp\htdocs\Tehnologiiweb\tw\OPreV\controller\functions.php');
+   include('D:\Xamp\htdocs\Tehnologiiweb\tw\OPreV\controller\init.php');
+   include('D:\Xamp\htdocs\Tehnologiiweb\tw\OPreV\controller\db-connect.php');
+?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -12,26 +17,22 @@
         <section class="first">
             <div class="container">
                 <div class="logo">
-                    <img src="../MainPage/vector-creator.png" alt="">
+                    <img src="../../MainPage/vector-creator.png" alt="">
                 </div>
                 <div class="signin">
                     <div>
                         <h1 class="register">Register </h1>
                     </div>
-                    <form>
+                    <form action="./../../model/sign-up.php" method="POST">
                         <p>Username
-                        <input type="text" class="form-control" placeholder="Enter your name">                        </p>
+                        <input type="text" name="email" class="form-control" placeholder="Enter your name">                        </p>
                         <p>Email
                         <input type="email" class="form-control" placeholder="Enter email">
                         <p>Password
                         <input type="password" name="password" class="form-control" placeholder="Enter password">
                         </p>
+                        <button type="submit">Sign UP</button>
                     </form>       
-                    <div>
-                        <p class="align">
-                        <a href="../Administrator2/admin.html">Sign up</a>
-                        </p>
-                    </div>
                 </div>
             </div>
         </section>
