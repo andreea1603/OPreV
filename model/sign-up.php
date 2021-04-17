@@ -6,13 +6,23 @@ include('../controller/db-connect.php');
 
 if (empty($_POST['email']) || empty($_POST['password']))
    { 
-       echo "Empty";
+       header("Location: ..\view\signUp\signUp.php");
    }
-$email = $_POST['email'];
-$password = $_POST['password'];
+   else{
 
-$crypt=password_hash($password, PASSWORD_BCRYPT);
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-$query="INSERT INTO `users` (email, parola) VALUES ( '{$email}', '{$crypt}')";
-$conn->exec($query);
-header("Location: ..\MainPage\main.html");
+    $crypt=password_hash($password, PASSWORD_BCRYPT);
+    if(checkEmail($email)==0)
+       {
+
+        register($email, $crypt);
+        header("Location: ..\MainPage\main.html");
+
+       }
+    else{
+
+        header("Location: ..\MainPage\main.html");
+    }
+   }

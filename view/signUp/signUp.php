@@ -25,9 +25,9 @@
                     </div>
                     <form action="./../../model/sign-up.php" method="POST">
                         <p>Username
-                        <input type="text" name="email" class="form-control" placeholder="Enter your name">                        </p>
+                        <input type="text"  class="form-control" placeholder="Enter your name">                        </p>
                         <p>Email
-                        <input type="email" class="form-control" placeholder="Enter email">
+                        <input type="email" name="email" class="form-control" placeholder="Enter email">
                         <p>Password
                         <input type="password" name="password" class="form-control" placeholder="Enter password">
                         </p>
