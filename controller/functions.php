@@ -14,7 +14,7 @@ function register($email, $crypt){
     include('db-connect.php');
 
     $query="INSERT INTO `users` (email, password) VALUES ( '{$email}', '{$crypt}')";
-    $conn->exec($query);
+    mysqli_query($conn,$query);
 }
 
 function checkEmail($email){
@@ -22,12 +22,10 @@ function checkEmail($email){
     include('db-connect.php');
     $query="SELECT * FROM `users` WHERE email='{$email}'";
 
-    $statement = $conn->prepare($query);
-    $statement->execute();
-    $statement->setFetchMode(PDO::FETCH_ASSOC);
-    $results = $statement->fetchAll();
+    $result = mysqli_query($conn,$query);
+    $num= mysqli_num_rows($result);
 
-    if (!count($results)) 
+    if (!$num) 
          return 0;
     return 1;
 }
@@ -37,18 +35,9 @@ function login($email,$password){
     include('db-connect.php');
     $s = "SELECT * FROM users WHERE email ='$email' && password='$password'";
   
-    $statement = $conn->prepare($s);
-    $statement->execute();
-    $statement->setFetchMode(PDO::FETCH_ASSOC);
-
-    $results = $statement->fetchAll();
-    echo 'salut';
-
-    if(count($results)){
-        return 1;
-    }else{
-        return 0;
-    }
+    $result = $conn -> query($s);
+    $num= mysqli_num_rows($result);
+    return $num;
 }
 function setSession($email){
     include('db-connect.php');
