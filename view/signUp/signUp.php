@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
-   include('D:\Xamp\htdocs\Tehnologiiweb\tw\OPreV\controller\functions.php');
-   include('D:\Xamp\htdocs\Tehnologiiweb\tw\OPreV\controller\init.php');
-   include('D:\Xamp\htdocs\Tehnologiiweb\tw\OPreV\controller\db-connect.php');
+   include('./../../controller/functions.php');
+   include('./../../controller/init.php');
+   include('./../../controller/db-connect.php');
 ?>
 <html lang="en">
     <head>
@@ -25,14 +25,14 @@
                     </div>
                     <form action="./../../model/sign-up.php" method="POST">
                         <p>Username
-                        <input type="text"  class="form-control" placeholder="Enter your name">                        </p>
+                        <input type="text"  class="form-control" placeholder="Enter your name"></p>
                         <p>Email
                         <input type="email" name="email" class="form-control" placeholder="Enter email">
                         <p>Password
                         <input type="password" name="password" class="form-control" placeholder="Enter password">
                         </p>
                         <button type="submit">Sign UP</button>
-                    </form>       
+                    </form>
                 </div>
             </div>
         </section>

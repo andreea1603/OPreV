@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<?php
+?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -18,16 +20,15 @@
                     <div>
                         <h3> Sign in </h3>
                     </div>
-                    <form>
-                        <p><input type="email" class="form-control" placeholder="Enter email"></p>
-                        <p><input type="password" name="password" class="form-control" placeholder="Enter password"></p>
-                    </form>       
-                    <div>
-                            <a href="../Administrator2/admin.html" id="login-button">Sign in</a>
-                    </div>
+                    <form method="post" action="../../model/log-in.php">
+                        <p><input type="text" name="email" class="form-control" placeholder="Enter email" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?>"></p>
+                        <p><input type="password" name="password" class="form-control" placeholder="Enter password" required></p>
+                        <p><input type="checkbox" name="remember" /> Remember me</p>
+                        <button type="submit" id="login-button">Sign in</button>
+                    </form>
                     <hr>
                     <div>
-                        <p>Don't have an account? <a href="../signUp/signUp.html">Register here.</a></p>
+                        <p>Don't have an account? <a href="../signUp/signUp.php">Register here.</a></p>
                     </div> 
                 </div>
             </div>

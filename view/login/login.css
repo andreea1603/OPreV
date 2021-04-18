@@ -60,9 +60,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.signin form{
-    padding-top: 10%;
+    margin-bottom: 0%;
 }
 a{
     text-decoration: none;
