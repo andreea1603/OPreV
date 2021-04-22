@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+include('../../controller/init.php');
+include('../../controller/functions.php');
+?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -13,10 +17,10 @@
         <div class="wrapper">
             <div class="head">
                 <ul>
-                    <li><a href="../firstPage/principala.html">Statistici</a></li>
-                    <li><a href="../Evenimente/events.html">Evenimente</a></li>
-                    <li><a href="../AboutUs/aboutus.html">Despre noi</a></li>
-                    <li><a href=<?php session_start();if(!$_SESSION['conectat']) echo "../login/login.php"; else echo "#";?>>Contul meu</a></li>
+                    <li><a href="../../firstPage/principala.html">Statistici</a></li>
+                    <li><a href="../../Evenimente/events.html">Evenimente</a></li>
+                    <li><a href="../../AboutUs/aboutus.html">Despre noi</a></li>
+                    <li><a href=<?php if(!$_SESSION['conectat']) echo "../login/login.php"; else echo "#";?>>Contul meu</a></li>
                 </ul>
             </div>
         </div>
@@ -34,7 +38,7 @@
             </tr>
             <tr>
                 <td><p class="textSize"><i>Email:</i></p></td>
-                <td><p class="textSize"><?php echo $_SESSION['email'];?></p></td>
+                <td><p class="textSize"><?php   echo $_SESSION['email'];?></p></td>
             </tr>
             <tr>
                 <td><p class="textSize"><i>Tip cont: </i></p></td>
@@ -52,7 +56,7 @@
                 <td><a href="../firstPageEdit/firstPage.html">Editeaza date</a></td>
             </tr>
              <tr>                    <td></td>
-                <td><a href= <?php session_destroy(); echo "../login/login.php"?>>Log out</a></td>
+                <td>Log out</td>
             </tr>
         </table>
         </div>

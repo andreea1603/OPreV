@@ -24,8 +24,10 @@
                         <h1 class="register">Register </h1>
                     </div>
                     <form action="./../../model/sign-up.php" method="POST">
-                        <p>Username
-                        <input type="text"  class="form-control" placeholder="Enter your name"></p>
+                        <p>FirstName
+                        <input type="text" name="first_name"  class="form-control" placeholder="Enter your name"></p>
+                        <p>Last name
+                        <input type="text"  name="last_name" class="form-control" placeholder="Enter your name"></p>
                         <p>Email
                         <input type="email" name="email" class="form-control" placeholder="Enter email">
                         <p>Password

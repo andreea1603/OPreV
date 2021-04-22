@@ -9,11 +9,10 @@ function printSession() {
     echo '</pre>';
 }
 
-function register($email, $crypt){
+function register($email, $crypt, $firstname, $lastname){
     include('init.php');
     include('db-connect.php');
-
-    $query="INSERT INTO `users` (email, password) VALUES ( '{$email}', '{$crypt}')";
+    $query="INSERT INTO `users` (email, password, firstname, lastname) VALUES ( '{$email}', '{$crypt}' , '{$firstname}', '{$lastname}')";
     mysqli_query($conn,$query);
 }
 
@@ -31,15 +30,26 @@ function checkEmail($email){
 }
 
 
-function login($email,$password){
+function login($email, $pass){
+    session_unset();
     include('db-connect.php');
-    $s = "SELECT * FROM users WHERE email ='$email' && password='$password'";
-  
+
+    $s = "SELECT password FROM users WHERE email ='$email'";
+        
     $result = $conn -> query($s);
-    $num= mysqli_num_rows($result);
-    return $num;
+
+    $row=$result->fetch_assoc();
+    $verif=$row["password"];
+    echo "verificare".$verif."verificare";
+
+    if(password_verify($pass, $verif)){
+        return 1;
+    }
+    else
+        return 0;
 }
 function setSession($email){
+
     include('db-connect.php');
     $s = "SELECT firstname, lastname FROM users WHERE email='$email'";
     $result = $conn -> query($s);

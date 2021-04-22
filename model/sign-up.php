@@ -12,12 +12,15 @@ if (empty($_POST['email']) || empty($_POST['password']))
 
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $first_name=$_POST['first_name'];
+    $last_name=$_POST['last_name'];
+
 
     $crypt=password_hash($password, PASSWORD_BCRYPT);
     if(checkEmail($email)==0)
        {
 
-        register($email, $crypt);
+        register($email, $crypt, $first_name, $last_name);
         header("Location: ..\MainPage\main.html");
 
        }
