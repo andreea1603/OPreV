@@ -1,12 +1,12 @@
   
 <?php
 $servername = "localhost";
-$database = "tw";
+$database = "mysql";
 $username = "root";
-$password = "";
+$password = "ovidiu";
 
 $conn = mysqli_connect($servername, $username, $password, $database);
   if (!$conn) {
-      die('Could not connect: '. mysqli_error(1));
+      die('Could not connect: '. $mysqli -> error);
   }
 ?>

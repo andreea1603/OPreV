@@ -7,19 +7,19 @@ include('../../controller/functions.php');
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="admin.css">
-        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../../styles/admin.css">
+        <link rel="stylesheet" href="../../styles/style.css">
 
-        <link rel="shortcut icon" href="../vector-creator.ico">
+        <link rel="shortcut icon" href="../../pictures/vector-creator.ico">
         <title>OPreV</title>
     </head>
     <body>
         <div class="wrapper">
             <div class="head">
                 <ul>
-                    <li><a href="../../firstPage/principala.html">Statistici</a></li>
-                    <li><a href="../../Evenimente/events.html">Evenimente</a></li>
-                    <li><a href="../../AboutUs/aboutus.html">Despre noi</a></li>
+                <li><a href="../Statistici/statistici.php">Statistici</a></li>
+                    <li><a href="../Evenimente/events.php">Evenimente</a></li>
+                    <li><a href="../AboutUs/aboutus.php">Despre noi</a></li>
                     <li><a href=<?php if(!$_SESSION['conectat']) echo "../login/login.php"; else echo "#";?>>Contul meu</a></li>
                 </ul>
             </div>
@@ -49,11 +49,11 @@ include('../../controller/functions.php');
             </tr>
             <tr>
                     <td></td>
-                <td><a href="../eventsEdit/eventsEdit.html">Editeaza evenimente</a></td>
+                <td><a href="../../view/eventsEdit/eventsEdit.php">Editeaza evenimente</a></td>
             </tr>
             <tr> 
                                    <td></td>
-                <td><a href="../firstPageEdit/firstPage.html">Editeaza date</a></td>
+                <td><a href="../../view/StatisticiEdit/statisticiEdit.php">Editeaza date</a></td>
             </tr>
              <tr>                    <td></td>
                 <td>Log out</td>
@@ -66,14 +66,14 @@ include('../../controller/functions.php');
         <div class="footerAlign">
             <ul>
                 <li>
-                    <a href="../scholarly.html">
-                            Documentatie
-                    </a>
-                </li>
-                <li>
-                    <a href="../MainPage/main.html">
-                        Acasa
-                    </a>
+                        <a href="../../Documentation/scholarly.html">
+                                Documentatie
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../MainPage/main.php">
+                            Acasa
+                        </a>
                 </li>
             </ul>
         </div>

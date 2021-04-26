@@ -21,11 +21,11 @@ if (empty($_POST['email']) || empty($_POST['password']))
        {
 
         register($email, $crypt, $first_name, $last_name);
-        header("Location: ..\MainPage\main.html");
+        header("Location: ../view/MainPage/main.php");
 
        }
     else{
 
-        header("Location: ..\MainPage\main.html");
+        header("Location: ../view/signUp/signUp.php");
     }
    }

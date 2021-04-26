@@ -5,8 +5,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="login.css">
-        <link rel="shortcut icon" href="../vector-creator.ico">
+        <link rel="stylesheet" href="../../styles/login.css">
+        <link rel="shortcut icon" href="../../pictures/vector-creator.ico">
 
         <title>OPreV</title>
     </head>
@@ -14,7 +14,7 @@
         <section class="first">
             <div class="container">
                 <div class="logo">
-                    <img src="logo.png" alt="">
+                    <img src="../../pictures/logo.png" alt="">
                 </div>
                 <div class="signin">
                     <div>

@@ -1,10 +1,14 @@
 <!DOCTYPE html>
+<?php
+include('../../controller/init.php');
+include('../../controller/functions.php');
+?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
 
-        <link rel="stylesheet" href="main.css">
-        <link rel="shortcut icon" href="vector-creator.ico">
+        <link rel="stylesheet" href="../../styles/main.css">
+        <link rel="shortcut icon" href="../../pictures/vector-creator.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title> OPrev</title>
@@ -48,7 +52,7 @@
            </ul>
         </div>
         <div class="image">
-                <img src="vector-creator.png" alt="">
+                <img src="../../pictures/vector-creator.png" alt="">
         </div>
     </div>
     </body>

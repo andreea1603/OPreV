@@ -14,21 +14,15 @@ if (!empty($_POST['email']) && !empty($_POST['password'])){
   
         $num=login($email, $pass);
         if($num==1){
-
             setSession($email);
-
             header("Location: ../view/Admin/admin.php");
-
-
         }
         else{
             header("Location: ../view/login/login.php");    
-
         }
     }
     else
-        //header("Location: ../view/login/login.php");
-        echo printSession();
+        header("Location: ../view/login/login.php");
 
-   }
+}
 ?> 
