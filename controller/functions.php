@@ -16,6 +16,7 @@ function register($email, $crypt, $firstname, $lastname){
     mysqli_query($conn,$query);
 }
 
+
 function checkEmail($email){
     include('init.php');
     include('db-connect.php');

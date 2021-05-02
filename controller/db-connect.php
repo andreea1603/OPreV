@@ -1,9 +1,9 @@
   
 <?php
 $servername = "localhost";
-$database = "mysql";
+$database = "tw";
 $username = "root";
-$password = "ovidiu";
+$password = "";
 
 $conn = mysqli_connect($servername, $username, $password, $database);
   if (!$conn) {
