@@ -73,11 +73,11 @@ var myChart = new Chart(ctx, {
     data: {
         labels: labels1,
         datasets: [{
-            label: '# of Votes',
+            label: 'bmi',
             data: datasets,
-            barPercentage: 0.5,
-        maxBarThickness: 8,
-        minBarLength: 2,
+            barPercentage: 1.5,
+            maxBarThickness: 30,
+            minBarLength: 20,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
