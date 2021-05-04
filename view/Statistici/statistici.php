@@ -12,7 +12,11 @@ include('../../controller/db-connect.php');
         <link rel="stylesheet" href="../../styles/style.css">
 
         <link rel="shortcut icon" href="../../pictures/vector-creator.ico">
+        <script src="https://code.jscharting.com/latest/jscharting.js"></script>
+        <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
         <script type="text/javascript" src="functions.js"></script>
+        <script type="text/javascript" src="mapChart.js"></script>
         <title>OPreV</title>
     </head>
     <body>
@@ -165,34 +169,35 @@ include('../../controller/db-connect.php');
                                 </div>
                             </div>
                             <input type="button" onclick="selectAll()" value="Select All">
+                            
                             <h3>BMI</h3>
                             <div class="scroll">
                                 <div>
-                                    <input type="checkbox" id="preobez" name="check" onclick="onlyOne(this)">
+                                    <input type="checkbox" id="preobez" name="check1" onclick="onlyOneBmi(this)">
                                     <label for="bmi">Preobezitate</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="obez" name="check" onclick="onlyOne(this)">
+                                    <input type="checkbox" id="obez" name="check1" onclick="onlyOneBmi(this)">
                                     <label for="bmi">Obezitate</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="supra" name="check" onclick="onlyOne(this)">
+                                    <input type="checkbox" id="supra" name="check1" onclick="onlyOneBmi(this)">
                                     <label for="bmi">Supraponderali</label>
                                 </div>
                             </div>
                             <h3>Year</h3>
                             <div class="scroll">
                                 <div>
-                                    <input type="checkbox" id="sk">
-                                    <label for="horns">2008</label>
+                                    <input type="checkbox" id="first" name="check2" onclick="onlyOneYear(this)">
+                                    <label for="year">2008</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="tr">
-                                    <label for="horns">2014</label>
+                                    <input type="checkbox" id="second" name="check2" onclick="onlyOneYear(this)">
+                                    <label for="year">2014</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="uk">
-                                    <label for="horns">2017</label>
+                                    <input type="checkbox" id="third" name="check2" onclick="onlyOneYear(this)">
+                                    <label for="year">2017</label>
                                 </div>
                             </div>
                             <input type="submit" value="Submit">
@@ -204,13 +209,12 @@ include('../../controller/db-connect.php');
                         <div class="btn-group">
                             <button onclick="barChart()">Table</button>
                             <button onclick="barChart()">Bar</button>
-                            <button onclick="barChart()">Line</button>
-                            <button onclick="barChart()">Map</button>
+                            <button onclick="lineChart()">Line</button>
+                            <button onclick="mapChart()">Map</button>
                         </div>
                     </div>
                     <div class="generare">
-                    <canvas id="myChart" class="map"></canvas>
-
+                        <div id="myChart"></div>
                     </div>
                     <div class="butoane">
                         <div><a href="#">CSV</a></div>
@@ -238,10 +242,6 @@ include('../../controller/db-connect.php');
                     </ul>
                 </div>
             </footer>
-
-
-            <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
-<div width="10px" height="10px">
 <?php
 $labels=array();
 $datasets=array();
@@ -250,7 +250,6 @@ $result=mysqli_query($conn, $query);
 echo "<br>";
 
 if (mysqli_num_rows($result)) {
-    // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
       array_push($labels, $row["name"]);
       array_push($datasets, $row["valoare"]);
@@ -258,14 +257,14 @@ if (mysqli_num_rows($result)) {
   } else {
     echo "0 results";
   }
-
 ?>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
 <script>
 function barChart(){
-    var labels1=
-    <?php echo json_encode($labels);    ?>;
+    var labels1= <?php echo json_encode($labels);?>;
     var datasets= <?php echo json_encode($datasets);  ?>;
+    console.log(labels1);
+    console.log(datasets);
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
     type: 'bar',
@@ -296,6 +295,67 @@ function barChart(){
         }
         ]
     }, 
+    });
+}
+</script>
+<script>
+    function lineChart(){
+        var labels1= <?php echo json_encode($labels);?>;
+        var datasets= <?php echo json_encode($datasets);  ?>;
+        var ctx = document.getElementById('myChart');
+        var myChart=new Chart(ctx,
+        {"type":"line",
+        "data":{"labels":labels1,
+        "datasets":[{"label":"Dataset","data":datasets,
+                    "fill":true,
+                    "borderWidth":10,
+                    "borderColor":"rgb(75, 192, 192)",
+                    "lineTension":0}]}});
+        myChart.update();
+    }
+</script>
+<script>
+    function mapChart(){
+        d3.csv('resources/da.csv', function(err, rows){
+        function unpack(rows, key) {
+            return rows.map(function(row) { return row[key]; });
+        }
+        console.log(unpack(rows, 'country_code'));
+        var data = [{
+                type: 'choropleth',
+                locations: unpack(rows, 'country_code'),
+                z: unpack(rows, 'value'),
+                text: unpack(rows, 'country_name'),
+                colorscale: [
+                    [0,'rgb(5, 10, 172)'],[0.35,'rgb(40, 60, 190)'],
+                    [0.5,'rgb(70, 100, 245)'], [0.6,'rgb(90, 120, 245)'],
+                    [0.7,'rgb(106, 137, 247)'],[1,'rgb(220, 220, 220)']],
+                autocolorscale: false,
+                reversescale: true,
+                marker: {
+                    line: {
+                        color: 'rgb(180,180,180)',
+                        width: 0.5
+                    }
+                },
+                tick0: 0,
+                zmin: 0,
+                dtick: 1000,
+                colorbar: {
+                    autotic: false
+                }
+        }];
+
+        var layout = {
+            geo:{
+                showframe: false,
+                showcoastlines: false,
+                projection:{
+                    type: 'mercator'
+                }
+            }
+        };
+        Plotly.newPlot("myChart", data, layout, {showLink: false});
     });
 }
 </script>

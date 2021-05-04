@@ -4,6 +4,7 @@
 .nested{
     display: grid;
     grid-template-columns: 2fr 8fr 1fr;
+    grid-template-rows: 750px;
     grid-gap: 2em;
 }
 .leftmenu{
@@ -40,13 +41,17 @@
     margin-bottom: 10px;
     height: 10%;
 }
+.btn-group{
+    display: flex;
+    justify-content: center;
+}
 .btn-group button {
     background-color: #1a67cc;
     border: 1px solid rgb(7, 2, 26); 
     color: white; 
     padding: 10px 24px;
-    cursor: pointer; 
-    float: left; 
+    cursor: pointer;
+    margin-right: 10px;
 }
   
 .btn-group button:not(:last-child) {

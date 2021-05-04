@@ -1,0 +1,29 @@
+contry_name,country_code,value
+Austria,AT,37
+Belgium,BE,33
+Bulgaria,BG,35
+Cyprus,CY,34
+Czechia,CZ,35
+Germany (until 1990 former territory of the FRG),DE,34
+Denmark,DK,39
+Euro area - 18 countries (2014),EA18,39
+Euro area - 19 countries  (from 2015),EA19,45
+Estonia,EE,36
+Greece,EL,34
+Spain,ES,38
+European Union - 27 countries (2007-2013),EU27_2007,38
+European Union - 27 countries (from 2020),EU27_2020,38
+European Union - 28 countries (2013-2020),EU28,42
+Finland,FI,36
+France,FR,35
+Ireland,IE,33
+Luxembourg,LU,35
+Malta,MT,35
+Netherlands,NL,33
+Norway,NO,34
+Poland,PL,35
+Portugal,PT,39
+Romania,RO,39
+Sweden,SE,37
+Slovenia,SI,36
+Slovakia,SK,38

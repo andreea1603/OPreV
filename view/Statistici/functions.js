@@ -1,5 +1,11 @@
-function onlyOne(checkbox) {
-    var checkboxes = document.getElementsByName('check')
+function onlyOneBmi(checkbox) {
+    var checkboxes = document.getElementsByName('check1');
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
+function onlyOneYear(checkbox) {
+    var checkboxes = document.getElementsByName('check2');
     checkboxes.forEach((item) => {
         if (item !== checkbox) item.checked = false
     })
