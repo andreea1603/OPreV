@@ -19,9 +19,9 @@ include('../../controller/functions.php');
 
         <section class="head">
             <ul>
-                <li><a href="../Evenimente/events.html">Evenimente</a></li>
-                <li><a href="../AboutUs/aboutus.html">Despre noi</a></li>
-                <li><a href="../scholarly.html">Documentatie</a></li>
+                <li><a href="../Evenimente/events.php">Evenimente</a></li>
+                <li><a href="../AboutUs/aboutus.php">Despre noi</a></li>
+                <li><a href="../scholarly.php">Documentatie</a></li>
 
             </ul>
         </section>
@@ -42,7 +42,7 @@ include('../../controller/functions.php');
                 </h2>
             </li>
             <li class="left">
-                <a href="../firstPage/principala.html">
+                <a href="../Statistici/statistici.php">
                     
                     Vizualizeaza
 

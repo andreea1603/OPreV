@@ -13,9 +13,16 @@
     margin-left: 15px;
     margin-top: 30px;
     border-radius: 10px;
-    background-color: #4D8FA9;
+    background-color: #0e74b8;
 }
-
+#selectAll{
+    background-color: #1a67cc;
+    border: 1px solid rgb(7, 2, 26); 
+    color: white; 
+    cursor: pointer; 
+    margin-top: 0%;
+    margin-bottom: 10px;
+}
 .leftmenu h2{
     text-align: center;
     padding-bottom: 10px;
@@ -27,13 +34,40 @@
 }
 .statistica{
     display: grid;
-    grid-template-rows: 600px;
+}
+.reprezentare{
+    margin: 30px;
+    margin-bottom: 10px;
+    height: 10%;
+}
+.btn-group button {
+    background-color: #1a67cc;
+    border: 1px solid rgb(7, 2, 26); 
+    color: white; 
+    padding: 10px 24px;
+    cursor: pointer; 
+    float: left; 
+}
+  
+.btn-group button:not(:last-child) {
+    border-right: none;
+}
+  
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+  
+.btn-group button:hover {
+    background-color: #3e578e;
 }
 .generare{
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
+    grid-template-rows: 700px;
 
 }
 .map{
@@ -85,7 +119,51 @@ input[type=submit]{
 input[type=submit]:hover{
     background: #000;
 }
+.right-part{
+    padding-top: 5%;
+}
+#logo{
+    width: 70%;
+    height: 100px;
+}
+.scroll {
+    padding-left:20px;
+    width: 75%;
+    height: 110px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align:justify;
+}
+#first-scroll{
+    margin-bottom: 8px;
+    
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 30px;
+  }
+  
+  /* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+  label {
+    font: 1rem 'Fira Sans', sans-serif;
+}
 
+input {
+    margin: .4rem;
+}
 @media only screen and (max-width:1250px)
 {
     .head{

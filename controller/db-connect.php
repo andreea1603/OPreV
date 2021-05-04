@@ -3,7 +3,7 @@
 $servername = "localhost";
 $database = "tw";
 $username = "root";
-$password = "";
+$password = "ovidiu";
 
 $conn = mysqli_connect($servername, $username, $password, $database);
   if (!$conn) {

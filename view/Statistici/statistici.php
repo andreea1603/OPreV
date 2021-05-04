@@ -2,6 +2,7 @@
 <?php
 include('../../controller/init.php');
 include('../../controller/functions.php');
+include('../../controller/db-connect.php');
 ?>
 <html lang="en">
     <head>
@@ -11,7 +12,7 @@ include('../../controller/functions.php');
         <link rel="stylesheet" href="../../styles/style.css">
 
         <link rel="shortcut icon" href="../../pictures/vector-creator.ico">
-
+        <script type="text/javascript" src="functions.js"></script>
         <title>OPreV</title>
     </head>
     <body>
@@ -27,50 +28,186 @@ include('../../controller/functions.php');
                 <div class="leftmenu">
                     <h2>Filtre</h2>
                     <div class="filter">
-                        <form action="a">
-                            <label for="country"> Country</label>
-                            <select  id="country">
-                                <option value="Country">Tara</option>
-                                <option value="Country">Romania</option>
-                                <option value="Country">America</option>
-                                <option value="Country">Germania</option>
-                            </select>
-                            <label for="age"> Age</label>
-                            <select id="age">
-                                <option value="Age">Varsta</option>
-                                <option value="Age">5-10</option>
-                                <option value="Age">10-15</option>
-                                <option value="Age">15-25</option>
-                                <option value="Age">25-40</option>
-                                <option value="Age">40-60</option>
-                                <option value="Age">60-</option>
-                            </select>
-                            <label for="sex"> Sex</label>
-                            <select id="sex">
-                                <option value="sex">Sex</option>
-                                <option value="sex">Masculin</option>
-                                <option value="sex">Feminin</option>
-                            </select>
-                            <label for="BodyMassIndex">Indice de masa corporala</label>
-                            <select id="BodyMassIndex">
-                                <option value="BodyMassIndex">Indice de masa corporala</option>
-                                <option value="BodyMassIndex">Supraponderal</option>
-                                <option value="BodyMassIndex">Pre-obez</option>
-                                <option value="BodyMassIndex">Obez</option>
-                            </select>
-                            <label for="representation"> Reprezentare</label>
-                            <select  id="representation">
-                                <option value="Representation">Reprezentare</option>
-                                <option value="Representation">Bara</option>
-                                <option value="Representation">Linii</option>
-                                <option value="Representation">Tabel</option>
-                                <option value="Representation">Mapa</option>
-                            </select>
+                        <form action="a" method=post>
+                            <h3>Country</h3>
+                            <div class="scroll" id="first-scroll">
+                                <div>
+                                <input type="checkbox" id="at" name="checkCountry">
+                                <label>Austria</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="be" name="checkCountry">
+                                <label>Belgium</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="bg" name="checkCountry">
+                                <label>Bulgaria</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="hr" name="checkCountry">
+                                <label>Croatia</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="cy" name="checkCountry">
+                                <label>Cyprus</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="cz" name="checkCountry">
+                                <label>Czechia</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="dk" name="checkCountry">
+                                <label>Denmark</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="ee" name="checkCountry">
+                                <label>Estonia</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="fi" name="checkCountry">
+                                <label>Finland</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="fr" name="checkCountry">
+                                <label>France</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="de" name="checkCountry">
+                                <label for="horns">Germany</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="el" name="checkCountry">
+                                <label>Greece</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="hu" name="checkCountry">
+                                <label>Hungary</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="ie" name="checkCountry">
+                                <label>Ireland</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="is" name="checkCountry">
+                                <label>Iceland</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="it" name="checkCountry">
+                                <label>Italy</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="lt" name="checkCountry">
+                                <label>Lithuania</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="lu" name="checkCountry">
+                                <label>Luxembourg</label >
+                                </div>
+                                <div>
+                                <input type="checkbox" id="lv" name="checkCountry">
+                                <label>Latvia</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="mk" name="checkCountry">
+                                <label>North Macedonia</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="mt" name="checkCountry">
+                                <label>Malta</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="nl" name="checkCountry">
+                                <label>Netherlands</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="no" name="checkCountry">
+                                <label">Norway</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="pl" name="checkCountry">
+                                <label>Poland</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="pt" name="checkCountry">
+                                <label>Portugal</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="ro" name="checkCountry">
+                                <label>Romania</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="rs" name="checkCountry">
+                                <label>Serbia</label>
+                                </div>
+                                <div>
+                                <div>
+                                <input type="checkbox" id="es" name="checkCountry">
+                                <label>Spain</label>
+                                </div>
+                                <input type="checkbox" id="se" name="checkCountry">
+                                <label>Sweden</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="si" name="checkCountry">
+                                <label>Slovania</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="sk" name="checkCountry">
+                                <label>Slovakia</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="tr" name="checkCountry">
+                                <label>Turkey</label>
+                                </div>
+                                <div>
+                                <input type="checkbox" id="uk" name="checkCountry">
+                                <label>United Kingdom</label>
+                                </div>
+                            </div>
+                            <input type="button" onclick="selectAll()" value="Select All">
+                            <h3>BMI</h3>
+                            <div class="scroll">
+                                <div>
+                                    <input type="checkbox" id="preobez" name="check" onclick="onlyOne(this)">
+                                    <label for="bmi">Preobezitate</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="obez" name="check" onclick="onlyOne(this)">
+                                    <label for="bmi">Obezitate</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="supra" name="check" onclick="onlyOne(this)">
+                                    <label for="bmi">Supraponderali</label>
+                                </div>
+                            </div>
+                            <h3>Year</h3>
+                            <div class="scroll">
+                                <div>
+                                    <input type="checkbox" id="sk">
+                                    <label for="horns">2008</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="tr">
+                                    <label for="horns">2014</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="uk">
+                                    <label for="horns">2017</label>
+                                </div>
+                            </div>
                             <input type="submit" value="Submit">
                         </form>
                     </div>
                 </div>
                 <div class="statistica">
+                    <div class="reprezentare">
+                        <div class="btn-group">
+                            <button onclick="barChart()">Table</button>
+                            <button onclick="barChart()">Bar</button>
+                            <button onclick="barChart()">Line</button>
+                            <button onclick="barChart()">Map</button>
+                        </div>
+                    </div>
                     <div class="generare">
                     <canvas id="myChart" class="map"></canvas>
 
@@ -81,7 +218,9 @@ include('../../controller/functions.php');
                         <div><a href="#">PDF</a></div>
                     </div>
                 </div>
-                <div></div>
+                <div class="right-part">
+                    <a href="../StatisticiWho/statisticiWho.php"><img id="logo" src="../../pictures/whoLogo.jpg" alt=""></a>
+                </div>
             </section>
             <footer class="fotr">
                 <div class="footerAlign">
@@ -104,9 +243,6 @@ include('../../controller/functions.php');
             <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
 <div width="10px" height="10px">
 <?php
-
-include('D:\Xamp\htdocs\PROIECT_TW\OPreV\controller\db-connect.php');
-
 $labels=array();
 $datasets=array();
 $query="select geo.name, valori.valoare, geo.id from  geo, valori where valori.id=geo.id*3";
@@ -124,18 +260,14 @@ if (mysqli_num_rows($result)) {
   }
 
 ?>
-salut
+
 <script>
-    console.log("salut");
-
- var labels1=
-        <?php echo json_encode($labels);    ?>;
-
-var datasets= <?php echo json_encode($datasets);  ?>;
-
-  
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
+function barChart(){
+    var labels1=
+    <?php echo json_encode($labels);    ?>;
+    var datasets= <?php echo json_encode($datasets);  ?>;
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: labels1,
@@ -163,16 +295,9 @@ var myChart = new Chart(ctx, {
             ],
         }
         ]
-    },
-   
-    
-});
+    }, 
+    });
+}
 </script>
-
-
-
-
-
-
     </body>
 </html>
