@@ -15,6 +15,7 @@
     border-radius: 10px;
     background-color: #4D8FA9;
 }
+
 .leftmenu h2{
     text-align: center;
     padding-bottom: 10px;
@@ -33,11 +34,12 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
+
 }
-.generare img{
-    padding: 20px;
-    height:90%;
-    width: 90%;
+.map{
+    height: 100%  !important;
+    width: 100%  !important;
+
 }
 .butoane{
     display: grid;

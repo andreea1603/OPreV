@@ -59,7 +59,6 @@ if (mysqli_num_rows($result)) {
 ?>
 salut
 <script>
-    console.log("salut");
 
  var labels1=
         <?php echo json_encode($labels);    ?>;
