@@ -32,11 +32,11 @@ include('../../controller/db-connect.php');
                 <div class="leftmenu">
                     <h2>Filtre</h2>
                     <div class="filter">
-                        <form action="a" method=post>
+                        <form action="../../model/statistici-model.php" method=post>
                             <h3>Country</h3>
                             <div class="scroll" id="first-scroll">
                                 <div>
-                                <input type="checkbox" id="at" name="checkCountry">
+                                <input type="checkbox" id="at" value="Austria" name="checkCountry[]" >
                                 <label>Austria</label>
                                 </div>
                                 <div>
@@ -200,7 +200,7 @@ include('../../controller/db-connect.php');
                                     <label for="year">2017</label>
                                 </div>
                             </div>
-                            <input type="submit" value="Submit">
+                            <input type="submit" value="Submit" name="submit">
                         </form>
                     </div>
                 </div>

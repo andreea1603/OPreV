@@ -11,7 +11,7 @@ function onlyOneYear(checkbox) {
     })
 }
 function selectAll() {
-    var ele=document.getElementsByName('checkCountry');
+    var ele=document.getElementsByName('checkCountry[]');
     var ok=0;
     for(var i=0; i<ele.length; i++){  
          if(ele[i].type=='checkbox')

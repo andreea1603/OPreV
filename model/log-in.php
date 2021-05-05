@@ -23,6 +23,5 @@ if (!empty($_POST['email']) && !empty($_POST['password'])){
     }
     else
         header("Location: ../view/login/login.php");
-
 }
 ?> 
