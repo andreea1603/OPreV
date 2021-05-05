@@ -39,25 +39,46 @@ include('controller/db-connect.php');
 <div width="10px" height="10px">
 <?php
 include('controller/db-connect.php');
-
+include('functions_repres.php');
 $labels=array();
 $datasets=array();
-$query="select geo.name, valori.valoare, geo.id from  geo, valori where valori.id=geo.id*3";
-$result=mysqli_query($conn, $query);
+
 echo "<br>";
 
-if (mysqli_num_rows($result)) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-      array_push($labels, $row["name"]);
-      array_push($datasets, $row["valoare"]);
+$year=2008;
+$tip="overweight";
+
+
+$index_year=1;
+
+if($year==2014)
+    $index_year=2;
+    else
+      if($year==2017)
+        $index_year=3;
+
+if($tip=="overweight"){
+  $rez=getOverweight();
+  $labels=$rez[0];
+  $datasets=$rez[$index_year];
+}
+ else
+    if($tip=="pre-obese"){
+      $rez=getPreobesity();
+      $labels=$rez[0];
+      $datasets=$rez[$index_year];
     }
-  } else {
-    echo "0 results";
-  }
+    else{
+      $rez=getObese();
+      $labels=$rez[0];
+      $datasets=$rez[$index_year];
+    }
+    print_r($datasets);
+    echo "<br>";
+    print_r($labels);
+
 
 ?>
-salut
 <script>
 
  var labels1=

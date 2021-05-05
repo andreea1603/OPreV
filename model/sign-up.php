@@ -25,7 +25,10 @@ if (empty($_POST['email']) || empty($_POST['password']))
 
        }
     else{
-
-        header("Location: ../view/signUp/signUp.php");
+        $message="Adresa de email exista deja in baza de date!";
+        echo "<SCRIPT> //not showing me this
+        alert('$message')
+        window.location.replace('../view/signUp/signUp.php');
+    </SCRIPT>";
     }
    }

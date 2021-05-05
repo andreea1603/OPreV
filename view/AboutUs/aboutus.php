@@ -23,7 +23,7 @@ include('../../controller/functions.php');
                     <li><a href="../Statistici/statistici.php">Statistici</a></li>
                     <li><a href="../Evenimente/events.php">Evenimente</a></li>
                     <li><a href="../AboutUs/aboutus.php">Despre noi</a></li>
-                    <li><a href=<?php if(!$_SESSION['conectat']) echo "../login/login.php"; else echo "../Admin/admin.php";?>>Contul meu</a></li>
+                    <li><a href=<?php if(!isset($_SESSION['conectat'])) echo "../login/login.php"; else echo "../Admin/admin.php";?>>Contul meu</a></li>
                 </ul>
             </div>
             <div>

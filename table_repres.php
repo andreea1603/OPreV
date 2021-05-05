@@ -1,125 +1,91 @@
 <?php
 
- 
-$dataPoints = array( 
-	
-);
-include('controller/db-connect.php');
-    include('controller/init.php');
-
-    $query_name="select geo.name  from  geo ";
-    $query="select geo.name, valori.valoare, geo.id from  geo, valori where 
-    valori.id=geo.id*3";
-    $query1="select valori.valoare, geo.id from  geo, valori where 
-    valori.id=geo.id*3+2";
-    $query2="select valori.valoare, geo.id from  geo, valori where 
-    valori.id=geo.id*3+1";
-    $result_preobesity=mysqli_query($conn, $query);
-    $result_obesity=mysqli_query($conn, $query1);
-    $result_over=mysqli_query($conn, $query2);
-    $result_name=mysqli_query($conn, $query_name);
-
-	echo "<br>";
-	
-       
-$labels=array();
-$datasets=array();
-$preobese=array();
-$obesity=array();
-$names=array();
-
-
-    for($i=0; $i<=1000; $i++)
-{
-
-    if (mysqli_num_rows($result_name)) {
-
-        if($row = mysqli_fetch_assoc($result_name)) {
-
-            array_push($names, $row['name']);
-		}
-       
-	if (mysqli_num_rows($result_preobesity)) {
-
-        if($row = mysqli_fetch_assoc($result_preobesity)) {
-
-            array_push($datasets, $row["valoare"]);
-		}
-        else
-            array_push($datasets, "u");
-       
-	  } else {
-        array_push($datasets, "u");
-
-	  }
-
-      if (mysqli_num_rows( $result_obesity)) {
-
-        if($row = mysqli_fetch_assoc($result_obesity)) {
-		
-            array_push($obesity, $row["valoare"]);
-		}
-        else
-            array_push($obesity, "u");
-	  } else {
-        array_push($obesity, "u");
-
-	  }
-
-
-      if (mysqli_num_rows( $result_over)) {
-
-        if($row = mysqli_fetch_assoc($result_over)) {
-		
-            array_push($preobese, $row["valoare"]);
-		}
-        else
-        array_push($preobese, "u");
-	  } else {
-        array_push($preobese, "u");
-
-	  }
-    }
-}
-?>
-<?php
-
 echo "<table border='1'>
 
+<th></th>
+<th>preobesity</th>
 <tr>
 
 <th>Country</th>
 
-<th>Obesity BMI 2014</th>
+<th>2008</th>
+<th>2014</th>
+<th>2017</th>
+    </tr>
 
-</tr>";
+";
 
-$i=0;
-while($i+1<count($names))
+include('functions_repres.php');
 
-  {
-
-  echo "<tr>";
-
-  echo "<td>" . $names[$i] . "</td>";
-
-
-  echo "<td>" . $datasets[$i] . "</td>";
-
-  echo "<td>" . $preobese[$i] . "</td>";
-
-  echo "<td>" . $obesity[$i] . "</td>";
+$filter1 = "overweight";
+$filter2 = "pre-obese";
+$filter3 = "obese";
+$rez=array();
+$pre2008=array();
+$pre2014=array();
+$pre2017=array();
 
 
-  echo "</tr>";
-  $i=$i+1;
+if ($filter1 == "overweight"); {
+    $rez = getOverweight();
+    $names = $rez[0];
+    $pre2008 = $rez[1];
+    $pre2014 = $rez[2];
+    $pre2017 = $rez[3];
+}
+if($filter2=="pre-obese"){
+    echo "hei, aici";
+    $rez1 = getPreobesity();
+    for($i=0; $i<count($rez1[0]); $i++)
+        array_push($names, $rez1[0][$i]);
+
+    for($i=0; $i<count($rez1[1]); $i++)
+    array_push($pre2008, $rez1[1][$i]);
+
+    for($i=0; $i<count($rez1[2]); $i++)
+        array_push($pre2014, $rez1[2][$i]);
+
+    for($i=0; $i<count($rez1[0]); $i++)
+        array_push($pre2017, $rez1[3][$i]);
+  
+}
+if($filter2=="obese"){
+    $rez1= getObese();
+    for($i=0; $i<count($rez1[0]); $i++)
+    array_push($names, $rez1[0][$i]);
+
+for($i=0; $i<count($rez1[1]); $i++)
+array_push($pre2008, $rez1[1][$i]);
+
+for($i=0; $i<count($rez1[2]); $i++)
+    array_push($pre2014, $rez1[2][$i]);
+
+for($i=0; $i<count($rez1[0]); $i++)
+    array_push($pre2017, $rez1[3][$i]);
+}
+
+$i = 0;
+while ($i + 1 < count($names)) {
+
+    echo "<tr>";
+
+    echo "<td>" . $names[$i] . "</td>";
+
+    echo "<td>" . $pre2008[$i] . "</td>";
+
+    echo "<td>" . $pre2014[$i] . "</td>";
 
 
-  }
+    echo "<td>" . $pre2017[$i] . "</td>";
+
+
+    echo "</tr>";
+    $i = $i + 1;
+}
 
 echo "</table>";
 
- 
+
 ?>
 
 </body>
