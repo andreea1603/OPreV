@@ -4,7 +4,7 @@
 .nested{
     display: grid;
     grid-template-columns: 2fr 8fr 1fr;
-    grid-template-rows: 750px;
+    grid-template-rows: 800px;
     grid-gap: 2em;
 }
 .leftmenu{
@@ -39,11 +39,12 @@
 .reprezentare{
     margin: 30px;
     margin-bottom: 10px;
-    height: 10%;
+    height: 100%;
 }
 .btn-group{
     display: flex;
     justify-content: center;
+    height: 10%;
 }
 .btn-group button {
     background-color: #1a67cc;
@@ -72,7 +73,6 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-    grid-template-rows: 700px;
 
 }
 .map{

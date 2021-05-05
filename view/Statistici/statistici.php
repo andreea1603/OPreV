@@ -25,7 +25,7 @@ include('../../controller/db-connect.php');
                     <li><a href="../Statistici/statistici.php">Statistici</a></li>
                     <li><a href="../Evenimente/events.php">Evenimente</a></li>
                     <li><a href="../AboutUs/aboutus.php">Despre noi</a></li>
-                    <li><a href=<?php if(!$_SESSION['conectat']) echo "../login/login.php"; else echo "../Admin/admin.php";?>>Contul meu</a></li>
+                    <li><a href=<?php if(isset($_SESSION['conectat'])) echo "../login/login.php"; else echo "../Admin/admin.php";?>>Contul meu</a></li>
                 </ul>
             </section>
             <section class="nested">
@@ -212,9 +212,9 @@ include('../../controller/db-connect.php');
                             <button onclick="lineChart()">Line</button>
                             <button onclick="mapChart()">Map</button>
                         </div>
-                    </div>
-                    <div class="generare">
-                        <div id="myChart"></div>
+                        <div class="generare">
+                            <canvas id="myChart"></canvas>
+                        </div>
                     </div>
                     <div class="butoane">
                         <div><a href="#">CSV</a></div>
