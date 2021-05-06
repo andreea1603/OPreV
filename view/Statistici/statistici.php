@@ -451,9 +451,19 @@ if (mysqli_num_rows($result)) {
 
 
         <th></th>
+        <th></th>
+
         <th>preobesity</th>
+        <th></th>
+        <th></th>
+
         <th>overweight</th>
+        <th></th>
+        <th></th>
+
         <th>obese</th>
+        <th></th>
+
         <tr>
         
         <th>Country</th>
