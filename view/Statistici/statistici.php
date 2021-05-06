@@ -23,7 +23,7 @@ include('../../model/statistici-model.php');
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
     <script type="text/javascript" src="functions.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    
+
     <title>OPreV</title>
 
 </head>
@@ -268,19 +268,19 @@ if (mysqli_num_rows($result)) {
   }
   */
 
-    $result_year=checkYear();
-    $year=$result_year[0];
+    $result_year = checkYear();
+    $year = $result_year[0];
 
-    $result_bmi=checkBmi();
-    $bmi=$result_bmi[0];
+    $result_bmi = checkBmi();
+    $bmi = $result_bmi[0];
 
-    $result_countries=checkCountry();
-    $countries=$result_countries;
-    
+    $result_countries = checkCountry();
+    $countries = $result_countries;
+
     $rez = filter($year, $bmi, $countries);
     $labels = $rez[0];
     $datasets = $rez[1];
-    map($labels,$datasets);
+    map($labels, $datasets);
     ?>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
     <script>
@@ -289,7 +289,7 @@ if (mysqli_num_rows($result)) {
             original_html = original_html.replace("<div", "<canvas");
             original_html = original_html.replace("</div>", "</canvas>");
             console.log(original_html);
-            document.getElementById('foo').innerHTML=original_html;
+            document.getElementById('foo').innerHTML = original_html;
 
             var labels1 = <?php echo json_encode($labels); ?>;
             var datasets = <?php echo json_encode($datasets);  ?>;
@@ -349,15 +349,15 @@ if (mysqli_num_rows($result)) {
         return array($labels, $datasets);
     }
 
-?>
+    ?>
 
-<script>
+    <script>
         function lineChart() {
             var original_html = document.getElementById('foo').innerHTML;
             original_html = original_html.replace("<div", "<canvas");
             original_html = original_html.replace("</div>", "</canvas>");
             console.log(original_html);
-            document.getElementById('foo').innerHTML=original_html;
+            document.getElementById('foo').innerHTML = original_html;
 
             var labels1 = <?php echo json_encode($labels); ?>;
             var datasets = <?php echo json_encode($datasets);  ?>;
@@ -389,7 +389,7 @@ if (mysqli_num_rows($result)) {
             original_html = original_html.replace("<canvas", "<div");
             original_html = original_html.replace("</canvas>", "</div>");
             console.log(original_html);
-            document.getElementById('foo').innerHTML=original_html;
+            document.getElementById('foo').innerHTML = original_html;
 
             d3.csv('resources/data.csv', function(err, rows) {
                 function unpack(rows, key) {
@@ -441,15 +441,19 @@ if (mysqli_num_rows($result)) {
                 });
             });
         }
-</script>
-<?php
-    
+    </script>
+    <?php
+
     function makeTable()
     {
+
         $tabel = "<table border='1' style='margin-top:380px;'>
+
 
         <th></th>
         <th>preobesity</th>
+        <th>overweight</th>
+        <th>obese</th>
         <tr>
         
         <th>Country</th>
@@ -457,52 +461,89 @@ if (mysqli_num_rows($result)) {
         <th>2008</th>
         <th>2014</th>
         <th>2017</th>
+        <th>2008</th>
+        <th>2014</th>
+        <th>2017</th>
+        <th>2008</th>
+        <th>2014</th>
+        <th>2017</th>
             </tr>
         ";
         $i = 0;
-        $result_countries=checkCountry();
-        $countries=$result_countries;
-        $rez = getOverweightY($countries, 2008);
-        $names = $rez[0];
+        $result_countries = checkCountry();
+        $countries = $result_countries;
+        
+        $rez=getPreobesity($countries);
+        $names=$rez[0];
         $pre2008 = $rez[1];
         $pre2014 = $rez[2];
         $pre2017 = $rez[3];
-        while ($i + 1 < count($names)) {
-
-            $tabel = $tabel."<tr>";
-
-            $tabel = $tabel."<td>" . $names[$i] . "</td>";
-
-            $tabel = $tabel."<td>" . $pre2008[$i] . "</td>";
-
-            $tabel = $tabel."<td>" . $pre2014[$i] . "</td>";
 
 
-            $tabel = $tabel."<td>" . $pre2017[$i] . "</td>";
+        $rez2=getOverweight($countries);
+        $names1=$rez2[0];
+        $over2008 = $rez2[1];
+        $over2014 = $rez2[2];
+        $over2017 = $rez2[3];
 
 
-            $tabel = $tabel."</tr>";
-            $i = $i + 1; 
+        $rez2=getObese($countries);
+        $names2=$rez2[0];
+        $obese2008 = $rez2[1];
+        $obese2014 = $rez2[2];
+        $obese2017 = $rez2[3];
+
+
+        while ($i + 1 < 37) {
+
+            $tabel = $tabel . "<tr>";
+
+            $tabel = $tabel . "<td>" . $names[$i] . "</td>";
+
+            $tabel = $tabel . "<td>" . $pre2008[$i] . "</td>";
+
+            $tabel = $tabel . "<td>" . $pre2014[$i] . "</td>";
+
+
+            $tabel = $tabel . "<td>" . $pre2017[$i] . "</td>";
+
+
+            $tabel = $tabel . "<td>" . $over2008[$i] . "</td>";
+
+            $tabel = $tabel . "<td>" . $over2014[$i] . "</td>";
+
+            $tabel = $tabel . "<td>" . $over2017[$i] . "</td>";
+
+
+            $tabel = $tabel . "<td>" . $obese2008[$i] . "</td>";
+
+            $tabel = $tabel . "<td>" . $obese2014[$i] . "</td>";
+
+            $tabel = $tabel . "<td>" . $obese2017[$i] . "</td>";
+
+
+            $tabel = $tabel . "</tr>";
+            $i = $i + 1;
         }
-        $tabel = $tabel."</table>";
+        $tabel = $tabel . "</table>";
         return $tabel;
     }
 
     ?>
-    <?php $salut=makeTable();?>
-<script>
-    function tableChart(){
-        var variabila = <?php echo json_encode($salut);?>;
-        console.log(variabila);
-        var original_html = document.getElementById('foo').innerHTML;
-        original_html = original_html.replace("<div", <?php echo json_encode($salut);?>);
-        original_html = original_html.replace("</div>", "");
-        original_html = original_html.replace("<canvas", <?php echo json_encode($salut);?>);
-        original_html = original_html.replace("</canvas>", "");
-        console.log(original_html);
-        document.getElementById('foo').innerHTML=original_html;
-    }
-</script>
+    <?php $salut = makeTable(); ?>
+    <script>
+        function tableChart() {
+            var variabila = <?php echo json_encode($salut); ?>;
+            console.log(variabila);
+            var original_html = document.getElementById('foo').innerHTML;
+            original_html = original_html.replace("<div", <?php echo json_encode($salut); ?>);
+            original_html = original_html.replace("</div>", "");
+            original_html = original_html.replace("<canvas", <?php echo json_encode($salut); ?>);
+            original_html = original_html.replace("</canvas>", "");
+            console.log(original_html);
+            document.getElementById('foo').innerHTML = original_html;
+        }
+    </script>
 
 
 </body>

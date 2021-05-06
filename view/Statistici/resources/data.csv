@@ -11,14 +11,14 @@ Argentina,0,ARG
 Armenia,0,ARM
 Aruba,0,ABW
 Australia,0,AUS
-Austria,49.3,AUT
+Austria,0,AUT
 Azerbaijan,0,AZE
 "Bahamas, The",0,BHM
 Bahrain,0,BHR
 Bangladesh,0,BGD
 Barbados,0,BRB
 Belarus,0,BLR
-Belgium,0,BEL
+Belgium,35.3,BEL
 Belize,0,BLZ
 Benin,0,BEN
 Bermuda,0,BMU
@@ -89,8 +89,8 @@ Guyana,0,GUY
 Haiti,0,HTI
 Honduras,0,HND
 "Hong Kong",0,HKG
-Hungary,0,HUN
-Iceland,0,ISL
+Hungary,34,HUN
+Iceland,38.6,ISL
 India,0,IND
 Indonesia,0,IDN
 Iran,0,IRN
