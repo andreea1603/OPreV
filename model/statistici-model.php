@@ -67,8 +67,8 @@ checkYear();
 function map($labels,$datasets){
     //$input = fopen('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\view\Statistici\resources\data.csv', 'r');
     //$output = fopen('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\view\Statistici\resources\temporary.csv', 'w');
-    $input = fopen('F:\xampp\htdocs\TW\OPreV\view\Statistici\resources\data.csv', 'r');
-    $output = fopen('F:\xampp\htdocs\TW\OPreV\view\Statistici\resources\temporary.csv', 'w');
+    $input = fopen('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\view\Statistici\resources\data.csv', 'r');
+    $output = fopen('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\view\Statistici\resources\temporary.csv', 'w');
     $data = fgetcsv($input);
     fputcsv( $output, $data);
     while( false !== ( $data = fgetcsv($input) ) ){ 
@@ -91,8 +91,8 @@ function map($labels,$datasets){
 
     //unlink('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\view\Statistici\resources\data.csv');
     //rename('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\view\Statistici\resources\temporary.csv', 'D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\view\Statistici\resources\data.csv');
-    unlink('F:\xampp\htdocs\TW\OPreV\view\Statistici\resources\data.csv');
-    rename('F:\xampp\htdocs\TW\OPreV\view\Statistici\resources\temporary.csv', 'F:\xampp\htdocs\TW\OPreV\view\Statistici\resources\data.csv');
+    unlink('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\view\Statistici\resources\data.csv');
+    rename('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\view\Statistici\resources\temporary.csv', 'D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\view\Statistici\resources\data.csv');
 
 }
 
