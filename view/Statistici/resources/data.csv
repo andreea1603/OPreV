@@ -11,14 +11,14 @@ Argentina,0,ARG
 Armenia,0,ARM
 Aruba,0,ABW
 Australia,0,AUS
-Austria,37,AUT
+Austria,0,AUT
 Azerbaijan,0,AZE
 "Bahamas, The",0,BHM
 Bahrain,0,BHR
 Bangladesh,0,BGD
 Barbados,0,BRB
 Belarus,0,BLR
-Belgium,34,BEL
+Belgium,14,BEL
 Belize,0,BLZ
 Benin,0,BEN
 Bermuda,0,BMU
@@ -30,9 +30,9 @@ Brazil,0,BRA
 "British Virgin Islands",0,VGB
 Brunei,0,BRN
 "<<<<<<< HEAD",0
-Bulgaria,39,BGR
+Bulgaria,0,BGR
 =======,0
-Bulgaria,39,BGR
+Bulgaria,0,BGR
 ">>>>>>> 5f3ff2e79cd38e742899d475fb323f87c22d951f",0
 "Burkina Faso",0,BFA
 Burma,0,MMR
@@ -54,13 +54,13 @@ Comoros,0,COM
 "Costa Rica",0,CRI
 "Cote d'Ivoire",0,CIV
 "<<<<<<< HEAD",0
-Croatia,0,HRV
+Croatia,18.7,HRV
 =======,0
-Croatia,0,HRV
+Croatia,18.7,HRV
 ">>>>>>> 5f3ff2e79cd38e742899d475fb323f87c22d951f",0
 Cuba,0,CUB
 Curacao,0,CUW
-Cyprus,36,CYP
+Cyprus,0,CYP
 "Czech Republic",0,CZE
 Denmark,0,DNK
 Djibouti,0,DJI
@@ -106,7 +106,7 @@ Iraq,0,IRQ
 Ireland,0,IRL
 "Isle of Man",0,IMN
 Israel,0,ISR
-Italy,0,ITA
+Italy,10.8,ITA
 Jamaica,0,JAM
 Japan,0,JPN
 Jersey,0,JEY
@@ -170,7 +170,7 @@ Poland,0,POL
 Portugal,0,PRT
 "Puerto Rico",0,PRI
 Qatar,0,QAT
-Romania,0,ROU
+Romania,9.4,ROU
 Russia,0,RUS
 Rwanda,0,RWA
 "Saint Kitts and Nevis",0,KNA
@@ -211,7 +211,7 @@ Togo,0,TGO
 Tonga,0,TON
 "Trinidad and Tobago",0,TTO
 Tunisia,0,TUN
-Turkey,0,TUR
+Turkey,21.2,TUR
 Turkmenistan,0,TKM
 Tuvalu,0,TUV
 Uganda,0,UGA
