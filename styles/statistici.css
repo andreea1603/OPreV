@@ -33,18 +33,17 @@
     margin: auto;
     padding: 20px;
 }
-.statistica{
-    display: grid;
-}
 .reprezentare{
     margin: 30px;
     margin-bottom: 10px;
-    height: 100%;
+    height: 700px;
 }
 .btn-group{
+    margin-top: 10px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: center;
-    height: 10%;
+    height: 5%;
 }
 .btn-group button {
     background-color: #1a67cc;
@@ -73,7 +72,9 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-
+    height:600px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 .map{
     height: 100%  !important;
@@ -83,11 +84,13 @@
 .butoane{
     display: grid;
     margin:auto;
+    margin-left: 140px;
     grid-template-columns: 1fr 1fr 1fr;
 }
 .butoane div{
     background-color: crimson;
     margin: 20px;
+    margin-top: 0px;
     width: 150px;
     height: 60px;
 }

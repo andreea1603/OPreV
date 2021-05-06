@@ -1,6 +1,4 @@
 <?php
-//include('D:\Xamp\htdocs\PROIECT_TW\OPreV\controller\db-connect.php');
-include('F:\xampp\htdocs\TW\OPreV\controller\db-connect.php');
 function checkCountry()
 {
     $countries=array();
@@ -67,7 +65,6 @@ checkYear();
 }
 
 function map($labels,$datasets){
-    echo 'salut';
     $input = fopen('F:\xampp\htdocs\TW\OPreV\view\Statistici\resources\data.csv', 'r');
     $output = fopen('F:\xampp\htdocs\TW\OPreV\view\Statistici\resources\temporary.csv', 'w');
     $data = fgetcsv($input);

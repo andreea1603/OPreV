@@ -23,45 +23,7 @@ include('../../model/statistici-model.php');
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
     <script type="text/javascript" src="functions.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {
-            'packages': ['table']
-        });
-        google.charts.setOnLoadCallback(drawTable);
-
-        function drawTable() {
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Name');
-            data.addColumn('number', 'Salary');
-            data.addColumn('boolean', 'Full Time Employee');
-            data.addRows([
-                ['Mike', {
-                    v: 10000,
-                    f: '$10,000'
-                }, true],
-                ['Jim', {
-                    v: 8000,
-                    f: '$8,000'
-                }, false],
-                ['Alice', {
-                    v: 12500,
-                    f: '$12,500'
-                }, true],
-                ['Bob', {
-                    v: 7000,
-                    f: '$7,000'
-                }, true]
-            ]);
-
-            var table = new google.visualization.Table(document.getElementById('table_div'));
-
-            table.draw(data, {
-                showRowNumber: true,
-                width: '100%',
-                height: '100%'
-            });
-        }
-    </script>
+    
     <title>OPreV</title>
 
 </head>
@@ -253,19 +215,14 @@ include('../../model/statistici-model.php');
             </div>
         </div>
         <div class="statistica">
-            <div class="reprezentare">
-                <div class="btn-group">
-                    <button onclick="table()">Table </button>
-                    <button onclick="barChart()">Bar</button>
-                    <button onclick="lineChart()">Line</button>
-                    <button onclick="mapChart()">Map</button>
-                </div>
-                <div class="generare">
-                    <id id="myChart">
-
-                    </id>
-
-                </div>
+            <div class="btn-group">
+                <button onclick="tableChart()">Table </button>
+                <button onclick="barChart()">Bar</button>
+                <button onclick="lineChart()">Line</button>
+                <button onclick="mapChart()">Map</button>
+            </div>
+            <div class="generare" id="foo">
+                <canvas id="myChart"></canvas>
             </div>
             <div class="butoane">
                 <div><a href="#">CSV</a></div>
@@ -328,6 +285,11 @@ if (mysqli_num_rows($result)) {
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
     <script>
         function barChart() {
+            var original_html = document.getElementById('foo').innerHTML;
+            original_html = original_html.replace("<div", "<canvas");
+            original_html = original_html.replace("</div>", "</canvas>");
+            console.log(original_html);
+            document.getElementById('foo').innerHTML=original_html;
 
             var labels1 = <?php echo json_encode($labels); ?>;
             var datasets = <?php echo json_encode($datasets);  ?>;
@@ -395,62 +357,15 @@ if (mysqli_num_rows($result)) {
         return array($labels, $datasets);
     }
 
-    ?>
-    <?php
-    function tableChart()
-    {
+?>
 
-
-        echo "<table border='1'>
-
-        <th></th>
-        <th>preobesity</th>
-        <tr>
-        
-        <th>Country</th>
-        
-        <th>2008</th>
-        <th>2014</th>
-        <th>2017</th>
-            </tr>
-        
-        ";
-        include('D:\Xamp\htdocs\PROIECT_TW\OPreV\functions_repres.php');
-        $i = 0;
-        //$rez = getOverweight();
-        $names = $rez[0];
-        $pre2008 = $rez[1];
-        $pre2014 = $rez[2];
-        $pre2017 = $rez[3];
-        while ($i + 1 < count($names)) {
-
-            echo "<tr>";
-
-            echo "<td>" . $names[$i] . "</td>";
-
-            echo "<td>" . $pre2008[$i] . "</td>";
-
-            echo "<td>" . $pre2014[$i] . "</td>";
-
-
-            echo "<td>" . $pre2017[$i] . "</td>";
-
-
-            echo "</tr>";
-            $i = $i + 1; ?>
-
-    <?php
-        }
-        echo "</table>";
-    }
-
-    ?>
-
-
-
-
-    <script>
+<script>
         function lineChart() {
+            var original_html = document.getElementById('foo').innerHTML;
+            original_html = original_html.replace("<div", "<canvas");
+            original_html = original_html.replace("</div>", "</canvas>");
+            console.log(original_html);
+            document.getElementById('foo').innerHTML=original_html;
 
             var labels1 = <?php echo json_encode($labels); ?>;
             var datasets = <?php echo json_encode($datasets);  ?>;
@@ -478,6 +393,12 @@ if (mysqli_num_rows($result)) {
 
     <script>
         function mapChart() {
+            var original_html = document.getElementById('foo').innerHTML;
+            original_html = original_html.replace("<canvas", "<div");
+            original_html = original_html.replace("</canvas>", "</div>");
+            console.log(original_html);
+            document.getElementById('foo').innerHTML=original_html;
+
             d3.csv('resources/data.csv', function(err, rows) {
                 function unpack(rows, key) {
                     return rows.map(function(row) {
@@ -528,7 +449,70 @@ if (mysqli_num_rows($result)) {
                 });
             });
         }
-    </script>
+</script>
+<?php
+    
+    function makeTable()
+    {
+        $tabel = "<table border='1' style='margin-top:380px;'>
+
+        <th></th>
+        <th>preobesity</th>
+        <tr>
+        
+        <th>Country</th>
+        
+        <th>2008</th>
+        <th>2014</th>
+        <th>2017</th>
+            </tr>
+        ";
+        $i = 0;
+        $result_countries=checkCountry();
+        $countries=$result_countries;
+        $rez = getOverweight($countries);
+        $names = $rez[0];
+        $pre2008 = $rez[1];
+        $pre2014 = $rez[2];
+        $pre2017 = $rez[3];
+        while ($i + 1 < count($names)) {
+
+            $tabel = $tabel."<tr>";
+
+            $tabel = $tabel."<td>" . $names[$i] . "</td>";
+
+            $tabel = $tabel."<td>" . $pre2008[$i] . "</td>";
+
+            $tabel = $tabel."<td>" . $pre2014[$i] . "</td>";
+
+
+            $tabel = $tabel."<td>" . $pre2017[$i] . "</td>";
+
+
+            $tabel = $tabel."</tr>";
+            $i = $i + 1; 
+        }
+        $tabel = $tabel."</table>";
+        return $tabel;
+    }
+
+    ?>
+    <?php $salut=makeTable();?>
+<script>
+    function tableChart(){
+        var variabila = <?php echo json_encode($salut);?>;
+        console.log(variabila);
+        var original_html = document.getElementById('foo').innerHTML;
+        original_html = original_html.replace("<div", <?php echo json_encode($salut);?>);
+        original_html = original_html.replace("</div>", "");
+        original_html = original_html.replace("<canvas", <?php echo json_encode($salut);?>);
+        original_html = original_html.replace("</canvas>", "");
+        console.log(original_html);
+        document.getElementById('foo').innerHTML=original_html;
+    }
+</script>
+
+
 </body>
 
 </html>
