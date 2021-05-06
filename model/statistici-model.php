@@ -1,6 +1,6 @@
 <?php
-include('D:\Xamp\htdocs\PROIECT_TW\OPreV\controller\db-connect.php');
-
+//include('D:\Xamp\htdocs\PROIECT_TW\OPreV\controller\db-connect.php');
+include('F:\xampp\htdocs\TW\OPreV\controller\db-connect.php');
 function checkCountry()
 {
     $countries=array();
@@ -65,3 +65,32 @@ checkCountry();
 checkBmi();
 checkYear();
 }
+
+function map($labels,$datasets){
+    echo 'salut';
+    $input = fopen('F:\xampp\htdocs\TW\OPreV\view\Statistici\resources\data.csv', 'r');
+    $output = fopen('F:\xampp\htdocs\TW\OPreV\view\Statistici\resources\temporary.csv', 'w');
+    $data = fgetcsv($input);
+    fputcsv( $output, $data);
+    while( false !== ( $data = fgetcsv($input) ) ){ 
+        $i=0;
+        $ok=0;      
+        foreach($labels as $tara){
+            if ($data[0] == $tara) {
+                $data[1] =$datasets[$i];
+                $ok=1;
+            }
+            $i++;
+        }
+        if($ok==0)
+            $data[1]=0;
+            
+    fputcsv( $output, $data);
+    }
+    fclose( $input );
+    fclose( $output );
+
+    unlink('F:\xampp\htdocs\TW\OPreV\view\Statistici\resources\data.csv');
+    rename('F:\xampp\htdocs\TW\OPreV\view\Statistici\resources\temporary.csv', 'F:\xampp\htdocs\TW\OPreV\view\Statistici\resources\data.csv');
+}
+

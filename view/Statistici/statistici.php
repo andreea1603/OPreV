@@ -3,8 +3,10 @@
 include('../../controller/init.php');
 include('../../controller/functions.php');
 include('../../controller/db-connect.php');
-include('D:\Xamp\htdocs\PROIECT_TW\OPreV\functions_repres.php');
-include('D:\Xamp\htdocs\PROIECT_TW\OPreV\model\statistici-model.php');
+//include('D:\Xamp\htdocs\PROIECT_TW\OPreV\functions_repres.php');
+//include('D:\Xamp\htdocs\PROIECT_TW\OPreV\model\statistici-model.php');
+include('../../functions_repres.php');
+include('../../model/statistici-model.php');
 ?>
 <html lang="en">
 
@@ -20,7 +22,6 @@ include('D:\Xamp\htdocs\PROIECT_TW\OPreV\model\statistici-model.php');
     <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
     <script type="text/javascript" src="functions.js"></script>
-    <script type="text/javascript" src="mapChart.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', {
@@ -260,9 +261,9 @@ include('D:\Xamp\htdocs\PROIECT_TW\OPreV\model\statistici-model.php');
                     <button onclick="mapChart()">Map</button>
                 </div>
                 <div class="generare">
-                    <canvas id="myChart">
+                    <id id="myChart">
 
-                    </canvas>
+                    </id>
 
                 </div>
             </div>
@@ -322,6 +323,7 @@ if (mysqli_num_rows($result)) {
     $rez = filter($year, $bmi, $countries);
     $labels = $rez[0];
     $datasets = $rez[1];
+    map($labels,$datasets);
     ?>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
     <script>
@@ -476,7 +478,7 @@ if (mysqli_num_rows($result)) {
 
     <script>
         function mapChart() {
-            d3.csv('resources/da.csv', function(err, rows) {
+            d3.csv('resources/data.csv', function(err, rows) {
                 function unpack(rows, key) {
                     return rows.map(function(row) {
                         return row[key];

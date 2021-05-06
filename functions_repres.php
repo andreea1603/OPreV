@@ -200,7 +200,7 @@ function getObese($countries)
     $country_id = array();
 
 
-    for ($i = 0; $i <= 40; $i++) {
+    for ($i = 0; $i <= 37; $i++) {
 
         if (mysqli_num_rows($result_name)) {
 
@@ -251,3 +251,4 @@ function getObese($countries)
 
     return array($names, $pre2008, $pre2014, $pre2017);
 }
+
