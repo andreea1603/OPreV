@@ -3,8 +3,6 @@
 include('../../controller/init.php');
 include('../../controller/functions.php');
 include('../../controller/db-connect.php');
-//include('D:\Xamp\htdocs\PROIECT_TW\OPreV\functions_repres.php');
-//include('D:\Xamp\htdocs\PROIECT_TW\OPreV\model\statistici-model.php');
 include('../../functions_repres.php');
 include('../../model/statistici-model.php');
 ?>
@@ -23,7 +21,7 @@ include('../../model/statistici-model.php');
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
     <script type="text/javascript" src="functions.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    
+
     <title>OPreV</title>
 
 </head>
@@ -268,6 +266,7 @@ if (mysqli_num_rows($result)) {
   }
   */
 
+    $result_year = checkYear();
     $result_year=checkYear();
     $year=$result_year[0];
 
@@ -511,7 +510,6 @@ if (mysqli_num_rows($result)) {
         element.appendChild(tag);
     }
 </script>
-
 </body>
 
 </html>
