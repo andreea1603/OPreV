@@ -70,7 +70,6 @@ function map($labels,$datasets){
     $path1=substr($dir, 0, -10).'\view\Statistici\resources\data.csv';
     $path2=substr($dir, 0, -10).'\view\Statistici\resources\temporary.csv';
 
-    echo $path1;
   
     $input = fopen($path1, 'r');
     $output = fopen($path2, 'w');

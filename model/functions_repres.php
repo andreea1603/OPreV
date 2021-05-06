@@ -1,11 +1,9 @@
 <?php
+include('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\controller\statistici-model.php');
 function getOverweightY($countries, $year)
 {
-    include('model/db-connect.php');
-    echo "<br>";
-    echo $year;
-    echo "<br>";
-    echo "<br>";
+    include('db-connect.php');
+   
     $query = "";
     if ($year == 2008) {
         $query = "select geo.name, valori.valoare, geo.id from  geo, valori where 
@@ -45,11 +43,9 @@ function getOverweightY($countries, $year)
 
 function getObeseY($countries, $year)
 {
-    include('model/db-connect.php');
-    echo "<br>";
-    echo $year;
-    echo "<br>";
-    echo "<br>";
+    include('db-connect.php');
+
+
     $query = "";
     if ($year == 2008) {
         $query = "select geo.name, valori.valoare, geo.id from  geo, valori where 
@@ -87,11 +83,8 @@ function getObeseY($countries, $year)
 
 function getPreobeseY($countries, $year)
 {
-    include('model/db-connect.php');
-    echo "<br>";
-    echo $year;
-    echo "<br>";
-    echo "<br>";
+    include('db-connect.php');
+  
     $query = "";
     if ($year == 2008) {
         $query = "select geo.name, valori.valoare, geo.id from  geo, valori where 
@@ -129,7 +122,7 @@ function getPreobeseY($countries, $year)
 
 function getOverweight($countries)
 {
-    include('model/db-connect.php');
+    include('db-connect.php');
 
     $query_name = "select geo.name, geo.id  from  geo ";
 
@@ -199,7 +192,7 @@ function getOverweight($countries)
 
 function getPreobesity($countries)
 {
-    include('model/db-connect.php');
+    include('db-connect.php');
 
     $query_name = "select geo.name, geo.id  from  geo ";
 
@@ -283,7 +276,7 @@ function check($countries, $country)
 
 function getObese($countries)
 {
-    include('model/db-connect.php');
+    include('db-connect.php');
 
     $query_name = "select geo.name, geo.id  from  geo ";
 
@@ -348,3 +341,46 @@ function getObese($countries)
 
     return array($names, $pre2008, $pre2014, $pre2017);
 }
+
+$labels = array();
+$datasets = array();
+
+
+$result_year = checkYear();
+$result_year=checkYear();
+$year=$result_year[0];
+
+$result_bmi=checkBmi();
+$bmi=$result_bmi[0];
+
+$result_countries=checkCountry();
+$countries=$result_countries;
+
+$rez = filter($year, $bmi, $countries);
+$labels = $rez[0];
+$datasets = $rez[1];
+map($labels,$datasets);
+
+
+function filter($year, $type, $countries)
+{
+
+    if ($type == "overweight") {
+        $rez = getOverweightY($countries, $year);
+        $labels = $rez[0];
+        $datasets = $rez[1];
+    } else
+        if ($type == "pre-obese") {
+        $rez = getPreobeseY($countries,$year);
+        $labels = $rez[0];
+        $datasets = $rez[1];
+    } else {
+        $rez = getObeseY($countries, $year);
+        $labels = $rez[0];
+        $datasets = $rez[1];
+    }
+    return array($labels, $datasets);
+}
+
+?>
+?>

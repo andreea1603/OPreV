@@ -18,7 +18,7 @@ Bahrain,0,BHR
 Bangladesh,0,BGD
 Barbados,0,BRB
 Belarus,0,BLR
-Belgium,35.3,BEL
+Belgium,34,BEL
 Belize,0,BLZ
 Benin,0,BEN
 Bermuda,0,BMU
@@ -30,9 +30,9 @@ Brazil,0,BRA
 "British Virgin Islands",0,VGB
 Brunei,0,BRN
 "<<<<<<< HEAD",0
-Bulgaria,39.2,BGR
+Bulgaria,45.3,BGR
 =======,0
-Bulgaria,39.2,BGR
+Bulgaria,45.3,BGR
 ">>>>>>> 5f3ff2e79cd38e742899d475fb323f87c22d951f",0
 "Burkina Faso",0,BFA
 Burma,0,MMR
@@ -54,9 +54,9 @@ Comoros,0,COM
 "Costa Rica",0,CRI
 "Cote d'Ivoire",0,CIV
 "<<<<<<< HEAD",0
-Croatia,0,HRV
+Croatia,42.6,HRV
 =======,0
-Croatia,0,HRV
+Croatia,42.6,HRV
 ">>>>>>> 5f3ff2e79cd38e742899d475fb323f87c22d951f",0
 Cuba,0,CUB
 Curacao,0,CUW
@@ -85,7 +85,7 @@ Georgia,0,GEO
 Germany,0,DEU
 Ghana,0,GHA
 Gibraltar,0,GIB
-Greece,39.4,GRC
+Greece,0,GRC
 Greenland,0,GRL
 Grenada,0,GRD
 Guam,0,GUM
@@ -98,7 +98,7 @@ Haiti,0,HTI
 Honduras,0,HND
 "Hong Kong",0,HKG
 Hungary,0,HUN
-Iceland,38.6,ISL
+Iceland,0,ISL
 India,0,IND
 Indonesia,0,IDN
 Iran,0,IRN
@@ -120,7 +120,7 @@ Kosovo,0,KSV
 Kuwait,0,KWT
 Kyrgyzstan,0,KGZ
 Laos,0,LAO
-Latvia,35.2,LVA
+Latvia,0,LVA
 Lebanon,0,LBN
 Lesotho,0,LSO
 Liberia,0,LBR
