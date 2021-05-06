@@ -67,12 +67,11 @@ checkYear();
 function map($labels,$datasets){
 
     $dir=__DIR__;
-    $path1=substr($dir, 0, -5).'\view\Statistici\resources\data.csv';
-    $path2=substr($dir, 0, -5).'\view\Statistici\resources\temporary.csv';
+    $path1=substr($dir, 0, -10).'\view\Statistici\resources\data.csv';
+    $path2=substr($dir, 0, -10).'\view\Statistici\resources\temporary.csv';
 
     echo $path1;
-    //$input = fopen('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\view\Statistici\resources\data.csv', 'r');
-    //$output = fopen('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\view\Statistici\resources\temporary.csv', 'w');
+  
     $input = fopen($path1, 'r');
     $output = fopen($path2, 'w');
     $data = fgetcsv($input);
@@ -95,8 +94,7 @@ function map($labels,$datasets){
     fclose( $input );
     fclose( $output );
 
-    //unlink('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\view\Statistici\resources\data.csv');
-    //rename('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\view\Statistici\resources\temporary.csv', 'D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\view\Statistici\resources\data.csv');
+  
     unlink($path1);
     rename($path2, $path1);
 

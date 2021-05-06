@@ -10,8 +10,8 @@ $dataPoints = array(
  array_push($dataPoints, array("y" =>9,"label" => "Maara" ));
  print_r ($dataPoints);
 
-    include('controller/db-connect.php');
-    include('controller/init.php');
+    include('model/db-connect.php');
+    include('model/init.php');
 
     $query="select geo.name, valori.valoare, geo.id from  geo, valori where valori.id=geo.id*3";
     $result=mysqli_query($conn, $query);

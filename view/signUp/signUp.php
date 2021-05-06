@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
-   include('./../../controller/functions.php');
-   include('./../../controller/init.php');
-   include('./../../controller/db-connect.php');
+   include('./../../model/functions.php');
+   include('./../../model/init.php');
+   include('./../../model/db-connect.php');
 ?>
 <html lang="en">
     <head>
@@ -23,7 +23,7 @@
                     <div>
                         <h1 class="register">Register </h1>
                     </div>
-                    <form action="./../../model/sign-up.php" method="POST">
+                    <form action="./../../controller/sign-up.php" method="POST">
                         <p>FirstName
                         <input type="text" name="first_name"  class="form-control" placeholder="Enter your name"></p>
                         <p>Last name

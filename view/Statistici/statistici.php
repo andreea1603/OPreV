@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <?php
-include('../../controller/init.php');
-include('../../controller/functions.php');
-include('../../controller/db-connect.php');
+include('../../model/init.php');
+include('../../model/functions.php');
+include('../../model/db-connect.php');
 include('../../functions_repres.php');
-include('../../model/statistici-model.php');
+include('../../controller/statistici-model.php');
 ?>
 <html lang="en">
 
@@ -251,20 +251,7 @@ include('../../model/statistici-model.php');
     <?php
     $labels = array();
     $datasets = array();
-    /*
-$query="select geo.name, valori.valoare, geo.id from  geo, valori where valori.id=geo.id*3";
-$result=mysqli_query($conn, $query);
-echo "<br>";
 
-if (mysqli_num_rows($result)) {
-    while($row = mysqli_fetch_assoc($result)) {
-      array_push($labels, $row["name"]);
-      array_push($datasets, $row["valoare"]);
-    }
-  } else {
-    echo "0 results";
-  }
-  */
 
     $result_year = checkYear();
     $result_year=checkYear();

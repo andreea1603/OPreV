@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
-include('../../controller/init.php');
-include('../../controller/functions.php');
-include('../../controller/db-connect.php');
+include('../../model/init.php');
+include('../../model/functions.php');
+include('../../model/db-connect.php');
 ?>
 <html lang="en">
     <head>

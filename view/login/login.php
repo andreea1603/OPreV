@@ -20,7 +20,7 @@
                     <div>
                         <h3> Sign in </h3>
                     </div>
-                    <form method="post" action="../../model/log-in.php">
+                    <form method="post" action="../../controller/log-in.php">
                         <p><input type="text" name="email" class="form-control" placeholder="Enter email" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?>"></p>
                         <p><input type="password" name="password" class="form-control" placeholder="Enter password" required></p>
                         <p><input type="checkbox" name="remember" /> Remember me</p>

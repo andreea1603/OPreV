@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-include('../../controller/init.php');
-include('../../controller/functions.php');
+include('../../model/init.php');
+include('../../model/functions.php');
 ?>
 <html lang="en">
     <head>

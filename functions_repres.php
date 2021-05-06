@@ -1,7 +1,7 @@
 <?php
 function getOverweightY($countries, $year)
 {
-    include('controller/db-connect.php');
+    include('model/db-connect.php');
     echo "<br>";
     echo $year;
     echo "<br>";
@@ -45,7 +45,7 @@ function getOverweightY($countries, $year)
 
 function getObeseY($countries, $year)
 {
-    include('controller/db-connect.php');
+    include('model/db-connect.php');
     echo "<br>";
     echo $year;
     echo "<br>";
@@ -87,7 +87,7 @@ function getObeseY($countries, $year)
 
 function getPreobeseY($countries, $year)
 {
-    include('controller/db-connect.php');
+    include('model/db-connect.php');
     echo "<br>";
     echo $year;
     echo "<br>";
@@ -129,7 +129,7 @@ function getPreobeseY($countries, $year)
 
 function getOverweight($countries)
 {
-    include('controller/db-connect.php');
+    include('model/db-connect.php');
 
     $query_name = "select geo.name, geo.id  from  geo ";
 
@@ -199,7 +199,7 @@ function getOverweight($countries)
 
 function getPreobesity($countries)
 {
-    include('controller/db-connect.php');
+    include('model/db-connect.php');
 
     $query_name = "select geo.name, geo.id  from  geo ";
 
@@ -283,7 +283,7 @@ function check($countries, $country)
 
 function getObese($countries)
 {
-    include('controller/db-connect.php');
+    include('model/db-connect.php');
 
     $query_name = "select geo.name, geo.id  from  geo ";
 
