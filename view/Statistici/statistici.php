@@ -332,27 +332,19 @@ if (mysqli_num_rows($result)) {
     function filter($year, $type, $countries)
     {
 
-        $index_year = 1;
-
-        if ($year == 2014)
-            $index_year = 2;
-        else
-            if ($year == 2017)
-            $index_year = 3;
-
         if ($type == "overweight") {
-            $rez = getOverweight($countries);
+            $rez = getOverweightY($countries, $year);
             $labels = $rez[0];
-            $datasets = $rez[$index_year];
+            $datasets = $rez[1];
         } else
             if ($type == "pre-obese") {
-            $rez = getPreobesity($countries);
+            $rez = getPreobeseY($countries, $year);
             $labels = $rez[0];
-            $datasets = $rez[$index_year];
+            $datasets = $rez[1];
         } else {
-            $rez = getObese($countries);
+            $rez = getObeseY($countries, $year);
             $labels = $rez[0];
-            $datasets = $rez[$index_year];
+            $datasets = $rez[1];
         }
         return array($labels, $datasets);
     }
@@ -470,7 +462,7 @@ if (mysqli_num_rows($result)) {
         $i = 0;
         $result_countries=checkCountry();
         $countries=$result_countries;
-        $rez = getOverweight($countries);
+        $rez = getOverweightY($countries, 2008);
         $names = $rez[0];
         $pre2008 = $rez[1];
         $pre2014 = $rez[2];
