@@ -11,7 +11,7 @@ Argentina,0,ARG
 Armenia,0,ARM
 Aruba,0,ABW
 Australia,0,AUS
-Austria,13,AUT
+Austria,0,AUT
 Azerbaijan,0,AZE
 "Bahamas, The",0,BHM
 Bahrain,0,BHR
@@ -29,7 +29,7 @@ Botswana,0,BWA
 Brazil,0,BRA
 "British Virgin Islands",0,VGB
 Brunei,0,BRN
-Bulgaria,12,BGR
+Bulgaria,15,BGR
 "Burkina Faso",0,BFA
 Burma,0,MMR
 Burundi,0,BDI
@@ -49,10 +49,10 @@ Comoros,0,COM
 "Cook Islands",0,COK
 "Costa Rica",0,CRI
 "Cote d'Ivoire",0,CIV
-Croatia,,HRV
+Croatia,19,HRV
 Cuba,0,CUB
 Curacao,0,CUW
-Cyprus,16,CYP
+Cyprus,0,CYP
 "Czech Republic",0,CZE
 Denmark,0,DNK
 Djibouti,0,DJI

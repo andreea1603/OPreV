@@ -285,11 +285,13 @@ if (mysqli_num_rows($result)) {
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
     <script>
         function barChart() {
-            var original_html = document.getElementById('foo').innerHTML;
-            original_html = original_html.replace("<div", "<canvas");
-            original_html = original_html.replace("</div>", "</canvas>");
-            console.log(original_html);
-            document.getElementById('foo').innerHTML=original_html;
+            var item = document.getElementById('myChart');
+            item.remove();
+            var tag = document.createElement("canvas");
+            tag.setAttribute("id","myChart");
+            console.log(tag);
+            var element = document.getElementById('foo');
+            element.appendChild(tag);
 
             var labels1 = <?php echo json_encode($labels); ?>;
             var datasets = <?php echo json_encode($datasets);  ?>;
@@ -361,11 +363,13 @@ if (mysqli_num_rows($result)) {
 
 <script>
         function lineChart() {
-            var original_html = document.getElementById('foo').innerHTML;
-            original_html = original_html.replace("<div", "<canvas");
-            original_html = original_html.replace("</div>", "</canvas>");
-            console.log(original_html);
-            document.getElementById('foo').innerHTML=original_html;
+            var item = document.getElementById('myChart');
+            item.remove();
+            var tag = document.createElement("canvas");
+            tag.setAttribute("id","myChart");
+            console.log(tag);
+            var element = document.getElementById('foo');
+            element.appendChild(tag);
 
             var labels1 = <?php echo json_encode($labels); ?>;
             var datasets = <?php echo json_encode($datasets);  ?>;
@@ -393,11 +397,13 @@ if (mysqli_num_rows($result)) {
 
     <script>
         function mapChart() {
-            var original_html = document.getElementById('foo').innerHTML;
-            original_html = original_html.replace("<canvas", "<div");
-            original_html = original_html.replace("</canvas>", "</div>");
-            console.log(original_html);
-            document.getElementById('foo').innerHTML=original_html;
+            var item = document.getElementById('myChart');
+            item.remove();
+            var tag = document.createElement("id");
+            tag.setAttribute("id","myChart");
+            console.log(tag);
+            var element = document.getElementById('foo');
+            element.appendChild(tag);
 
             d3.csv('resources/data.csv', function(err, rows) {
                 function unpack(rows, key) {
@@ -454,8 +460,9 @@ if (mysqli_num_rows($result)) {
     
     function makeTable()
     {
-        $tabel = "<table border='1' style='margin-top:380px;'>
-
+        
+        $tabel = "<table id='myChart' border='1' style='margin-top:380px;'>
+        
         <th></th>
         <th>preobesity</th>
         <tr>
@@ -476,19 +483,11 @@ if (mysqli_num_rows($result)) {
         $pre2014 = $rez[2];
         $pre2017 = $rez[3];
         while ($i + 1 < count($names)) {
-
             $tabel = $tabel."<tr>";
-
             $tabel = $tabel."<td>" . $names[$i] . "</td>";
-
             $tabel = $tabel."<td>" . $pre2008[$i] . "</td>";
-
             $tabel = $tabel."<td>" . $pre2014[$i] . "</td>";
-
-
             $tabel = $tabel."<td>" . $pre2017[$i] . "</td>";
-
-
             $tabel = $tabel."</tr>";
             $i = $i + 1; 
         }
@@ -502,16 +501,16 @@ if (mysqli_num_rows($result)) {
     function tableChart(){
         var variabila = <?php echo json_encode($salut);?>;
         console.log(variabila);
-        var original_html = document.getElementById('foo').innerHTML;
-        original_html = original_html.replace("<div", <?php echo json_encode($salut);?>);
-        original_html = original_html.replace("</div>", "");
-        original_html = original_html.replace("<canvas", <?php echo json_encode($salut);?>);
-        original_html = original_html.replace("</canvas>", "");
-        console.log(original_html);
-        document.getElementById('foo').innerHTML=original_html;
+        
+        var item = document.getElementById('myChart');
+        item.remove();
+        var tag = document.createElement("div");
+        tag.setAttribute("id","myChart");
+        tag.innerHTML=variabila.trim();
+        var element = document.getElementById('foo');
+        element.appendChild(tag);
     }
 </script>
-
 
 </body>
 
