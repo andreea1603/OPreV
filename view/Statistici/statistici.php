@@ -4,11 +4,13 @@ include('../../model/init.php');
 include('../../model/functions.php');
 include('../../model/db-connect.php');
 include('../../model/functions_repres.php');
+
 include('bar_repres.php');
 include('line_repres.php');
 include('table_repres.php');
 include('map_repres.php');
-include('../../putInCsv1.php');
+include('../../download_csv.php');
+
 ?>
 <html lang="en">
 
@@ -227,8 +229,9 @@ include('../../putInCsv1.php');
                 <canvas id="myChart"></canvas>
                 <script> tableChart(); </script>
             </div>
+            <?php csvDownload($labels, $year, $bmi, $datasets); ?>
             <div class="butoane">
-                <div><a href="#">CSV <?php getCsv($countries, $year, $bmi, $datasets); ?></a></div>
+                <div><a href="#">CSV </a></div>
                 <div><a href="#">JPG</a></div>
                 <div><a href="#">PDF</a></div>
             </div>
