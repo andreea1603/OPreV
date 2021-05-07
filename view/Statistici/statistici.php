@@ -10,7 +10,6 @@ include('line_repres.php');
 include('table_repres.php');
 include('map_repres.php');
 include('../../download_csv.php');
-
 ?>
 <html lang="en">
 
@@ -187,30 +186,30 @@ include('../../download_csv.php');
                     <h3>BMI</h3>
                     <div class="scroll">
                         <div>
-                            <input type="checkbox" id="pre-obese" name="check1[]" value="pre-obese" onclick="onlyOneBmi(this)"  <?php if (isset($_POST['checkCountry']))if (in_array("pre-obese", $_POST['check1'])) echo "checked='checked'"; ?>>
+                            <input type="checkbox" checked id="pre-obese" name="check1[]" value="pre-obese" onclick="onlyOneBmi(this)"  <?php if (isset($_POST['check1']))if (in_array("pre-obese", $_POST['check1'])) echo "checked='checked'"; ?>>
                             <label for="bmi">Preobezitate</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="obese" name="check1[]" value="obese" onclick="onlyOneBmi(this)" <?php if (isset($_POST['checkCountry']))if (in_array("obese", $_POST['check1'])) echo "checked='checked'"; ?>>
+                            <input type="checkbox" id="obese" name="check1[]" value="obese" onclick="onlyOneBmi(this)" <?php if (isset($_POST['check1']))if (in_array("obese", $_POST['check1'])) echo "checked='checked'"; ?>>
                             <label for="bmi">Obezitate</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="overweight" name="check1[]" value="overweight" onclick="onlyOneBmi(this)"  <?php if (isset($_POST['checkCountry']))if (in_array("overweight", $_POST['check1'])) echo "checked='checked'"; ?>>
+                            <input type="checkbox" id="overweight" name="check1[]" value="overweight" onclick="onlyOneBmi(this)"  <?php if (isset($_POST['check1']))if (in_array("overweight", $_POST['check1'])) echo "checked='checked'"; ?>>
                             <label for="bmi">Supraponderali</label>
                         </div>
                     </div>
                     <h3>Year</h3>
                     <div class="scroll">
                         <div>
-                            <input type="checkbox" id="first" name="check2[]" value="2008" onclick="onlyOneYear(this)" <?php if (isset($_POST['checkCountry']))if (in_array("2008", $_POST['check2'])) echo "checked='checked'"; ?>>
+                            <input type="checkbox" checked id="first" name="check2[]" value="2008" onclick="onlyOneYear(this)" <?php if (isset($_POST['check2']))if (in_array("2008", $_POST['check2'])) echo "checked='checked'"; ?>>
                             <label for="year">2008</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="second" name="check2[]" value="2014" onclick="onlyOneYear(this)"  <?php if (isset($_POST['checkCountry']))if (in_array("2014", $_POST['check2'])) echo "checked='checked'"; ?>>
+                            <input type="checkbox" id="second" name="check2[]" value="2014" onclick="onlyOneYear(this)"  <?php if (isset($_POST['check2']))if (in_array("2014", $_POST['check2'])) echo "checked='checked'"; ?>>
                             <label for="year">2014</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="third" name="check2[]" value="2017" onclick="onlyOneYear(this)"  <?php if (isset($_POST['checkCountry']))if (in_array("2017", $_POST['check2'])) echo "checked='checked'"; ?>>
+                            <input type="checkbox" id="third" name="check2[]" value="2017" onclick="onlyOneYear(this)"  <?php if (isset($_POST['check2']))if (in_array("2017", $_POST['check2'])) echo "checked='checked'"; ?>>
                             <label for="year">2017</label>
                         </div>
                     </div>
@@ -229,11 +228,14 @@ include('../../download_csv.php');
                 <canvas id="myChart"></canvas>
                 <script> tableChart(); </script>
             </div>
-            <?php csvDownload($labels, $year, $bmi, $datasets); ?>
+            <?php //csvDownload($labels, $year, $bmi, $datasets); ?>
             <div class="butoane">
-                <div><a href="#">CSV </a></div>
+                <div>
+                    <a href="formdat.csv" download="data.csv">
+                        CSV
+                    </a></div>
                 <div><a href="#">JPG</a></div>
-                <div><a href="#">PDF</a></div>
+                <div><a href="#">SVG</a></div>
             </div>
         </div>
         <div class="right-part">
@@ -256,8 +258,5 @@ include('../../download_csv.php');
             </ul>
         </div>
     </footer>
-  
-   
 </body>
-
 </html>

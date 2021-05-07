@@ -16,7 +16,6 @@ function checkCountry()
     else{
         array_push($countries, 'Austria');
     }
-    print_r($countries);
 
     return $countries;
 }
@@ -36,7 +35,6 @@ function checkBmi(){
     else{
         array_push($bmi, "overweight");
     }
-    print_r($bmi);
     return $bmi;
 }
 function checkYear(){
@@ -58,7 +56,6 @@ function checkYear(){
     else{
         array_push($years, 2008);
     }
-    print_r($years);
     return $years;
 }
 function checkAll(){
@@ -101,4 +98,4 @@ function map($labels,$datasets){
     rename($path2, $path1);
 
 }
-
+?>

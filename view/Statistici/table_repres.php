@@ -3,7 +3,7 @@
     function makeTable()
     {
 
-        $tabel = "<table border='1' style='margin-top:380px;'>
+        $tabel = "<table id='myChart' border='1' style='margin-top:380px;'>
         <th></th>
         <th></th>
         <th>preobesity</th>
