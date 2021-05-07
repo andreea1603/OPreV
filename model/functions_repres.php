@@ -1,6 +1,7 @@
 <?php
-//include('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\controller\statistici-model.php');
-include('F:\xampp\htdocs\OPREV\OPreV\controller\statistici-model.php');
+include('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\controller\statistici-model.php');
+//include('F:\xampp\htdocs\OPREV\OPreV\controller\statistici-model.php');
+//include('../controller/statistici-model.php');
 function getOverweightY($countries, $year)
 {
     include('db-connect.php');
@@ -383,5 +384,4 @@ function filter($year, $type, $countries)
     return array($labels, $datasets);
 }
 
-?>
 ?>
