@@ -1,6 +1,6 @@
 <?php
-include('../controller/db-connect.php');
-include('../controller/init.php');
+include('../model/db-connect.php');
+include('../model/init.php');
 
   $fp = fopen("resources/formdata6.csv","w"); // $fp is now the file pointer to file $filename
 

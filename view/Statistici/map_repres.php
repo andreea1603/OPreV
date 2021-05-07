@@ -16,11 +16,13 @@
                 }
                 console.log(unpack(rows, 'country_code'));
                 var data = [{
+            
                     type: 'choropleth',
                     locations: unpack(rows, 'country_code'),
                     z: unpack(rows, 'value'),
                     text: unpack(rows, 'country_name'),
                     colorscale: [
+                        
                         [0, 'rgb(5, 10, 172)'],
                         [0.35, 'rgb(40, 60, 190)'],
                         [0.5, 'rgb(70, 100, 245)'],
@@ -31,9 +33,11 @@
                     autocolorscale: false,
                     reversescale: true,
                     marker: {
+
                         line: {
                             color: 'rgb(180,180,180)',
-                            width: 0.5
+                            width: 0.5,
+                            height : 800,
                         }
                     },
                     tick0: 0,

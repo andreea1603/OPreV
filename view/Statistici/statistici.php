@@ -8,6 +8,7 @@ include('bar_repres.php');
 include('line_repres.php');
 include('table_repres.php');
 include('map_repres.php');
+include('../../putInCsv1.php');
 ?>
 <html lang="en">
 
@@ -47,135 +48,135 @@ include('map_repres.php');
                     <h3>Country</h3>
                     <div class="scroll" id="first-scroll">
                         <div>
-                            <input type="checkbox" id="at" value="Austria" name="checkCountry[]">
+                            <input type="checkbox" id="at" value="Austria" name="checkCountry[]"   <?php if (isset($_POST['checkCountry']))if (in_array("Austria", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Austria</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="be" value="Belgium" name="checkCountry[]">
+                            <input type="checkbox" id="be" value="Belgium" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Belgium", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Belgium</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="bg" value="Bulgaria" name="checkCountry[]">
+                            <input type="checkbox" id="bg" value="Bulgaria" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Bulgaria", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Bulgaria</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="hr" value="Croatia" name="checkCountry[]">
+                            <input type="checkbox" id="hr" value="Croatia" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Croatia", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Croatia</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="cy" value="Cyprus" name="checkCountry[]">
+                            <input type="checkbox" id="cy" value="Cyprus" name="checkCountry[]" <?php if (isset($_POST['checkCountry']))if (in_array("Cyprus", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Cyprus</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="cz" value="Czechia" name="checkCountry[]">
+                            <input type="checkbox" id="cz" value="Czechia" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Czechia", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Czechia</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="dk" value="Denmark" name="checkCountry[]">
+                            <input type="checkbox" id="dk" value="Denmark" name="checkCountry[]"  <?php if (isset($_POST['checkCountry'])) if (in_array("Denmark", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Denmark</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="ee" value="Estonia" name="checkCountry[]">
+                            <input type="checkbox" id="ee" value="Estonia" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Estonia", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Estonia</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="fi" value="Finland" name="checkCountry[]">
+                            <input type="checkbox" id="fi" value="Finland" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Finland", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Finland</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="fr" value="France" name="checkCountry[]">
+                            <input type="checkbox" id="fr" value="France" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("France", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>France</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="de" value="Germany" name="checkCountry[]">
+                            <input type="checkbox" id="de" value="Germany" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Germany", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label for="horns">Germany</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="el" value="Greece" name="checkCountry[]">
+                            <input type="checkbox" id="el" value="Greece" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Greece", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Greece</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="hu" value="Hungary" name="checkCountry[]">
+                            <input type="checkbox" id="hu" value="Hungary" name="checkCountry[] " <?php if (isset($_POST['checkCountry']))if (in_array("Hungary", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Hungary</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="ie" value="Ireland" name="checkCountry[]">
+                            <input type="checkbox" id="ie" value="Ireland" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Ireland", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Ireland</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="is" value="Iceland" name="checkCountry[]">
+                            <input type="checkbox" id="is" value="Iceland" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Iceland", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Iceland</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="it" value="Italy" name="checkCountry[]">
+                            <input type="checkbox" id="it" value="Italy" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Italy", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Italy</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="lt" value="Lithuania" name="checkCountry[]">
+                            <input type="checkbox" id="lt" value="Lithuania" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Lithuania", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Lithuania</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="lu" value="Luxembourg" name="checkCountry[]">
+                            <input type="checkbox" id="lu" value="Luxembourg" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Luxembourg", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Luxembourg</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="lv" value="Latvia" name="checkCountry[]">
+                            <input type="checkbox" id="lv" value="Latvia" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Latvia", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Latvia</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="mk" value="North Macedonia" name="checkCountry[]">
+                            <input type="checkbox" id="mk" value="North Macedonia" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("North Macedonia", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>North Macedonia</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="mt" value="Malta" name="checkCountry[]">
+                            <input type="checkbox" id="mt" value="Malta" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Malta", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Malta</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="nl" value="Netherlands" name="checkCountry[]">
+                            <input type="checkbox" id="nl" value="Netherlands" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Netherlands", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Netherlands</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="no" value="Norway" name="checkCountry[]">
+                            <input type="checkbox" id="no" value="Norway" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Norway", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label">Norway</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="pl" value="Poland" name="checkCountry[]">
+                            <input type="checkbox" id="pl" value="Poland" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Poland", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Poland</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="pt" value="Portugal" name="checkCountry[]">
+                            <input type="checkbox" id="pt" value="Portugal" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Portugal", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Portugal</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="ro" value="Romania" name="checkCountry[]">
+                            <input type="checkbox" id="ro" value="Romania" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Romania", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Romania</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="rs" value="Serbia" name="checkCountry[]">
+                            <input type="checkbox" id="rs" value="Serbia" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Serbia", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Serbia</label>
                         </div>
                         <div>
                             <div>
-                                <input type="checkbox" id="es" value="Spain" name="checkCountry[]">
+                                <input type="checkbox" id="es" value="Spain" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Spania", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                                 <label>Spain</label>
                             </div>
-                            <input type="checkbox" id="se" value="Sweden" name="checkCountry[]">
+                            <input type="checkbox" id="se" value="Sweden" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Sweden", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Sweden</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="si" value="Slovania" name="checkCountry[]">
+                            <input type="checkbox" id="si" value="Slovania" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Slovania", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Slovania</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="sk" value="Slovakia" name="checkCountry[]">
+                            <input type="checkbox" id="sk" value="Slovakia" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Slovakia", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Slovakia</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="tr" value="Turkey" name="checkCountry[]">
+                            <input type="checkbox" id="tr" value="Turkey" name="checkCountry[]" <?php if (isset($_POST['checkCountry']))if (in_array("Turkey", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Turkey</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="uk" value="United Kingdom" name="checkCountry[]">
+                            <input type="checkbox" id="uk" value="United Kingdom" name="checkCountry[]"  <?php if (isset($_POST['checkCountry'])) if (in_array("United Kingdom", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>United Kingdom</label>
                         </div>
                     </div>
@@ -184,30 +185,30 @@ include('map_repres.php');
                     <h3>BMI</h3>
                     <div class="scroll">
                         <div>
-                            <input type="checkbox" id="pre-obese" name="check1[]" value="pre-obese" onclick="onlyOneBmi(this)">
+                            <input type="checkbox" id="pre-obese" name="check1[]" value="pre-obese" onclick="onlyOneBmi(this)"  <?php if (isset($_POST['checkCountry']))if (in_array("pre-obese", $_POST['check1'])) echo "checked='checked'"; ?>>
                             <label for="bmi">Preobezitate</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="obese" name="check1[]" value="obese" onclick="onlyOneBmi(this)">
+                            <input type="checkbox" id="obese" name="check1[]" value="obese" onclick="onlyOneBmi(this)" <?php if (isset($_POST['checkCountry']))if (in_array("obese", $_POST['check1'])) echo "checked='checked'"; ?>>
                             <label for="bmi">Obezitate</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="overweight" name="check1[]" value="overweight" onclick="onlyOneBmi(this)">
+                            <input type="checkbox" id="overweight" name="check1[]" value="overweight" onclick="onlyOneBmi(this)"  <?php if (isset($_POST['checkCountry']))if (in_array("overweight", $_POST['check1'])) echo "checked='checked'"; ?>>
                             <label for="bmi">Supraponderali</label>
                         </div>
                     </div>
                     <h3>Year</h3>
                     <div class="scroll">
                         <div>
-                            <input type="checkbox" id="first" name="check2[]" value="2008" onclick="onlyOneYear(this)">
+                            <input type="checkbox" id="first" name="check2[]" value="2008" onclick="onlyOneYear(this)" <?php if (isset($_POST['checkCountry']))if (in_array("2008", $_POST['check2'])) echo "checked='checked'"; ?>>
                             <label for="year">2008</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="second" name="check2[]" value="2014" onclick="onlyOneYear(this)">
+                            <input type="checkbox" id="second" name="check2[]" value="2014" onclick="onlyOneYear(this)"  <?php if (isset($_POST['checkCountry']))if (in_array("2014", $_POST['check2'])) echo "checked='checked'"; ?>>
                             <label for="year">2014</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="third" name="check2[]" value="2017" onclick="onlyOneYear(this)">
+                            <input type="checkbox" id="third" name="check2[]" value="2017" onclick="onlyOneYear(this)"  <?php if (isset($_POST['checkCountry']))if (in_array("2017", $_POST['check2'])) echo "checked='checked'"; ?>>
                             <label for="year">2017</label>
                         </div>
                     </div>
@@ -224,9 +225,10 @@ include('map_repres.php');
             </div>
             <div class="generare" id="foo">
                 <canvas id="myChart"></canvas>
+                <script> tableChart(); </script>
             </div>
             <div class="butoane">
-                <div><a href="#">CSV</a></div>
+                <div><a href="#">CSV <?php getCsv($countries, $year, $bmi, $datasets); ?></a></div>
                 <div><a href="#">JPG</a></div>
                 <div><a href="#">PDF</a></div>
             </div>

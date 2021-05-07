@@ -44,7 +44,10 @@ function checkYear(){
     if (isset($_POST['submit'])) {
 
         if (!empty($_POST['check2'])) {
-            foreach ($_POST['check2'] as $value) {
+            foreach ($_POST['check2'] as $value) 
+            {
+
+
                 array_push($years, $value);
             }
         }
