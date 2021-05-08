@@ -1,7 +1,6 @@
 <?php
 
 function getCsv($countries_csv, $year_csv, $bmi_csv, $valori_csv){
-include('model/db-connect.php');
 
   $fp = fopen("formdat.csv","w"); // $fp is now the file pointer to file $filename
 
@@ -21,9 +20,6 @@ include('model/db-connect.php');
     fwrite($fp,$year_csv[0].",");
     fwrite($fp,$bmi_csv[0].",");
 
-
-    print_r($valori_csv);
-    print_r($countries_csv);
     fwrite($fp,"\n");
 
         fwrite($fp,"contry_name,"); // Write information to the file

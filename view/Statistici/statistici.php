@@ -10,6 +10,9 @@ include('line_repres.php');
 include('table_repres.php');
 include('map_repres.php');
 include('../../download_csv.php');
+include('../../putInCsv1.php');
+include('verif.php');
+
 ?>
 <html lang="en">
 
@@ -49,7 +52,7 @@ include('../../download_csv.php');
                     <h3>Country</h3>
                     <div class="scroll" id="first-scroll">
                         <div>
-                            <input type="checkbox" id="at" value="Austria" name="checkCountry[]"   <?php if (isset($_POST['checkCountry']))if (in_array("Austria", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
+                            <input type="checkbox" id="at" value="Austria" name="checkCountry[]"  checked  <?php if (isset($_POST['checkCountry']))if (in_array("Austria", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Austria</label>
                         </div>
                         <div>
@@ -57,7 +60,7 @@ include('../../download_csv.php');
                             <label>Belgium</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="bg" value="Bulgaria" name="checkCountry[]"  <?php if (isset($_POST['checkCountry']))if (in_array("Bulgaria", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
+                            <input type="checkbox" id="bg" value="Bulgaria" name="checkCountry[]" <?php if (isset($_POST['checkCountry']))if (in_array("Bulgaria", $_POST['checkCountry'])) echo "checked='checked'"; ?>>
                             <label>Bulgaria</label>
                         </div>
                         <div>
@@ -228,13 +231,31 @@ include('../../download_csv.php');
                 <canvas id="myChart"></canvas>
                 <script> tableChart(); </script>
             </div>
-            <?php //csvDownload($labels, $year, $bmi, $datasets); ?>
+            <?php //csvDownload($labels, $year, $bmi, $datasets); 
+        
+            getCsv($labels, $year, $bmi, $datasets); ?>
             <div class="butoane">
                 <div>
                     <a href="formdat.csv" download="data.csv">
                         CSV
                     </a></div>
-                <div><a href="#">JPG</a></div>
+
+                <div>
+
+            
+<script> var myChart = barChart();
+console.log("helo");
+createPngLink('chart.png', 'Export PNG, ', myChart);
+
+ </script>
+       <a href="chart.png" download ="chart.png">     JPG</a></div>
+
+
+
+
+
+
+
                 <div><a href="#">SVG</a></div>
             </div>
         </div>

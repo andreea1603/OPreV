@@ -43,6 +43,6 @@
                     }]
                 },
             });
-
+                var dataURL= item.toDataURL();
         }
     </script>

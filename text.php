@@ -1,29 +1,42 @@
-<html>
-  <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['table']});
-      google.charts.setOnLoadCallback(drawTable);
 
-      function drawTable() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Name');
-        data.addColumn('number', 'Salary');
-        data.addColumn('boolean', 'Full Time Employee');
-        data.addRows([
-          ['Mike',  {v: 10000, f: '$10,000'}, true],
-          ['Jim',   {v:8000,   f: '$8,000'},  false],
-          ['Alice', {v: 12500, f: '$12,500'}, true],
-          ['Bob',   {v: 7000,  f: '$7,000'},  true]
-        ]);
+<?php 
+include('model/functions_repres.php');
 
-        var table = new google.visualization.Table(document.getElementById('table_div'));
+?>
+ <div class="generare" id="foo">
+                <canvas id="myChart"></canvas>
+                <script> tableChart(); </script>
+            </div>
+<script>
+       var item = document.getElementById('myChart');
+            item.remove();
+            var tag = document.createElement("canvas");
+            tag.setAttribute("id","myChart");
+            console.log(tag);
+            var element = document.getElementById('foo');
+            element.appendChild(tag);
 
-        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
-      }
-    </script>
-  </head>
-  <body>
-    <div id="table_div"></div>
-  </body>
-</html>
+            var labels1 = <?php echo json_encode($labels); ?>;
+            var datasets = <?php echo json_encode($datasets);  ?>;
+            var ctx = document.getElementById('myChart');
+
+
+            var myChart = new Chart(ctx, {
+                "type": "line",
+                "data": {
+                    "labels": labels1,
+                    "datasets": [{
+                        "label": "Dataset",
+                        "data": datasets,
+                        "fill": true,
+                        "borderWidth": 10,
+                        "borderColor": "rgb(75, 192, 192)",
+                        "lineTension": 0
+                    }]
+                }
+            });
+            myChart.update();
+
+            createPngLink('chart.png', 'Export PNG, ', chart);
+
+</script>
