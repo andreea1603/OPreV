@@ -41,8 +41,11 @@
                             'rgba(255, 159, 64, 1)'
                         ],
                     }]
-                },
+                }
+            ,
             });
-                var dataURL= item.toDataURL();
-        }
+
+
+    }
+            
     </script>

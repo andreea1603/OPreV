@@ -7,6 +7,7 @@
             console.log(tag);
             var element = document.getElementById('foo');
             element.appendChild(tag);
+            var img_svg=d3.select('#jpg-export');
 
             d3.csv('resources/data.csv', function(err, rows) {
                 function unpack(rows, key) {
@@ -59,7 +60,19 @@
                 };
                 Plotly.newPlot("myChart", data, layout, {
                     showLink: false
-                });
+                }).then(
+function(gd){
+    Plotly.toImage(gd,{height:300,width:300})
+         .then(
+             function(url)
+         {
+             img_svg.attr("src", url);
+ return Plotly.toImage(gd,{format:'jpg',height:800,width:800});
+         }
+         )
+}
+
+                );
             });
         }
 </script>

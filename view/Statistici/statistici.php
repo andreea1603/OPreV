@@ -20,6 +20,8 @@ include('../../putInCsv1.php');
     <link rel="stylesheet" href="../../styles/statistici.css">
     <link rel="stylesheet" href="../../styles/style.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="statistici.css">
+
 
     <link rel="shortcut icon" href="../../pictures/vector-creator.ico">
     <script src="https://code.jscharting.com/latest/jscharting.js"></script>
@@ -226,7 +228,7 @@ include('../../putInCsv1.php');
                 <button onclick="mapChart()">Map</button>
             </div>
             <div class="generare" id="foo">
-                <canvas id="myChart"></canvas>
+                <canvas id="myChart"  width=240 height=240 style="background-color:#808080;"> <p></p></canvas>
                 <script> tableChart(); </script>
             </div>
             <?php //csvDownload($labels, $year, $bmi, $datasets); 
@@ -239,20 +241,10 @@ include('../../putInCsv1.php');
                     </a></div>
 
                 <div>
-       <a href="chart.png" id="JPGDownload">     JPG</a></div>
-<script>
-       document.getElementById("JPGDownload").addEventListener('click', function(){
-           console.log("am ajuns");
-            /*Get image of canvas element*/
-            var url_base64jp = document.getElementById("myChart").toDataURL("image/jpg");
-            /*get download button (tag: <a></a>) */
-            var a =  document.getElementById("JPGDownload");
-            /*insert chart image url to download button (tag: <a></a>) */
-            a.href = url_base64jp;
-        });
-</script>
+       <a href="#" id="JPGDownload" onclick="prepHref(this)" download>     JPG</a></div>
 
 
+<img id="jpg-export" class="dispare" ></img>
 
 
                 <div><a href="#">SVG</a></div>
