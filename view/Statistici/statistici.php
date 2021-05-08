@@ -9,9 +9,7 @@ include('bar_repres.php');
 include('line_repres.php');
 include('table_repres.php');
 include('map_repres.php');
-include('../../download_csv.php');
 include('../../putInCsv1.php');
-include('verif.php');
 
 ?>
 <html lang="en">
@@ -241,17 +239,18 @@ include('verif.php');
                     </a></div>
 
                 <div>
-
-            
-<script> var myChart = barChart();
-console.log("helo");
-createPngLink('chart.png', 'Export PNG, ', myChart);
-
- </script>
-       <a href="chart.png" download ="chart.png">     JPG</a></div>
-
-
-
+       <a href="chart.png" id="JPGDownload">     JPG</a></div>
+<script>
+       document.getElementById("JPGDownload").addEventListener('click', function(){
+           console.log("am ajuns");
+            /*Get image of canvas element*/
+            var url_base64jp = document.getElementById("myChart").toDataURL("image/jpg");
+            /*get download button (tag: <a></a>) */
+            var a =  document.getElementById("JPGDownload");
+            /*insert chart image url to download button (tag: <a></a>) */
+            a.href = url_base64jp;
+        });
+</script>
 
 
 
