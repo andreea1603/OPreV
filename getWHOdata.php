@@ -1,76 +1,67 @@
 <?php
 
-//ia date pentru femei, barbati, medie din 1975 pana in 2016, fara varsta??-> 
-//in functie de venit??? world bank income group - filtrare in functie de venit
-
-
-//Pentru ce e mai sus, dar crude
-$url="https://ghoapi.azureedge.net/api/NCD_BMI_30C";
-
-$url="https://ghoapi.azureedge.net/api/obesewm";
-//pentru copii in functie de varsta, ne intereseaza si Dim2, aici este intervalul de varsta
 
 function set1(){
-include('model/db-connect.php');
-include('model/init.php');
-$ch= curl_init();
-$url='https://ghoapi.azureedge.net/api/NCD_BMI_PLUS2C';
+    include('model/db-connect.php');
+    include('model/init.php');
+    $ch= curl_init();
+    $url='https://ghoapi.azureedge.net/api/NCD_BMI_PLUS2C';
 
 
-curl_setopt($ch,CURLOPT_URL,$url);
-curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($ch,CURLOPT_URL,$url);
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 
 
-$array = array(0=>0);
+    $array = array(0=>0);
 
-$i=0;
-$resp = curl_exec($ch);
-if($e=curl_error($ch)){
+    $i=0;
+    $resp = curl_exec($ch);
+    if($e=curl_error($ch)){
 
-    echo $e;
-}
-else{
-    $decode = json_decode($resp, true);
-    //print_r($decode);
-
-    echo "aici sunt codurile + numele pt tipurile de obezitate";
-    ?>
-<br>
-    <?php
-    echo count($decode["value"])."<br>";
-    print_r($decode["value"][0]["Id"]);
-
-
-    //count($decode["value"])
-    for($i=76356; $i<count($decode["value"]); $i++){
-
-        echo $decode["value"][$i]["SpatialDim"].", ".$decode["value"][$i]["Value"].", ".$decode["value"][$i]["TimeDim"].",
-         ".$decode["value"][$i]["Dim1"]
-    .", ".$decode["value"][$i]["Dim2"]."<br>";
-        getValues($decode["value"][$i]["Value"]);
-        $value=getValues($decode["value"][$i]["Value"])[0];
-        $year=intval($decode["value"][$i]["TimeDim"]);
-
-        $country=$decode["value"]["$i"]["SpatialDim"];
-        $sex=$decode["value"]["$i"]["Dim1"];
-        
-        echo gettype($country);
-
-
-        $query="INSERT INTO `datewho` VALUES ( {$i}, '{$country}', {$value}, {$year}, '{$sex}' )";
-        
-        echo "<br>";
-        echo $query;
-        echo "<br>";
-
-        if(mysqli_query($conn, $query))
-            echo "salut";
-    
-
-        echo "am iesit";
+        echo $e;
     }
-    curl_close($ch);
-}
+    else{
+        $decode = json_decode($resp, true);
+        //print_r($decode);
+
+        echo "aici sunt codurile + numele pt tipurile de obezitate";
+        ?>
+    <br>
+        <?php
+        echo count($decode["value"])."<br>";
+        print_r($decode["value"][0]["Id"]);
+
+
+        //count($decode["value"])
+        for($i=76356; $i<count($decode["value"]); $i++){
+
+            echo $decode["value"][$i]["SpatialDim"].", ".$decode["value"][$i]["Value"].", ".$decode["value"][$i]["TimeDim"].",
+            ".$decode["value"][$i]["Dim1"]
+        .", ".$decode["value"][$i]["Dim2"]."<br>";
+            getValues($decode["value"][$i]["Value"]);
+            $value=getValues($decode["value"][$i]["Value"])[0];
+            $year=intval($decode["value"][$i]["TimeDim"]);
+
+            $country=$decode["value"]["$i"]["SpatialDim"];
+            $sex=$decode["value"]["$i"]["Dim1"];
+            
+            echo gettype($country);
+
+
+            $query="INSERT INTO `datewho` VALUES ( {$i}, '{$country}', {$value}, {$year}, '{$sex}' )";
+            
+            echo "<br>";
+            echo $query;
+            echo "<br>";
+
+            if(mysqli_query($conn, $query))
+                echo "salut";
+        
+
+            echo "am iesit";
+        }
+        curl_close($ch);
+    }
 }
 function get_Data_Filter(){
     include('model/db-connect.php');
@@ -94,7 +85,6 @@ function get_Data_Filter(){
         echo "<br>";
     }
 }
-
 function getValues($text){
 
         $firstValue='';
@@ -132,11 +122,10 @@ function getValues($text){
     }
 
 
-   //set1();
-   get_Data_Filter();
-   echo "Salut";
 
-   function set2(){
+
+
+function set2(){
     include('model/db-connect.php');
     include('model/init.php');
     $ch= curl_init();
@@ -157,18 +146,107 @@ function getValues($text){
     }
     else{
         $decode = json_decode($resp, true);
-        //print_r($decode);
-    
-        echo "aici sunt codurile + numele pt tipurile de obezitate";
         ?>
     <br>
         <?php
-        echo count($decode["value"])."<br>";
-        print_r($decode["value"][0]["Id"]);
+        for($i=0; $i<count($decode["value"]); $i++){
 
+            echo $decode["value"][$i]["SpatialDim"].", ".$decode["value"][$i]["Value"].", ".$decode["value"][$i]["TimeDim"].",
+            ".$decode["value"][$i]["Dim1"]."<br>";
+            $array=getValues($decode["value"][$i]["Value"]);
+            
+            $value=floatval($array[0]);
+            $year=intval($decode["value"][$i]["TimeDim"]);
+            $country=$decode["value"][$i]["SpatialDim"];
+            $sex=$decode["value"][$i]["Dim1"];
 
+            $query="INSERT INTO `???` VALUES ( {$i}, '{$country}', {$value}, {$year}, '{$sex}' )";
+            mysqli_query($conn, $query);
+        }
    }
 }
+function set3(){
+    include('model/db-connect.php');
+    include('model/init.php');
+    $ch= curl_init();
+    $url="https://ghoapi.azureedge.net/api/NCD_BMI_30C";
+    
+    
+    curl_setopt($ch,CURLOPT_URL,$url);
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+    
+    
+    $array = array(0=>0);
+    
+    $i=0;
+    $resp = curl_exec($ch);
+    if($e=curl_error($ch)){
+    
+        echo $e;
+    }
+    else{
+        $decode = json_decode($resp, true);
+        ?>
+    <br>
+        <?php
+        for($i=0; $i<count($decode["value"]); $i++){
 
+            
+            $array=getValues($decode["value"][$i]["Value"]);
 
+            $value=floatval($array[0]);
+            $year=intval($decode["value"][$i]["TimeDim"]);
+            $country=$decode["value"][$i]["SpatialDim"];
+            $sex=$decode["value"][$i]["Dim1"];
+
+            echo $value.' '.$year.' '.$country.' '. $sex.'<br>';
+            $query="INSERT INTO `???` VALUES ( {$i}, '{$country}', {$value}, {$year}, '{$sex}' )";
+            mysqli_query($conn, $query);
+        }
+   }
+}
+function set4(){
+    include('model/db-connect.php');
+    include('model/init.php');
+    $ch= curl_init();
+    $url="https://ghoapi.azureedge.net/api/obesewm";;
+    
+    
+    curl_setopt($ch,CURLOPT_URL,$url);
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+    
+    
+    $array = array(0=>0);
+    
+    $i=0;
+    $resp = curl_exec($ch);
+    if($e=curl_error($ch)){
+    
+        echo $e;
+    }
+    else{
+        $decode = json_decode($resp, true);
+        ?>
+    <br>
+        <?php
+        for($i=0; $i<count($decode["value"]); $i++){
+
+            
+            $array=getValues($decode["value"][$i]["Value"]);
+
+            $value=floatval($array[0]);
+            $year=intval($decode["value"][$i]["TimeDim"]);
+            $country=$decode["value"][$i]["SpatialDim"];
+            $sex=$decode["value"][$i]["Dim1"];
+
+            echo $value.' '.$year.' '.$country.' '. $sex.'<br>';
+            $query="INSERT INTO `???` VALUES ( {$i}, '{$country}', {$value}, {$year}, '{$sex}' )";
+            mysqli_query($conn, $query);
+        }
+   }
+}
+//set1();
+//set2();
+//set3();
+//set4();
 ?>
