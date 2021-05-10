@@ -33,22 +33,28 @@ function set1(){
 
 
         //count($decode["value"])
-        for($i=76356; $i<count($decode["value"]); $i++){
+        for($i=50589; $i<count($decode["value"]); $i++){
 
             echo $decode["value"][$i]["SpatialDim"].", ".$decode["value"][$i]["Value"].", ".$decode["value"][$i]["TimeDim"].",
             ".$decode["value"][$i]["Dim1"]
         .", ".$decode["value"][$i]["Dim2"]."<br>";
+
+
             getValues($decode["value"][$i]["Value"]);
             $value=getValues($decode["value"][$i]["Value"])[0];
             $year=intval($decode["value"][$i]["TimeDim"]);
 
             $country=$decode["value"]["$i"]["SpatialDim"];
             $sex=$decode["value"]["$i"]["Dim1"];
-            
-            echo gettype($country);
 
 
-            $query="INSERT INTO `datewho` VALUES ( {$i}, '{$country}', {$value}, {$year}, '{$sex}' )";
+            $valTemp=$decode["value"]["$i"]["Dim2"];
+
+
+            $age=substr($valTemp, 4, strlen($valTemp));
+
+
+            $query="INSERT INTO `whoage` VALUES ( {$i}, '{$country}', {$value}, {$year}, '{$sex}', '{$age}' )";
             
             echo "<br>";
             echo $query;
@@ -159,8 +165,9 @@ function set2(){
             $year=intval($decode["value"][$i]["TimeDim"]);
             $country=$decode["value"][$i]["SpatialDim"];
             $sex=$decode["value"][$i]["Dim1"];
+            $spatial_dim=$decode["value"][$i]["SpatialDimType"];
 
-            $query="INSERT INTO `???` VALUES ( {$i}, '{$country}', {$value}, {$year}, '{$sex}' )";
+            $query="INSERT INTO `whoagestd` VALUES ( {$i},'{$spatial_dim}', '{$country}', {$value}, {$year}, '{$sex}' )";
             mysqli_query($conn, $query);
         }
    }
@@ -198,9 +205,11 @@ function set3(){
             $year=intval($decode["value"][$i]["TimeDim"]);
             $country=$decode["value"][$i]["SpatialDim"];
             $sex=$decode["value"][$i]["Dim1"];
+            $spatial_dim=$decode["value"][$i]["SpatialDimType"];
 
-            echo $value.' '.$year.' '.$country.' '. $sex.'<br>';
-            $query="INSERT INTO `???` VALUES ( {$i}, '{$country}', {$value}, {$year}, '{$sex}' )";
+            //echo $value.' '.$year.' '.$country.' '. $sex.'<br>';
+            $query="INSERT INTO `whocrude` VALUES ( {$i}, '{$spatial_dim}','{$country}', {$value}, {$year}, '{$sex}' )";
+            //echo $query;
             mysqli_query($conn, $query);
         }
    }
@@ -209,7 +218,7 @@ function set4(){
     include('model/db-connect.php');
     include('model/init.php');
     $ch= curl_init();
-    $url="https://ghoapi.azureedge.net/api/obesewm";;
+    $url="https://ghoapi.azureedge.net/api/obesewm";
     
     
     curl_setopt($ch,CURLOPT_URL,$url);
@@ -248,5 +257,5 @@ function set4(){
 //set1();
 //set2();
 //set3();
-//set4();
+set4();
 ?>
