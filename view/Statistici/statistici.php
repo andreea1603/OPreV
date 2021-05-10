@@ -254,6 +254,36 @@ include('../../putInCsv1.php');
             <a href="../StatisticiWho/statisticiWho.php"><img id="logo" src="../../pictures/whoLogo.jpg" alt=""></a>
         </div>
     </section>
+
+
+
+    <div id="chart" width="800px"></div>
+
+<script>
+var cal1=<?php echo json_encode($labels); ?>;
+var ls=<?php echo json_encode($datasets);  ?>;
+var trace1 = {
+  x: cal1,
+  y: ls,
+  type: 'scatter'
+};
+
+
+
+var data = [trace1];
+
+Plotly.newPlot('chart', data);
+</script>
+
+
+
+
+
+
+
+
+
+
     <footer class="fotr">
         <div class="footerAlign">
             <ul>
