@@ -15,6 +15,7 @@
     margin-top: 30px;
     border-radius: 10px;
     background-color: #0e74b8;
+    overflow-y: auto;
 }
 #selectAll{
     background-color: #1a67cc;
@@ -141,10 +142,7 @@ input[type=submit]:hover{
     overflow-x: hidden;
     overflow-y: auto;
     text-align:justify;
-}
-#first-scroll{
-    margin-bottom: 8px;
-    
+    margin-bottom:8px;
 }
 ::-webkit-scrollbar {
     width: 10px;

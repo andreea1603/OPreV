@@ -1,6 +1,9 @@
 function select(){
     var e = document.getElementById("dimension");
     var text = e.options[e.selectedIndex].text;
+    var item = document.getElementById('button');
+    if(item!=null)
+        item.remove();
     if(text==="Country"){
         var item = document.getElementById('filtreTari');
         item.remove();
@@ -20,12 +23,21 @@ function select(){
         tag.setAttribute("class","scroll");
         element.appendChild(tag);
         
+        //<input type="button" onclick="selectAll()" value="Select All">
+        var tag= document.createElement("input");
+        tag.setAttribute("type","button");
+        tag.setAttribute("onclick","selectAll()");
+        tag.setAttribute("value","Select All");
+        tag.setAttribute("id","button");
+        
         makeCountry("Romania","id"+1);
         makeCountry("albania","id"+2);
         makeCountry("rusia","id"+3);
         makeCountry("Romania","id"+4);
         makeCountry("albania","id"+5);
         makeCountry("rusia","id"+6);
+
+        element.appendChild(tag);
     }
     else
         if(text==='Region'){
@@ -91,6 +103,7 @@ function makeCountry(country,id){
     var element2=document.getElementById(id);
     var tag = document.createElement("input");
     tag.setAttribute("type","checkbox");
+    tag.setAttribute("name","checkCountry[]");
     element2.appendChild(tag);
 
     var tag = document.createElement("label");

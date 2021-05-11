@@ -11,6 +11,7 @@ include('../../model/db-connect.php');
         <link rel="stylesheet" href="../../styles/statistici.css">
         <link rel="stylesheet" href="../../styles/style.css">
         <script type="text/javascript" src="functions.js"></script>
+        <script src="../Statistici/functions.js"></script>
 
         <link rel="shortcut icon" href="../../pictures/vector-creator.ico">
         
@@ -115,47 +116,41 @@ if (mysqli_num_rows($result)) {
 
 ?>
 <script>
-    console.log("salut");
 
- var labels1=
-        <?php echo json_encode($labels);    ?>;
+    var labels1= <?php echo json_encode($labels);    ?>;
+    var datasets= <?php echo json_encode($datasets);  ?>;
 
-var datasets= <?php echo json_encode($datasets);  ?>;
-
-  
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: labels1,
-        datasets: [{
-            label: 'bmi',
-            data: datasets,
-            barPercentage: 1.5,
-            maxBarThickness: 30,
-            minBarLength: 20,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-        }
-        ]
-    },
-   
-    
-});
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels1,
+            datasets: [{
+                label: 'bmi',
+                data: datasets,
+                barPercentage: 1.5,
+                maxBarThickness: 30,
+                minBarLength: 20,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+            }
+            ]
+        },
+    });
 </script>
     </body>
 </html>
