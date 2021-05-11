@@ -10,6 +10,8 @@ include('line_repres.php');
 include('table_repres.php');
 include('map_repres.php');
 include('../../putInCsv1.php');
+include('line_Plotly.php');
+include('bar_Plotly.php');
 
 ?>
 <html lang="en">
@@ -222,10 +224,11 @@ include('../../putInCsv1.php');
         <div class="statistica">
             <div class="btn-group">
                 <button onclick="tableChart()">Table </button>
-                <button onclick="barChart()">Bar</button>
-                <button onclick="lineChart()">Line</button>
+                <button onclick="barPlotly()">Bar</button>
+                <button onclick="linePlotly()">Line</button>
                 <button onclick="mapChart()">Map</button>
             </div>
+     
             <div class="generare" id="foo">
                 <canvas id="myChart"  width=240 height=240 style="background-color:#808080;"> <p></p></canvas>
                 <script> tableChart(); </script>
@@ -257,30 +260,6 @@ include('../../putInCsv1.php');
 
 
     <div id="chart" width="800px"></div>
-
-<script>
-var cal1=<?php echo json_encode($labels); ?>;
-var ls=<?php echo json_encode($datasets);  ?>;
-var trace1 = {
-  x: cal1,
-  y: ls,
-  type: 'scatter'
-};
-
-
-
-var data = [trace1];
-
-Plotly.newPlot('chart', data);
-</script>
-
-
-
-
-
-
-
-
 
 
     <footer class="fotr">
