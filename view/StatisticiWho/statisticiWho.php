@@ -10,9 +10,10 @@ include('../../model/db-connect.php');
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../styles/statistici.css">
         <link rel="stylesheet" href="../../styles/style.css">
+        <script type="text/javascript" src="functions.js"></script>
 
         <link rel="shortcut icon" href="../../pictures/vector-creator.ico">
-
+        
         <title>OPreV</title>
     </head>
     <body>
@@ -29,44 +30,31 @@ include('../../model/db-connect.php');
                     <h2>Filtre</h2>
                     <div class="filter">
                         <form action="a">
-                            <label for="country"> Country</label>
-                            <select  id="country">
-                                <option value="Country">Tara</option>
-                                <option value="Country">Romania</option>
-                                <option value="Country">America</option>
-                                <option value="Country">Germania</option>
+                            <h3>Indicator code</h3>
+                            <select  id="indicatorCode" onclick="selectIndicator()">
+                                <option value="indicatorCode">Indicator code</option>
+                                <option value="indicatorCode1">Prevalence of obesity among children and adolescents</option>
+                                <option value="indicatorCode2">Obesity prevalence in non-pregnant women aged 15-49 years</option>
+                                <option value="indicatorCode3">Prevalence of obesity among adults(crude estimate)</option>
+                                <option value="indicatorCode4">Prevalence of obesity among adults(age-standardized estimate)</option>
                             </select>
-                            <label for="age"> Age</label>
-                            <select id="age">
-                                <option value="Age">Varsta</option>
-                                <option value="Age">5-10</option>
-                                <option value="Age">10-15</option>
-                                <option value="Age">15-25</option>
-                                <option value="Age">25-40</option>
-                                <option value="Age">40-60</option>
-                                <option value="Age">60-</option>
+                            <h3>Spatial Dimension</h3>
+                            <select  id="dimension" onclick="select()">
+                                <option value="dimension">Spatial Dimension</option>
+                                <option value="dimension1">Country</option>
+                                <option value="dimension2">Region</option>
+                                <option value="dimension3">World Bank Income</option>
                             </select>
-                            <label for="sex"> Sex</label>
-                            <select id="sex">
-                                <option value="sex">Sex</option>
-                                <option value="sex">Masculin</option>
-                                <option value="sex">Feminin</option>
-                            </select>
-                            <label for="BodyMassIndex">Indice de masa corporala</label>
-                            <select id="BodyMassIndex">
-                                <option value="BodyMassIndex">Indice de masa corporala</option>
-                                <option value="BodyMassIndex">Supraponderal</option>
-                                <option value="BodyMassIndex">Pre-obez</option>
-                                <option value="BodyMassIndex">Obez</option>
-                            </select>
-                            <label for="representation"> Reprezentare</label>
-                            <select  id="representation">
-                                <option value="Representation">Reprezentare</option>
-                                <option value="Representation">Bara</option>
-                                <option value="Representation">Linii</option>
-                                <option value="Representation">Tabel</option>
-                                <option value="Representation">Mapa</option>
-                            </select>
+                            <div id="foo">
+                                <div id=filtreTari>
+                                    
+                                </div>
+                            </div>
+                            <div id="goo">
+                                <div id="filtreNormale">
+
+                                </div>
+                            </div>
                             <input type="submit" value="Submit">
                         </form>
                     </div>
