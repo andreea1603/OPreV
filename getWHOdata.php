@@ -254,8 +254,25 @@ function set4(){
         }
    }
 }
+function set5(){
+    include('model/db-connect.php');
+    include('model/init.php');
+    $index=1;
+    $str = file_get_contents('tari.json');
+    $json = json_decode($str, true);
+    foreach($json as $js){  
+        $nume=$js["Country"];
+        $code2=$js["Alpha-2 code"];
+        $code3=$js["Alpha-3 code"];
+        //id int primary key,nume varchar(100),code2 varchar(10), code3 varchar2(10)
+        $query="INSERT INTO `countries` VALUES ( {$index}, '{$nume}' , '{$code2}' , '{$code3}' )";
+        mysqli_query($conn, $query);
+        $index++;
+    }
+}
 //set1();
 //set2();
 //set3();
-set4();
+//set4();
+set5();
 ?>

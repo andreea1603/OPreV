@@ -41,7 +41,7 @@ include('bar_Plotly.php');
             <li><a href="../Statistici/statistici.php">Statistici</a></li>
             <li><a href="../Evenimente/events.php">Evenimente</a></li>
             <li><a href="../AboutUs/aboutus.php">Despre noi</a></li>
-            <li><a href=<?php if (isset($_SESSION['conectat'])) echo "../login/login.php";
+            <li><a href=<?php if (!isset($_SESSION['conectat'])) echo "../login/login.php";
                         else echo "../Admin/admin.php"; ?>>Contul meu</a></li>
         </ul>
     </section>
@@ -190,30 +190,30 @@ include('bar_Plotly.php');
                     <h3>BMI</h3>
                     <div class="scroll">
                         <div>
-                            <input type="checkbox" checked id="pre-obese" name="check1[]" value="pre-obese" onclick="onlyOneBmi(this)"  <?php if (isset($_POST['check1']))if (in_array("pre-obese", $_POST['check1'])) echo "checked='checked'"; ?>>
+                            <input type="checkbox" checked id="pre-obese" name="check1[]" value="pre-obese" onclick="onlyOne(this,'check1[]')"  <?php if (isset($_POST['check1']))if (in_array("pre-obese", $_POST['check1'])) echo "checked='checked'"; ?>>
                             <label for="bmi">Preobezitate</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="obese" name="check1[]" value="obese" onclick="onlyOneBmi(this)" <?php if (isset($_POST['check1']))if (in_array("obese", $_POST['check1'])) echo "checked='checked'"; ?>>
+                            <input type="checkbox" id="obese" name="check1[]" value="obese" onclick="onlyOne(this,'check1[]')" <?php if (isset($_POST['check1']))if (in_array("obese", $_POST['check1'])) echo "checked='checked'"; ?>>
                             <label for="bmi">Obezitate</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="overweight" name="check1[]" value="overweight" onclick="onlyOneBmi(this)"  <?php if (isset($_POST['check1']))if (in_array("overweight", $_POST['check1'])) echo "checked='checked'"; ?>>
+                            <input type="checkbox" id="overweight" name="check1[]" value="overweight" onclick="onlyOne(this,'check1[]')"  <?php if (isset($_POST['check1']))if (in_array("overweight", $_POST['check1'])) echo "checked='checked'"; ?>>
                             <label for="bmi">Supraponderali</label>
                         </div>
                     </div>
                     <h3>Year</h3>
                     <div class="scroll">
                         <div>
-                            <input type="checkbox" checked id="first" name="check2[]" value="2008" onclick="onlyOneYear(this)" <?php if (isset($_POST['check2']))if (in_array("2008", $_POST['check2'])) echo "checked='checked'"; ?>>
+                            <input type="checkbox" checked id="first" name="check2[]" value="2008" onclick="onlyOne(this,'check2[]')" <?php if (isset($_POST['check2']))if (in_array("2008", $_POST['check2'])) echo "checked='checked'"; ?>>
                             <label for="year">2008</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="second" name="check2[]" value="2014" onclick="onlyOneYear(this)"  <?php if (isset($_POST['check2']))if (in_array("2014", $_POST['check2'])) echo "checked='checked'"; ?>>
+                            <input type="checkbox" id="second" name="check2[]" value="2014" onclick="onlyOne(this,'check2[]')"  <?php if (isset($_POST['check2']))if (in_array("2014", $_POST['check2'])) echo "checked='checked'"; ?>>
                             <label for="year">2014</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="third" name="check2[]" value="2017" onclick="onlyOneYear(this)"  <?php if (isset($_POST['check2']))if (in_array("2017", $_POST['check2'])) echo "checked='checked'"; ?>>
+                            <input type="checkbox" id="third" name="check2[]" value="2017" onclick="onlyOne(this,'check2[]')"  <?php if (isset($_POST['check2']))if (in_array("2017", $_POST['check2'])) echo "checked='checked'"; ?>>
                             <label for="year">2017</label>
                         </div>
                     </div>

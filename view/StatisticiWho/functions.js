@@ -254,7 +254,6 @@ function selectIndicator(){
     console.log(element1);
 }
 function putYearFilters(year,element){
-
     var tag = document.createElement("div");
     tag.setAttribute("id","year"+year);
     element.appendChild(tag);
@@ -263,6 +262,8 @@ function putYearFilters(year,element){
 
     var tag = document.createElement("input");
     tag.setAttribute("type","checkbox");
+    tag.setAttribute("name","years[]");
+    tag.setAttribute("onclick","onlyOne(this,'years[]')");
     element1.appendChild(tag);
 
     var tag = document.createElement("label");
@@ -280,6 +281,8 @@ function putSexFilters(sex,element){
 
     var tag = document.createElement("input");
     tag.setAttribute("type","checkbox");
+    tag.setAttribute("name","sexes[]");
+    tag.setAttribute("onclick","onlyOne(this,'sexes[]')");
     element1.appendChild(tag);
 
     var tag = document.createElement("label");
@@ -296,6 +299,8 @@ function putAgeFilters(age,element){
 
     var tag = document.createElement("input");
     tag.setAttribute("type","checkbox");
+    tag.setAttribute("name","ages[]");
+    tag.setAttribute("onclick","onlyOne(this,'ages[]')");
     element1.appendChild(tag);
 
     var tag = document.createElement("label");
@@ -312,6 +317,8 @@ function putAreaFilters(area,element){
 
     var tag = document.createElement("input");
     tag.setAttribute("type","checkbox");
+    tag.setAttribute("name","areas[]");
+    tag.setAttribute("onclick","onlyOne(this,'areas[]')");
     element1.appendChild(tag);
 
     var tag = document.createElement("label");

@@ -53,7 +53,10 @@ include('../../model/functions.php');
             </tr>
             <tr> 
                                    <td></td>
-                <td><a href="../../view/StatisticiEdit/statisticiEdit.php">Editeaza date</a></td>
+                <td><a href="../../view/StatisticiEdit/statisticiEdit.php">Editeaza date Eurostat</a></td>
+            </tr>
+            <tr>
+                <td><td><a href="../../view/StatisticiEditWho/statisticiEditWho.php">Editeaza date Who</a></td></td>
             </tr>
              <tr>                    <td></td>
                 <td>Log out</td>
