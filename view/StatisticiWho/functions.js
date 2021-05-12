@@ -103,6 +103,7 @@ function makeCountry(country,id){
     var element2=document.getElementById(id);
     var tag = document.createElement("input");
     tag.setAttribute("type","checkbox");
+    tag.setAttribute("value",country);
     tag.setAttribute("name","checkCountry[]");
     element2.appendChild(tag);
 
@@ -157,7 +158,7 @@ function selectIndicator(){
         
         element3=document.getElementById("filtre2");
 
-        sexes=["Male","Famele","Both"];
+        sexes=["Male","Female","Both"];
         for(sex in sexes){
             putSexFilters(sexes[sex],element3);
         }
@@ -246,10 +247,11 @@ function selectIndicator(){
                 
                 element3=document.getElementById("filtre2");
 
-                sexes=["Male","Famele","Both"];
+                sexes=["Male","Female","Both"];
                 for(sex in sexes){
                     putSexFilters(sexes[sex],element3);
                 }
+
             }
     console.log(element1);
 }
@@ -263,6 +265,7 @@ function putYearFilters(year,element){
     var tag = document.createElement("input");
     tag.setAttribute("type","checkbox");
     tag.setAttribute("name","years[]");
+    tag.setAttribute("value","year"+year);
     tag.setAttribute("onclick","onlyOne(this,'years[]')");
     element1.appendChild(tag);
 
@@ -282,6 +285,7 @@ function putSexFilters(sex,element){
     var tag = document.createElement("input");
     tag.setAttribute("type","checkbox");
     tag.setAttribute("name","sexes[]");
+    tag.setAttribute("value",sex);
     tag.setAttribute("onclick","onlyOne(this,'sexes[]')");
     element1.appendChild(tag);
 
@@ -300,6 +304,7 @@ function putAgeFilters(age,element){
     var tag = document.createElement("input");
     tag.setAttribute("type","checkbox");
     tag.setAttribute("name","ages[]");
+    tag.setAttribute("value","age"+age);
     tag.setAttribute("onclick","onlyOne(this,'ages[]')");
     element1.appendChild(tag);
 
@@ -318,6 +323,7 @@ function putAreaFilters(area,element){
     var tag = document.createElement("input");
     tag.setAttribute("type","checkbox");
     tag.setAttribute("name","areas[]");
+    tag.setAttribute("value",area);
     tag.setAttribute("onclick","onlyOne(this,'areas[]')");
     element1.appendChild(tag);
 

@@ -2,7 +2,7 @@
         function mapChart() {
             var item = document.getElementById('myChart');
             item.remove();
-            var tag = document.createElement("id");
+            var tag = document.createElement("div");
             tag.setAttribute("id","myChart");
             console.log(tag);
             var element = document.getElementById('foo');

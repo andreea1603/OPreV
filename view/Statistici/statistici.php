@@ -230,10 +230,10 @@ include('bar_Plotly.php');
             </div>
      
             <div class="generare" id="foo">
-                <canvas id="myChart"  width=240 height=240 style="background-color:#808080;"> <p></p></canvas>
+                <div id="myChart"  width=240 height=240 style="background-color:#808080;"> <p></p></div>
                 <script> tableChart(); </script>
             </div>
-            <?php //csvDownload($labels, $year, $bmi, $datasets); 
+            <?php
         
             getCsv($labels, $year, $bmi, $datasets); ?>
             <div class="butoane">
@@ -261,6 +261,11 @@ include('bar_Plotly.php');
 
     <div id="chart" width="800px"></div>
 
+<?php 
+    echo printSession();
+    print_r(checkBmi());
+    print_r(checkCountry());
+?>
 
     <footer class="fotr">
         <div class="footerAlign">

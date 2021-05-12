@@ -3,6 +3,8 @@
 include('../../model/init.php');
 include('../../model/functions.php');
 include('../../model/db-connect.php');
+include('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\controller\statistici-modelwho.php');
+
 ?>
 <html lang="en">
     <head>
@@ -30,14 +32,14 @@ include('../../model/db-connect.php');
                 <div class="leftmenu">
                     <h2>Filtre</h2>
                     <div class="filter">
-                        <form action="a">
+                        <form action="" onsubmit="checkAllwho();" method=post>
                             <h3>Indicator code</h3>
                             <select  id="indicatorCode" onclick="selectIndicator()">
                                 <option value="indicatorCode">Indicator code</option>
-                                <option value="indicatorCode1">Prevalence of obesity among children and adolescents</option>
-                                <option value="indicatorCode2">Obesity prevalence in non-pregnant women aged 15-49 years</option>
-                                <option value="indicatorCode3">Prevalence of obesity among adults(crude estimate)</option>
-                                <option value="indicatorCode4">Prevalence of obesity among adults(age-standardized estimate)</option>
+                                <option value="indicatorCode1" name="indicatorCode[]">Prevalence of obesity among children and adolescents</option>
+                                <option value="indicatorCode2" name="indicatorCode[]">Obesity prevalence in non-pregnant women aged 15-49 years</option>
+                                <option value="indicatorCode3" name="indicatorCode[]">Prevalence of obesity among adults(crude estimate)</option>
+                                <option value="indicatorCode4" name="indicatorCode[]">Prevalence of obesity among adults(age-standardized estimate)</option>
                             </select>
                             <h3>Spatial Dimension</h3>
                             <select  id="dimension" onclick="select()">
@@ -56,7 +58,7 @@ include('../../model/db-connect.php');
 
                                 </div>
                             </div>
-                            <input type="submit" value="Submit">
+                            <input type="submit" value="Submit" name="submit">
                         </form>
                     </div>
                 </div>
@@ -74,6 +76,16 @@ include('../../model/db-connect.php');
                 <div class="right-part">
                     <a href="../Statistici/statistici.php"><img id="logo" src="../../pictures/eurostatLogo.png" alt=""></a>
                 </div>
+                <?php 
+                echo printSession();
+
+                print_r(checkMare("checkCountry"));
+                print_r(checkMare("sexes"));
+                print_r(checkMare("ages"));
+                print_r(checkMare("areas"));
+                print_r(checkMare("years"));
+                print_r(checkMare("indiatorCode"));
+                ?>
             </section>
             <footer class="fotr">
                 <div class="footerAlign">
@@ -95,62 +107,6 @@ include('../../model/db-connect.php');
 
             <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
 <div width="10px" height="10px">
-<?php
 
-
-$labels=array();
-$datasets=array();
-$query="select geo.name, valori.valoare, geo.id from  geo, valori where valori.id=geo.id*3";
-$result=mysqli_query($conn, $query);
-echo "<br>";
-
-if (mysqli_num_rows($result)) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-      array_push($labels, $row["name"]);
-      array_push($datasets, $row["valoare"]);
-    }
-  } else {
-    echo "0 results";
-  }
-
-?>
-<script>
-
-    var labels1= <?php echo json_encode($labels);    ?>;
-    var datasets= <?php echo json_encode($datasets);  ?>;
-
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: labels1,
-            datasets: [{
-                label: 'bmi',
-                data: datasets,
-                barPercentage: 1.5,
-                maxBarThickness: 30,
-                minBarLength: 20,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-            }
-            ]
-        },
-    });
-</script>
     </body>
 </html>

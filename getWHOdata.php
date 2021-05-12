@@ -240,17 +240,23 @@ function set4(){
         <?php
         for($i=0; $i<count($decode["value"]); $i++){
 
-            
             $array=getValues($decode["value"][$i]["Value"]);
-
             $value=floatval($array[0]);
             $year=intval($decode["value"][$i]["TimeDim"]);
             $country=$decode["value"][$i]["SpatialDim"];
-            $sex=$decode["value"][$i]["Dim1"];
+            $area=$decode["value"][$i]["Dim1"];
 
-            echo $value.' '.$year.' '.$country.' '. $sex.'<br>';
-            $query="INSERT INTO `???` VALUES ( {$i}, '{$country}', {$value}, {$year}, '{$sex}' )";
+
+            echo $decode["value"][$i]["Value"];
+            
+            echo $value."&nbsp;&nbsp;&nbsp;&nbsp;
+            ".$year."&nbsp;&nbsp;&nbsp;&nbsp;
+            ".$country."&nbsp;&nbsp;&nbsp;&nbsp;
+            ". $area.'<br>';
+        //    if($value!="No data"){
+            $query="INSERT INTO `whowomen` VALUES ( {$i}, '{$country}', {$value}, {$year}, '{$area}' )";
             mysqli_query($conn, $query);
+        // }
         }
    }
 }
@@ -273,6 +279,6 @@ function set5(){
 //set1();
 //set2();
 //set3();
-//set4();
-set5();
+set4();
+//set5();
 ?>
