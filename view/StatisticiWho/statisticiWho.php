@@ -4,6 +4,7 @@ include('../../model/init.php');
 include('../../model/functions.php');
 include('../../model/db-connect.php');
 include('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\controller\statistici-modelwho.php');
+include('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\getDataByFilterType.php');
 
 ?>
 <html lang="en">
@@ -84,7 +85,16 @@ include('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\controller\statistici-modelwho.p
                 print_r(checkMare("ages"));
                 print_r(checkMare("areas"));
                 print_r(checkMare("years"));
-                print_r(checkMare("indiatorCode"));
+                print_r(checkMare("indicatorCode"));
+                echo "<br>";
+                echo "<br>";
+
+                echo "<br>";
+                echo "sunt aici";
+                echo "<br>";
+                echo "<br>";
+
+                getDataByFilter();
                 ?>
             </section>
             <footer class="fotr">

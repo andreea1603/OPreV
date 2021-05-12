@@ -61,7 +61,7 @@ function checkAllwho(){
     checkMare("ages");
     checkMare("areas");
     checkMare("years");
-    checkMare("indiatorCode");
+    checkMare("indicatorCode");
 }
 
 
