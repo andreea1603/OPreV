@@ -25,7 +25,7 @@ function dataForKids($spatialDimension, $chosenDimensions, $year, $sex, $ageCate
         whoage.year={$year} AND 
         whoage.sex='{$sex}' AND 
         whoage.age='{$ageCategory}'";
-                echo $query;
+           //     echo $query;
 
         $result = mysqli_query($conn, $query);
 
@@ -41,12 +41,9 @@ function dataForKids($spatialDimension, $chosenDimensions, $year, $sex, $ageCate
         }
 
     }
-    echo "labels<br>";
-    print_r($labels);
-    echo "values<br>";
-
-    print_r($values);
-    echo "pa!";
+  
+    //print_r($labels);
+    //print_r($values);
     //print_r($finalResult);
     return array($labels, $values);
 }
@@ -70,16 +67,14 @@ function dataForNonPregnantWomen($spatialDimension, $chosenDimensions, $year, $a
     $finalResult=[];
     for($i=0; $i<count($chosenDimensions); $i++)
     {
-        $query="SELECT whowomen.country, whowomenage.value FROM whowomenage WHERE 
+        $query="SELECT whowomen.country, whowomen.value FROM whowomen WHERE 
         country='{$chosenDimensions[$i]}' AND 
-        whowomenage.year={$year} AND 
-        whowomenage.area='{$areaType}'";
-                echo $query;
+        whowomen.year={$year} AND 
+        whowomen.area='{$areaType}'";
 
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result)) {
-
 
                 if ($row = mysqli_fetch_assoc($result)) {
                   //  $tuple=array($row['country'], $row['value']);
@@ -92,10 +87,10 @@ function dataForNonPregnantWomen($spatialDimension, $chosenDimensions, $year, $a
         //echo "am iesit";
 
     }
-    print_r($labels);
-    print_r($values);
-    echo "pa!";
+
    // print_r($finalResult);
+   //print_r($labels);
+   //print_r($values);
    return array($labels, $values);
 
 }
@@ -119,7 +114,7 @@ function dataForAdultsC($spatialDimension, $chosenDimensions, $year, $sex){
         country='{$chosenDimensions[$i]}' AND 
         whocrude.year={$year} AND 
         whocrude.sex='{$sex}'";
-                echo $query;
+         //       echo $query;
 
         $result = mysqli_query($conn, $query);
 
@@ -136,9 +131,9 @@ function dataForAdultsC($spatialDimension, $chosenDimensions, $year, $sex){
 
     }
    // print_r($finalResult);
-    print_r($labels);
-    print_r($values);
-    echo "pa!";
+ 
+   //print_r($labels);
+   //print_r($values);
     return array($labels, $values);
 
 }
@@ -161,7 +156,7 @@ function dataForAdults($spatialDimension, $chosenDimensions, $year, $sex){
         whoagestd.country='{$chosenDimensions[$i]}' AND 
         whoagestd.year={$year} AND 
         whoagestd.sex='{$sex}'";
-        echo $query;
+       // echo $query;
         
         $result = mysqli_query($conn, $query);
 
@@ -175,9 +170,9 @@ function dataForAdults($spatialDimension, $chosenDimensions, $year, $sex){
             }
         }
     }
-    print_r($labels);
-    print_r($values);
-    echo "pa!";
+    //print_r($labels);
+    //print_r($values);
+    //echo "pa!";
     return array($labels, $values);
 
 }

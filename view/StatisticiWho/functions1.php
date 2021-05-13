@@ -1,3 +1,7 @@
+<?php 
+include('../../getCountriesCode.php');
+?>
+<script>
 function select(){
     var e = document.getElementById("dimension");
     var text = e.options[e.selectedIndex].text;
@@ -30,12 +34,14 @@ function select(){
         tag.setAttribute("value","Select All");
         tag.setAttribute("id","button");
         
-        makeCountry("Romania","id"+1);
-        makeCountry("albania","id"+2);
-        makeCountry("rusia","id"+3);
-        makeCountry("Romania","id"+4);
-        makeCountry("albania","id"+5);
-        makeCountry("rusia","id"+6);
+        <?php $countries=getCode();?>
+
+        countries=<?php echo json_encode($countries[0]);?>;
+        codes=<?php echo json_encode($countries[1]);?>;
+
+        for(tara in countries){
+            makeCountry(countries[tara],codes[tara]);
+        }
 
         element.appendChild(tag);
     }
@@ -103,7 +109,7 @@ function makeCountry(country,id){
     var element2=document.getElementById(id);
     var tag = document.createElement("input");
     tag.setAttribute("type","checkbox");
-    tag.setAttribute("value",country);
+    tag.setAttribute("value",id);
     tag.setAttribute("name","checkCountry[]");
     element2.appendChild(tag);
 
@@ -158,9 +164,9 @@ function selectIndicator(){
         
         element3=document.getElementById("filtre2");
 
-        sexes=["Male","Female","Both"];
+        sexes=["MALE","FMLE","BTSX"];
         for(sex in sexes){
-            putSexFilters(sexes[sex],element3);
+            putSexFilters(getSex(sexes[sex]),element3);
         }
 
         //put age
@@ -176,7 +182,7 @@ function selectIndicator(){
         
         element3=document.getElementById("filtre3");
 
-        ages=["5-9","9-19","5-19","18+"];
+        ages=["05-09","05-19","10-19"];
         for(age in ages){
             putAgeFilters(ages[age],element3);
         }
@@ -247,9 +253,9 @@ function selectIndicator(){
                 
                 element3=document.getElementById("filtre2");
 
-                sexes=["Male","Female","Both"];
+                sexes=["MALE","FMLE","BTSX"];
                 for(sex in sexes){
-                    putSexFilters(sexes[sex],element3);
+                    putSexFilters(getSex(sexes[sex]),element3);
                 }
 
             }
@@ -280,12 +286,13 @@ function putSexFilters(sex,element){
     tag.setAttribute("id",sex);
     element.appendChild(tag);
 
+    sex1=["Male", "Female", "Both"];
     var element1=document.getElementById(sex);
 
     var tag = document.createElement("input");
     tag.setAttribute("type","checkbox");
     tag.setAttribute("name","sexes[]");
-    tag.setAttribute("value",sex);
+    tag.setAttribute("value",getSexR(sex));
     tag.setAttribute("onclick","onlyOne(this,'sexes[]')");
     element1.appendChild(tag);
 
@@ -294,17 +301,36 @@ function putSexFilters(sex,element){
     element1.appendChild(tag);
 
 }
+
+function getSexR(sex){
+
+    if(sex =="Male")
+        return "MALE";
+    if(sex =="Female")
+        return "FMLE";
+    return "BTSX";
+
+}
+function getSex(sex){
+
+    if(sex =="MALE")
+        return "Male";
+    if(sex =="FMLE")
+        return "Female";
+    return "Both";
+
+}
 function putAgeFilters(age,element){
     var tag = document.createElement("div");
-    tag.setAttribute("id","age"+age);
+    tag.setAttribute("id","S"+age);
     element.appendChild(tag);
 
-    var element1=document.getElementById("age"+age);
+    var element1=document.getElementById("S"+age);
 
     var tag = document.createElement("input");
     tag.setAttribute("type","checkbox");
     tag.setAttribute("name","ages[]");
-    tag.setAttribute("value","age"+age);
+    tag.setAttribute("value","S"+age);
     tag.setAttribute("onclick","onlyOne(this,'ages[]')");
     element1.appendChild(tag);
 
@@ -323,7 +349,7 @@ function putAreaFilters(area,element){
     var tag = document.createElement("input");
     tag.setAttribute("type","checkbox");
     tag.setAttribute("name","areas[]");
-    tag.setAttribute("value",area);
+    tag.setAttribute("value",convertArea(area));
     tag.setAttribute("onclick","onlyOne(this,'areas[]')");
     element1.appendChild(tag);
 
@@ -331,3 +357,12 @@ function putAreaFilters(area,element){
     tag.textContent=area;
     element1.appendChild(tag);
 }
+
+function convertArea(area){
+    if(area=="Rural")
+        return "RUR";
+    return "URB";
+
+}
+</script>
+
