@@ -2,7 +2,6 @@
 function checkMare($nume){
     $array=[];
 
-    echo $nume."<br>";
     if (isset($_POST['submit'])) {
 
         if (!empty($_POST[$nume])) {
@@ -10,14 +9,16 @@ function checkMare($nume){
             foreach ($_POST[$nume] as $value) {
                 array_push($array, $value);
             }
+        }else
+            array_push($array,"indicatorCode1");
+        
         }
-    }
+    else
+        array_push($array,"indicatorCode1");
     return $array;
-
 }
 
 function checkAllwho(){
-
     checkMare("checkCountry");
     checkMare("sexes");
     checkMare("ages");

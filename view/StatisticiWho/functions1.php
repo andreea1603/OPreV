@@ -164,7 +164,7 @@ function selectIndicator(){
         
         element3=document.getElementById("filtre2");
 
-        sexes=["MALE","FMLE","BTSX"];
+        sexes=["MLE","FMLE","BTSX"];
         for(sex in sexes){
             putSexFilters(getSex(sexes[sex]),element3);
         }
@@ -253,7 +253,7 @@ function selectIndicator(){
                 
                 element3=document.getElementById("filtre2");
 
-                sexes=["MALE","FMLE","BTSX"];
+                sexes=["MLE","FMLE","BTSX"];
                 for(sex in sexes){
                     putSexFilters(getSex(sexes[sex]),element3);
                 }
@@ -286,7 +286,6 @@ function putSexFilters(sex,element){
     tag.setAttribute("id",sex);
     element.appendChild(tag);
 
-    sex1=["Male", "Female", "Both"];
     var element1=document.getElementById(sex);
 
     var tag = document.createElement("input");
@@ -305,7 +304,7 @@ function putSexFilters(sex,element){
 function getSexR(sex){
 
     if(sex =="Male")
-        return "MALE";
+        return "MLE";
     if(sex =="Female")
         return "FMLE";
     return "BTSX";
@@ -313,7 +312,7 @@ function getSexR(sex){
 }
 function getSex(sex){
 
-    if(sex =="MALE")
+    if(sex =="MLE")
         return "Male";
     if(sex =="FMLE")
         return "Female";

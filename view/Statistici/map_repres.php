@@ -61,18 +61,17 @@
                 Plotly.newPlot("myChart", data, layout, {
                     showLink: false
                 }).then(
-function(gd){
-    Plotly.toImage(gd,{height:300,width:300})
-         .then(
-             function(url)
-         {
-             img_svg.attr("src", url);
- return Plotly.toImage(gd,{format:'jpg',height:800,width:800});
-         }
-         )
-}
-
-                );
-            });
-        }
+                    function(gd){
+                        Plotly.toImage(gd,{height:300,width:300})
+                            .then(
+                                function(url)
+                            {
+                                img_svg.attr("src", url);
+                    return Plotly.toImage(gd,{format:'jpg',height:800,width:800});
+                            }
+                            )
+                    }
+                    );
+                                });
+                            }
 </script>

@@ -249,8 +249,8 @@ include('bar_Plotly.php');
 
                 <div>
                     <a href="#" id="JPGDownload" onclick="prepHref(this)" download> JPG</a>
+                    <img id="jpg-export" class="dispare"></img>
                 </div>
-                <img id="jpg-export" class="dispare"></img>
 
 
                 <div><a href="#">SVG</a></div>
@@ -260,17 +260,6 @@ include('bar_Plotly.php');
             <a href="../StatisticiWho/statisticiWho.php"><img id="logo" src="../../pictures/whoLogo.jpg" alt=""></a>
         </div>
     </section>
-
-
-
-    <div id="chart" width="800px"></div>
-
-    <?php
-    echo printSession();
-    print_r(checkBmi());
-    print_r(checkCountry());
-    ?>
-
     <footer class="fotr">
         <div class="footerAlign">
             <ul>
