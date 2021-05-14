@@ -134,16 +134,23 @@ include('../../putInCsv1.php');
         type: 'scatter'
         };
 
+        var layout = {
+        autosize: false,
+        width : 900, 
+        height :600
+        };
+
         var data = [trace1];
 
-        Plotly.newPlot('myChart', data);
+
+        Plotly.newPlot('myChart', data, layout);
 
 }
 
 function barPlotly(){
 
     var colors=[];
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 100; i++) {
         colors.push('rgba(255, 99, 132, 0.2)');
         colors.push('rgba(255, 159, 64, 0.2)');
         colors.push('rgba(255, 205, 86, 0.2)');
@@ -182,6 +189,9 @@ function barPlotly(){
     var data = [trace1];
 
     var layout = {
+        autosize: false,
+        width : 900, 
+        height :600, 
     font:{
         family: 'Raleway, sans-serif'
     },
