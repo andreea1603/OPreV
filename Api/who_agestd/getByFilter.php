@@ -4,17 +4,18 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 //include ('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\model\db-connect.php');
 include('../../model/db-connect.php');
-include_once 'womenObesity.php';
+include_once 'agestdObesity.php';
   // Instantiate DB & connect
   // Instantiate blog category object
 
-  $category = new womenObesity($conn);
+  $category = new agestdObesity($conn);
 
   $category->id = isset($_GET['id']) ? $_GET['id'] : null;
+  $category->age = isset($_GET['spatialdim']) ? $_GET['spatialdim'] : null;
   $category->country = isset($_GET['country']) ? $_GET['country'] : null;
   $category->value = isset($_GET['value']) ? $_GET['value'] : null;
   $category->year = isset($_GET['year']) ? $_GET['year'] : null;
-  $category->area = isset($_GET['area']) ? $_GET['area'] : null;
+  $category->sex = isset($_GET['sex']) ? $_GET['sex'] : null;
 
   //echo "salutare";
   // Get post
@@ -32,10 +33,11 @@ include_once 'womenObesity.php';
   
         $item = array(
           'id' => $result[$i]['id'],
+          'spatialdim' => $result[$i]['spatialdim'],
           'country' => $result[$i]['country'],
           'value' => $result[$i]['value'],
           'year' => $result[$i]['year'],
-          'area' => $result[$i]['area'],
+          'sex' => $result[$i]['sex'],
         );
   
         array_push($label['data'], $item);

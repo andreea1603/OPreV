@@ -1,6 +1,6 @@
 <?php
 
-class crudeObesity{
+class agestdObesity{
 
     public $conn;
     public $table= 'whocrude';
@@ -19,7 +19,7 @@ class crudeObesity{
 
         $get_result=[];
 
-        $query='SELECT id, spatialdim, country, value, year, sex from whocrude order by id asc';
+        $query='SELECT id, spatialdim, country, value, year, sex from whoagestd order by id asc';
 
          $result = mysqli_query($this->conn, $query);
 
@@ -54,7 +54,7 @@ class crudeObesity{
     $array= array();
 
 
-    $query = "SELECT id,spatialdim, country, value, year, sex FROM whocrude WHERE ";
+    $query = "SELECT id,spatialdim, country, value, year, sex FROM whoagestd WHERE ";
 
     if ($this->id != null) {
       $filterSelected['id'] = 1;

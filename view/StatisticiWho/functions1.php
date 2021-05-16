@@ -65,12 +65,13 @@ function select(){
             tag.setAttribute("class","scroll");
             element.appendChild(tag);
             
-            makeCountry("Africa","id"+1);
-            makeCountry("Europa","id"+2);
-            makeCountry("Asia","id"+3);
-            makeCountry("America","id"+4);
-            makeCountry("Antarctica","id"+5);
-            makeCountry("Australia","id"+6);
+            makeCountry("Africa","AFR");
+            makeCountry("Americas","AMR");
+            makeCountry("Eastern Mediterranean","EMR");
+            makeCountry("Europe"," EUR");
+            makeCountry("South-East Asia","SEAR");
+            makeCountry("Western Pacific","WPR");
+            makeCountry("Global","Global");
         }
         else
             if(text==="World Bank Income"){
@@ -92,10 +93,10 @@ function select(){
                 tag.setAttribute("class","scroll");
                 element.appendChild(tag);
                 
-                makeCountry("WB_HI","id"+1);
-                makeCountry("WB_LI","id"+2);
-                makeCountry("WB_LMI","id"+3);
-                makeCountry("WB_UMI","id"+4);
+                makeCountry("High-income","WB_HI");
+                makeCountry("Low-income","WB_LI");
+                makeCountry("Lower-middle-income","WB_LMI");
+                makeCountry("Upper-middle-income","WB_UMI");
         }
         console.log(element);
 
@@ -145,9 +146,12 @@ function selectIndicator(){
         element2.appendChild(tag);
 
         var element3=document.getElementById("filtre1");
-        years=[2008,2009,2010,2011,2012];
-        for(year in years){
-            putYearFilters(years[year],element3);
+
+        <?php $yearss=getYearsByCode(1);?>
+
+        years1=<?php echo json_encode($yearss);?>;
+        for(year in years1){
+            putYearFilters(years1[year],element3);
         }
 
 
@@ -200,9 +204,12 @@ function selectIndicator(){
             element2.appendChild(tag);
 
             var element3=document.getElementById("filtre1");
-            years=[2008,2009,2010,2011,2012];
-            for(year in years){
-                putYearFilters(years[year],element3);
+            
+            <?php $yearss=getYearsByCode(2);?>
+
+            years1=<?php echo json_encode($yearss);?>;
+            for(year in years1){
+                putYearFilters(years1[year],element3);
             }
 
             //residence area
@@ -234,9 +241,15 @@ function selectIndicator(){
                 element2.appendChild(tag);
 
                 var element3=document.getElementById("filtre1");
-                years=[2008,2009,2010,2011,2012];
-                for(year in years){
-                    putYearFilters(years[year],element3);
+                if(text==="indicatorCode3"){
+                    <?php $yearss=getYearsByCode(3);?>;
+                }
+                else
+                    <?php $yearss=getYearsByCode(4);?>;
+
+                years1=<?php echo json_encode($yearss);?>;
+                for(year in years1){
+                    putYearFilters(years1[year],element3);
                 }
 
 

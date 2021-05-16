@@ -1,8 +1,8 @@
 <?php
 
 header('Access-Control-Allow-Origin: *');
-  header('Content-Type: application/json');
-  include ('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\model\db-connect.php');
+header('Content-Type: application/json');
+include('../../model/db-connect.php');
 
   include_once 'childrenObesity.php';
   // Instantiate DB & connect

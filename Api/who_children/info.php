@@ -5,7 +5,7 @@
  header('Content-Type: application/json');
  header('Access-Control-Allow-Methods: POST');
  header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization,X-Requested-With');
-include ('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\model\db-connect.php');
+ include('../../model/db-connect.php');
 // include_once 'Database.php';
  include_once 'childrenObesity.php';
  // Instantiate DB & connect

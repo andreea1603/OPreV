@@ -12,4 +12,28 @@ function getCode(){
     }
     return array($countries,$codes);
 }
+
+function getYearsByCode($code){
+    include('model/db-connect.php');
+    echo $code;
+    $years=array();
+    
+    if($code==1)
+        $query="Select distinct(year) from whoage";
+    else
+        if($code=2)
+            $query="Select distinct(year) from whowomen";
+        else
+            if($code==3)
+                $query="Select distinct(year) from whocrude";
+            else
+                $query="Select distinct(year) from whoagestd";
+
+    $result = mysqli_query($conn, $query);
+    while ($row = $result->fetch_assoc()) {
+        array_push($years,$row["year"]);
+    }
+    sort($years);
+    return $years;
+}
 ?>
