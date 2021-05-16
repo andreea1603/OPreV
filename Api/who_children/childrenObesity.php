@@ -6,7 +6,7 @@ class childrenObesity
   public $conn;
   public $table = 'whoage';
   public $id;
-  public $country;
+  public $country=[];
   public $value;
   public $year;
   public $sex;
@@ -71,11 +71,16 @@ class childrenObesity
 
     if ($this->country != null) {
       $filterSelected['country'] = 1;
-      if ($k == 0)
+      if ($k == 0){
+        /////////// country in ('', '', ...)
+        /////
         $query = $query . " country=? ";
+      }
+      
       else {
         $query = $query . " AND country=? ";
       }
+      /////de mutat types of params in for ul care parcurge si array push ul tot acolo
       $typeOfParams=$typeOfParams.'s';
       array_push($array, $this->country);
 
