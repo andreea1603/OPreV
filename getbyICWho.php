@@ -172,11 +172,13 @@ if ($typeOfFilter == "indicatorCode1") {
     $years = fromStringtoInt(checkMare("years")[0]);
     $ages = checkMare("ages")[0];
 
-
+    if($chosenDimension[0]=='indicatorCode1')
+        $chosenDimension=['ROU','RUS'];
+    print $chosenDimension[0];
     $category->sex = $sex;
     $category->year = $years;
     $category->age = $ages;
-    $category->country = $chosenDimension[0];
+    $category->country = $chosenDimension;
 
 
     //$result=dataForKids("", $chosenDimension, $years, $sex, $ages);
@@ -196,7 +198,7 @@ if ($typeOfFilter == "indicatorCode1") {
 
     $category4->year=$years;
     $category4->area=$area;
-    $category4->country=$chosenDimension[0];
+    $category4->country=$chosenDimension;
 
     $labelswho=[];
     $datasetswho=[];
@@ -211,10 +213,10 @@ if ($typeOfFilter == "indicatorCode1") {
     $chosenDimension = checkMare("checkCountry");
     $sex = checkMare("sexes")[0];
     $years = fromStringtoInt(checkMare("years")[0]);
-
+    
     $category3->year=$years;
     $category3->sex=$sex;
-    $category3->country=$chosenDimension[0];
+    $category3->country=$chosenDimension;
 
     $labelswho=[];
     $datasetswho=[];
@@ -234,7 +236,7 @@ if ($typeOfFilter == "indicatorCode1") {
 
     $category2->year=$years;
     $category2->sex=$sex;
-    $category2->country=$chosenDimension[0];
+    $category2->country=$chosenDimension;
 
     $labelswho=[];
     $datasetswho=[];
@@ -248,7 +250,7 @@ if ($typeOfFilter == "indicatorCode1") {
 
    // $result = dataForAdults("", $chosenDimension, $years, $sex);
 } 
-
+mapWho($labelswho,$datasetswho);
 
 
 

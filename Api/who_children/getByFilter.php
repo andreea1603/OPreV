@@ -13,7 +13,6 @@ $category = new childrenObesity($conn);
 // Get ID
 $category->id = isset($_GET['id']) ? $_GET['id'] : null;
 
-
 if (isset($_GET['country'])) {
 
   $countries = split($_GET['country']);
@@ -25,28 +24,15 @@ if (isset($_GET['country'])) {
   $category->country = null;
 }
 $category->value = isset($_GET['value']) ? $_GET['value'] : null;
-
 $category->year = isset($_GET['year']) ? $_GET['year'] : null;
-
 $category->sex = isset($_GET['sex']) ? $_GET['sex'] : null;
-
 $category->age = isset($_GET['age']) ? $_GET['age'] : null;
 
-//echo "salutare";
-// Get post
 $result = array();
-
 $result = $category->infoByFilter();
-
 $num = count($result);
 
-if ($category->age != null)
-  echo "mama" . $category->age . "cd";
-else
-  echo  "pa";
-
 if ($num > 0) {
-
   $label = array();
   $label['data'] = array();
   for ($i = 0; $i < $num; $i++) {
@@ -72,7 +58,6 @@ if ($num > 0) {
 
 echo "Resultatul este: ";
 print_r(split($category->country));
-
 
 function split($country)
 {

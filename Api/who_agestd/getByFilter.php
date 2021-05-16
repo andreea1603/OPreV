@@ -12,7 +12,18 @@ include_once 'agestdObesity.php';
 
   $category->id = isset($_GET['id']) ? $_GET['id'] : null;
   $category->age = isset($_GET['spatialdim']) ? $_GET['spatialdim'] : null;
-  $category->country = isset($_GET['country']) ? $_GET['country'] : null;
+  
+  if (isset($_GET['country'])) {
+
+    $countries = split($_GET['country']);
+
+    for ($i = 0; $i < count($countries); $i++) {
+      array_push($category->country, $countries[$i]);
+    }
+  } else {
+    $category->country = null;
+  }
+
   $category->value = isset($_GET['value']) ? $_GET['value'] : null;
   $category->year = isset($_GET['year']) ? $_GET['year'] : null;
   $category->sex = isset($_GET['sex']) ? $_GET['sex'] : null;
@@ -51,4 +62,24 @@ include_once 'agestdObesity.php';
     );
   }
 
+  function split($country)
+{
+  $countries = [];
+  $oneCountry = "";
+  if ($country[0] != '[') {
+    array_push($countries, $country);
+    return $countries;
+  } else {
+    for ($i = 1; $i < strlen($country); $i++) {
+
+      if ($country[$i] == ',' || $country[$i] == ']') {
+        array_push($countries, $oneCountry);
+        $oneCountry = "";
+      } else {
+        $oneCountry = $oneCountry . $country[$i];
+      }
+    }
+  }
+  return $countries;
+}
   ?>

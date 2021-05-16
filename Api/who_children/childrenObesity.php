@@ -68,27 +68,34 @@ class childrenObesity
       array_push($array, $this->id);
       $k++;
     }
-
+    echo $this->country[0];
     if ($this->country != null) {
-      $filterSelected['country'] = 1;
-      if ($k == 0){
-        /////////// country in ('', '', ...)
-        /////
-        $query = $query . " country=? ";
-      }
-      
-      else {
-        $query = $query . " AND country=? ";
-      }
-      /////de mutat types of params in for ul care parcurge si array push ul tot acolo
-      $typeOfParams=$typeOfParams.'s';
-      array_push($array, $this->country);
-
-      $k++;
+        $filterSelected['country'] = 1;
+        if ($k == 0){
+          $query= $query . " country in ( ?";
+        }
+        else {
+            $query = $query . " AND country in ( ?";
+        }
+        if(count($this->country)==1){
+          $query = $query . " )";
+          $typeOfParams=$typeOfParams.'s';
+        }
+        else{
+          array_push($array, $this->country[0]);
+          $typeOfParams=$typeOfParams.'s';
+          for($i=1;$i<count($this->country);$i++){
+            $query = $query . " , ?";
+            $typeOfParams=$typeOfParams.'s';
+            array_push($array, $this->country[$i]);
+          }
+          $query = $query . ")";
+        }
+          $k++;
     }
 
     if ($this->value != null) {
-      $filterSelected[2] = 1;
+      $filterSelected['value'] = 1;
       if ($k == 0)
         $query = $query . " value=? ";
       else {
@@ -101,7 +108,7 @@ class childrenObesity
     }
 
     if ($this->year != null) {
-      $filterSelected[3] = 1;
+      $filterSelected['year'] = 1;
       if ($k == 0)
         $query = $query . " year=? ";
 
@@ -115,7 +122,7 @@ class childrenObesity
     }
 
     if ($this->sex != null) {
-      $filterSelected[4] = 1;
+      $filterSelected['sex'] = 1;
       if ($k == 0)
         $query = $query . " sex=? ";
       else {
@@ -127,7 +134,7 @@ class childrenObesity
       $k++;
     }
     if ($this->age != null) {
-      $filterSelected[5] = 1;
+      $filterSelected['age'] = 1;
       if ($k == 0)
         $query = $query . " age=? ";
       else {

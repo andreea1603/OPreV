@@ -5,8 +5,8 @@ class crudeObesity{
     public $conn;
     public $table= 'whocrude';
     public $id;
-    public $spetialdim;
-    public $country;
+    public $spatialdim;
+    public $country=[];
     public $value;
     public $year;
     public $sex;
@@ -77,16 +77,40 @@ class crudeObesity{
     }
     if ($this->country != null) {
       $filterSelected['country'] = 1;
-      if ($k == 0)
-        $query = $query . " country=? ";
-      else {
-        $query = $query . " AND country=? ";
+      if ($k == 0){
+        $query= $query . " country in ( ?";
       }
-      $typeOfParams=$typeOfParams.'s';
-      array_push($array, $this->country);
+      else {
+          $query = $query . " AND country in ( ?";
+      }
+      
+      if(count($this->country)==1)
+        $query = $query . " )";
+      else{
+        array_push($array, $this->country[0]);
+        $typeOfParams=$typeOfParams.'s';
+        for($i=1;$i<count($this->country);$i++){
+          $query = $query . " , ?";
+          $typeOfParams=$typeOfParams.'s';
+          array_push($array, $this->country[$i]);
+        }
+        $query = $query . ")";
+      }
+        $k++;
+  }
 
-      $k++;
+  if ($this->value != null) {
+    $filterSelected[2] = 1;
+    if ($k == 0)
+      $query = $query . " value=? ";
+    else {
+      $query = $query . " AND value=? ";
     }
+    $typeOfParams=$typeOfParams.'d';
+    array_push($array, $this->value);
+
+    $k++;
+  }
 
     if ($this->value != null) {
       $filterSelected[2] = 1;
