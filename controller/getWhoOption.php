@@ -1,6 +1,7 @@
 <?php
 
-include('D:\Xamp\htdocs\proiect\OPreV\model\db-connect.php');
+
+include('..\model\db-connect.php');
 
 function getOption($filter){
 
@@ -8,7 +9,4 @@ function getOption($filter){
                 return $_GET[$filter];
         return null;
 }
-
-
-
 ?>
