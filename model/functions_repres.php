@@ -1,7 +1,9 @@
 <?php
-//include('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\controller\statistici-model.php');
-include('F:\xampp\htdocs\proiect\OPreV\controller\statistici-model.php');
-//include('../controller/statistici-model.php');
+
+$dir=__DIR__;
+$path1=substr($dir, 0, -5).'controller\statistici-model.php';
+include($path1);
+
 function getOverweightY($countries, $year)
 {
     include('db-connect.php');

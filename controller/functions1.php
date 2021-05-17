@@ -1,5 +1,8 @@
 <?php 
-include('../../getCountriesCode.php');
+$dir=__DIR__;
+$path=substr($dir, 0, -10).'\model\getDatafromDB.php';
+
+include($path);
 ?>
 <script>
 function select(){

@@ -9,9 +9,13 @@ include('bar_repres.php');
 include('line_repres.php');
 include('table_repres.php');
 include('map_repres.php');
-include('../../putInCsv1.php');
 include('line_Plotly.php');
 include('bar_Plotly.php');
+
+$dir=__DIR__;
+$path=substr($dir, 0, -16).'\model\putInCsv1.php';
+
+include($path);
 
 ?>
 <html lang="en">

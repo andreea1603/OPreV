@@ -3,6 +3,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include('../../model/db-connect.php');
+include('../../controller/getWhoOption.php');
 
 include_once 'childrenObesity.php';
 // Instantiate DB & connect
@@ -11,11 +12,16 @@ include_once 'childrenObesity.php';
 $category = new childrenObesity($conn);
 
 // Get ID
-$category->id = isset($_GET['id']) ? $_GET['id'] : null;
+$category->id = getOption('id');
+$category->value = getOption('value');
+$category->year = getOption('year');
+$category->sex = getOption('sex');
+$category->age = getOption('age');
 
-if (isset($_GET['country'])) {
 
-  $countries = split($_GET['country']);
+if (getOption('country') != null) {
+
+  $countries = split(getOption('country'));
 
   for ($i = 0; $i < count($countries); $i++) {
     array_push($category->country, $countries[$i]);
@@ -23,10 +29,6 @@ if (isset($_GET['country'])) {
 } else {
   $category->country = null;
 }
-$category->value = isset($_GET['value']) ? $_GET['value'] : null;
-$category->year = isset($_GET['year']) ? $_GET['year'] : null;
-$category->sex = isset($_GET['sex']) ? $_GET['sex'] : null;
-$category->age = isset($_GET['age']) ? $_GET['age'] : null;
 
 $result = array();
 $result = $category->infoByFilter();

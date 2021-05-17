@@ -1,43 +1,47 @@
 <?php
 
-class agestdObesity{
+class agestdObesity
+{
 
-    public $conn;
-    public $table= 'whocrude';
-    public $id;
-    public $spetialdim;
-    public $country=[];
-    public $value;
-    public $year;
-    public $sex;
+  public $conn;
+  public $table = 'whocrude';
+  public $id;
+  public $spatialdim=null;
+  public $country = [];
+  public $value;
+  public $year;
+  public $sex;
 
-    public function __construct($db) {
-        $this->conn = $db;
+  public function __construct($db)
+  {
+    $this->conn = $db;
+  }
+
+  public function getInfo()
+  {
+
+    $get_result = [];
+
+    $query = 'SELECT id, spatialdim, country, value, year, sex from whoagestd order by id asc';
+
+    $result = mysqli_query($this->conn, $query);
+
+
+    $n = $result->num_rows;
+
+    for ($i = 0; $i < $n; $i++)
+      if (mysqli_num_rows($result)) {
+        if ($row = mysqli_fetch_assoc($result)) {
+          array_push($get_result, $row);
+        }
       }
 
-      public function getInfo(){
+    return $get_result;
+  }
 
-        $get_result=[];
-
-        $query='SELECT id, spatialdim, country, value, year, sex from whoagestd order by id asc';
-
-         $result = mysqli_query($this->conn, $query);
-
-
-         $n= $result->num_rows;
-
-         for($i=0; $i<$n; $i++)
-         if (mysqli_num_rows($result)) {
-                 if ($row = mysqli_fetch_assoc($result)) {
-                    array_push($get_result, $row);
-             }
-         }
-   
-         return $get_result;
-      }
-
-    public function infoByFilter(){
-      // Create query
+  public function infoByFilter()
+  {
+    // Create query
     $result = array();
 
     $filterSelected = array();
@@ -49,8 +53,8 @@ class agestdObesity{
     $filterSelected['sex'] = 0;
     $k = 0;
 
-    $typeOfParams='';
-    $array= array();
+    $typeOfParams = '';
+    $array = array();
 
 
     $query = "SELECT id,spatialdim, country, value, year, sex FROM whoagestd WHERE ";
@@ -58,7 +62,7 @@ class agestdObesity{
     if ($this->id != null) {
       $filterSelected['id'] = 1;
       $query = $query . "id=? ";
-      $typeOfParams=$typeOfParams.'d';
+      $typeOfParams = $typeOfParams . 'd';
       array_push($array, $this->id);
       $k++;
     }
@@ -69,48 +73,34 @@ class agestdObesity{
       else {
         $query = $query . " AND spatialdim=? ";
       }
-      $typeOfParams=$typeOfParams.'s';
+      $typeOfParams = $typeOfParams . 's';
       array_push($array, $this->spatialdim);
 
       $k++;
     }
-    
+
     if ($this->country != null) {
       $filterSelected['country'] = 1;
-      if ($k == 0){
-        $query= $query . " country in ( ?";
+      if ($k == 0) {
+        $query = $query . " country in ( ?";
+      } else {
+        $query = $query . " AND country in ( ?";
       }
-      else {
-          $query = $query . " AND country in ( ?";
-      }
-      
-      if(count($this->country)==1)
+
+      if (count($this->country) == 1)
         $query = $query . " )";
-      else{
+      else {
         array_push($array, $this->country[0]);
-        $typeOfParams=$typeOfParams.'s';
-        for($i=1;$i<count($this->country);$i++){
+        $typeOfParams = $typeOfParams . 's';
+        for ($i = 1; $i < count($this->country); $i++) {
           $query = $query . " , ?";
-          $typeOfParams=$typeOfParams.'s';
+          $typeOfParams = $typeOfParams . 's';
           array_push($array, $this->country[$i]);
         }
         $query = $query . ")";
       }
-        $k++;
-  }
-
-  if ($this->value != null) {
-    $filterSelected[2] = 1;
-    if ($k == 0)
-      $query = $query . " value=? ";
-    else {
-      $query = $query . " AND value=? ";
+      $k++;
     }
-    $typeOfParams=$typeOfParams.'d';
-    array_push($array, $this->value);
-
-    $k++;
-  }
 
     if ($this->value != null) {
       $filterSelected[2] = 1;
@@ -119,7 +109,20 @@ class agestdObesity{
       else {
         $query = $query . " AND value=? ";
       }
-      $typeOfParams=$typeOfParams.'d';
+      $typeOfParams = $typeOfParams . 'd';
+      array_push($array, $this->value);
+
+      $k++;
+    }
+
+    if ($this->value != null) {
+      $filterSelected[2] = 1;
+      if ($k == 0)
+        $query = $query . " value=? ";
+      else {
+        $query = $query . " AND value=? ";
+      }
+      $typeOfParams = $typeOfParams . 'd';
       array_push($array, $this->value);
 
       $k++;
@@ -133,7 +136,7 @@ class agestdObesity{
       else {
         $query = $query . " AND year=? ";
       }
-      $typeOfParams=$typeOfParams.'d';
+      $typeOfParams = $typeOfParams . 'd';
       array_push($array, $this->year);
 
       $k++;
@@ -146,22 +149,22 @@ class agestdObesity{
       else {
         $query = $query . " AND sex=? ";
       }
-      $typeOfParams=$typeOfParams.'s';
+      $typeOfParams = $typeOfParams . 's';
       array_push($array, $this->sex);
 
       $k++;
     }
-    
-    $types =array();
-    $types=['id', 'spatialdim','country', 'value', 'year', 'sex'];
-    
+
+    $types = array();
+    $types = ['id', 'spatialdim', 'country', 'value', 'year', 'sex'];
+
     $get_result = array();
     if ($stmt = mysqli_prepare($this->conn, $query)) {
-      
-      foreach(array_keys($filterSelected) as $key){
-          if($filterSelected[$key]==1)
-                  mysqli_stmt_bind_param($stmt, $typeOfParams, ...$array);
-          }
+
+      foreach (array_keys($filterSelected) as $key) {
+        if ($filterSelected[$key] == 1)
+          mysqli_stmt_bind_param($stmt, $typeOfParams, ...$array);
+      }
       mysqli_stmt_execute($stmt);
 
       $result = mysqli_stmt_get_result($stmt);
@@ -170,8 +173,7 @@ class agestdObesity{
         array_push($get_result, $row);
       }
     }
-      
+
     return $get_result;
-    }
+  }
 }
-?>

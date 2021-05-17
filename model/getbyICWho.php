@@ -1,11 +1,21 @@
 <?php
-include_once 'Api/who_children/childrenObesity.php';
-include_once 'Api/who_agestd/agestdObesity.php';
-include_once 'Api/who_crude/crudeObesity.php';
-include_once 'Api/who_women/womenObesity.php';
 
+$dir=__DIR__;
 
-include('controller/statistici-modelwho.php');
+$path1=substr($dir, 0, -5).'controller\statistici-modelwho.php';
+include($path1);
+$path=substr($dir, 0, -5).'Api\who_children\childrenObesity.php';
+include_once $path;
+$path=substr($dir, 0, -5).'Api\who_agestd\agestdObesity.php';
+include_once $path;
+$path=substr($dir, 0, -5).'Api\who_crude\crudeObesity.php';
+include_once $path;
+$path=substr($dir, 0, -5).'Api\who_women\womenObesity.php';
+include_once $path;
+//include('..\controller\statistici-modelwho.php');
+//include('D:\Xamp\htdocs\proiect\OPreV\controller\statistici-modelwho.php');
+
+/*
 function dataForKids($spatialDimension, $chosenDimensions, $year, $sex, $ageCategory)
 {
     include('model/db-connect.php');
@@ -145,14 +155,12 @@ function getDataByFilter()
     return $result;
 }
 
-
+*/
 $raspuns=makeURL();
 $url=$raspuns;
 $ch= curl_init();
 curl_setopt($ch,CURLOPT_URL,$url);
 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-
-echo $url."<br>.";
 
 $resp = curl_exec($ch);
 if($e=curl_error($ch)){
@@ -161,18 +169,18 @@ if($e=curl_error($ch)){
 }
 else{
     $decode = json_decode($resp, true);
-    echo 'AICIII';
+    $labelswho=null;
+    $datasetswho=null;
     $labelswho=[];
     $datasetswho=[];
-    if(isset($decode["data"]))
+    if(isset($decode['data']))
         for($i=0;$i<count($decode['data']);$i++){
             
             array_push($labelswho,$decode['data'][$i]['country']);
             array_push($datasetswho,$decode['data'][$i]['value']);
         }
-    else
-        echo "sefule nu mg";
-    echo 'AICI DUPA';
+    //else TODO
+
     }
 mapWho($labelswho,$datasetswho);
 function makeURL(){
@@ -194,7 +202,6 @@ function makeURL(){
         foreach($chosenDimension as $country)
             $url=$url.$country.",";
         $url=$url."]";
-        //echo $url;
 
     }else if ($typeOfFilter == "indicatorCode2") {
         $chosenDimension = checkMare("checkCountry");
@@ -211,7 +218,7 @@ function makeURL(){
         $sex = checkMare("sexes")[0];
         $years = fromStringtoInt(checkMare("years")[0]);
 
-        $url=$url."who_children/getByFilter.php?";
+        $url=$url."who_crude/getByFilter.php?";
         $url=$url."year=".$years."&sex=".$sex."&country=[";
         foreach($chosenDimension as $country)
             $url=$url.$country.",";
@@ -222,7 +229,7 @@ function makeURL(){
         $sex = checkMare("sexes")[0];
         $years = fromStringtoInt(checkMare("years")[0]);
 
-        $url=$url."who_children/getByFilter.php?";
+        $url=$url."who_agestd/getByFilter.php?";
         $url=$url."year=".$years."&sex=".$sex."&country=[";
         foreach($chosenDimension as $country)
             $url=$url.$country.",";

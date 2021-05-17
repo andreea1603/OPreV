@@ -4,17 +4,25 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 //include ('D:\Xamp\htdocs\PROIECT_TW\OPreV2\OPreV\model\db-connect.php');
 include('../../model/db-connect.php');
+include('../../controller/getWhoOption.php');
+
 include_once 'womenObesity.php';
   // Instantiate DB & connect
   // Instantiate blog category object
 
   $category = new womenObesity($conn);
 
-  $category->id = isset($_GET['id']) ? $_GET['id'] : null;
-  
-  if (isset($_GET['country'])) {
 
-    $countries = split($_GET['country']);
+
+  $category->id = getOption('id');
+  $category->area =getOption('area');
+  $category->value = getOption('value');
+  $category->year = getOption('year');
+
+  
+  if ( getOption('country')!=null) {
+
+    $countries = split(getOption('country'));
 
     for ($i = 0; $i < count($countries); $i++) {
       array_push($category->country, $countries[$i]);
@@ -22,9 +30,6 @@ include_once 'womenObesity.php';
   } else {
     $category->country = null;
   }
-  $category->value = isset($_GET['value']) ? $_GET['value'] : null;
-  $category->year = isset($_GET['year']) ? $_GET['year'] : null;
-  $category->area = isset($_GET['area']) ? $_GET['area'] : null;
 
   $result =array();
 

@@ -1,21 +1,15 @@
 <?php
 
- // Headers
  header('Access-Control-Allow-Origin: *');
  header('Content-Type: application/json');
  header('Access-Control-Allow-Methods: POST');
  header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization,X-Requested-With');
  include('../../model/db-connect.php');
-// include_once 'Database.php';
  include_once 'childrenObesity.php';
- // Instantiate DB & connect
-// $database = new Database();
 
- //$db = $database->connect();
 
  $db=$conn;
- // Instantiate blog post object
- $$category = new childrenObesity($db);
+ $category = new childrenObesity($db);
 
  $result = $category->getInfo();
 

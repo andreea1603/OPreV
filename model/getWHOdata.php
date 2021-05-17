@@ -1,9 +1,7 @@
 <?php
-
-
 function set1(){
-    include('model/db-connect.php');
-    include('model/init.php');
+    include('db-connect.php');
+    include('init.php');
     $ch= curl_init();
     $url='https://ghoapi.azureedge.net/api/NCD_BMI_PLUS2C';
 
@@ -17,28 +15,12 @@ function set1(){
     $i=0;
     $resp = curl_exec($ch);
     if($e=curl_error($ch)){
-
         echo $e;
     }
     else{
         $decode = json_decode($resp, true);
-        //print_r($decode);
 
-        echo "aici sunt codurile + numele pt tipurile de obezitate";
-        ?>
-    <br>
-        <?php
-        echo count($decode["value"])."<br>";
-        print_r($decode["value"][0]["Id"]);
-
-
-        //count($decode["value"])
         for($i=50589; $i<count($decode["value"]); $i++){
-
-            echo $decode["value"][$i]["SpatialDim"].", ".$decode["value"][$i]["Value"].", ".$decode["value"][$i]["TimeDim"].",
-            ".$decode["value"][$i]["Dim1"]
-        .", ".$decode["value"][$i]["Dim2"]."<br>";
-
 
             getValues($decode["value"][$i]["Value"]);
             $value=getValues($decode["value"][$i]["Value"])[0];
@@ -56,41 +38,34 @@ function set1(){
 
             $query="INSERT INTO `whoage` VALUES ( {$i}, '{$country}', {$value}, {$year}, '{$sex}', '{$age}' )";
             
-            echo "<br>";
-            echo $query;
-            echo "<br>";
-
-            if(mysqli_query($conn, $query))
-                echo "salut";
-        
-
-            echo "am iesit";
+            mysqli_query($conn, $query);
+                
         }
         curl_close($ch);
     }
 }
-function get_Data_Filter(){
-    include('model/db-connect.php');
-    include('model/init.php');
+// function get_Data_Filter(){
+//     include('db-connect.php');
+//     include('init.php');
     
-    $query_name = "select id, value, year from datewho where year=2007 and sex='MLE'  ";
+//     $query_name = "select id, value, year from datewho where year=2007 and sex='MLE'  ";
 
-    $result= mysqli_query($conn, $query_name);
+//     $result= mysqli_query($conn, $query_name);
 
-    for( $i=0; $i< mysqli_num_rows($result); $i++)
-    {
-        if ($row = mysqli_fetch_assoc($result)) {
+//     for( $i=0; $i< mysqli_num_rows($result); $i++)
+//     {
+//         if ($row = mysqli_fetch_assoc($result)) {
            
-            echo $row['value'];
-            echo ", ";
-            echo $row['id'];
-            echo "<br>";
+//             echo $row['value'];
+//             echo ", ";
+//             echo $row['id'];
+//             echo "<br>";
         
-    }
-        echo "am iesit din bucla";
-        echo "<br>";
-    }
-}
+//     }
+//         echo "am iesit din bucla";
+//         echo "<br>";
+//     }
+// }
 function getValues($text){
 
         $firstValue='';
@@ -127,13 +102,9 @@ function getValues($text){
 
     }
 
-
-
-
-
 function set2(){
-    include('model/db-connect.php');
-    include('model/init.php');
+    include('db-connect.php');
+    include('init.php');
     $ch= curl_init();
     $url="https://ghoapi.azureedge.net/api/NCD_BMI_30A";
     
@@ -147,20 +118,14 @@ function set2(){
     $i=0;
     $resp = curl_exec($ch);
     if($e=curl_error($ch)){
-    
         echo $e;
     }
     else{
         $decode = json_decode($resp, true);
-        ?>
-    <br>
-        <?php
+        
         for($i=0; $i<count($decode["value"]); $i++){
 
-            echo $decode["value"][$i]["SpatialDim"].", ".$decode["value"][$i]["Value"].", ".$decode["value"][$i]["TimeDim"].",
-            ".$decode["value"][$i]["Dim1"]."<br>";
-            $array=getValues($decode["value"][$i]["Value"]);
-            
+            $array=getValues($decode["value"][$i]["Value"]);     
             $value=floatval($array[0]);
             $year=intval($decode["value"][$i]["TimeDim"]);
             $country=$decode["value"][$i]["SpatialDim"];
@@ -173,8 +138,8 @@ function set2(){
    }
 }
 function set3(){
-    include('model/db-connect.php');
-    include('model/init.php');
+    include('db-connect.php');
+    include('init.php');
     $ch= curl_init();
     $url="https://ghoapi.azureedge.net/api/NCD_BMI_30C";
     
@@ -193,30 +158,24 @@ function set3(){
     }
     else{
         $decode = json_decode($resp, true);
-        ?>
-    <br>
-        <?php
+    
         for($i=0; $i<count($decode["value"]); $i++){
 
-            
             $array=getValues($decode["value"][$i]["Value"]);
-
             $value=floatval($array[0]);
             $year=intval($decode["value"][$i]["TimeDim"]);
             $country=$decode["value"][$i]["SpatialDim"];
             $sex=$decode["value"][$i]["Dim1"];
             $spatial_dim=$decode["value"][$i]["SpatialDimType"];
 
-            //echo $value.' '.$year.' '.$country.' '. $sex.'<br>';
             $query="INSERT INTO `whocrude` VALUES ( {$i}, '{$spatial_dim}','{$country}', {$value}, {$year}, '{$sex}' )";
-            //echo $query;
             mysqli_query($conn, $query);
         }
    }
 }
 function set4(){
-    include('model/db-connect.php');
-    include('model/init.php');
+    include('db-connect.php');
+    include('init.php');
     $ch= curl_init();
     $url="https://ghoapi.azureedge.net/api/obesewm";
     
@@ -230,7 +189,6 @@ function set4(){
     $i=0;
     $resp = curl_exec($ch);
     if($e=curl_error($ch)){
-    
         echo $e;
     }
     else{
@@ -243,26 +201,16 @@ function set4(){
             $array=getValues($decode["value"][$i]["Value"]);
             $value=floatval($array[0]);
             $year=intval($decode["value"][$i]["TimeDim"]);
-            $country=$decode["value"][$i]["SpatialDim"];
+            // $country=$decode["value"][$i]["SpatialDim"];
             $area=$decode["value"][$i]["Dim1"];
-
-
-            echo $decode["value"][$i]["Value"];
-            
-            echo $value."&nbsp;&nbsp;&nbsp;&nbsp;
-            ".$year."&nbsp;&nbsp;&nbsp;&nbsp;
-            ".$country."&nbsp;&nbsp;&nbsp;&nbsp;
-            ". $area.'<br>';
-        //    if($value!="No data"){
             $query="INSERT INTO `whowomen` VALUES ( {$i}, '{$country}', {$value}, {$year}, '{$area}' )";
             mysqli_query($conn, $query);
-        // }
         }
    }
 }
 function set5(){
-    include('model/db-connect.php');
-    include('model/init.php');
+    include('db-connect.php');
+    include('init.php');
     $index=1;
     $str = file_get_contents('tari.json');
     $json = json_decode($str, true);
@@ -270,7 +218,6 @@ function set5(){
         $nume=$js["Country"];
         $code2=$js["Alpha-2 code"];
         $code3=$js["Alpha-3 code"];
-        //id int primary key,nume varchar(100),code2 varchar(10), code3 varchar2(10)
         $query="INSERT INTO `countries` VALUES ( {$index}, '{$nume}' , '{$code2}' , '{$code3}' )";
         mysqli_query($conn, $query);
         $index++;
@@ -280,5 +227,5 @@ function set5(){
 //set2();
 //set3();
 //set4();
-set5();
+//set5();
 ?>

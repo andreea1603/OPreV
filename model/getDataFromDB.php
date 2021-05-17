@@ -1,6 +1,6 @@
 <?php
 function getCode(){
-    include('model/db-connect.php');
+    include('db-connect.php');
 
     $countries=array();
     $codes=array();
@@ -14,7 +14,7 @@ function getCode(){
 }
 
 function getYearsByCode($code){
-    include('model/db-connect.php');
+    include('db-connect.php');
     echo $code;
     $years=array();
     
