@@ -25,7 +25,6 @@ class agestdObesity{
 
 
          $n= $result->num_rows;
-         echo $n;
 
          for($i=0; $i<$n; $i++)
          if (mysqli_num_rows($result)) {
@@ -153,24 +152,11 @@ class agestdObesity{
       $k++;
     }
     
-
-    echo $query;
-
-    echo $typeOfParams;
     $types =array();
     $types=['id', 'spatialdim','country', 'value', 'year', 'sex'];
-
-
-    foreach($filterSelected as $filter){
-
-      echo $filter;
-    }
-
-    print_r($array);
     
     $get_result = array();
     if ($stmt = mysqli_prepare($this->conn, $query)) {
-      echo "K este:  ".$k.'\n';
       
       foreach(array_keys($filterSelected) as $key){
           if($filterSelected[$key]==1)

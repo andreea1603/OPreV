@@ -24,7 +24,6 @@ class womenObesity{
 
 
          $n= $result->num_rows;
-         echo $n;
 
          for($i=0; $i<$n; $i++)
          if (mysqli_num_rows($result)) {
@@ -54,8 +53,6 @@ class womenObesity{
 
         $query = "SELECT id, country, value, year, area from whowomen WHERE ";
         
-        echo $this->country;
-        echo $this->area;
         if ($this->id != null) {
           $filterSelected['id'] = 1;
           $query = $query . "id=? ";
@@ -140,24 +137,12 @@ class womenObesity{
           $k++;
         }
         
-
-        echo $query;
-
-        echo $typeOfParams;
         $types =array();
         $types=['id','country', 'value', 'year', 'area'];
 
-
-        foreach($filterSelected as $filter){
-
-          echo $filter;
-        }
-
-        print_r($array);
         
         $get_result = array();
         if ($stmt = mysqli_prepare($this->conn, $query)) {
-          echo "K este:  ".$k.'\n';
           
           foreach(array_keys($filterSelected) as $key){
               if($filterSelected[$key]==1)

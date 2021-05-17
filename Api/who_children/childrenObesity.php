@@ -68,7 +68,6 @@ class childrenObesity
       array_push($array, $this->id);
       $k++;
     }
-    echo $this->country[0];
     if ($this->country != null) {
         $filterSelected['country'] = 1;
         if ($k == 0){
@@ -146,22 +145,11 @@ class childrenObesity
       $k++;
     }
 
-    echo $query;
-
-    echo $typeOfParams;
     $types =array();
     $types=['id', 'country', 'value', 'year', 'sex', 'age'];
 
 
-    foreach($filterSelected as $filter){
-
-      echo $filter;
-    }
-
-    print_r($array);
-
     if ($stmt = mysqli_prepare($this->conn, $query)) {
-      echo "K este:  ".$k.'\n';
       
       foreach(array_keys($filterSelected) as $key){
           if($filterSelected[$key]==1)

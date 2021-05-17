@@ -146,111 +146,90 @@ function getDataByFilter()
 }
 
 
-/*
-    $result=getDataByFilter();
-    $labelswho= $result[0];
-    $datasetswho= $result[1];
+$raspuns=makeURL();
+$url=$raspuns;
+$ch= curl_init();
+curl_setopt($ch,CURLOPT_URL,$url);
+curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 
-*/
+echo $url."<br>.";
 
+$resp = curl_exec($ch);
+if($e=curl_error($ch)){
 
-$db = $conn;
-$category = new childrenObesity($db);  
-$category2= new agestdObesity($db);
-$category3= new crudeObesity($db);
-$category4= new womenObesity($db);
-
-$typeOfFilter = checkMare("indicatorCode")[0];
-
-//$typeOfFilter = "indicatorCode1";
-if ($typeOfFilter == "indicatorCode1") {
-
-    $chosenDimension = checkMare("checkCountry");
-    $sex = checkMare("sexes")[0];
-
-    $valoare = checkMare("years")[0];
-    $years = fromStringtoInt(checkMare("years")[0]);
-    $ages = checkMare("ages")[0];
-
-    if($chosenDimension[0]=='indicatorCode1')
-        $chosenDimension=['ROU','RUS'];
-    print $chosenDimension[0];
-    $category->sex = $sex;
-    $category->year = $years;
-    $category->age = $ages;
-    $category->country = $chosenDimension;
-
-
-    //$result=dataForKids("", $chosenDimension, $years, $sex, $ages);
-
+    echo $e;
+}
+else{
+    $decode = json_decode($resp, true);
+    echo 'AICIII';
     $labelswho=[];
     $datasetswho=[];
-    $result = $category->infoByFilter();
-    $num = count($result);
-    for ($i = 0; $i < $num; $i++) {
-        array_push($labelswho, $result[$i]['country']);
-        array_push($datasetswho, $result[$i]['value']);
+    if(isset($decode["data"]))
+        for($i=0;$i<count($decode['data']);$i++){
+            
+            array_push($labelswho,$decode['data'][$i]['country']);
+            array_push($datasetswho,$decode['data'][$i]['value']);
+        }
+    else
+        echo "sefule nu mg";
+    echo 'AICI DUPA';
     }
-}else if ($typeOfFilter == "indicatorCode2") {
-    $chosenDimension = checkMare("checkCountry");
-    $years = fromStringtoInt(checkMare("years")[0]);
-    $area = checkMare("areas")[0];
-
-    $category4->year=$years;
-    $category4->area=$area;
-    $category4->country=$chosenDimension;
-
-    $labelswho=[];
-    $datasetswho=[];
-    $result = $category4->infoByFilter();
-    $num = count($result);
-    for ($i = 0; $i < $num; $i++) {
-        array_push($labelswho, $result[$i]['country']);
-        array_push($datasetswho, $result[$i]['value']);
-
-    }
-}else if ($typeOfFilter == "indicatorCode3") {
-    $chosenDimension = checkMare("checkCountry");
-    $sex = checkMare("sexes")[0];
-    $years = fromStringtoInt(checkMare("years")[0]);
-    
-    $category3->year=$years;
-    $category3->sex=$sex;
-    $category3->country=$chosenDimension;
-
-    $labelswho=[];
-    $datasetswho=[];
-    $result = $category3->infoByFilter();
-    $num = count($result);
-    for ($i = 0; $i < $num; $i++) {
-        array_push($labelswho, $result[$i]['country']);
-        array_push($datasetswho, $result[$i]['value']);
-
-    }
-
-    //$result = dataForAdultsC("", $chosenDimension, $years, $sex);
-} else {
-    $chosenDimension = checkMare("checkCountry");
-    $sex = checkMare("sexes")[0];
-    $years = fromStringtoInt(checkMare("years")[0]);
-
-    $category2->year=$years;
-    $category2->sex=$sex;
-    $category2->country=$chosenDimension;
-
-    $labelswho=[];
-    $datasetswho=[];
-    $result = $category2->infoByFilter();
-    $num = count($result);
-    for ($i = 0; $i < $num; $i++) {
-        array_push($labelswho, $result[$i]['country']);
-        array_push($datasetswho, $result[$i]['value']);
-
-    }
-
-   // $result = dataForAdults("", $chosenDimension, $years, $sex);
-} 
 mapWho($labelswho,$datasetswho);
+function makeURL(){
+
+    $typeOfFilter = checkMare("indicatorCode")[0];
+    $url="http://localhost/proiect/OPreV/Api/";
+    //$typeOfFilter = "indicatorCode1";
+    if ($typeOfFilter == "indicatorCode1") {
+        
+        $chosenDimension = checkMare("checkCountry");
+        $sex = checkMare("sexes")[0];
+
+        $years = fromStringtoInt(checkMare("years")[0]);
+        $ages = checkMare("ages")[0];
+        
+
+        $url=$url."who_children/getByFilter.php?";
+        $url=$url."year=".$years."&sex=".$sex."&age=".$ages."&country=[";
+        foreach($chosenDimension as $country)
+            $url=$url.$country.",";
+        $url=$url."]";
+        //echo $url;
+
+    }else if ($typeOfFilter == "indicatorCode2") {
+        $chosenDimension = checkMare("checkCountry");
+        $years = fromStringtoInt(checkMare("years")[0]);
+        $area = checkMare("areas")[0];
+
+        $url=$url."who_women/getByFilter.php?";
+        $url=$url."year=".$years."&area=".$area."&country=[";
+        foreach($chosenDimension as $country)
+            $url=$url.$country.",";
+        $url=$url."]";
+    }else if ($typeOfFilter == "indicatorCode3") {
+        $chosenDimension = checkMare("checkCountry");
+        $sex = checkMare("sexes")[0];
+        $years = fromStringtoInt(checkMare("years")[0]);
+
+        $url=$url."who_children/getByFilter.php?";
+        $url=$url."year=".$years."&sex=".$sex."&country=[";
+        foreach($chosenDimension as $country)
+            $url=$url.$country.",";
+        $url=$url."]";
+
+    } else {
+        $chosenDimension = checkMare("checkCountry");
+        $sex = checkMare("sexes")[0];
+        $years = fromStringtoInt(checkMare("years")[0]);
+
+        $url=$url."who_children/getByFilter.php?";
+        $url=$url."year=".$years."&sex=".$sex."&country=[";
+        foreach($chosenDimension as $country)
+            $url=$url.$country.",";
+        $url=$url."]";
+    }
+    return $url;
+}
 
 
 

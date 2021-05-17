@@ -56,8 +56,6 @@ if ($num > 0) {
   );
 }
 
-echo "Resultatul este: ";
-print_r(split($category->country));
 
 function split($country)
 {

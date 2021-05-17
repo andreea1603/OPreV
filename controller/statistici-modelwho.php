@@ -33,8 +33,6 @@ function mapWho($labels,$datasets){
     $path1=substr($dir, 0, -10).'\view\StatisticiWho\resources\data.csv';
     $path2=substr($dir, 0, -10).'\view\StatisticiWho\resources\temporary.csv';
 
-    echo 'salut';
-    print($labels[0]);
     $input = fopen($path1, 'r');
     $output = fopen($path2, 'w');
     $data = fgetcsv($input);

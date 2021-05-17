@@ -26,8 +26,6 @@ include_once 'womenObesity.php';
   $category->year = isset($_GET['year']) ? $_GET['year'] : null;
   $category->area = isset($_GET['area']) ? $_GET['area'] : null;
 
-  //echo "salutare";
-  // Get post
   $result =array();
 
   $result = $category->infoByFilter();
