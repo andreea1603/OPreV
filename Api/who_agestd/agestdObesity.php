@@ -44,6 +44,7 @@ class agestdObesity
     // Create query
     $result = array();
 
+
     $filterSelected = array();
     $filterSelected['id'] = 0;
     $filterSelected['spatialdim'] = 0;
@@ -174,6 +175,7 @@ class agestdObesity
       }
     }
 
+    
     return $get_result;
   }
 }

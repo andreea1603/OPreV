@@ -1,5 +1,5 @@
 <?php
-
+/*
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include('../../model/db-connect.php');

@@ -28,8 +28,6 @@ public function getInfo(){
 
     $resultPre=getPreobesity("");
 
-    //print_r($resultPre[0]);
-    //echo count($resultPre[0]);
     for($i=0; $i< count($resultPre[0]); $i++){
         $item=array(
 
@@ -38,30 +36,10 @@ public function getInfo(){
             '2017' => $resultPre[1][$i], 
         );
         $label['Preobesity'][$resultPre[0][$i]]=array();
-       // array_push( $label['Preobesity'][$resultPre[0][0]], $resultPre[1]);
-       // array_push( $label['Preobesity'][$resultPre[0][0]], $resultPre[2]);
-       // array_push( $label['Preobesity'][$resultPre[0][0]], $resultPre[3]);
+ 
         array_push($label['Preobesity'][$resultPre[0][$i]], $item);
 
-
     }
-
-    //array_push($label['Preobesity'], $resultPre[0]);
-   // array_push($label['Preobesity'], $resultPre[1]);
-
-    /*$resultObe=getObese("");
-    array_push($label['Obesity'], $resultObe[0]);
-    array_push($label['Obesity'], $resultObe[1]);
-
-    $resultOver=getOverweight("");
-    array_push($label['Overweight'], $resultOver[0]);
-    array_push($label['Overweight'], $resultOver[1]);
-
-*/
-
- //   print_r($resultPre);
- //   print_r($resultObe);
- //   print_r($resultOver);
 
     echo json_encode($label);
 
