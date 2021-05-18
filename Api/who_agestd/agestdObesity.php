@@ -38,7 +38,7 @@ class agestdObesity
 
     return $get_result;
   }
-
+  /*
   public function updateCountry(){
 
     //$value= GET('value');??
@@ -61,15 +61,234 @@ class agestdObesity
     }
 
   }
+*/
+  
+  public function update($typeToBeModified, $newValue){
 
-  public function updateValue(){
+
+        ///(update: verificam daca exista randul) -> pt add  warning daca exista
+
+    $typeToBeModified='year';
+    $newValue='afg';
+    $selectQuery=""; //pentru a verifica daca exista o interogare de genul asta
+    $this->country='romania';
+
+    if($this->convertCountry($this->country)==null)
+        return "nu am gasit nimic";
+    else
+      $this->country=$this->convertCountry($this->country);
+
+    $this->year=2030;
+    $this->sex=$this->convertSex('female');
+
+
+    if($typeToBeModified=='country'){
+      //vreau sa modific tara
+      // in this->camp avem valorile alese in formular
+      $query="UPDATE whoagestd SET country='{$newValue}' WHERE country='{$this->country}' ";
+      $selectQuery="SELECT id from whoagestd WHERE country='{$this->country} '";
+      if($this->year!=null){
+        $query=$query." AND year={$this->year} ";
+        $selectQuery=$selectQuery." AND year={$this->year} ";
+
+      }
+      if($this->sex!=null){
+        $query=$query." AND sex='{$this->sex}' ";
+        $selectQuery=$selectQuery." AND sex={$this->sex} ";
+
+
+      }
+      if($this->value!=null){
+        $query=$query." AND value={$this->value} "; 
+        $selectQuery=$selectQuery." AND value={$this->value} ";
+
+      }
+
+    }
+    else{
+      if($typeToBeModified=='year'){
+        $query="UPDATE whoagestd SET year={$newValue} WHERE year= {$this->year} ";
+        $selectQuery="SELECT id from whoagestd WHERE year='{$this->year} '";
+
+        if($this->country!=null){
+          $selectQuery=$selectQuery." AND country='{$this->country}' ";
+          $query=$query." AND country='{$this->country}' ";
+        }
+        if($this->sex!=null){
+          $query=$query." AND sex='{$this->sex}' ";
+          $selectQuery=$selectQuery." AND sex={$this->sex} ";
+
+  
+        }
+        if($this->value!=null){
+          $query=$query." AND value={$this->value} ";
+          $selectQuery=$selectQuery." AND value={$this->value} ";
+
+        }
+      }
+      else{
+        if($typeToBeModified=='sex'){
+          $query="UPDATE whoagestd SET sex={$newValue} WHERE sex='{$this->sex}' ";
+          $selectQuery="SELECT id from whoagestd WHERE sex='{$this->sex} '";
+
+          if($this->country!=null){
+            $query=$query." AND country='{$this->country}' ";
+            $selectQuery=$selectQuery." AND country='{$this->country}' ";
+
+          }
+          if($this->year!=null){
+            $query=$query." AND year={$this->year} ";
+            $selectQuery=$selectQuery." AND year={$this->year} ";
+
     
-    ///Si la add si la update
-    ///(update: verificam daca exista randul) -> pt add  warning daca exista
-    //alegerea tarii, valorii, anului, sexului
-    //verificam daca exista tara aleasa in baza de date
-    
+          }
+          if($this->value!=null){
+            $query=$query." AND value={$this->value} ";
+            $selectQuery=$selectQuery." AND value={$this->value} ";
+
+          }
+        }
+        else 
+          if($typeToBeModified=='value'){
+            $query="UPDATE whoagestd SET value={$newValue} WHERE value={$this->value} ";
+            $selectQuery="SELECT id from whoagestd WHERE value={$this->value} ";
+            
+            if($this->country!=null){
+              $query=$query." AND country='{$this->country}'";
+              $selectQuery=$selectQuery." AND country='{$this->country}' ";
+
+            }
+            if($this->sex!=null){
+              $query=$query." AND sex='{$this->sex}' ";
+              $selectQuery=$selectQuery." AND sex={$this->sex} ";
+
+            }
+            if($this->year!=null){
+              $query=$query." AND year={$this->year} ";
+              $selectQuery=$selectQuery." AND year={$this->year} ";
+
+            }
+          }
+      }
+
+    }
+        
+//AICI TREBUIE DECOMENTAT CA SA SE EXECUTE VERIFICAREA EXISTENTEI VALORILOR LA CARE DAU UPDATE
+
+/*
+$result = mysqli_query($this->conn, $selectQuery);
+$n = $result->num_rows;
+$ok=0;
+
+/// OK SE FACE 1 IN CAZUL IN CARE EXISTA INREGISTRARI
+  echo $query;
+  if (mysqli_num_rows($result)) {
+    if ($row = mysqli_fetch_assoc($result)) {
+      if($row!=null)
+          $ok=1;
+    }
   }
+
+    
+
+    
+//AICI TREBUIE DECOMENTAT CA SA SE EXECUTE UPDATE-UL
+
+if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
+    if (mysqli_query($this->conn, $query)) {
+      echo "Record updated successfully";
+     } else {
+      echo "Date introduse gresit";
+     }
+
+    }
+     */
+    
+      print_r($query);
+  }
+  public function convertSex($sex){
+      if(strtoupper($sex)=='FEMALE')
+        return 'FMLE';
+      if(strtoupper($sex)=='MALE')
+        return 'MLE';
+    return 'BTSX';
+  }
+
+  public function convertCountry($country){
+      $country2=strtoupper($country);
+
+      $query="SELECT code3 from countries where upper(nume)=upper('{$country2}')";
+      $result = mysqli_query($this->conn, $query);
+
+
+      $code3=[];
+      $n = $result->num_rows;
+  
+      if($n!=0){
+        if (mysqli_num_rows($result)) {
+          if ($row = mysqli_fetch_assoc($result)) {
+            array_push($code3, $row);
+          }
+        }
+      }
+        else 
+            return null;
+        return ($code3[0]['code3']);
+  
+  }
+
+public function add(){
+  //se adauga si regiuni? :(
+
+    if($this->checkIfExists()==false)
+    {
+      $id=$this->getIndex();
+    $query="INSERT INTO  whoagestd values ( {$id}, 'COUNTRY', '{$this->country}', {$this->value}, {$this->year}, '{$this->sex}' ";
+    }
+    else{
+      echo "exista deja o inregistrare asa, incercati un update!";
+    }
+
+  } 
+
+public function checkIfExists(){
+
+  $this->country='ROU';
+
+  $this->year=2010;
+  $this->sex='FMLE';
+
+
+  $query="select id from whoagestd where country='{$this->country}' AND year={$this->year} AND sex='{$this->sex}'";
+  $result = mysqli_query($this->conn, $query);
+  $n = $result->num_rows;
+
+  echo $query;
+  if (mysqli_num_rows($result)) {
+    if ($row = mysqli_fetch_assoc($result)) {
+      if($row!=null)
+        //echo $row;
+          return "deja exista o inregistrare";
+    }
+  }
+  return false;
+
+}
+
+public function getIndex(){
+
+  $query="select count(id) maxim from whoagestd";
+  $result = mysqli_query($this->conn, $query);
+$index=[];
+  if (mysqli_num_rows($result)) {
+    if ($row = mysqli_fetch_assoc($result)) {
+      array_push($index, $row);
+    }
+  }
+  
+  return  $index[0]['maxim'];;
+
+}
   public function infoByFilter()
   {
     // Create query
@@ -206,7 +425,6 @@ class agestdObesity
       }
     }
 
-    
     return $get_result;
   }
 }
