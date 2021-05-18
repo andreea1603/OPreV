@@ -29,11 +29,11 @@ function checkBmi(){
             }
         }
         else{
-            array_push($bmi, "overweight");
+            array_push($bmi, "pre-obese");
         }
     }
     else{
-        array_push($bmi, "overweight");
+        array_push($bmi, "pre-obese");
     }
     return $bmi;
 }

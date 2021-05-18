@@ -346,6 +346,7 @@ function getObese($countries)
     return array($names, $pre2008, $pre2014, $pre2017);
 }
 
+/*
 $labels = array();
 $datasets = array();
 
@@ -363,8 +364,54 @@ $countries=$result_countries;
 $rez = filter($year, $bmi, $countries);
 $labels = $rez[0];
 $datasets = $rez[1];
+
 map($labels,$datasets);
 
+$raspuns=makeURL();
+$url=$raspuns;
+$ch= curl_init();
+curl_setopt($ch,CURLOPT_URL,$url);
+curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+//echo $url;
+$resp = curl_exec($ch);
+*/
+$raspuns=makeURL();
+$url1=$raspuns;
+$ch1= curl_init();
+echo $url1;
+curl_setopt($ch1,CURLOPT_URL,$url1);
+curl_setopt($ch1,CURLOPT_RETURNTRANSFER,true);
+echo $url1;
+$resp = curl_exec($ch1);
+echo "nb;";
+if($e=curl_error($ch1)){
+    echo $e;
+    echo "salut";
+}
+else{
+
+        echo "pa";
+}
+
+function makeURL(){
+    
+    $url="http://localhost/proiect/OPreV/Api/eurostat/getByFilter.php?";
+    $result_year=checkYear();
+    $year=$result_year[0];
+
+    $result_bmi=checkBmi();
+    $bmi=$result_bmi[0];
+
+    $result_countries=checkCountry();
+    $countries=$result_countries;
+
+    $url=$url."year=".$year."&bmi=".$bmi."&country=[";
+    foreach($countries as $country)
+        $url=$url.$country.",";
+    $url=$url."]";
+
+    return $url;
+}
 
 function filter($year, $type, $countries)
 {

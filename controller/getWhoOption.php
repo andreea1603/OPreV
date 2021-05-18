@@ -1,8 +1,7 @@
 <?php
-
-
-
-include('D:\Xamp\htdocs\proiect\OPreV\model\db-connect.php');
+$dir=__DIR__;
+$path=substr($dir, 0, -10).'\model\putInCsv1.php';
+include($path);
 
 function getOption($filter){
 
