@@ -1,7 +1,9 @@
 <?php
 
-include ('../../model/functions_repres.php');
+//include ('../../model/functions_repres.php');
 include ('../../model/db-connect.php');
+include('../../controller/getWhoOption.php');
+include('../../model/dataForApiEurostat.php');
 
 class eurostat{
 
@@ -88,10 +90,29 @@ public function infoByFilter(){
                 }
     }
     return $respond;
+}
+    function infoByFilter1(){
+
+   
+        include ('../../model/db-connect.php');
+
+        $filterSelected = array();
+
+        $filterSelected['value'] = 0;
+        $filterSelected['bmi'] = 0;
+        $filterSelected['year'] = 0;
+        $filterSelected['country'] = 0;
+    
+        $this->year=2008;
+        $this->country=['Austria', 'Romania'];
+        $result= getObeseY($this->country, $this->year);
+    
+
+     //       print_r($result);
+        $k = 0;
+        return $result;
+    
     }
 }
-
-
-
 
 ?>

@@ -24,8 +24,6 @@ if (getOption('country') != null) {
 } else {
   $category->country = null;
 }
-
-
 $result = array();
 $result = $category->infoByFilter();
 

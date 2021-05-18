@@ -3,7 +3,6 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include('../../model/db-connect.php');
-include('../../controller/getWhoOption.php');
 include_once 'eurostat.php';
 
 
@@ -22,9 +21,10 @@ if (getOption('country') != null) {
 } else {
   $category->country = null;
 }
-
 $result = array();
 $result = $category->infoByFilter();
+
+//print_r($result);
 $num = count($result[0]);
 if ($num > 0) {
 
@@ -41,11 +41,12 @@ if ($num > 0) {
   }
   echo json_encode($label);
 } else {
-  //   No Categories
   echo json_encode(
     array('message' => 'No Categories Found')
   );
 }
+
+
 
 function split($country)
 {

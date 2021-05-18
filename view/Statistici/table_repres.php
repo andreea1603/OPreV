@@ -1,5 +1,5 @@
 <?php
-    
+    include('../../model/dataForApiEurostat.php');
     function makeTable()
     {
 

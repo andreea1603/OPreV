@@ -39,6 +39,37 @@ class agestdObesity
     return $get_result;
   }
 
+  public function updateCountry(){
+
+    //$value= GET('value');??
+    //$value2 =GET('value2');
+
+    ////si cautata in baza de date cu tari
+    //
+    $value='SDF';
+    $value2='sdf';
+
+    $query="UPDATE whoagestd SET country='{$value}' WHERE country='{$value2}'";
+
+    echo $query;
+    $stm= $this->conn->prepare($query);
+    if($stm->execute()){
+      echo "Actualizat cu succes";
+    }
+    else{
+      echo "Ceva e gresit";
+    }
+
+  }
+
+  public function updateValue(){
+    
+    ///Si la add si la update
+    ///(update: verificam daca exista randul) -> pt add  warning daca exista
+    //alegerea tarii, valorii, anului, sexului
+    //verificam daca exista tara aleasa in baza de date
+    
+  }
   public function infoByFilter()
   {
     // Create query
