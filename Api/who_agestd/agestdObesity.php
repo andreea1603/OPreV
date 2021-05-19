@@ -4,7 +4,7 @@ class agestdObesity
 {
 
   public $conn;
-  public $table = 'whocrude';
+  public $table = 'whoagestd';
   public $id;
   public $spatialdim=null;
   public $country = [];
@@ -65,28 +65,27 @@ class agestdObesity
   
   public function update($typeToBeModified, $newValue){
 
-
         ///(update: verificam daca exista randul) -> pt add  warning daca exista
 
-    $typeToBeModified='year';
-    $newValue='afg';
+    //$typeToBeModified='year';
+    //$newValue='afg';
     $selectQuery=""; //pentru a verifica daca exista o interogare de genul asta
-    $this->country='romania';
+    //$this->country='romania';
+    if($this->country[0]!=null)
+      if($this->convertCountry($this->country[0])==null)
+          return "nu am gasit nimic";
+      else
+        $this->country[0]=$this->convertCountry($this->country[0]);
 
-    if($this->convertCountry($this->country)==null)
-        return "nu am gasit nimic";
-    else
-      $this->country=$this->convertCountry($this->country);
-
-    $this->year=2030;
-    $this->sex=$this->convertSex('female');
-
-
-    if($typeToBeModified=='country'){
+    //$this->year=2030;
+    if($this->sex!=null)
+      $this->sex=$this->convertSex($this->sex);
+    if($typeToBeModified=='Country'){
       //vreau sa modific tara
       // in this->camp avem valorile alese in formular
-      $query="UPDATE whoagestd SET country='{$newValue}' WHERE country='{$this->country}' ";
-      $selectQuery="SELECT id from whoagestd WHERE country='{$this->country} '";
+      $newValue=$this->convertCountry($newValue);
+      $query="UPDATE whoagestd SET country='{$newValue}' WHERE country='{$this->country[0]}' ";
+      $selectQuery="SELECT id from whoagestd WHERE country='{$this->country[0]} '";
       if($this->year!=null){
         $query=$query." AND year={$this->year} ";
         $selectQuery=$selectQuery." AND year={$this->year} ";
@@ -106,13 +105,13 @@ class agestdObesity
 
     }
     else{
-      if($typeToBeModified=='year'){
+      if($typeToBeModified=='Year'){
         $query="UPDATE whoagestd SET year={$newValue} WHERE year= {$this->year} ";
         $selectQuery="SELECT id from whoagestd WHERE year='{$this->year} '";
 
-        if($this->country!=null){
-          $selectQuery=$selectQuery." AND country='{$this->country}' ";
-          $query=$query." AND country='{$this->country}' ";
+        if($this->country[0]!=null){
+          $selectQuery=$selectQuery." AND country='{$this->country[0]}' ";
+          $query=$query." AND country='{$this->country[0]}' ";
         }
         if($this->sex!=null){
           $query=$query." AND sex='{$this->sex}' ";
@@ -127,13 +126,14 @@ class agestdObesity
         }
       }
       else{
-        if($typeToBeModified=='sex'){
-          $query="UPDATE whoagestd SET sex={$newValue} WHERE sex='{$this->sex}' ";
+        if($typeToBeModified=='Sex'){
+          $newValue=$this->convertSex($newValue);
+          $query="UPDATE whoagestd SET sex='{$newValue}' WHERE sex='{$this->sex}' ";
           $selectQuery="SELECT id from whoagestd WHERE sex='{$this->sex} '";
 
-          if($this->country!=null){
-            $query=$query." AND country='{$this->country}' ";
-            $selectQuery=$selectQuery." AND country='{$this->country}' ";
+          if($this->country[0]!=null){
+            $query=$query." AND country='{$this->country[0]}' ";
+            $selectQuery=$selectQuery." AND country='{$this->country[0]}' ";
 
           }
           if($this->year!=null){
@@ -149,13 +149,13 @@ class agestdObesity
           }
         }
         else 
-          if($typeToBeModified=='value'){
+          if($typeToBeModified=='Value'){
             $query="UPDATE whoagestd SET value={$newValue} WHERE value={$this->value} ";
             $selectQuery="SELECT id from whoagestd WHERE value={$this->value} ";
             
-            if($this->country!=null){
-              $query=$query." AND country='{$this->country}'";
-              $selectQuery=$selectQuery." AND country='{$this->country}' ";
+            if($this->country[0]!=null){
+              $query=$query." AND country='{$this->country[0]}'";
+              $selectQuery=$selectQuery." AND country='{$this->country[0]}' ";
 
             }
             if($this->sex!=null){

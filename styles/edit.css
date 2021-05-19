@@ -1,0 +1,69 @@
+body{
+    font-family: 'Poppins', sans-serif;
+   
+}
+.first{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+.butoane{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+.button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    width:auto;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+#indicatorCode{
+    margin-bottom: 20px;
+}
+.checkboxes{
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+table tr:nth-of-type(odd) {
+    background-color: #e4e5f8;
+}
+table tr:hover {
+    font-weight: bold;
+    background-color: #5f8ddd;
+}
+.styled-table td {
+    padding: 12px 15px;
+}
+#add{
+    background-color: #292bc2;
+}
+#modify{
+    background-color: #0e991a;
+}
+#delete{
+    background-color: #ec2929;
+} 
