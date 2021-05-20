@@ -30,5 +30,9 @@
         if($object[1]["Method"]=="UPDATE"){
             $category->update($object[2]["ModifyValue"],$object[7]["New Value"]);
         }
+        else
+            if($object[1]["Method"]=="ADD"){
+                $category->add();
+            }
     }
 ?>

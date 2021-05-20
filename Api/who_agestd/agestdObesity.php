@@ -243,23 +243,24 @@ public function add(){
     if($this->checkIfExists()==false)
     {
       $id=$this->getIndex();
-    $query="INSERT INTO  whoagestd values ( {$id}, 'COUNTRY', '{$this->country}', {$this->value}, {$this->year}, '{$this->sex}' ";
+    $query="INSERT INTO  whoagestd values ( {$id}, 'COUNTRY', '{$this->convertCountry($this->country[0])}', {$this->value}, {$this->year}, '{$this->convertSex($this->sex)}') ";
     }
     else{
       echo "exista deja o inregistrare asa, incercati un update!";
     }
+    echo $query;
 
   } 
 
 public function checkIfExists(){
 
-  $this->country='ROU';
+//  $this->country='ROU';
 
-  $this->year=2010;
-  $this->sex='FMLE';
+  //$this->year=2010;
+  //$this->sex='FMLE';
 
 
-  $query="select id from whoagestd where country='{$this->country}' AND year={$this->year} AND sex='{$this->sex}'";
+  $query="select id from whoagestd where country='{$this->convertCountry($this->country[0])}' AND year={$this->year} AND sex='{$this->convertSex($this->sex)}'";
   $result = mysqli_query($this->conn, $query);
   $n = $result->num_rows;
 

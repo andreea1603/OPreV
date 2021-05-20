@@ -6,7 +6,6 @@ include('../../model/db-connect.php');
 include_once 'agestdObesity.php';
 include('../../controller/getWhoOption.php');
 
-
 $category = new agestdObesity($conn);
 $category->id = getOption('id');
 $category->spatial = getOption('spatialdim');

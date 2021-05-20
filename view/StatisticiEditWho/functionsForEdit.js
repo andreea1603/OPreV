@@ -305,7 +305,7 @@ function addButton() {
               xhr.setRequestHeader("Content-type","application/json");
               xhr.send(jsonObject);
             }
-          clearInputs(elements);
+          //clearInputs(elements);
         }
 }
 function editButton() { 
