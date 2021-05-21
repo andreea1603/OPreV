@@ -372,15 +372,15 @@ function getSex(sex){
 }
 function putAgeFilters(age,element){
     var tag = document.createElement("div");
-    tag.setAttribute("id","S"+age);
+    tag.setAttribute("id",age);
     element.appendChild(tag);
 
-    var element1=document.getElementById("S"+age);
+    var element1=document.getElementById(age);
 
     var tag = document.createElement("input");
     tag.setAttribute("type","checkbox");
     tag.setAttribute("name","ages[]");
-    tag.setAttribute("value","S"+age);
+    tag.setAttribute("value", age);
     tag.setAttribute("onclick","onlyOne(this,'ages[]')");
     element1.appendChild(tag);
 

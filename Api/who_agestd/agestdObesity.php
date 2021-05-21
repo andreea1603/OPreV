@@ -236,6 +236,38 @@ if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
         return ($code3[0]['code3']);
   
   }
+  public function delete1(){
+
+    $query="DELETE FROM agestd WHERE ";
+    $k=0;
+    if($this->country[0] != null){
+      $query=$query." country='{$this->convertCountry($this->country[0])}'";
+      $k=$k+1;
+    }
+    if($this->year!=null){
+      if($k==0){
+        $query=$query." year={$this->year}";
+      }
+      else{
+        $query=$query." and year={$this->year}";
+      }
+      $k=$k+1;
+
+    }
+    if($this->sex!=null){
+      if($k==0){
+        $query=$query." sex='{$this->convertSex($this->year)}'";
+      }
+      else{
+        $query=$query." and sex='{$this->convertSex($this->year)}'";
+      }
+      $k=$k+1;
+
+    }
+    echo $query;
+    
+
+  }
 
 public function add(){
   //se adauga si regiuni? :(
@@ -243,7 +275,8 @@ public function add(){
     if($this->checkIfExists()==false)
     {
       $id=$this->getIndex();
-    $query="INSERT INTO  whoagestd values ( {$id}, 'COUNTRY', '{$this->convertCountry($this->country[0])}', {$this->value}, {$this->year}, '{$this->convertSex($this->sex)}') ";
+    $query="INSERT INTO  whoagestd values ( {$id}, 'COUNTRY', '{$this->convertCountry($this->country[0])}',
+       {$this->value}, {$this->year}, '{$this->convertSex($this->sex)}') ";
     }
     else{
       echo "exista deja o inregistrare asa, incercati un update!";
