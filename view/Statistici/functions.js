@@ -23,6 +23,7 @@ function selectAll() {
                 ele[i].checked=false;  
         }
 }
+
 function searchCountry(){
     var countries=document.getElementsByName('toateTarile');
     var input=document.getElementById('search');

@@ -4,12 +4,13 @@ function getCode(){
 
     $countries=array();
     $codes=array();
-    $query="Select nume,code3 from countries";
+    $query="Select distinct(nume),code3 from countries join whoage on code3=country order by nume asc";
     $result = mysqli_query($conn, $query);
     while ($row = $result->fetch_assoc()) {
         array_push($countries,$row["nume"]);
         array_push($codes,$row["code3"]);
     }
+
     return array($countries,$codes);
 }
 
@@ -36,7 +37,7 @@ function getYearsByCode($code){
     sort($years);
     return $years;
 }
-function getAges(){
+function getAgesByCode(){
     include('db-connect.php');
     $ages=array();
     
@@ -50,7 +51,7 @@ function getAges(){
     sort($ages);
     return $ages;
 }
-function getAreas(){
+function getAreasByCode(){
     include('db-connect.php');
     $areas=array();
     
@@ -64,7 +65,7 @@ function getAreas(){
     return $areas;
 }
 
-function getSexes($code){
+function getSexByCode($code){
     include('db-connect.php');
     $sexes=array();
     

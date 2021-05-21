@@ -29,6 +29,9 @@ function select(){
     var item = document.getElementById('button');
     if(item!=null)
         item.remove();
+    var item = document.getElementById('search');
+    if(item!=null)
+        item.remove();
     if(text==="Country"){
         var item = document.getElementById('filtreTari');
         item.remove();
@@ -196,9 +199,11 @@ function selectIndicator(){
         
         element3=document.getElementById("filtre2");
 
-        sexes=["MLE","FMLE","BTSX"];
-        for(sex in sexes){
-            putSexFilters(getSex(sexes[sex]),element3);
+        <?php $sexx=getSexByCode(1);?>
+
+        sexes1=<?php echo json_encode($sexx);?>;
+        for(sex in sexes1){
+            putSexFilters(sexes1[sex],element3);
         }
 
         //put age
@@ -214,9 +219,11 @@ function selectIndicator(){
         
         element3=document.getElementById("filtre3");
 
-        ages=["05-09","05-19","10-19"];
-        for(age in ages){
-            putAgeFilters(ages[age],element3);
+        <?php $agess=getAgesByCode(1);?>
+
+        ages1=<?php echo json_encode($agess);?>;
+        for(age in ages1){
+            putAgeFilters(ages1[age],element3);
         }
     }
     else 
@@ -251,9 +258,11 @@ function selectIndicator(){
             element2.appendChild(tag);
 
             var element3=document.getElementById("filtre2");
-            areas=["Urban","Rural"];
-            for(area in areas){
-                putAreaFilters(areas[area],element3);
+            <?php $areass=getAreasByCode(1);?>
+
+            areas1=<?php echo json_encode($areass);?>;
+            for(area in areas1){
+                putAgeFilters(areas1[area],element3);
             }
         }
         else 
@@ -294,11 +303,12 @@ function selectIndicator(){
                 
                 element3=document.getElementById("filtre2");
 
-                sexes=["MLE","FMLE","BTSX"];
-                for(sex in sexes){
-                    putSexFilters(getSex(sexes[sex]),element3);
-                }
+                <?php $agess=getAgesByCode(1);?>
 
+                ages1=<?php echo json_encode($agess);?>;
+                for(age in ages1){
+                    putAgeFilters(ages1[age],element3);
+                }
             }
     console.log(element1);
 }
