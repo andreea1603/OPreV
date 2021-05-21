@@ -1,5 +1,5 @@
 <?php
-//set_time_limit ( 360 );
+set_time_limit ( 360 );
 function set1(){
     include('db-connect.php');
     include('init.php');
@@ -21,7 +21,7 @@ function set1(){
     else{
         $decode = json_decode($resp, true);
 
-        for($i=1789; $i<count($decode["value"]); $i++){
+        for($i=39136; $i<count($decode["value"]); $i++){
 
             getValues($decode["value"][$i]["Value"]);
             $value=getValues($decode["value"][$i]["Value"])[0];
@@ -203,8 +203,8 @@ function set4(){
             $area=$decode["value"][$i]["Dim1"];
             $spatial_dim=$decode["value"][$i]["SpatialDimType"];
             $query="INSERT INTO `whowomen` VALUES ( {$i}, '{$spatial_dim}', '{$country}', {$value}, {$year}, '{$area}' )";
-            //mysqli_query($conn, $query);
-            echo $query;
+            mysqli_query($conn, $query);
+           // echo $query;
         }
    }
 }
@@ -223,9 +223,9 @@ function set5(){
         $index++;
     }
 }
-set1();
+//set1();
 //set2();
 //set3();
-//set4();
+set4();
 //set5();
 ?>
