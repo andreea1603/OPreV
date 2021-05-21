@@ -23,3 +23,21 @@ function selectAll() {
                 ele[i].checked=false;  
         }
 }
+function searchCountry(){
+    var countries=document.getElementsByName('toateTarile');
+    var input=document.getElementById('search');
+    var filter= input.value.toUpperCase();
+    countries.forEach((country) => {
+        
+        txtValue=country.children[1].innerHTML;
+        //console.log(txtValue);
+        //console.log(filter);
+        if (txtValue.toUpperCase().indexOf(filter) > -1){
+            country.style.display=""
+        }
+        else{
+            console.log(country);
+            country.style.display="none";
+        }
+    })
+}

@@ -36,4 +36,51 @@ function getYearsByCode($code){
     sort($years);
     return $years;
 }
+function getAges(){
+    include('db-connect.php');
+    $ages=array();
+    
+    $query="Select distinct(age) from whoage";
+    
+
+    $result = mysqli_query($conn, $query);
+    while ($row = $result->fetch_assoc()) {
+        array_push($ages,$row["age"]);
+    }
+    sort($ages);
+    return $ages;
+}
+function getAreas(){
+    include('db-connect.php');
+    $areas=array();
+    
+    $query="Select distinct(area) from whowomen";
+        
+    $result = mysqli_query($conn, $query);
+    while ($row = $result->fetch_assoc()) {
+        array_push($areas,$row["area"]);
+    }
+    sort($areas);
+    return $areas;
+}
+
+function getSexes($code){
+    include('db-connect.php');
+    $sexes=array();
+    
+    if($code==1)
+        $query="Select distinct(sex) from whoage";
+    else
+        if($code==3)
+            $query="Select distinct(sex) from whocrude";
+        else
+            $query="Select distinct(sex) from whoagestd";
+
+    $result = mysqli_query($conn, $query);
+    while ($row = $result->fetch_assoc()) {
+        array_push($sexes,$row["sex"]);
+    }
+    sort($sexes);
+    return $sexes;
+}
 ?>

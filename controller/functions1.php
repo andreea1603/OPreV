@@ -5,6 +5,24 @@ $path=substr($dir, 0, -10).'\model\getDatafromDB.php';
 include($path);
 ?>
 <script>
+function searchCountry(){
+    var countries=document.getElementsByName('toateTarile');
+    var input=document.getElementById('search');
+    var filter= input.value.toUpperCase();
+    countries.forEach((country) => {
+        
+        txtValue=country.children[1].innerHTML;
+        //console.log(txtValue);
+        //console.log(filter);
+        if (txtValue.toUpperCase().indexOf(filter) > -1){
+            country.style.display=""
+        }
+        else{
+            console.log(country);
+            country.style.display="none";
+        }
+    })
+}
 function select(){
     var e = document.getElementById("dimension");
     var text = e.options[e.selectedIndex].text;
@@ -46,6 +64,12 @@ function select(){
             makeCountry(countries[tara],codes[tara]);
         }
 
+        element.appendChild(tag);
+        var tag= document.createElement("input");
+        tag.setAttribute("type","text");
+        tag.setAttribute("onkeyup","searchCountry()");
+        tag.setAttribute("placeholder","Search for country...");
+        tag.setAttribute("id","search");
         element.appendChild(tag);
     }
     else
@@ -108,6 +132,7 @@ function makeCountry(country,id){
     var element1=document.getElementById('filtreTari');
     var tag = document.createElement("div");
     tag.setAttribute("id",id);
+    tag.setAttribute("name","toateTarile");
     element1.appendChild(tag);
 
     var element2=document.getElementById(id);

@@ -1,4 +1,5 @@
 <?php
+//set_time_limit ( 360 );
 function set1(){
     include('db-connect.php');
     include('init.php');
@@ -20,24 +21,24 @@ function set1(){
     else{
         $decode = json_decode($resp, true);
 
-        for($i=50589; $i<count($decode["value"]); $i++){
+        for($i=1789; $i<count($decode["value"]); $i++){
 
             getValues($decode["value"][$i]["Value"]);
             $value=getValues($decode["value"][$i]["Value"])[0];
             $year=intval($decode["value"][$i]["TimeDim"]);
 
-            $country=$decode["value"]["$i"]["SpatialDim"];
-            $sex=$decode["value"]["$i"]["Dim1"];
+            $country=$decode["value"][$i]["SpatialDim"];
+            $sex=$decode["value"][$i]["Dim1"];
 
 
             $valTemp=$decode["value"]["$i"]["Dim2"];
 
-
+            $spatial_dim=$decode["value"][$i]["SpatialDimType"];
             $age=substr($valTemp, 4, strlen($valTemp));
 
 
-            $query="INSERT INTO `whoage` VALUES ( {$i}, '{$country}', {$value}, {$year}, '{$sex}', '{$age}' )";
-            
+            $query="INSERT INTO `whoage` VALUES ( {$i}, '{$spatial_dim}', '{$country}', {$value}, {$year}, '{$sex}', '{$age}' )";
+            //echo $query;
             mysqli_query($conn, $query);
                 
         }
@@ -193,18 +194,17 @@ function set4(){
     }
     else{
         $decode = json_decode($resp, true);
-        ?>
-    <br>
-        <?php
         for($i=0; $i<count($decode["value"]); $i++){
 
             $array=getValues($decode["value"][$i]["Value"]);
             $value=floatval($array[0]);
             $year=intval($decode["value"][$i]["TimeDim"]);
-            // $country=$decode["value"][$i]["SpatialDim"];
+            $country=$decode["value"][$i]["SpatialDim"];
             $area=$decode["value"][$i]["Dim1"];
-            $query="INSERT INTO `whowomen` VALUES ( {$i}, '{$country}', {$value}, {$year}, '{$area}' )";
-            mysqli_query($conn, $query);
+            $spatial_dim=$decode["value"][$i]["SpatialDimType"];
+            $query="INSERT INTO `whowomen` VALUES ( {$i}, '{$spatial_dim}', '{$country}', {$value}, {$year}, '{$area}' )";
+            //mysqli_query($conn, $query);
+            echo $query;
         }
    }
 }
@@ -223,7 +223,7 @@ function set5(){
         $index++;
     }
 }
-//set1();
+set1();
 //set2();
 //set3();
 //set4();
