@@ -51,6 +51,7 @@ function getAgesByCode(){
     sort($ages);
     return $ages;
 }
+getAreasByCode();
 function getAreasByCode(){
     include('db-connect.php');
     $areas=array();
@@ -59,7 +60,8 @@ function getAreasByCode(){
         
     $result = mysqli_query($conn, $query);
     while ($row = $result->fetch_assoc()) {
-        array_push($areas,$row["area"]);
+        if($row["area"]!="")
+            array_push($areas,$row["area"]);
     }
     sort($areas);
     return $areas;

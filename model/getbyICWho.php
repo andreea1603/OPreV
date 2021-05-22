@@ -186,7 +186,7 @@ else{
     //else TODO
 
     }
-    //echo $url;
+    echo $url;
 mapWho($labelswho,$datasetswho);
 function makeURL(){
 

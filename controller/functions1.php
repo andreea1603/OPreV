@@ -258,11 +258,12 @@ function selectIndicator(){
             element2.appendChild(tag);
 
             var element3=document.getElementById("filtre2");
-            <?php $areass=getAreasByCode(1);?>
-
+            <?php $areass=getAreasByCode(2);?>
+            console.log(element3);
             areas1=<?php echo json_encode($areass);?>;
+            console.log(areas1);
             for(area in areas1){
-                putAgeFilters(areas1[area],element3);
+                putAreaFilters(areas1[area],element3);
             }
         }
         else 
@@ -302,12 +303,16 @@ function selectIndicator(){
             
                 
                 element3=document.getElementById("filtre2");
+                
+                if(text==="indicatorCode3"){
+                    <?php $sexess=getSexByCode(3);?>;
+                }
+                else
+                    <?php $sexess=getSexByCode(4);?>;
 
-                <?php $agess=getAgesByCode(1);?>
-
-                ages1=<?php echo json_encode($agess);?>;
-                for(age in ages1){
-                    putAgeFilters(ages1[age],element3);
+                sexes1=<?php echo json_encode($sexess);?>;
+                for(sex in sexes1){
+                    putSexFilters(sexes1[sex],element3);
                 }
             }
     console.log(element1);
@@ -406,6 +411,7 @@ function putAreaFilters(area,element){
     var tag = document.createElement("label");
     tag.textContent=area;
     element1.appendChild(tag);
+    
 }
 
 function convertArea(area){
