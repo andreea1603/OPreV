@@ -183,8 +183,12 @@ class womenObesity{
             $query=$query." and area='{$this->area}'";
           }
         }
-        echo $query;
-        
+        if ($this->conn->query($query)) {
+          printf("Table tutorials_tbl record deleted successfully.<br />");
+        }
+        if ($this->conn->errno) {
+          printf("Could not delete record from table: %s<br />", $this->conn->error);
+        }        
       }
       public function checkIfExists(){
 
@@ -234,8 +238,13 @@ class womenObesity{
           else{
             echo "exista deja o inregistrare asa, incercati un update!";
           }
-          echo $query;
-      
+
+          if (mysqli_query($this->conn, $query)) {
+            echo "Record updated successfully";
+           }
+            else {
+            echo "Date introduse gresit";
+           }      
         } 
       
     public function convertCountry($country){
@@ -288,7 +297,7 @@ if($typeToBeModified=='Country'){
   }
   if($this->area!=null){
     $query=$query." AND area='{$this->area}' ";
-    $selectQuery=$selectQuery." AND area={$this->area} ";
+    $selectQuery=$selectQuery." AND area='{$this->area}' ";
 
 
   }
@@ -302,7 +311,7 @@ if($typeToBeModified=='Country'){
 else{
   if($typeToBeModified=='Year'){
     $query="UPDATE whowomen SET year={$newValue} WHERE year= {$this->year} ";
-    $selectQuery="SELECT id from whowomen WHERE year='{$this->year} '";
+    $selectQuery="SELECT id from whowomen WHERE year={$this->year} ";
 
     if($this->country[0]!=null){
       $selectQuery=$selectQuery." AND country='{$this->country[0]}' ";
@@ -310,7 +319,7 @@ else{
     }
     if($this->area!=null){
       $query=$query." AND area='{$this->area}' ";
-      $selectQuery=$selectQuery." AND area={$this->area} ";
+      $selectQuery=$selectQuery." AND area='{$this->area}' ";
 
 
     }
@@ -354,7 +363,7 @@ else{
         }
         if($this->area!=null){
           $query=$query." AND area='{$this->area}' ";
-          $selectQuery=$selectQuery." AND area={$this->area} ";
+          $selectQuery=$selectQuery." AND area='{$this->area}' ";
 
         }
         if($this->year!=null){
@@ -364,9 +373,29 @@ else{
         }
       }
     }
+    $result = mysqli_query($this->conn, $selectQuery);
+$n = $result->num_rows;
+$ok=0;
+
+/// OK SE FACE 1 IN CAZUL IN CARE EXISTA INREGISTRARI
+  //echo $query;
+  if (mysqli_num_rows($result)) {
+    if ($row = mysqli_fetch_assoc($result)) {
+      if($row!=null)
+        if($row!=0)
+          $ok=1;
+    }
   }
-  echo $query;
+  if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
+    if (mysqli_query($this->conn, $query)) {
+      echo "Record updated successfully";
+     }
+     } else {
+      echo "Date introduse gresit";
+     }
+    
 }
+  }
 
 }
 ?>

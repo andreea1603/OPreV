@@ -86,13 +86,14 @@ include($path);
             
                 <div class="butoane">
                     <div>
-                        <a href="formdat.csv" download="data.csv">
+                        <a href="resources/data.csv" download="data.csv">
                             CSV
                         </a>
                     </div>
                     <div>
-                        <a href="#" id="JPGDownload" onclick="prepHref(this)" download> JPG</a>
                         <img id="jpg-export" class="dispare"></img>
+                        <a href="#" id="JPGDownload" onclick="prepHref(this)" download> JPG</a>
+
                     </div>
                     <div><a href="#">SVG</a></div>
                 </div>

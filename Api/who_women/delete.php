@@ -5,22 +5,25 @@
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization,X-Requested-With');
 
   include_once '../../model/db-connect.php';
-  include_once 'D:\Xamp\htdocs\proiect\OPreV\Api\who_agestd\agestdObesity.php';
+  include_once 'D:\Xamp\htdocs\proiect\OPreV\Api\who_women\womenObesity.php';
 
 
-$category=new agestdObesity($conn);
+$category=new womenObesity($conn);
 $data = file_get_contents("php://input");
 
 $result=json_decode($data);
 
-if(isset($result->sex))
-  $category->sex=$result->sex;
 if(isset($result->country))
     $category->country[0]=$result->country;
+
 if(isset($result->year))
     $category->year=$result->year;
+
 if(isset($result->value))
     $category->value=$result->value;
+
+if(isset($result->area))
+    $category->area=$result->area;
 
 $category->delete1();
 

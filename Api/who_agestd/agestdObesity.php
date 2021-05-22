@@ -93,7 +93,7 @@ class agestdObesity
       }
       if($this->sex!=null){
         $query=$query." AND sex='{$this->sex}' ";
-        $selectQuery=$selectQuery." AND sex={$this->sex} ";
+        $selectQuery=$selectQuery." AND sex='{$this->sex}' ";
 
 
       }
@@ -107,7 +107,7 @@ class agestdObesity
     else{
       if($typeToBeModified=='Year'){
         $query="UPDATE whoagestd SET year={$newValue} WHERE year= {$this->year} ";
-        $selectQuery="SELECT id from whoagestd WHERE year='{$this->year} '";
+        $selectQuery="SELECT id from whoagestd WHERE year={$this->year}";
 
         if($this->country[0]!=null){
           $selectQuery=$selectQuery." AND country='{$this->country[0]}' ";
@@ -115,7 +115,7 @@ class agestdObesity
         }
         if($this->sex!=null){
           $query=$query." AND sex='{$this->sex}' ";
-          $selectQuery=$selectQuery." AND sex={$this->sex} ";
+          $selectQuery=$selectQuery." AND sex='{$this->sex}' ";
 
   
         }
@@ -160,7 +160,7 @@ class agestdObesity
             }
             if($this->sex!=null){
               $query=$query." AND sex='{$this->sex}' ";
-              $selectQuery=$selectQuery." AND sex={$this->sex} ";
+              $selectQuery=$selectQuery." AND sex='{$this->sex}' ";
 
             }
             if($this->year!=null){
@@ -175,7 +175,7 @@ class agestdObesity
         
 //AICI TREBUIE DECOMENTAT CA SA SE EXECUTE VERIFICAREA EXISTENTEI VALORILOR LA CARE DAU UPDATE
 
-/*
+echo $selectQuery;
 $result = mysqli_query($this->conn, $selectQuery);
 $n = $result->num_rows;
 $ok=0;
@@ -185,6 +185,7 @@ $ok=0;
   if (mysqli_num_rows($result)) {
     if ($row = mysqli_fetch_assoc($result)) {
       if($row!=null)
+        if($row!=0)
           $ok=1;
     }
   }
@@ -197,12 +198,10 @@ $ok=0;
 if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
     if (mysqli_query($this->conn, $query)) {
       echo "Record updated successfully";
+     }
      } else {
       echo "Date introduse gresit";
      }
-
-    }
-     */
     
       print_r($query);
   }
@@ -256,16 +255,20 @@ if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
     }
     if($this->sex!=null){
       if($k==0){
-        $query=$query." sex='{$this->convertSex($this->year)}'";
+        $query=$query." sex='{$this->convertSex($this->sex)}'";
       }
       else{
-        $query=$query." and sex='{$this->convertSex($this->year)}'";
+        $query=$query." and sex='{$this->convertSex($this->sex)}'";
       }
       $k=$k+1;
 
     }
-    echo $query;
-    
+    if ($this->conn->query($query)) {
+      printf("Table tutorials_tbl record deleted successfully.<br />");
+    }
+    if ($this->conn->errno) {
+      printf("Could not delete record from table: %s<br />", $this->conn->error);
+    }    
 
   }
 
@@ -281,7 +284,13 @@ public function add(){
     else{
       echo "exista deja o inregistrare asa, incercati un update!";
     }
-    echo $query;
+    //echo $query;
+    if (mysqli_query($this->conn, $query)) {
+      echo "Record updated successfully";
+     }
+      else {
+      echo "Date introduse gresit";
+     }
 
   } 
 
@@ -291,7 +300,6 @@ public function checkIfExists(){
 
   //$this->year=2010;
   //$this->sex='FMLE';
-
 
   $query="select id from whoagestd where country='{$this->convertCountry($this->country[0])}' AND year={$this->year} AND sex='{$this->convertSex($this->sex)}'";
   $result = mysqli_query($this->conn, $query);
