@@ -4,19 +4,8 @@
     include('../../model/db-connect.php');
     include('../who_women/womenObesity.php');
     include('../who_children/childrenObesity.php');
+    include('testRequest.php');
 
-    /*if($category->convertCountry('Rmania')!=null)
-    
-        echo "salut";
-    else
-        echo "pa";
-
-    
-    echo $category->update("", "");
-    echo $category->getIndex();
-    echo "<br>";
-    echo ($category->checkIfExists());
-        */
     $request=file_get_contents("php://input");
     $object=json_decode($request,true);
     //var_dump($object);
@@ -29,6 +18,9 @@
         $category->year=$object[4]["Year"];
         $category->sex=$object[5]["Sex"];
         $category->value=$object[6]["Value"];
+
+        requestAPI($object[1]["Method"], $category, $object[7]["New Value"],$object[2]["ModifyValue"]);
+        /*
         if($object[1]["Method"]=="UPDATE"){
             $category->update($object[2]["ModifyValue"],$object[7]["New Value"]);
         }
@@ -39,6 +31,7 @@
             else{
                 $category->delete1();
             }
+            */
     }
     else
     if($object[0]["IndicatorCode"]=="indicatorCode3"){

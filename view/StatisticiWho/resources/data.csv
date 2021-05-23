@@ -1,10 +1,10 @@
 country_name,value,country_code
-Afghanistan,0,AFG
+Afghanistan,-1,AFG
 Albania,0,ALB
 Algeria,0,DZA
 "American Samoa",0,ASM
 Andorra,0,AND
-Angola,0,AGO
+Angola,-1,AGO
 Anguilla,0,AIA
 "Antigua and Barbuda",0,ATG
 Argentina,0,ARG
@@ -31,7 +31,7 @@ Brazil,0,BRA
 Brunei,0,BRN
 Bulgaria,0,BGR
 "Burkina Faso",0,BFA
-Burma,0,MMR
+Burma,3.8,MMR
 Burundi,0,BDI
 "Cabo Verde",0,CPV
 Cambodia,0,KHM
@@ -42,7 +42,7 @@ Canada,0,CAN
 Chad,0,TCD
 Chile,0,CHL
 China,0,CHN
-Colombia,0,COL
+Colombia,-1,COL
 Comoros,0,COM
 "Congo, Democratic Republic of the",0,COD
 "Congo, Republic of the",0,COG
@@ -103,7 +103,7 @@ Jamaica,0,JAM
 Japan,0,JPN
 Jersey,0,JEY
 Jordan,0,JOR
-Kazakhstan,0,KAZ
+Kazakhstan,-1,KAZ
 Kenya,0,KEN
 Kiribati,0,KIR
 "Korea, North",0,PRK
@@ -123,7 +123,7 @@ Luxembourg,0,LUX
 Macau,0,MAC
 Macedonia,0,MKD
 Madagascar,0,MDG
-Malawi,0,MWI
+Malawi,5,MWI
 Malaysia,0,MYS
 Maldives,0,MDV
 Mali,0,MLI
@@ -131,7 +131,7 @@ Malta,0,MLT
 "Marshall Islands",0,MHL
 Mauritania,0,MRT
 Mauritius,0,MUS
-Mexico,0,MEX
+Mexico,-1,MEX
 "Micronesia, Federated States of",0,FSM
 Moldova,0,MDA
 Monaco,0,MCO
@@ -174,7 +174,7 @@ Samoa,0,WSM
 "San Marino",0,SMR
 "Sao Tome and Principe",0,STP
 "Saudi Arabia",0,SAU
-Senegal,0,SEN
+Senegal,-1,SEN
 Serbia,0,SRB
 Seychelles,0,SYC
 "Sierra Leone",0,SLE
@@ -196,7 +196,7 @@ Switzerland,0,CHE
 Syria,0,SYR
 Taiwan,0,TWN
 Tajikistan,0,TJK
-Tanzania,0,TZA
+Tanzania,4.9,TZA
 Thailand,0,THA
 Timor-Leste,0,TLS
 Togo,0,TGO
@@ -204,7 +204,7 @@ Tonga,0,TON
 "Trinidad and Tobago",0,TTO
 Tunisia,0,TUN
 Turkey,0,TUR
-Turkmenistan,0,TKM
+Turkmenistan,-1,TKM
 Tuvalu,0,TUV
 Uganda,0,UGA
 Ukraine,0,UKR
@@ -220,4 +220,4 @@ Vietnam,0,VNM
 "West Bank",0,WBG
 Yemen,0,YEM
 Zambia,0,ZMB
-Zimbabwe,0,ZWE
+Zimbabwe,9.2,ZWE

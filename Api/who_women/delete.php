@@ -14,7 +14,7 @@ $data = file_get_contents("php://input");
 $result=json_decode($data);
 
 if(isset($result->country))
-    $category->country[0]=$result->country;
+    $category->country[0]=$result->country[0];
 
 if(isset($result->year))
     $category->year=$result->year;

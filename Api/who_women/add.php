@@ -15,7 +15,7 @@
   if(isset($result->area))
     $category->area=$result->area;
   if(isset($result->country))
-      $category->country[0]=$result->country;
+      $category->country[0]=$result->country[0];
   if(isset($result->year))
       $category->year=$result->year;
   if(isset($result->value))

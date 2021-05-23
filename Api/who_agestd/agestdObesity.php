@@ -71,6 +71,9 @@ class agestdObesity
     //$newValue='afg';
     $selectQuery=""; //pentru a verifica daca exista o interogare de genul asta
     //$this->country='romania';
+    print_r($this->country);
+    echo "lala <br>";
+    print_r($this->country[0]);
     if($this->country[0]!=null)
       if($this->convertCountry($this->country[0])==null)
           return "nu am gasit nimic";
@@ -214,6 +217,8 @@ if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
   }
 
   public function convertCountry($country){
+
+    print_r($country);
       $country2=strtoupper($country);
 
       $query="SELECT code3 from countries where upper(nume)=upper('{$country2}')";
@@ -237,7 +242,7 @@ if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
   }
   public function delete1(){
 
-    $query="DELETE FROM agestd WHERE ";
+    $query="DELETE FROM whoagestd WHERE ";
     $k=0;
     if($this->country[0] != null){
       $query=$query." country='{$this->convertCountry($this->country[0])}'";
@@ -285,6 +290,10 @@ public function add(){
       echo "exista deja o inregistrare asa, incercati un update!";
     }
     //echo $query;
+    echo "<br>";
+    echo $query;
+    echo "<br>";
+
     if (mysqli_query($this->conn, $query)) {
       echo "Record updated successfully";
      }

@@ -246,13 +246,14 @@ class childrenObesity
     //se adauga si regiuni? :(
 
     if ($this->checkIfExists() == false) {
-      $id = $this->getIndex();
+      $id = $this->getIndex()+100;
       $query = "INSERT INTO  whoage values ( {$id}, 'COUNTRY', '{$this->convertCountry($this->country[0])}',
          {$this->value}, {$this->year}, '{$this->convertSex($this->sex)}' , '{$this->age}') ";
     } else {
       echo "exista deja o inregistrare asa, incercati un update!";
     }
   
+    echo $query; 
     if (mysqli_query($this->conn, $query)) {
       echo "Record updated successfully";
      }
