@@ -5,8 +5,10 @@
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization,X-Requested-With');
 
   include_once '../../model/db-connect.php';
-  include_once 'D:\Xamp\htdocs\proiect\OPreV\Api\who_children\childrenObesity.php';
-
+  //include_once 'D:\Xamp\htdocs\proiect\OPreV\Api\who_children\childrenObesity.php';
+  $dir=__DIR__;
+  $path=substr($dir, 0, 0).'\childrenObesity.php';
+  include($path);
 
 $category=new childrenObesity($conn);
 $data = file_get_contents("php://input");

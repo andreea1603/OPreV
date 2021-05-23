@@ -4,11 +4,11 @@ Albania,0,ALB
 Algeria,0,DZA
 "American Samoa",0,ASM
 Andorra,0,AND
-Angola,-1,AGO
+Angola,0,AGO
 Anguilla,0,AIA
 "Antigua and Barbuda",0,ATG
 Argentina,0,ARG
-Armenia,0,ARM
+Armenia,-1,ARM
 Aruba,0,ABW
 Australia,0,AUS
 Austria,0,AUT
@@ -22,7 +22,7 @@ Belgium,0,BEL
 Belize,0,BLZ
 Benin,0,BEN
 Bermuda,0,BMU
-Bhutan,0,BTN
+Bhutan,-1,BTN
 Bolivia,0,BOL
 "Bosnia and Herzegovina",0,BIH
 Botswana,0,BWA
@@ -30,27 +30,27 @@ Brazil,0,BRA
 "British Virgin Islands",0,VGB
 Brunei,0,BRN
 Bulgaria,0,BGR
-"Burkina Faso",0,BFA
-Burma,3.8,MMR
-Burundi,0,BDI
+"Burkina Faso",8.5,BFA
+Burma,0,MMR
+Burundi,9,BDI
 "Cabo Verde",0,CPV
-Cambodia,0,KHM
+Cambodia,2.2,KHM
 Cameroon,0,CMR
 Canada,0,CAN
 "Cayman Islands",0,CYM
-"Central African Republic",0,CAF
-Chad,0,TCD
+"Central African Republic",-1,CAF
+Chad,-1,TCD
 Chile,0,CHL
 China,0,CHN
-Colombia,-1,COL
+Colombia,13.9,COL
 Comoros,0,COM
-"Congo, Democratic Republic of the",0,COD
+"Congo, Democratic Republic of the",-1,COD
 "Congo, Republic of the",0,COG
 "Cook Islands",0,COK
 "Costa Rica",0,CRI
 "Cote d'Ivoire",0,CIV
 Croatia,0,HRV
-Cuba,0,CUB
+Cuba,-1,CUB
 Curacao,0,CUW
 Cyprus,0,CYP
 "Czech Republic",0,CZE
@@ -123,7 +123,7 @@ Luxembourg,0,LUX
 Macau,0,MAC
 Macedonia,0,MKD
 Madagascar,0,MDG
-Malawi,5,MWI
+Malawi,10,MWI
 Malaysia,0,MYS
 Maldives,0,MDV
 Mali,0,MLI
@@ -131,16 +131,16 @@ Malta,0,MLT
 "Marshall Islands",0,MHL
 Mauritania,0,MRT
 Mauritius,0,MUS
-Mexico,-1,MEX
+Mexico,0,MEX
 "Micronesia, Federated States of",0,FSM
 Moldova,0,MDA
 Monaco,0,MCO
-Mongolia,0,MNG
+Mongolia,-1,MNG
 Montenegro,0,MNE
 Morocco,0,MAR
 Mozambique,0,MOZ
 Namibia,0,NAM
-Nepal,0,NPL
+Nepal,-1,NPL
 Netherlands,0,NLD
 "New Caledonia",0,NCL
 "New Zealand",0,NZL
@@ -156,7 +156,7 @@ Palau,0,PLW
 Panama,0,PAN
 "Papua New Guinea",0,PNG
 Paraguay,0,PRY
-Peru,0,PER
+Peru,17.9,PER
 Philippines,0,PHL
 Poland,0,POL
 Portugal,0,PRT
@@ -164,7 +164,7 @@ Portugal,0,PRT
 Qatar,0,QAT
 Romania,0,ROU
 Russia,0,RUS
-Rwanda,0,RWA
+Rwanda,6.1,RWA
 "Saint Kitts and Nevis",0,KNA
 "Saint Lucia",0,LCA
 "Saint Martin",0,MAF
@@ -174,10 +174,10 @@ Samoa,0,WSM
 "San Marino",0,SMR
 "Sao Tome and Principe",0,STP
 "Saudi Arabia",0,SAU
-Senegal,-1,SEN
-Serbia,0,SRB
+Senegal,8.6,SEN
+Serbia,-1,SRB
 Seychelles,0,SYC
-"Sierra Leone",0,SLE
+"Sierra Leone",-1,SLE
 Singapore,0,SGP
 "Sint Maarten",0,SXM
 Slovakia,0,SVK
@@ -188,23 +188,23 @@ Somalia,0,SOM
 "South Sudan",0,SSD
 Spain,0,ESP
 "Sri Lanka",0,LKA
-Sudan,0,SDN
-Suriname,0,SUR
-Swaziland,0,SWZ
+Sudan,-1,SDN
+Suriname,-1,SUR
+Swaziland,-1,SWZ
 Sweden,0,SWE
 Switzerland,0,CHE
 Syria,0,SYR
 Taiwan,0,TWN
 Tajikistan,0,TJK
-Tanzania,4.9,TZA
+Tanzania,13.4,TZA
 Thailand,0,THA
 Timor-Leste,0,TLS
-Togo,0,TGO
+Togo,-1,TGO
 Tonga,0,TON
 "Trinidad and Tobago",0,TTO
 Tunisia,0,TUN
 Turkey,0,TUR
-Turkmenistan,-1,TKM
+Turkmenistan,0,TKM
 Tuvalu,0,TUV
 Uganda,0,UGA
 Ukraine,0,UKR
@@ -215,9 +215,9 @@ Uruguay,0,URY
 Uzbekistan,0,UZB
 Vanuatu,0,VUT
 Venezuela,0,VEN
-Vietnam,0,VNM
+Vietnam,-1,VNM
 "Virgin Islands",0,VGB
 "West Bank",0,WBG
 Yemen,0,YEM
 Zambia,0,ZMB
-Zimbabwe,9.2,ZWE
+Zimbabwe,15.6,ZWE
