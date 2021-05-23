@@ -404,7 +404,7 @@ function putAreaFilters(area,element){
     var tag = document.createElement("input");
     tag.setAttribute("type","checkbox");
     tag.setAttribute("name","areas[]");
-    tag.setAttribute("value",convertArea(area));
+    tag.setAttribute("value",area);
     tag.setAttribute("onclick","onlyOne(this,'areas[]')");
     element1.appendChild(tag);
 
@@ -414,11 +414,5 @@ function putAreaFilters(area,element){
     
 }
 
-function convertArea(area){
-    if(area=="Rural")
-        return "RUR";
-    return "URB";
-
-}
 </script>
 
