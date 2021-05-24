@@ -10,7 +10,7 @@ function openForm() {
   
   function getEvents(){
     var obj = JSON.parse(JSON.stringify(<?php $test = getEvents(); echo json_encode($test); ?>));
-    console.log(obj);
+    //console.log(obj);
     var element = document.getElementById("events");
   
     for(let i=0;i<obj.length;i++){
@@ -72,10 +72,9 @@ function openForm() {
   }
   function addEvent(){
     var elements=document.getElementsByName("informatii");
-  
-    console.log(elements[0].value);
+    console.log(elements[0].value.substring(12,elements[0].value.length));
     if(elements[0].value!="" && elements[1].value!="" && elements[2].value!=""){
-      const object = {"metoda":"add","image":elements[0].value,"titlu": elements[1].value,"descriere" : elements[2].value};
+      const object = {"metoda":"add","image":elements[0].value.substring(12,elements[0].value.length),"titlu": elements[1].value,"descriere" : elements[2].value};
   
       const xhr = new XMLHttpRequest();
       xhr.onload=function(){
@@ -106,12 +105,11 @@ function openForm() {
   }
   function editEvent(nume){
       var element=document.getElementsByName(nume);
-  
-      const object = {"metoda":"edit","id": [nume[nume.length-1]],"titlu" : element[0].textContent,"descriere" : element[1].textContent};
-      
+      const object = {"metoda":"edit","id": nume.substring(9,nume.length),"titlu" : element[0].textContent,"descriere" : element[1].textContent};
+      console.log(object);
       const xhr = new XMLHttpRequest();
       xhr.onload=function(){
-      console.log(this.responseText);
+        console.log(this.responseText);
       }
       xhr.open("POST","functionsEditEvents.php");
       xhr.setRequestHeader("Content-type","application/json");

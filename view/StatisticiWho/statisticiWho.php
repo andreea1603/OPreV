@@ -91,7 +91,7 @@ include($path);
                         </a>
                     </div>
                     <div>
-                        <img id="jpg-export" class="dispare"></img>
+                        <!-- <img id="jpg-export" class="dispare"></img> -->
                         <a href="#" id="JPGDownload" onclick="prepHref(this)" download> JPG</a>
 
                     </div>

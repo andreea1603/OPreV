@@ -27,9 +27,6 @@
                         <button type="submit" id="login-button">Sign in</button>
                     </form>
                     <hr>
-                    <div>
-                        <p>Don't have an account? <a href="../signUp/signUp.php">Register here.</a></p>
-                    </div> 
                 </div>
             </div>
         </section>

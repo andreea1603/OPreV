@@ -206,7 +206,7 @@ else
         createLabel("Value",element3);
         createLabel("New Value",element3);
 
-        console.log(element1);
+        console.log(element3);
     }
 }
 

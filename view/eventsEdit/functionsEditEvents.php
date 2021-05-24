@@ -3,7 +3,7 @@
 $request=file_get_contents("php://input");
 $object=json_decode($request,true);
 
-print_r($object);
+//print_r($object);
 if(isset($object))
     if($object["metoda"]=="add")//add
         addEvent($object);
@@ -35,20 +35,19 @@ function addEvent($object){
     $image=$object["image"];
     $titlu=$object["titlu"];
     $descriere=$object["descriere"];
-
+    //echo $image;
     $query = "Insert into evenimente (imagePath,titluEvent,descriereEvent) values ('{$image}','{$titlu}' , '{$descriere}')";
     $result=mysqli_query($conn,$query);
-    echo $query;
 }
 function updateEvent($object){
     include('../../model/db-connect.php');
-    $id=$object["id"][0];
+    $id=$object["id"];
     $titlu=$object["titlu"];
     $descriere=$object["descriere"];
     
     $query = "Update evenimente set titluEvent='{$titlu}' , descriereEvent='{$descriere}' where id='{$id}'";
     $result=mysqli_query($conn,$query);
-    echo $result;
+    echo $id;
 }
 function getEvents(){
     include('../../model/db-connect.php');

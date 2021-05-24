@@ -48,6 +48,10 @@ include('../../model/functions.php');
                 <td></td><td></td>
             </tr>
             <tr>
+                <td></td>
+                <td><a href="../signUp/signUp.php">Creaza cont administrator</a></td>
+            </tr>
+            <tr>
                     <td></td>
                 <td><a href="../../view/eventsEdit/eventsEdit.php">Editeaza evenimente</a></td>
             </tr>
@@ -56,10 +60,11 @@ include('../../model/functions.php');
                 <td><a href="../../view/StatisticiEdit/statisticiEdit.php">Editeaza date Eurostat</a></td>
             </tr>
             <tr>
-                <td><td><a href="../../view/StatisticiEditWho/statisticiEditWho.php">Editeaza date Who</a></td></td>
+                <td></td>
+                <td><a href="../../view/StatisticiEditWho/statisticiEditWho.php">Editeaza date Who</a></td>
             </tr>
              <tr>                    <td></td>
-                <td>Log out</td>
+                <td><a href="../signUp/signUp.php">Log out</a></td>
             </tr>
         </table>
         </div>
