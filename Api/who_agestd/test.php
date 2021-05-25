@@ -14,12 +14,9 @@
 
     $request=file_get_contents("php://input");
     $object=json_decode($request,true);
-    var_dump($object);
-    //echo $object[4]["BMI"];;
 
     if(isset($object[0]["IndicatorCode"])){
         if($object[0]["IndicatorCode"]=="indicatorCode4"){
-        echo "saluuut";
         $category= new agestdObesity($conn);
         $category->country[0]=$object[3]["Country"];
         $category->year=$object[4]["Year"];

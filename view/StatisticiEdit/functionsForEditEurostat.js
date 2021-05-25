@@ -9,7 +9,6 @@ function addButton() {
         var ok=1;
         elements.forEach((element)=>{
             if(element.value==="" && element.parentElement.id!="New Value2"){
-              console.log(element4);
               ok=0;
             }
         })
