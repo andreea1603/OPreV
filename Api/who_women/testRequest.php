@@ -1,6 +1,6 @@
 <?php
 include('../../model/db-connect.php');
-function requestAPI($method, $category, $newValue, $modify)
+function requestAPI2($method, $category, $newValue, $modify)
 {
     echo "bun";
     if ($method == "UPDATE")

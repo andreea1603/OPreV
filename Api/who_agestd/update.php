@@ -8,7 +8,7 @@
   //include_once 'D:\Xamp\htdocs\proiect\OPreV\Api\who_agestd\agestdObesity.php';
 
   $dir=__DIR__;
-  $path=substr($dir, 0, 0).'\agestdObesity.php';
+  $path=substr($dir, 0, 0).'agestdObesity.php';
   include($path);
   $category=new agestdObesity($conn);
   $data = file_get_contents("php://input");
@@ -33,4 +33,4 @@
         $newValue=$result->newValue;
       $category->update($typeToBeModified, $newValue );
 
-      $category->update($typeToBeModified, $newValue);
+      //$category->update($typeToBeModified, $newValue);

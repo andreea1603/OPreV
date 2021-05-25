@@ -101,6 +101,8 @@ class agestdObesity
 
       }
       if($this->value!=null){
+
+        
         $query=$query." AND value={$this->value} "; 
         $selectQuery=$selectQuery." AND value={$this->value} ";
 
