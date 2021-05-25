@@ -7,7 +7,7 @@
   include_once '../../model/db-connect.php';
   //include_once 'D:\Xamp\htdocs\proiect\OPreV\Api\who_women\womenObesity.php';
   $dir=__DIR__;
-  $path=substr($dir, 0, 0).'\womenObesity.php';
+  $path=substr($dir, 0, 0).'womenObesity.php';
   include($path);
 
 $category=new womenObesity($conn);

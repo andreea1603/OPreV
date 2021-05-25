@@ -14,11 +14,6 @@ public $bmi;
 public $year;
 public $country=[];
 
-///pentru delete: daca se pune doar tara => punem in locul tarii null
-///             daca se alege tara+ bmi => punem null pentru valoarea de la bmi ul respectiv
-///             daca se alege tara+ bmi+ani => punem null pentru valoarea de la bmi, an
-///pentru update : --> sa se poata modifica doar cate un camp
-///pentru add --> 
 public function __construct($db)
 {
   $this->conn = $db;
@@ -118,7 +113,7 @@ public function infoByFilter(){
     }
     public function delete1(){
 
-        $query="DELETE FROM agestd WHERE ";
+        $query="Update valori set value=0 WHERE ";
         $k=0;
         if($this->country[0] != null){
           $query=$query." country='{$this->convertCountry($this->country[0])}' ";
@@ -147,6 +142,13 @@ public function infoByFilter(){
           printf("Could not delete record from table: %s<br />", $this->conn->error);
         }    
     
+      }
+
+
+      function add (){
+
+
+
       }
     /*
     function add(){

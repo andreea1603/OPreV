@@ -29,7 +29,7 @@ include('functionsEvents.php');
             <img id="firstpic" src="../../pictures/poza1.jpg" alt="">
         </div>
         <div class="container">
-            <h1>Fi Parte Din Familia Noastra</h1>
+            <h1>Fii Parte Din Familia Noastra</h1>
         </div>
         <section class="wrapped" id="events">
             

@@ -34,7 +34,7 @@ function addButton() {
               xhr.onload=function(){
                 errorPart(this.responseText);
               }
-              xhr.open("POST","../../Api/who_agestd/test.php");
+              xhr.open("POST","../../Api/eurostat/test.php");
               xhr.setRequestHeader("Content-type","application/json");
               xhr.send(jsonObject);
             }
@@ -88,7 +88,7 @@ function editButton() {
                 xhr.onload=function(){
                   errorPart(this.responseText);
                 }
-                xhr.open("POST","../../Api/who_agestd/test.php");
+                xhr.open("POST","../../Api/eurostat/test.php");
                 xhr.setRequestHeader("Content-type","application/json");
                 xhr.send(jsonObject);
               }
@@ -138,7 +138,8 @@ function deleteButton(){
                 xhr.onload=function(){
                   errorPart(this.responseText);
                 }
-                xhr.open("POST","../../Api/who_agestd/test.php");
+                console.log("saluut");
+                xhr.open("POST","../../Api/eurostat/test.php");
                 xhr.setRequestHeader("Content-type","application/json");
                 xhr.send(jsonObject);
               }
