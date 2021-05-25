@@ -14,8 +14,8 @@ include('../../model/functions_repres.php');
     <link rel="stylesheet" href="../../styles/style.css">
     <link rel="stylesheet" href="../../styles/edit.css">
     <link rel="shortcut icon" href="../../pictures/vector-creator.ico">
-        <script src="../Statistici/functions.js"></script>
     <script src="functionsForEditEurostat.js"></script>
+    <script src="../Statistici/functions.js"></script>
 
     <title>OPreV</title>
 

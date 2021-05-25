@@ -292,8 +292,8 @@ class crudeObesity{
 
     }
     if($this->value!=null){
-      $query=$query." AND value={$this->value} "; 
-      $selectQuery=$selectQuery." AND value={$this->value} ";
+      $query=$query."   AND value>={$this->value}-0.01 AND value<={$this->value}   "; 
+      $selectQuery=$selectQuery."   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
 
     }
 
@@ -314,8 +314,8 @@ class crudeObesity{
 
       }
       if($this->value!=null){
-        $query=$query." AND value={$this->value} ";
-        $selectQuery=$selectQuery." AND value={$this->value} ";
+        $query=$query."   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
+        $selectQuery=$selectQuery."   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
 
       }
     }
@@ -337,8 +337,8 @@ class crudeObesity{
   
         }
         if($this->value!=null){
-          $query=$query." AND value={$this->value} ";
-          $selectQuery=$selectQuery." AND value={$this->value} ";
+          $query=$query."   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
+          $selectQuery=$selectQuery."   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
 
         }
       }

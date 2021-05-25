@@ -18,7 +18,7 @@ for (let i = 0; i < 100; i++) {
     colors.push('rgba(54, 162, 235,0.5)');
 }
 
-
+var img_jpg = d3.select('#jpg-export');
 var item = document.getElementById('myChart');
 item.remove();
 var tag = document.createElement("div");
@@ -64,7 +64,16 @@ yaxis: {
 bargap :0.2
 };
 
-Plotly.newPlot('myChart', data, layout);
-
+Plotly.newPlot('myChart', data, layout).then(
+    function(gd)
+     {
+      Plotly.toImage(gd,{height:300,width:300})
+         .then(
+             function(url)
+         {
+             img_jpg.attr("src", url);
+         }
+         )
+    });
 }
 </script>

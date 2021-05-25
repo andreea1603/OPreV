@@ -4,14 +4,15 @@ function addButton() {
         var element2=document.getElementById("Year2").children[0];
         var element3=document.getElementById("BMI2").children[0];
         var element4=document.getElementById("Value2").children[0];
-        elements=[element1,element2,element3,element4];
+        var element5=document.getElementById("New Value2").children[0];
+        elements=[element1,element2,element3,element4,element5];
         var ok=1;
         elements.forEach((element)=>{
             if(element.value==="" && element.parentElement.id!="New Value2"){
+              console.log(element4);
               ok=0;
             }
         })
-        console.log(ok);
         if(ok===0)
           errorPart("nu ai completat toate campurile necesare");
         else{

@@ -24,7 +24,13 @@ include($path);
         <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <link rel="shortcut icon" href="../../pictures/vector-creator.ico">
-        
+        <script type="text/javascript"> 
+function prepHref(linkElement) { 
+    var myDiv = document.getElementById('imagine'); 
+    var myImage = myDiv.children[0]; 
+    linkElement.href = myImage.src; 
+} 
+</script> 
         <title>OPreV</title>
     </head>
     <body>
@@ -86,14 +92,15 @@ include($path);
             
                 <div class="butoane">
                     <div>
-                        <a href="resources/data.csv" download="data.csv">
+                        <a href="formdat.csv" download="formdat.csv">
                             CSV
                         </a>
                     </div>
-                    <div>
-                        <!-- <img id="jpg-export" class="dispare"></img> -->
-                        <a href="#" id="JPGDownload" onclick="prepHref(this)" download> JPG</a>
-
+                    <div class="imagine">
+                    <img id="jpg-export" class="dispare">      
+                            <a href="#" onclick="prepHref(this)" download> JPG
+                    </a></img>
+                    </div>
                     </div>
                     <div><a href="#">SVG</a></div>
                 </div>

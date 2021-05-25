@@ -8,7 +8,7 @@
   //include_once 'D:\Xamp\htdocs\proiect\OPreV\Api\who_children\childrenObesity.php';
 
   $dir=__DIR__;
-  $path=substr($dir, 0, 0).'\childrenObesity.php';
+  $path=substr($dir, 0, 0).'childrenObesity.php';
   include($path);
   $category=new childrenObesity($conn);
   $data = file_get_contents("php://input");

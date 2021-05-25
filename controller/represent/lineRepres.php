@@ -1,6 +1,8 @@
 <script>
     
     function linePlotly(){
+        var img_jpg = d3.select('#jpg-export');
+
         var item = document.getElementById('myChart');
         item.remove();
         var tag = document.createElement("div");
@@ -26,7 +28,17 @@
         var data = [trace1];
 
 
-        Plotly.newPlot('myChart', data, layout);
+        Plotly.newPlot('myChart', data, layout).then(
+    function(gd)
+     {
+      Plotly.toImage(gd,{height:300,width:300})
+         .then(
+             function(url)
+         {
+             img_jpg.attr("src", url);
+         }
+         )
+    });
 
 }
 

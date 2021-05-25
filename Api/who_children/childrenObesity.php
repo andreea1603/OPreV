@@ -297,8 +297,8 @@ class childrenObesity
         $selectQuery = $selectQuery . " AND sex='{$this->sex}' ";
       }
       if ($this->value != null) {
-        $query = $query . " AND value={$this->value} ";
-        $selectQuery = $selectQuery . " AND value={$this->value} ";
+        $query = $query . "   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
+        $selectQuery = $selectQuery . "   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
       }
       if ($this->age != null) {
         $query = $query . " AND age='{$this->age}' ";
@@ -318,8 +318,8 @@ class childrenObesity
           $selectQuery = $selectQuery . " AND sex='{$this->sex}' ";
         }
         if ($this->value != null) {
-          $query = $query . " AND value={$this->value} ";
-          $selectQuery = $selectQuery . " AND value={$this->value} ";
+          $query = $query . "   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
+          $selectQuery = $selectQuery . "   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
         }
         if ($this->age != null) {
           $query = $query . " AND age='{$this->age}' ";
@@ -340,8 +340,8 @@ class childrenObesity
             $selectQuery = $selectQuery . " AND year={$this->year} ";
           }
           if ($this->value != null) {
-            $query = $query . " AND value={$this->value} ";
-            $selectQuery = $selectQuery . " AND value={$this->value} ";
+            $query = $query . "   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
+            $selectQuery = $selectQuery . "   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
           }
           if ($this->age != null) {
             $query = $query . " AND age='{$this->age}' ";
@@ -386,8 +386,8 @@ class childrenObesity
             $selectQuery = $selectQuery . " AND year={$this->year} ";
           }
           if ($this->value != null) {
-            $query = $query . " AND value={$this->value} ";
-            $selectQuery = $selectQuery . " AND value={$this->value} ";
+            $query = $query . "   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
+            $selectQuery = $selectQuery . "   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
           }
         }
       }
