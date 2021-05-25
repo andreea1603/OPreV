@@ -9,6 +9,9 @@
     float: left;
     margin-right: 100px;
 }
+.dispare{
+    display:none;
+}
 
 .footerAlign ul li a{
     text-decoration: none;

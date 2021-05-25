@@ -103,8 +103,8 @@ class agestdObesity
       if($this->value!=null){
 
         
-        $query=$query." AND value={$this->value} "; 
-        $selectQuery=$selectQuery." AND value={$this->value} ";
+        $query=$query." AND value>={$this->value}-0.01  AND value<={$this->value} "; 
+        $selectQuery=$selectQuery." AND value>={$this->value}-0.01 AND value<={$this->value} ";
 
       }
 
@@ -125,8 +125,8 @@ class agestdObesity
   
         }
         if($this->value!=null){
-          $query=$query." AND value={$this->value} ";
-          $selectQuery=$selectQuery." AND value={$this->value} ";
+          $query=$query." AND value>={$this->value}-0.01 AND value<={$this->value} ";
+          $selectQuery=$selectQuery." AND value>={$this->value}-0.01 AND value>={$this->value} ";
 
         }
       }
@@ -148,8 +148,8 @@ class agestdObesity
     
           }
           if($this->value!=null){
-            $query=$query." AND value={$this->value} ";
-            $selectQuery=$selectQuery." AND value={$this->value} ";
+            $query=$query."  AND value>={$this->value}-0.01 AND value<={$this->value}  ";
+            $selectQuery=$selectQuery."  AND value>={$this->value}-0.01 AND value<={$this->value}  ";
 
           }
         }
@@ -284,7 +284,7 @@ public function add(){
 
     if($this->checkIfExists()==false)
     {
-      $id=$this->getIndex();
+      $id=$this->getIndex()+10;
     $query="INSERT INTO  whoagestd values ( {$id}, 'COUNTRY', '{$this->convertCountry($this->country[0])}',
        {$this->value}, {$this->year}, '{$this->convertSex($this->sex)}') ";
     }

@@ -347,7 +347,7 @@ function putSexFilters(sex,element){
     var tag = document.createElement("input");
     tag.setAttribute("type","checkbox");
     tag.setAttribute("name","sexes[]");
-    tag.setAttribute("value",getSexR(sex));
+    tag.setAttribute("value",sex );
     tag.setAttribute("onclick","onlyOne(this,'sexes[]')");
     element1.appendChild(tag);
 

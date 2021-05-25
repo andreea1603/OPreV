@@ -12,6 +12,7 @@ $path=substr($dir, 0, -5).'Api\who_crude\crudeObesity.php';
 include_once $path;
 $path=substr($dir, 0, -5).'Api\who_women\womenObesity.php';
 include_once $path;
+include("putInCsv2.php");
 //include('..\controller\statistici-modelwho.php');
 //include('D:\Xamp\htdocs\proiect\OPreV\controller\statistici-modelwho.php');
 
@@ -177,6 +178,21 @@ else{
     $datasetswho=null;
     $labelswho=[];
     $datasetswho=[];
+    $age=null;
+    $sex=null;
+    $area = null;
+    $year=$decode['data'][0]['year'];
+    echo $decode['data'][0]['sex'];
+    if(isset($decode['data'][0]['sex']))
+        $sex=$decode['data'][0]['sex'];
+    if(isset($decode['data'][0]['age']))
+        $age=$decode['data'][0]['age'];
+    if(isset($decode['data'][0]['area']))
+        $area=$decode['data'][0]['area'];
+
+    $type= checkMare("indicatorCode")[0];
+    //print_r($decode['data']);
+
     if(isset($decode['data']))
         for($i=0;$i<count($decode['data']);$i++){
             
@@ -187,6 +203,7 @@ else{
 
     }
 mapWho($labelswho,$datasetswho);
+getCsv1($type, $labelswho, $year, $sex, $age, $datasetswho, $area);
 function makeURL(){
 
     $typeOfFilter = checkMare("indicatorCode")[0];
