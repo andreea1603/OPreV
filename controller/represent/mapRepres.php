@@ -2,6 +2,8 @@
 
 
 function mapChart() {
+    var img_svg = d3.select('#jpg-export');
+
             var item = document.getElementById('myChart');
             item.remove();
             var tag = document.createElement("div");
@@ -63,6 +65,18 @@ function mapChart() {
                 Plotly.newPlot("myChart", data, layout, {
                     showLink: false
                 })
-                                });
+                                }).then(
+    function(gd)
+     {
+      Plotly.toImage(gd,{height:900,width:900}).then(
+             function(url)
+         {
+            img_svg.attr("src", url);
+  Plotly.toImage(gd,{format:'svg',height:400,width:400});
+             console.log(url);
+         }
+         )
+         
+    });
     }
 </script>

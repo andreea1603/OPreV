@@ -18,7 +18,10 @@ for (let i = 0; i < 100; i++) {
     colors.push('rgba(54, 162, 235,0.5)');
 }
 
-var img_jpg = d3.select('#jpg-export');
+var img_png = d3.select('#png-export');
+var img_svg = d3.select('#svg-export');
+
+
 var item = document.getElementById('myChart');
 item.remove();
 var tag = document.createElement("div");
@@ -64,16 +67,23 @@ yaxis: {
 bargap :0.2
 };
 
+
 Plotly.newPlot('myChart', data, layout).then(
     function(gd)
      {
-      Plotly.toImage(gd,{height:300,width:300})
+       
+        Plotly.toImage(gd,{format:'png',height:900,width:900})
          .then(
              function(url)
          {
-             img_jpg.attr("src", url);
+            img_png.attr("src", url);
+            Plotly.toImage(gd,{format:'svg',height:800,width:800});
+
          }
          )
-    });
+
+         
+         });
+
 }
 </script>

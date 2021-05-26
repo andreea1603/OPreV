@@ -1,7 +1,8 @@
 <script>
     
     function linePlotly(){
-        var img_jpg = d3.select('#jpg-export');
+        var img_png = d3.select('#jpg-export');
+var img_svg = d3.select('#svg-export');
 
         var item = document.getElementById('myChart');
         item.remove();
@@ -31,8 +32,7 @@
         Plotly.newPlot('myChart', data, layout).then(
     function(gd)
      {
-      Plotly.toImage(gd,{height:300,width:300})
-         .then(
+        Plotly.toImage(gd,{format:'png',height:900,width:900}).then(
              function(url)
          {
              img_jpg.attr("src", url);

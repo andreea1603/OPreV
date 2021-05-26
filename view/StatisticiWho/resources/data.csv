@@ -1,232 +1,232 @@
 country_name,value,country_code
-Afghanistan,0,AFG
-Albania,0,ALB
-Algeria,0,DZA
+Afghanistan,5.2,AFG
+Albania,21.1,ALB
+Algeria,26.7,DZA
 "American Samoa",0,ASM
-Andorra,0,AND
-Angola,0,AGO
+Andorra,25.4,AND
+Angola,7.9,AGO
 Anguilla,0,AIA
-"Antigua and Barbuda",0,ATG
-Argentina,0,ARG
-Armenia,0,ARM
+"Antigua and Barbuda",18.4,ATG
+Argentina,27.8,ARG
+Armenia,19.7,ARM
 Aruba,0,ABW
-Australia,0,AUS
-Austria,0,AUT
-Azerbaijan,0,AZE
+Australia,28.4,AUS
+Austria,19.7,AUT
+Azerbaijan,19.3,AZE
 "Bahamas, The",0,BHM
-Bahrain,0,BHR
-Bangladesh,0,BGD
-Barbados,0,BRB
-Belarus,0,BLR
-Belgium,0,BEL
-Belize,0,BLZ
-Benin,0,BEN
+Bahrain,29.3,BHR
+Bangladesh,3.4,BGD
+Barbados,22.5,BRB
+Belarus,24.1,BLR
+Belgium,21.7,BEL
+Belize,23.6,BLZ
+Benin,9.3,BEN
 Bermuda,0,BMU
-Bhutan,0,BTN
-Bolivia,0,BOL
-"Bosnia and Herzegovina",0,BIH
-Botswana,0,BWA
-Brazil,0,BRA
+Bhutan,6.1,BTN
+Bolivia,19.7,BOL
+"Bosnia and Herzegovina",17.5,BIH
+Botswana,18.6,BWA
+Brazil,21.6,BRA
 "British Virgin Islands",0,VGB
-Brunei,0,BRN
-Bulgaria,0,BGR
-"Burkina Faso",0,BFA
-Burma,0,MMR
-Burundi,0,BDI
-"Burkina Faso",0,BFA
-Burma,0,MMR
-Burundi,0,BDI
-"Cabo Verde",0,CPV
-Cambodia,0,KHM
-Cameroon,0,CMR
-Canada,0,CAN
+Brunei,13.6,BRN
+Bulgaria,24.5,BGR
+"Burkina Faso",5.3,BFA
+Burma,5.4,MMR
+Burundi,5.1,BDI
+"Burkina Faso",5.3,BFA
+Burma,5.4,MMR
+Burundi,5.1,BDI
+"Cabo Verde",11.4,CPV
+Cambodia,3.7,KHM
+Cameroon,11,CMR
+Canada,28.8,CAN
 "Cayman Islands",0,CYM
-"Central African Republic",0,CAF
-Chad,0,TCD
-Chile,0,CHL
-China,0,CHN
-Colombia,0,COL
-Colombia,0,COL
-Comoros,0,COM
-"Congo, Democratic Republic of the",0,COD
-"Congo, Republic of the",0,COG
-"Cook Islands",0,COK
-"Costa Rica",0,CRI
+"Central African Republic",7.2,CAF
+Chad,5.8,TCD
+Chile,27.5,CHL
+China,5.9,CHN
+Colombia,21.9,COL
+Colombia,21.9,COL
+Comoros,7.5,COM
+"Congo, Democratic Republic of the",6.4,COD
+"Congo, Republic of the",9.2,COG
+"Cook Islands",55.4,COK
+"Costa Rica",25,CRI
 "Cote d'Ivoire",0,CIV
-Croatia,0,HRV
-Cuba,0,CUB
+Croatia,23.9,HRV
+Cuba,24.1,CUB
 Curacao,0,CUW
-Cyprus,0,CYP
-"Czech Republic",0,CZE
-Denmark,0,DNK
-Djibouti,0,DJI
-Dominica,0,DMA
-"Dominican Republic",0,DOM
-Ecuador,0,ECU
-Egypt,0,EGY
-"El Salvador",0,SLV
-"Equatorial Guinea",0,GNQ
-Eritrea,0,ERI
-Estonia,0,EST
-Ethiopia,0,ETH
+Cyprus,21.4,CYP
+"Czech Republic",25.6,CZE
+Denmark,19.3,DNK
+Djibouti,13.2,DJI
+Dominica,27.3,DMA
+"Dominican Republic",26.9,DOM
+Ecuador,19.4,ECU
+Egypt,31.3,EGY
+"El Salvador",24,SLV
+"Equatorial Guinea",7.7,GNQ
+Eritrea,4.8,ERI
+Estonia,20.9,EST
+Ethiopia,4.3,ETH
 "Falkland Islands (Islas Malvinas)",0,FLK
 "Faroe Islands",0,FRO
-Fiji,0,FJI
-Finland,0,FIN
-France,0,FRA
+Fiji,29.5,FJI
+Finland,21.8,FIN
+France,21.2,FRA
 "French Polynesia",0,PYF
-Gabon,0,GAB
-"Gambia, The",0,GMB
-Georgia,0,GEO
-Germany,0,DEU
-Ghana,0,GHA
+Gabon,14.6,GAB
+"Gambia, The",9.9,GMB
+Georgia,21.1,GEO
+Germany,21.9,DEU
+Ghana,10.5,GHA
 Gibraltar,0,GIB
-Greece,0,GRC
+Greece,24.4,GRC
 Greenland,0,GRL
-Grenada,0,GRD
+Grenada,20.7,GRD
 Guam,0,GUM
-Guatemala,0,GTM
+Guatemala,20.6,GTM
 Guernsey,0,GGY
-Guinea-Bissau,0,GNB
-Guinea,0,GIN
-Guyana,0,GUY
-Haiti,0,HTI
-Honduras,0,HND
+Guinea-Bissau,9.1,GNB
+Guinea,7.4,GIN
+Guyana,19.6,GUY
+Haiti,21.8,HTI
+Honduras,20.8,HND
 "Hong Kong",0,HKG
-Hungary,0,HUN
-Iceland,0,ISL
-India,0,IND
-Indonesia,0,IDN
-Iran,0,IRN
-Iraq,0,IRQ
-Ireland,0,IRL
+Hungary,25.9,HUN
+Iceland,21.5,ISL
+India,3.7,IND
+Indonesia,6.5,IDN
+Iran,25.2,IRN
+Iraq,29.8,IRQ
+Ireland,24.7,IRL
 "Isle of Man",0,IMN
-Israel,0,ISR
-Italy,0,ITA
-Jamaica,0,JAM
-Japan,0,JPN
+Israel,25.8,ISR
+Italy,19.6,ITA
+Jamaica,24.1,JAM
+Japan,4.1,JPN
 Jersey,0,JEY
-Jordan,0,JOR
-Kazakhstan,0,KAZ
-Kenya,0,KEN
-Kiribati,0,KIR
+Jordan,34.9,JOR
+Kazakhstan,20.5,KAZ
+Kenya,6.8,KEN
+Kiribati,45.3,KIR
 "Korea, North",0,PRK
-"Korea, South",0,KOR
+"Korea, South",4.5,KOR
 Kosovo,0,KSV
-Kuwait,0,KWT
-Kyrgyzstan,0,KGZ
+Kuwait,37.4,KWT
+Kyrgyzstan,16,KGZ
 Laos,0,LAO
-Latvia,0,LVA
-Lebanon,0,LBN
-Lesotho,0,LSO
-Liberia,0,LBR
-Libya,0,LBY
+Latvia,23.3,LVA
+Lebanon,31.4,LBN
+Lesotho,16.2,LSO
+Liberia,9.6,LBR
+Libya,31.9,LBY
 Liechtenstein,0,LIE
-Lithuania,0,LTU
-Luxembourg,0,LUX
+Lithuania,26,LTU
+Luxembourg,22.2,LUX
 Macau,0,MAC
-Macedonia,0,MKD
-Madagascar,0,MDG
-Malawi,0,MWI
-Malawi,0,MWI
-Malaysia,0,MYS
-Maldives,0,MDV
-Mali,0,MLI
-Malta,0,MLT
-"Marshall Islands",0,MHL
-Mauritania,0,MRT
-Mauritius,0,MUS
-Mexico,0,MEX
-"Micronesia, Federated States of",0,FSM
-Moldova,0,MDA
-Monaco,0,MCO
-Mongolia,0,MNG
-Montenegro,0,MNE
-Morocco,0,MAR
-Mozambique,0,MOZ
-Namibia,0,NAM
-Nepal,0,NPL
-Netherlands,0,NLD
+Macedonia,22,MKD
+Madagascar,5.1,MDG
+Malawi,5.5,MWI
+Malawi,5.5,MWI
+Malaysia,14.9,MYS
+Maldives,8.1,MDV
+Mali,8.2,MLI
+Malta,28.5,MLT
+"Marshall Islands",52.4,MHL
+Mauritania,12.3,MRT
+Mauritius,10.5,MUS
+Mexico,28.3,MEX
+"Micronesia, Federated States of",45.1,FSM
+Moldova,18.5,MDA
+Monaco,-1,MCO
+Mongolia,19.9,MNG
+Montenegro,22.8,MNE
+Morocco,25.4,MAR
+Mozambique,6.9,MOZ
+Namibia,16.7,NAM
+Nepal,3.9,NPL
+Netherlands,20,NLD
 "New Caledonia",0,NCL
-"New Zealand",0,NZL
-Nicaragua,0,NIC
-Nigeria,0,NGA
-Niger,0,NER
-Niue,0,NIU
+"New Zealand",30.2,NZL
+Nicaragua,23.1,NIC
+Nigeria,8.5,NGA
+Niger,5.2,NER
+Niue,49.2,NIU
 "Northern Mariana Islands",0,MNP
-Norway,0,NOR
-Oman,0,OMN
-Pakistan,0,PAK
-Palau,0,PLW
-Panama,0,PAN
-"Papua New Guinea",0,PNG
-Paraguay,0,PRY
-Peru,0,PER
-Philippines,0,PHL
-Poland,0,POL
-Portugal,0,PRT
+Norway,22.6,NOR
+Oman,26.3,OMN
+Pakistan,8.2,PAK
+Palau,54.8,PLW
+Panama,22.2,PAN
+"Papua New Guinea",20.7,PNG
+Paraguay,19.8,PRY
+Peru,19.3,PER
+Philippines,6.2,PHL
+Poland,22.7,POL
+Portugal,20.4,PRT
 "Puerto Rico",0,PRI
-Qatar,0,QAT
-Romania,0,ROU
-Russia,0,RUS
-Rwanda,0,RWA
-"Saint Kitts and Nevis",0,KNA
-"Saint Lucia",0,LCA
+Qatar,34.5,QAT
+Romania,22.1,ROU
+Russia,22.8,RUS
+Rwanda,5.6,RWA
+"Saint Kitts and Nevis",22.3,KNA
+"Saint Lucia",19.1,LCA
 "Saint Martin",0,MAF
 "Saint Pierre and Miquelon",0,SPM
-"Saint Vincent and the Grenadines",0,VCT
-Samoa,0,WSM
-"San Marino",0,SMR
-"Sao Tome and Principe",0,STP
-"Saudi Arabia",0,SAU
-Senegal,0,SEN
-Serbia,0,SRB
-Senegal,0,SEN
-Serbia,0,SRB
-Seychelles,0,SYC
-"Sierra Leone",0,SLE
-Singapore,0,SGP
+"Saint Vincent and the Grenadines",23.1,VCT
+Samoa,46.7,WSM
+"San Marino",-1,SMR
+"Sao Tome and Principe",12,STP
+"Saudi Arabia",34.7,SAU
+Senegal,8.5,SEN
+Serbia,21.1,SRB
+Senegal,8.5,SEN
+Serbia,21.1,SRB
+Seychelles,13.5,SYC
+"Sierra Leone",8.3,SLE
+Singapore,6,SGP
 "Sint Maarten",0,SXM
-Slovakia,0,SVK
-Slovenia,0,SVN
-"Solomon Islands",0,SLB
-Somalia,0,SOM
-"South Africa",0,ZAF
+Slovakia,20.1,SVK
+Slovenia,19.8,SVN
+"Solomon Islands",21.9,SLB
+Somalia,7.9,SOM
+"South Africa",27.8,ZAF
 "South Sudan",0,SSD
-Spain,0,ESP
-"Sri Lanka",0,LKA
-Sudan,0,SDN
-Suriname,0,SUR
-Swaziland,0,SWZ
-Sweden,0,SWE
-Switzerland,0,CHE
-Syria,0,SYR
+Spain,23.4,ESP
+"Sri Lanka",4.9,LKA
+Sudan,-1,SDN
+Suriname,25.9,SUR
+Swaziland,16.1,SWZ
+Sweden,20.2,SWE
+Switzerland,19.1,CHE
+Syria,27.1,SYR
 Taiwan,0,TWN
-Tajikistan,0,TJK
-Tanzania,0,TZA
-Tanzania,0,TZA
-Thailand,0,THA
-Timor-Leste,0,TLS
-Togo,0,TGO
-Tonga,0,TON
-"Trinidad and Tobago",0,TTO
-Tunisia,0,TUN
-Turkey,0,TUR
-Turkmenistan,0,TKM
-Tuvalu,0,TUV
-Uganda,0,UGA
-Ukraine,0,UKR
-"United Arab Emirates",0,ARE
-"United Kingdom",0,GBR
-"United States",0,USA
-Uruguay,0,URY
-Uzbekistan,0,UZB
-Vanuatu,0,VUT
-Venezuela,0,VEN
-Vietnam,0,VNM
+Tajikistan,13.7,TJK
+Tanzania,8,TZA
+Tanzania,8,TZA
+Thailand,9.4,THA
+Timor-Leste,3.6,TLS
+Togo,8.1,TGO
+Tonga,47.5,TON
+"Trinidad and Tobago",18,TTO
+Tunisia,26.3,TUN
+Turkey,31.5,TUR
+Turkmenistan,18,TKM
+Tuvalu,50.9,TUV
+Uganda,5,UGA
+Ukraine,23.7,UKR
+"United Arab Emirates",31,ARE
+"United Kingdom",27.2,GBR
+"United States",35.6,USA
+Uruguay,27.5,URY
+Uzbekistan,16,UZB
+Vanuatu,24.5,VUT
+Venezuela,25.2,VEN
+Vietnam,2,VNM
 "Virgin Islands",0,VGB
 "West Bank",0,WBG
-Yemen,0,YEM
-Zambia,0,ZMB
-Zimbabwe,0,ZWE
-Zimbabwe,0,ZWE
+Yemen,16.5,YEM
+Zambia,7.7,ZMB
+Zimbabwe,15.2,ZWE
+Zimbabwe,15.2,ZWE

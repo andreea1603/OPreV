@@ -96,12 +96,14 @@ function prepHref(linkElement) {
                             CSV
                         </a>
                     </div>
-                    <div class="imagine">
-                    <img id="jpg-export" class="dispare">      
-                            <a href="#" onclick="prepHref(this)" download> JPG
+                    <div id="imagine">
+                    <img id="png-export" class="dispare">      
+                            <a href="#" onclick="prepHref(this)" download> PNG
                     </a></img>
                     </div>
                     </div>
+
+                    
                     <div><a href="#">SVG</a></div>
                 </div>
             </div>
