@@ -12,7 +12,8 @@ var colors=[];
           colors.push('rgba(201, 203, 207, 0.2)');
           colors.push('rgba(54, 162, 235, 0.2)');
 }
-
+var img_png = d3.select('#png-export');
+var img_svg = d3.select('#svg-export');
 
 var item = document.getElementById('myChart');
 item.remove();
@@ -54,7 +55,29 @@ var layout = {
   bargap :0.2
 };
 
-Plotly.newPlot('myChart', data, layout);
+Plotly.newPlot('myChart', data, layout).then(
+    function(gd)
+     {
+       
+        Plotly.toImage(gd,{format:'png',height:900,width:900}).then(
+             function(url)
+         {
+            img_png.attr("src", url);
+         }
+         ).then(
+             
+             Plotly.toImage(gd,{format:'svg',height:900,width:900}).then(
+                 function(url)
+             {
+                 img_svg.attr("src", url);
+             }
+             )
+            
+             )
+
+         
+         });
+
 
 
 

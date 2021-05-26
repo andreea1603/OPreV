@@ -2,6 +2,8 @@
 <script>
 function linePlotly(){
 
+  var img_png = d3.select('#png-export');
+        var img_svg = d3.select('#svg-export');
 
     var item = document.getElementById('myChart');
     item.remove();
@@ -23,6 +25,24 @@ function linePlotly(){
 
 var data = [trace1];
 
-Plotly.newPlot('myChart', data);
+Plotly.newPlot('myChart', data).then(
+    function(gd)
+     {       
+        Plotly.toImage(gd,{format:'png',height:900,width:900}).then(
+             function(url)
+         {
+             img_png.attr("src", url);
+         }
+         ).then(
+             
+         Plotly.toImage(gd,{format:'svg',height:900,width:900}).then(
+             function(url)
+         {
+             img_svg.attr("src", url);
+         }
+         )
+        
+         )
+    });
 }
 </script>

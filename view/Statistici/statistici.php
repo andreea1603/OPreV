@@ -35,7 +35,22 @@ include($path);
     <script type="text/javascript" src="functions.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-    <title>OPreV</title>
+    <title>OPreV</title> <script type="text/javascript"> 
+function prepHref(linkElement, ok) { 
+    if(ok===1){
+    var myDiv = document.getElementById('imagine'); 
+    var myImage = myDiv.children[0]; 
+    linkElement.href = myImage.src; 
+    }
+    else{
+        //linePlotlySvg();
+        var myDiv = document.getElementById('imagine1'); 
+        var myImage = myDiv.children[0]; 
+        linkElement.href = myImage.src; 
+    }
+} 
+</script> 
+
 
 </head>
 
@@ -251,15 +266,18 @@ include($path);
                     </a>
                 </div>
 
-                <div>
-                    <a href="#" id="JPGDownload" onclick="prepHref(this)" download> 
-                        JPG
-                    </a>
-                    <img id="jpg-export" class="dispare"></img>
-                </div>
+                <div id="imagine">
+                    <img id="png-export" class="dispare">      
+                            <a href="#" onclick="prepHref(this, 1)" download> PNG
+                    </a></img>
+                    </div>
 
-
-                <div><a href="#">SVG</a></div>
+                    <div id="imagine1">
+                    <img id="svg-export" class="dispare">
+                            <a href="#"  onclick="prepHref(this, 2)" download >SVG
+                    </a> 
+                    </img> 
+                    </div>
             </div>
         </div>
         <div class="right-part">
