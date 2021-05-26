@@ -200,47 +200,62 @@ class childrenObesity
   public function delete1()
   {
 
-    $query = "DELETE FROM whoage WHERE ";
-    $k = 0;
-    if ($this->country != null) {
-      if ($this->country[0] != null) {
-        $query = $query . " country='{$this->convertCountry($this->country[0])}'";
-        $k = $k + 1;
+    $query="DELETE FROM whoage WHERE ";
+    $k=0;
+    $arrayParam=[];
+    $arrayTypes=[];
+    $param='';
+    if($this->country[0] != null){
+      $query=$query." country=? ";
+      array_push($arrayParam,$this->convertCountry($this->country[0]) );
+      array_push($arrayTypes,'s');
+        $param=$param.'s';
+      $k=$k+1;
+
+    }
+    if($this->year!=null){
+      if($k==0){
+        $query=$query." year=? ";
       }
-    }
-    if ($this->year != null) {
-      if ($k == 0) {
-        $query = $query . " year={$this->year}";
-      } else {
-        $query = $query . " and year={$this->year}";
+      else{
+        $query=$query." and year=? ";
       }
-      $k = $k + 1;
+      array_push($arrayParam,$this->year );
+      array_push($arrayTypes,'d');
+      $param=$param.'d';
+      $k=$k+1;
     }
-    if ($this->sex != null) {
-      if ($k == 0) {
-        $query = $query . " sex='{$this->convertSex($this->sex)}'";
-      } else {
-        $query = $query . " and sex='{$this->convertSex($this->sex)}'";
+    if($this->sex!=null){
+      if($k==0){
+        $query=$query." sex=? ";
       }
-      $k = $k + 1;
-    }
-    if ($this->age != null) {
-      if ($k == 0) {
-        $query = $query . " age='{$this->age}'";
-      } else {
-        $query = $query . " and age='{$this->age}'";
+      else{
+        $query=$query." and sex=? ";
       }
-      $k = $k + 1;
+      $k=$k+1;
+      array_push($arrayParam,$this->convertSex($this->sex));
+      array_push($arrayTypes,'s');
+      $param=$param.'s';
     }
-    //echo $query;
-    if ($this->conn->query($query)) {
-      printf("Table tutorials_tbl record deleted successfully.<br />");
+    if($this->age != null){
+      if($k==0)
+          $query=$query." age=? ";
+      else 
+          $query=$query." and age=? ";
+
+      array_push($arrayParam,$this->age );
+      array_push($arrayTypes,'s');
+        $param=$param.'s';
+      $k=$k+1;
+
     }
-    if ($this->conn->errno) {
-      printf("Could not delete record from table: %s<br />", $this->conn->error);
-    }
-    //echo $query;
+    $stmt = mysqli_prepare($this->conn, $query);
+
+      mysqli_stmt_bind_param($stmt, $param, ...$arrayParam);
+
+      mysqli_stmt_execute($stmt);
   }
+
   public function add()
   {
     //se adauga si regiuni? :(

@@ -163,39 +163,58 @@ class womenObesity{
 
         $query="DELETE FROM whowomen WHERE ";
         $k=0;
+        $arrayParam=[];
+        $arrayTypes=[];
+        $param='';
         if($this->country[0] != null){
-          $query=$query." country='{$this->convertCountry($this->country[0])}'";
+          $query=$query." country=? ";
+          array_push($arrayParam,$this->convertCountry($this->country[0]) );
+          array_push($arrayTypes,'s');
+            $param=$param.'s';
           $k=$k+1;
+    
         }
         if($this->year!=null){
           if($k==0){
-            $query=$query." year={$this->year}";
+            $query=$query." year=? ";
           }
           else{
-            $query=$query." and year={$this->year}";
+            $query=$query." and year=? ";
           }
+          array_push($arrayParam,$this->year );
+          array_push($arrayTypes,'d');
+          $param=$param.'d';
+    
+    
+    
+          $k=$k+1;
+    
         }
         if($this->area!=null){
           if($k==0){
-            $query=$query." area='{$this->area}'";
+            $query=$query." area=? ";
           }
           else{
-            $query=$query." and area='{$this->area}'";
+            $query=$query." and area=? ";
           }
+          $k=$k+1;
+          array_push($arrayParam,$this->area);
+          array_push($arrayTypes,'s');
+          $param=$param.'s';
+    
         }
-        if ($this->conn->query($query)) {
-          printf("Table tutorials_tbl record deleted successfully.<br />");
-        }
-        if ($this->conn->errno) {
-          printf("Could not delete record from table: %s<br />", $this->conn->error);
-        }        
+        $stmt = mysqli_prepare($this->conn, $query);
+    
+          mysqli_stmt_bind_param($stmt, $param, ...$arrayParam);
+    
+          mysqli_stmt_execute($stmt);
       }
         public function checkIfExists(){
 
           //  $this->country='ROU';
           
             //$this->year=2010;
-            //$this->sex='FMLE';
+            //$this->area='FMLE';
           
             $query="select id from whowomen where country=? AND year=? AND area=?";
            
@@ -280,129 +299,280 @@ class womenObesity{
   }
   public function update($typeToBeModified, $newValue){
 
-    ///(update: verificam daca exista randul) -> pt add  warning daca exista
+          ///(update: verificam daca exista randul) -> pt add  warning daca exista
 
-//$typeToBeModified='year';
-//$newValue='afg';
-$selectQuery=""; //pentru a verifica daca exista o interogare de genul asta
-//$this->country='romania';
-if($this->country[0]!=null)
-  if($this->convertCountry($this->country[0])==null)
-      return "nu am gasit nimic";
-  else
-    $this->country[0]=$this->convertCountry($this->country[0]);
+    //$typeToBeModified='year';
+    //$newValue='afg';
+    $selectQuery=""; //pentru a verifica daca exista o interogare de genul asta
+    //$this->country='romania';
+    print_r($this->country);
+    echo "lala <br>";
+    print_r($this->country[0]);
 
+    $types='';
+    $arrayParam=[];
+    $arrayParamSelect=[];
+    $typesSelect='';
 
-if($typeToBeModified=='Country'){
-  //vreau sa modific tara
-  // in this->camp avem valorile alese in formular
-  $newValue=$this->convertCountry($newValue);
-  $query="UPDATE whowomen SET country='{$newValue}' WHERE country='{$this->country[0]}' ";
-  $selectQuery="SELECT id from whowomen WHERE country='{$this->country[0]} '";
-  if($this->year!=null){
-    $query=$query." AND year={$this->year} ";
-    $selectQuery=$selectQuery." AND year={$this->year} ";
+    if($this->country[0]!=null)
+      if($this->convertCountry($this->country[0])==null)
+          return "nu am gasit nimic";
+      else
+        
+      $this->country[0]=$this->convertCountry($this->country[0]);
 
-  }
-  if($this->area!=null){
-    $query=$query." AND area='{$this->area}' ";
-    $selectQuery=$selectQuery." AND area='{$this->area}' ";
+    //$this->year=2030;
+    if($this->area!=null)
+      $this->area=$this->area;
 
 
-  }
-  if($this->value!=null){
-    $query=$query."   AND value>={$this->value}-0.01 AND value<={$this->value}   "; 
-    $selectQuery=$selectQuery."   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
+    if($typeToBeModified=='Country'){
+      //vreau sa modific tara
+      // in this->camp avem valorile alese in formular
+      $newValue=$this->convertCountry($newValue);
+      array_push($arrayParam, $newValue);
+      array_push($arrayParam, $this->country[0]);
+      $types=$types.'s'.'s';
 
-  }
-
-}
-else{
-  if($typeToBeModified=='Year'){
-    $query="UPDATE whowomen SET year={$newValue} WHERE year= {$this->year} ";
-    $selectQuery="SELECT id from whowomen WHERE year={$this->year} ";
-
-    if($this->country[0]!=null){
-      $selectQuery=$selectQuery." AND country='{$this->country[0]}' ";
-      $query=$query." AND country='{$this->country[0]}' ";
-    }
-    if($this->area!=null){
-      $query=$query." AND area='{$this->area}' ";
-      $selectQuery=$selectQuery." AND area='{$this->area}' ";
+      $query="UPDATE whowomen SET country=? WHERE country=? ";
 
 
-    }
-    if($this->value!=null){
-      $query=$query."   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
-      $selectQuery=$selectQuery."   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
+      $selectQuery="SELECT id from whowomen WHERE country=? ";
 
-    }
-  }
-  else{
-    if($typeToBeModified=='Area'){
-      $query="UPDATE whowomen SET area='{$newValue}' WHERE area='{$this->area}' ";
-      $selectQuery="SELECT id from whowomen WHERE area='{$this->area} '";
+      array_push($arrayParamSelect, $this->country[0]);
+      $typesSelect=$typesSelect.'s';
 
-      if($this->country[0]!=null){
-        $query=$query." AND country='{$this->country[0]}' ";
-        $selectQuery=$selectQuery." AND country='{$this->country[0]}' ";
+      if($this->year!=null){
+        $query=$query." AND year=?  ";
+        $selectQuery=$selectQuery." AND year=? ";
+
+        array_push($arrayParam, $this->year);
+        array_push($arrayParamSelect, $this->year);
+        $types=$types.'d';
+        $typesSelect=$typesSelect.'d';
 
       }
-      if($this->year!=null){
-        $query=$query." AND year={$this->year} ";
-        $selectQuery=$selectQuery." AND year={$this->year} ";
+      if($this->area!=null){
+        $query=$query." AND area=? ";
+        $selectQuery=$selectQuery." AND area=? ";
+        array_push($arrayParam, $this->area);
+        array_push($arrayParamSelect, $this->area);
+        $types=$types.'s';
+        $typesSelect=$typesSelect.'s';
 
 
       }
       if($this->value!=null){
-        $query=$query."   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
-        $selectQuery=$selectQuery."   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
+
+        
+        $query=$query." AND value>=?-0.01  AND value<=? "; 
+        $selectQuery=$selectQuery." AND value>=?-0.01 AND value<=? ";
+        array_push($arrayParam, $this->value);
+        array_push($arrayParamSelect, $this->value);
+        $types=$types.'d';
+        $typesSelect=$typesSelect.'d';
+        array_push($arrayParam, $this->value);
+        array_push($arrayParamSelect, $this->value);
+        $types=$types.'d';
+        $typesSelect=$typesSelect.'d';
 
       }
+
     }
-    else 
-      if($typeToBeModified=='Value'){
-        $query="UPDATE whowomen SET value={$newValue} WHERE value={$this->value} ";
-        $selectQuery="SELECT id from whowomen WHERE value={$this->value} ";
-        
+    else{
+      if($typeToBeModified=='Year'){
+
+
+        $query="UPDATE whowomen SET year=? WHERE year=? ";
+        $selectQuery="SELECT id from whowomen WHERE year=?";
+        array_push($arrayParam, $newValue);
+        array_push($arrayParam, $this->year);
+
+
+        array_push($arrayParamSelect, $this->year);
+        $types=$types.'d'.'d';
+        $typesSelect=$typesSelect.'d';
+
         if($this->country[0]!=null){
-          $query=$query." AND country='{$this->country[0]}'";
-          $selectQuery=$selectQuery." AND country='{$this->country[0]}' ";
+          $selectQuery=$selectQuery." AND country=? ";
+          $query=$query." AND country=? ";
+          array_push($arrayParam, $this->country);
+          array_push($arrayParamSelect, $this->country);
+          $types=$types.'s';
+          $typesSelect=$typesSelect.'s';
 
         }
         if($this->area!=null){
-          $query=$query." AND area='{$this->area}' ";
-          $selectQuery=$selectQuery." AND area='{$this->area}' ";
+          $query=$query." AND area=?  ";
+          $selectQuery=$selectQuery." AND area=? ";  
+          array_push($arrayParam, $this->area);
+          array_push($arrayParamSelect, $this->area);
+          $types=$types.'s';
+          $typesSelect=$typesSelect.'s';
 
+  
         }
-        if($this->year!=null){
-          $query=$query." AND year={$this->year} ";
-          $selectQuery=$selectQuery." AND year={$this->year} ";
+        if($this->value!=null){
+          $query=$query." AND value>=?-0.01 AND value<=? ";
+          $selectQuery=$selectQuery." AND value>=?-0.01 AND value<=?";  
 
+            array_push($arrayParam, $this->value);
+        array_push($arrayParamSelect, $this->value);
+        $types=$types.'d';
+        $typesSelect=$typesSelect.'d';
+        array_push($arrayParam, $this->value);
+        array_push($arrayParamSelect, $this->value);
+        $types=$types.'d';
+        $typesSelect=$typesSelect.'d';
         }
       }
+      else{
+        if($typeToBeModified=='Area'){
+          $newValue = $newValue;
+          $query="UPDATE whowomen SET area=? WHERE area=? ";
+          $selectQuery="SELECT id from whowomen WHERE area=? ";
+
+          array_push($arrayParam, $newValue);
+          array_push($arrayParam, $this->area);
+          array_push($arrayParamSelect, $this->area);
+          $types=$types.'s'.'s';
+          $typesSelect=$typesSelect.'s';
+
+
+          if($this->country[0]!=null){
+            $query=$query." AND country=? ";
+            $selectQuery=$selectQuery." AND country=? ";
+
+            array_push($arrayParam, $this->country[0]);
+            array_push($arrayParamSelect, $this->country[0]);
+            $types=$types.'s';
+            $typesSelect=$typesSelect.'s';
+            
+
+          }
+          if($this->year!=null){
+            $query=$query." AND year=? ";
+            $selectQuery=$selectQuery." AND year=? ";
+
+            array_push($arrayParam, $this->year);
+            array_push($arrayParamSelect, $this->year);
+            $types=$types.'d';
+            $typesSelect=$typesSelect.'d';
+            
+
+    
+          }
+          if($this->value!=null){
+            $query=$query." AND value>=?-0.01 AND value<=? ";
+            $selectQuery=$selectQuery." AND value>=?-0.01 AND value<=?";  
+  
+              array_push($arrayParam, $this->value);
+          array_push($arrayParamSelect, $this->value);
+          $types=$types.'d';
+          $typesSelect=$typesSelect.'d';
+          array_push($arrayParam, $this->value);
+          array_push($arrayParamSelect, $this->value);
+          $types=$types.'d';
+          $typesSelect=$typesSelect.'d';
+          }
+        }
+        else 
+          if($typeToBeModified=='Value'){
+            $query="UPDATE whowomen SET value=? WHERE value=? ";
+            $selectQuery="SELECT id from whowomen WHERE value=? ";
+  
+              array_push($arrayParam, $newValue);
+          array_push($arrayParamSelect, $this->value);
+          $types=$types.'d';
+          $typesSelect=$typesSelect.'d';
+          array_push($arrayParam, $this->value);
+          $types=$types.'d';
+            
+            if($this->country[0]!=null){
+              $query=$query." AND country=? ";
+            $selectQuery=$selectQuery." AND country=? ";
+
+            array_push($arrayParam, $this->country[0]);
+            array_push($arrayParamSelect, $this->country[0]);
+            $types=$types.'s';
+            $typesSelect=$typesSelect.'s';
+
+            }
+            if($this->area!=null){
+              $query=$query." AND area=?  ";
+              $selectQuery=$selectQuery." AND area=? ";  
+              array_push($arrayParam, $this->area);
+              array_push($arrayParamSelect, $this->area);
+              $types=$types.'s';
+              $typesSelect=$typesSelect.'s';
+    
+
+            }
+            if($this->year!=null){
+              $query=$query." AND year=? ";
+              $selectQuery=$selectQuery." AND year=? ";
+  
+              array_push($arrayParam, $this->year);
+              array_push($arrayParamSelect, $this->year);
+              $types=$types.'d';
+              $typesSelect=$typesSelect.'d';
+            }
+          }
+      }
+
     }
-    $result = mysqli_query($this->conn, $selectQuery);
-$n = $result->num_rows;
+        
+//AICI TREBUIE DECOMENTAT CA SA SE EXECUTE VERIFICAREA EXISTENTEI VALORILOR LA CARE DAU UPDATE
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "salll";
+
+
+echo $selectQuery;
+echo "cfff";
+
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+
+echo "<br>";
+$stmt = mysqli_prepare($this->conn, $selectQuery);
+
+mysqli_stmt_bind_param($stmt, $typesSelect, ...$arrayParamSelect);
+
+mysqli_stmt_execute($stmt);
+
+
+
+$result = mysqli_stmt_get_result($stmt);
+$num= mysqli_num_rows($result);
+
 $ok=0;
 
+print_r($result);
+print_r($stmt);
+
 /// OK SE FACE 1 IN CAZUL IN CARE EXISTA INREGISTRARI
-  //echo $query;
-  if (mysqli_num_rows($result)) {
-    if ($row = mysqli_fetch_assoc($result)) {
-      if($row!=null)
-        if($row!=0)
-          $ok=1;
-    }
-  }
-  if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
-    if (mysqli_query($this->conn, $query)) {
-      echo "Record updated successfully";
-     }
-     } else {
-      echo "Date introduse gresit";
-     }
+if($num!=0)
+    $ok=1;
+
     
+echo $ok;
+    
+//AICI TREBUIE DECOMENTAT CA SA SE EXECUTE UPDATE-UL
+
+if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
+    
+  $stmt = mysqli_prepare($this->conn, $query);
+
+  mysqli_stmt_bind_param($stmt, $types, ...$arrayParam);
+  
+  mysqli_stmt_execute($stmt);
+  echo $query;
+
 }
   }
 
