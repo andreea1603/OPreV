@@ -12,17 +12,35 @@ function printSession() {
 function register($email, $crypt, $firstname, $lastname){
     include('init.php');
     include('db-connect.php');
-    $query="INSERT INTO `users` (email, password, firstname, lastname) VALUES ( '{$email}', '{$crypt}' , '{$firstname}', '{$lastname}')";
-    mysqli_query($conn,$query);
+    $query="INSERT INTO users (email, password, firstname, lastname) VALUES 
+    ( ? , ? , ? , ? )";
+
+    if ($stmt = mysqli_prepare($conn, $query)){
+        $stmt->bind_param('ssss', $email, $crypt, $firstname, $lastname);
+    }
+
+      mysqli_stmt_execute($stmt);
+      $stmt->close();
+?>
+
+<script>console.log("salut");
+</script>
+<?php
+
 }
 
 
 function checkEmail($email){
     include('init.php');
     include('db-connect.php');
-    $query="SELECT * FROM `users` WHERE email='{$email}'";
+    $query="SELECT * FROM `users` WHERE email=?";
+    $typeOfParam='s';
 
-    $result = mysqli_query($conn,$query);
+    if ($stmt = mysqli_prepare($conn, $query)){
+        mysqli_stmt_bind_param($stmt, $typeOfParam, $email);
+    }
+   mysqli_stmt_execute($stmt);
+   $result = mysqli_stmt_get_result($stmt);
     $num= mysqli_num_rows($result);
 
     if (!$num) 
@@ -35,13 +53,20 @@ function login($email, $pass){
     session_unset();
     include('db-connect.php');
 
-    $s = "SELECT password FROM users WHERE email ='$email'";
-        
-    $result = $conn -> query($s);
+    $query = "SELECT password FROM users WHERE email = ? ";
 
-    $row=$result->fetch_assoc();
+
+    if ($stmt = mysqli_prepare($conn, $query)){
+
+        mysqli_stmt_bind_param($stmt, 's', $email);
+    }        
+
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+    $row= mysqli_fetch_array($result);
     $verif=$row["password"];
-    echo "verificare".$verif."verificare";
 
     if(password_verify($pass, $verif)){
         return 1;
@@ -52,14 +77,27 @@ function login($email, $pass){
 function setSession($email){
 
     include('db-connect.php');
-    $s = "SELECT firstname, lastname FROM users WHERE email='$email'";
-    $result = $conn -> query($s);
-    $row = mysqli_fetch_assoc($result);
+    $query = "SELECT firstname, lastname FROM users WHERE email= ?";
+
+    if ($stmt = mysqli_prepare($conn, $query)){
+
+        mysqli_stmt_bind_param($stmt, 's', $email);
+    }        
+
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+    $row= mysqli_fetch_array($result);
     $firstname= $row["firstname"];
     $lastname = $row["lastname"];
     $_SESSION['firstname']=$firstname;
     $_SESSION['lastname']=$lastname;
     $_SESSION['email']=$email;
     $_SESSION['conectat']=true;
+}
+function logout(){
+    session_unset();
+
 }
 ?>

@@ -190,29 +190,34 @@ class womenObesity{
           printf("Could not delete record from table: %s<br />", $this->conn->error);
         }        
       }
-      public function checkIfExists(){
+        public function checkIfExists(){
 
-        //  $this->country='ROU';
-        
-          //$this->year=2010;
-          //$this->sex='FMLE';
-        
-        
-          $query="select id from whowomen where country='{$this->convertCountry($this->country[0])}' AND year={$this->year} AND area='{$this->area}'";
-          $result = mysqli_query($this->conn, $query);
-          $n = $result->num_rows;
-        
-          echo $query;
-          if (mysqli_num_rows($result)) {
-            if ($row = mysqli_fetch_assoc($result)) {
-              if($row!=null)
-                //echo $row;
-                  return "deja exista o inregistrare";
-            }
+          //  $this->country='ROU';
+          
+            //$this->year=2010;
+            //$this->sex='FMLE';
+          
+            $query="select id from whowomen where country=? AND year=? AND area=?";
+           
+          
+            if ($stmt = mysqli_prepare($this->conn, $query)){
+          
+              $first=$this->convertCountry($this->country[0]);
+              $second=$this->year;
+              $third=$this->area;
+              
+              mysqli_stmt_bind_param($stmt, 'sds', $first, $second, $third);
           }
-          return false;
-        
-        }
+          mysqli_stmt_execute($stmt);
+          $result = mysqli_stmt_get_result($stmt);
+          $num= mysqli_num_rows($result);
+          
+          if ($num>0) 
+               return "deja exista o inregistrare";
+          
+            return false;
+          
+          }
         public function getIndex(){
       
           $query="select count(id) maxim from whowomen";
@@ -232,19 +237,23 @@ class womenObesity{
           if($this->checkIfExists()==false)
           {
             $id=$this->getIndex();
-          $query="INSERT INTO  whowomen values ( {$id}, 'COUNTRY', '{$this->convertCountry($this->country[0])}',
-             {$this->value}, {$this->year}, '{$this->area}') ";
-          }
+          $query="INSERT INTO  whowomen values ( {$id}, 'COUNTRY', ? ,
+             ? , ? , ? ) ";
+          
+          if ($stmt = mysqli_prepare($this->conn, $query)){
+            $first=$this->convertCountry($this->country[0]);
+            $second= $this->value;
+            $third= $this->year;
+            $fourth=$this->area;
+            $stmt->bind_param('sdds', $first, $second, $third, $fourth);
+        }
+          mysqli_stmt_execute($stmt);
+          $stmt->close();
+        
+        }
           else{
             echo "exista deja o inregistrare asa, incercati un update!";
           }
-
-          if (mysqli_query($this->conn, $query)) {
-            echo "Record updated successfully";
-           }
-            else {
-            echo "Date introduse gresit";
-           }      
         } 
       
     public function convertCountry($country){

@@ -88,6 +88,8 @@ class agestdObesity
       // in this->camp avem valorile alese in formular
       $newValue=$this->convertCountry($newValue);
       $query="UPDATE whoagestd SET country='{$newValue}' WHERE country='{$this->country[0]}' ";
+
+
       $selectQuery="SELECT id from whoagestd WHERE country='{$this->country[0]} '";
       if($this->year!=null){
         $query=$query." AND year={$this->year} ";
@@ -246,9 +248,12 @@ if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
 
     $query="DELETE FROM whoagestd WHERE ";
     $k=0;
+    $arrayParam=[];
     if($this->country[0] != null){
       $query=$query." country='{$this->convertCountry($this->country[0])}'";
+      //array_push($arrayParam, )
       $k=$k+1;
+
     }
     if($this->year!=null){
       if($k==0){
@@ -285,24 +290,27 @@ public function add(){
     if($this->checkIfExists()==false)
     {
       $id=$this->getIndex()+10;
-    $query="INSERT INTO  whoagestd values ( {$id}, 'COUNTRY', '{$this->convertCountry($this->country[0])}',
-       {$this->value}, {$this->year}, '{$this->convertSex($this->sex)}') ";
-    }
+
+
+    $query="INSERT INTO  whoagestd values ( {$id}, 'COUNTRY', ? ,
+      ?, ?, ?) ";
+    
+    if ($stmt = mysqli_prepare($this->conn, $query)){
+      $first=$this->convertCountry($this->country[0]);
+      $second= $this->value;
+      $third= $this->year;
+      $fourth=$this->convertSex($this->sex);
+      $stmt->bind_param('sdds', $first, $second, $third, $fourth);
+  }
+
+    mysqli_stmt_execute($stmt);
+    $stmt->close();
+  
+  }
     else{
       echo "exista deja o inregistrare asa, incercati un update!";
     }
-    //echo $query;
-    echo "<br>";
-    echo $query;
-    echo "<br>";
-
-    if (mysqli_query($this->conn, $query)) {
-      echo "Record updated successfully";
-     }
-      else {
-      echo "Date introduse gresit";
-     }
-
+    
   } 
 
 public function checkIfExists(){
@@ -312,18 +320,24 @@ public function checkIfExists(){
   //$this->year=2010;
   //$this->sex='FMLE';
 
-  $query="select id from whoagestd where country='{$this->convertCountry($this->country[0])}' AND year={$this->year} AND sex='{$this->convertSex($this->sex)}'";
-  $result = mysqli_query($this->conn, $query);
-  $n = $result->num_rows;
+  $query="select id from whoagestd where country=? AND year=? AND sex=?";
+ 
 
-  echo $query;
-  if (mysqli_num_rows($result)) {
-    if ($row = mysqli_fetch_assoc($result)) {
-      if($row!=null)
-        //echo $row;
-          return "deja exista o inregistrare";
-    }
-  }
+  if ($stmt = mysqli_prepare($this->conn, $query)){
+
+    $first=$this->convertCountry($this->country[0]);
+    $second=$this->year;
+    $third=$this->convertSex($this->sex);
+    
+    mysqli_stmt_bind_param($stmt, 'sds', $first, $second, $third);
+}
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$num= mysqli_num_rows($result);
+
+if ($num>0) 
+     return "deja exista o inregistrare";
+
   return false;
 
 }

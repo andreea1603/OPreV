@@ -23,7 +23,9 @@
                     <div>
                         <h1 class="register">Register </h1>
                     </div>
-                    <form action="./../../controller/sign-up.php" method="POST">
+                    <form 
+                         action="./../../controller/sign-up.php" method="POST"
+                    >
                         <p>FirstName
                         <input type="text" name="first_name"  class="form-control" placeholder="Enter your name"></p>
                         <p>Last name
