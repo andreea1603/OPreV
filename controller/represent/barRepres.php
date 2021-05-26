@@ -72,15 +72,21 @@ Plotly.newPlot('myChart', data, layout).then(
     function(gd)
      {
        
-        Plotly.toImage(gd,{format:'png',height:900,width:900})
-         .then(
+        Plotly.toImage(gd,{format:'png',height:900,width:900}).then(
              function(url)
          {
             img_png.attr("src", url);
-            Plotly.toImage(gd,{format:'svg',height:800,width:800});
-
          }
-         )
+         ).then(
+             
+             Plotly.toImage(gd,{format:'svg',height:900,width:900}).then(
+                 function(url)
+             {
+                 img_svg.attr("src", url);
+             }
+             )
+            
+             )
 
          
          });

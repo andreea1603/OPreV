@@ -7,6 +7,9 @@ include('../../controller/functions1.php');
 include('../../controller/represent/barRepres.php');
 include('../../controller/represent/lineRepres.php');
 include('../../controller/represent/mapRepres.php');
+include('../../controller/represent/lineRepres2.php');
+
+
 $dir=__DIR__;
 $path=substr($dir, 0, -19).'\model\putInCsv1.php';
 
@@ -25,12 +28,21 @@ include($path);
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <link rel="shortcut icon" href="../../pictures/vector-creator.ico">
         <script type="text/javascript"> 
-function prepHref(linkElement) { 
+function prepHref(linkElement, ok) { 
+    if(ok===1){
     var myDiv = document.getElementById('imagine'); 
     var myImage = myDiv.children[0]; 
     linkElement.href = myImage.src; 
+    }
+    else{
+        //linePlotlySvg();
+        var myDiv = document.getElementById('imagine1'); 
+        var myImage = myDiv.children[0]; 
+        linkElement.href = myImage.src; 
+    }
 } 
 </script> 
+
         <title>OPreV</title>
     </head>
     <body>
@@ -98,13 +110,22 @@ function prepHref(linkElement) {
                     </div>
                     <div id="imagine">
                     <img id="png-export" class="dispare">      
-                            <a href="#" onclick="prepHref(this)" download> PNG
+                            <a href="#" onclick="prepHref(this, 1)" download> PNG
                     </a></img>
                     </div>
+
+                    <div id="imagine1">
+                    <img id="svg-export" class="dispare">
+                            <a href="#"  onclick="prepHref(this, 2)" download >SVG
+                    </a> 
+                    </img> 
                     </div>
+                        </div></div>
+                        </div>
 
                     
-                    <div><a href="#">SVG</a></div>
+            </div>
+                
                 </div>
             </div>
             <div class="right-part">
