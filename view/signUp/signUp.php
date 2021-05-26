@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../styles/signUp.css">
         <link rel="shortcut icon" href="../../pictures/vector-creator.ico">
-
+        <script src='verificareCredentiale.js'></script>
         <title>OPreV</title>
     </head>
     <body>
@@ -23,20 +23,30 @@
                     <div>
                         <h1 class="register">Register </h1>
                     </div>
-                    <form 
-                         action="./../../controller/sign-up.php" method="POST"
-                    >
-                        <p>FirstName
-                        <input type="text" name="first_name"  class="form-control" placeholder="Enter your name"></p>
-                        <p>Last name
-                        <input type="text"  name="last_name" class="form-control" placeholder="Enter your name"></p>
-                        <p>Email
-                        <input type="email" name="email" class="form-control" placeholder="Enter email">
-                        <p>Password
-                        <input type="password" name="password" class="form-control" placeholder="Enter password">
+                        <p>
+                          FirstName
+                          <div id="firstName1" class="error">
+                          </div>
+                          <input type="text" name="first_name" id="firstName" class="form-control" placeholder="Enter your name"></p>
+                        <p>
+                          Last name
+                          <div id="lastName1" class="error">
+                          </div>
+                          <input type="text"  name="last_name" id="lastName" class="form-control" placeholder="Enter your name"></p>
+                        <p>
+                          Email
+                          <div id="email1" class="error">
+                          </div>
+                          <input type="email" name="email" id="email" class="form-control" placeholder="Enter email">
+                        <p>
+                          Password
+                          <div id="password1" class="error">
+                          </div>
+                          <input type="password" name="password"id="password" class="form-control" placeholder="Enter password">
                         </p>
-                        <button type="submit">Sign UP</button>
-                    </form>
+                        <p>
+                        <button type="submit" onclick="verificareCredentiale()">Sign UP</button>
+                        </p>
                 </div>
             </div>
         </section>
