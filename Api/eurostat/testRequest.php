@@ -2,7 +2,7 @@
 include('../../model/db-connect.php');
 function requestAPI5($method, $category, $newValue, $modify)
 {
-=    if ($method == "UPDATE")
+    if ($method == "UPDATE")
         $url = 'http://localhost/proiect/OPreV/Api/eurostat/update.php';
     else
     if ($method == "ADD")

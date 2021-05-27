@@ -35,7 +35,7 @@
   if(isset($result->newValue))
         $newValue=$result->newValue;
 
-=
+
 echo $category->bmi;
 echo $category->value;
 echo $category->country[0];
