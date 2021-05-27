@@ -53,7 +53,6 @@ function prepHref(linkElement, ok) {
 
 
 </head>
-
 <body>
     <section class="head">
         <ul>

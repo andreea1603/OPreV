@@ -47,6 +47,8 @@
                         <p>
                         <button type="submit" onclick="verificareCredentiale()">Sign UP</button>
                         </p>
+                        <div id="reusit" class="error">
+                        </div>
                 </div>
             </div>
         </section>

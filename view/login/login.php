@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../styles/login.css">
         <link rel="shortcut icon" href="../../pictures/vector-creator.ico">
-
+        <script src='../signUp/verificareCredentiale.js'></script>
         <title>OPreV</title>
     </head>
     <body>
@@ -20,12 +20,10 @@
                     <div>
                         <h3> Sign in </h3>
                     </div>
-                    <form method="post" action="../../controller/log-in.php">
-                        <p><input type="text" name="email" class="form-control" placeholder="Enter email" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?>"></p>
-                        <p><input type="password" name="password" class="form-control" placeholder="Enter password" required></p>
-                        <p><input type="checkbox" name="remember" /> Remember me</p>
-                        <button type="submit" id="login-button">Sign in</button>
-                    </form>
+                        <p><input type="text" name="email" id="Email" class="form-control" placeholder="Enter email"></p>
+                        <p><input type="password" name="password" id="Password" class="form-control" placeholder="Enter password"></p>
+                        <div id="gresit" class="error"></div>
+                        <button type="submit" id="login-button" onclick="verificareCredentialeLogin()">Sign in</button>
                     <hr>
                 </div>
             </div>
