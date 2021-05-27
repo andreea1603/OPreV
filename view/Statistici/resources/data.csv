@@ -11,15 +11,15 @@ Argentina,0,ARG
 Armenia,0,ARM
 Aruba,0,ABW
 Australia,0,AUS
-Austria,37,AUT
-Austria,37,AUT
+Austria,36.5,AUT
+Austria,36.5,AUT
 Azerbaijan,0,AZE
 "Bahamas, The",0,BHM
 Bahrain,0,BHR
 Bangladesh,0,BGD
 Barbados,0,BRB
 Belarus,0,BLR
-Belgium,0,BEL
+Belgium,33.5,BEL
 Belize,0,BLZ
 Benin,0,BEN
 Bermuda,0,BMU
@@ -30,8 +30,8 @@ Botswana,0,BWA
 Brazil,0,BRA
 "British Virgin Islands",0,VGB
 Brunei,0,BRN
-Bulgaria,0,BGR
-Bulgaria,0,BGR
+Bulgaria,39.3,BGR
+Bulgaria,39.3,BGR
 "Burkina Faso",0,BFA
 Burma,0,MMR
 Burundi,0,BDI
@@ -55,9 +55,9 @@ Croatia,0,HRV
 Croatia,0,HRV
 Cuba,0,CUB
 Curacao,0,CUW
-Cyprus,0,CYP
+Cyprus,35.7,CYP
 "Czech Republic",0,CZE
-Denmark,0,DNK
+Denmark,0.5,DNK
 Djibouti,0,DJI
 Dominica,0,DMA
 "Dominican Republic",0,DOM
@@ -66,13 +66,13 @@ Egypt,0,EGY
 "El Salvador",0,SLV
 "Equatorial Guinea",0,GNQ
 Eritrea,0,ERI
-Estonia,0,EST
+Estonia,32.5,EST
 Ethiopia,0,ETH
 "Falkland Islands (Islas Malvinas)",0,FLK
 "Faroe Islands",0,FRO
 Fiji,0,FJI
 Finland,0,FIN
-France,0,FRA
+France,31.4,FRA
 "French Polynesia",0,PYF
 Gabon,0,GAB
 "Gambia, The",0,GMB
@@ -80,7 +80,7 @@ Georgia,0,GEO
 Germany,0,DEU
 Ghana,0,GHA
 Gibraltar,0,GIB
-Greece,0,GRC
+Greece,38.7,GRC
 Greenland,0,GRL
 Grenada,0,GRD
 Guam,0,GUM
@@ -115,7 +115,7 @@ Kosovo,0,KSV
 Kuwait,0,KWT
 Kyrgyzstan,0,KGZ
 Laos,0,LAO
-Latvia,0,LVA
+Latvia,38,LVA
 Lebanon,0,LBN
 Lesotho,0,LSO
 Liberia,0,LBR
@@ -130,7 +130,7 @@ Malawi,0,MWI
 Malaysia,0,MYS
 Maldives,0,MDV
 Mali,0,MLI
-Malta,0,MLT
+Malta,36.8,MLT
 "Marshall Islands",0,MHL
 Mauritania,0,MRT
 Mauritius,0,MUS
@@ -161,11 +161,11 @@ Panama,0,PAN
 Paraguay,0,PRY
 Peru,0,PER
 Philippines,0,PHL
-Poland,0,POL
+Poland,37.6,POL
 Portugal,0,PRT
 "Puerto Rico",0,PRI
 Qatar,0,QAT
-Romania,0,ROU
+Romania,42.4,ROU
 Russia,0,RUS
 Rwanda,0,RWA
 "Saint Kitts and Nevis",0,KNA
@@ -183,7 +183,7 @@ Seychelles,0,SYC
 "Sierra Leone",0,SLE
 Singapore,0,SGP
 "Sint Maarten",0,SXM
-Slovakia,0,SVK
+Slovakia,35.6,SVK
 Slovenia,0,SVN
 "Solomon Islands",0,SLB
 Somalia,0,SOM
@@ -206,7 +206,7 @@ Togo,0,TGO
 Tonga,0,TON
 "Trinidad and Tobago",0,TTO
 Tunisia,0,TUN
-Turkey,0,TUR
+Turkey,34.4,TUR
 Turkmenistan,0,TKM
 Tuvalu,0,TUV
 Uganda,0,UGA

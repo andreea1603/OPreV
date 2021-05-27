@@ -1,27 +1,26 @@
 <?php
 include('../../model/db-connect.php');
-function requestAPI($method, $category, $newValue, $modify)
+function requestAPI5($method, $category, $newValue, $modify)
 {
-    if ($method == "UPDATE")
-        $url = 'http://localhost/proiect/OPreV/Api/who_agestd/update.php';
+=    if ($method == "UPDATE")
+        $url = 'http://localhost/proiect/OPreV/Api/eurostat/update.php';
     else
     if ($method == "ADD")
-        $url = 'http://localhost/proiect/OPreV/Api/who_agestd/add.php';
+        $url = 'http://localhost/proiect/OPreV/Api/eurostat/add.php';
     else
 
-        $url = 'http://localhost/proiect/OPreV/Api/who_agestd/delete.php';
+        $url = 'http://localhost/proiect/OPreV/Api/eurostat/delete.php';
 
     $sex = null;
     $data = [
         'country' => $category->country,
-        'sex' => $category->sex,
+        'bmi' => $category->bmi,
         'year' => $category->year,
         'newValue' => $newValue,
         'modify' => $modify,
         'value'=>$category->value
     ];
 
-    echo json_encode($data);
 
     $curl = curl_init($url);
 

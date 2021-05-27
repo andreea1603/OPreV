@@ -7,7 +7,9 @@
     include('testRequest.php');
     include('../who_children/testRequest.php');
     include('../who_women/testRequest.php');
-    include('../who_crude/testRequest.php');
+    include('../who_crude/testRequest.php');    
+    include('../eurostat/testRequest.php');
+
 
 
     include('../eurostat/eurostat.php');
@@ -118,12 +120,14 @@ else{//aici eurostat
 
     $category=new eurostat($conn);    
 
+    //print_r($object);
     $category->country[0]=$object[2]["Country"];
     $category->bmi=$object[4]["BMI"];
     $category->value=$object[5]["Value"];
     $category->year=$object[3]["Year"];
     $category->newvalue=$object[6]["New Value"];
     //echo $category->bmi; 
+    /*
     if($object[0]["Method"]=='DELETE')
         $category->Update("valoare",0);
     else
@@ -131,6 +135,8 @@ else{//aici eurostat
             $category->Update($object[1]["ModifyValue"],$object[6]["New Value"]);
         else
             $category->add();//adaugat la json si newvalue chiar de nu folosim
+*/
 
-}
+    requestAPI5($object[0]["Method"], $category, $object[6]["New Value"],$object[1]["ModifyValue"]);
+        }
 ?>
