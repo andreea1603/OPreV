@@ -114,7 +114,7 @@ public function infoByFilter(){
     }
     public function Update($camp,$valoare){
 
-        $query="Update valori set {$camp}={$valoare} WHERE ";
+        $query="Update valori set valoare={$valoare} WHERE ";
         $k=0;
         if($this->country[0] != ""){
           $k++;
@@ -131,20 +131,16 @@ public function infoByFilter(){
               $result = mysqli_query($this->conn, $query1);
               $row = mysqli_fetch_assoc($result); 
               $id=$row["id"];
-              $query=$query."id in(".$id*3;
-              $query=$query.",".$id*3+1;
-              $query=$query.",".$id*3+2;
-              $query=$query.",".(114+$id*3);
-              $query=$query.",".(114+$id*3+1);
-              $query=$query.",".(114+$id*3+2);
-              $query=$query.",".(228+$id*3);
-              $query=$query.",".(228+$id*3+1);
-              $query=$query.",".(228+$id*3+2);
-              $query=$query.")";
-              echo $query;
+              $query = $query . "id in ( ?,?,?,?,?,?,?,?,?)";
+              $types='ddddddddd';
+              $arrayParam=[$id*3,$id*3+1,$id*3+2,114+$id*3,114+$id*3+1,114+$id*3+2,228+$id*3,228+$id*3+1,228+$id*3+2];
+              
           }
           else
             if($this->year!=""){
+
+              $types="";
+              $arrayParam=[];
               if($this->year==2008)
                 $ok=0;
               else
@@ -152,26 +148,40 @@ public function infoByFilter(){
                 $ok=1;
                 else
                   $ok=2;
-              $query=$query." year in(".$ok;
-              for($i=$ok;$i<=340;$i+=3)
-                $query=$query.",".$i;
+              $query=$query." id in(";
+              array_push($arrayParam,$ok);
+              $types.="d";
+              $query.="?";
+              for($i=$ok;$i<=340;$i+=3){
+                array_push($arrayParam,$i);
+                $types.="d";
+                $query.=",?";
+              }
               $query=$query.")";
-              echo $query;
+              
               }
             else
               if($this->bmi!=""){
                 if($this->bmi=="pre-obese"){
-                  $query=$query."id<114";
+                  $query=$query."id<?";
+                  $arrayParam=[];
+                  $types="d";
+                  array_push($arrayParam,114);
                 }
                 else
                   if($this->bmi=="supraponderal"){
-                    $query=$query."id>=114 and id<228";
+                    $query=$query."id>=? and id<?";
+                    $arrayParam=[];
+                    $types="dd";
+                    array_push($arrayParam,114,228);
                   }
                 else
                   if($this->bmi=="obese"){
-                    $query=$query."id>=228 and id<340";
+                    $query=$query."id>=? and id<?";
+                    $arrayParam=[];
+                    $types="dd";
+                    array_push($arrayParam,228,340);
                   }
-                echo $query;
               }
         }
         else
@@ -192,11 +202,9 @@ public function infoByFilter(){
                 if($this->bmi=="obese"){
                   $ok=228;
                 }
-            $query = $query."id in (".($ok+$id*3);
-            $query = $query.",".($ok+$id*3+1);
-            $query = $query.",".($ok+$id*3+2);
-            $query = $query.")";
-            echo $query;
+            $query = $query."id in ( ?,?,?)";
+            $arrayParam=[$ok+$id*3,$ok+$id*3+1,$ok+$id*3+2];
+            $types="ddd";
           }
           else
           if($this->country[0]!="" && $this->year!=""){
@@ -211,13 +219,13 @@ public function infoByFilter(){
                 $ok=1;
                 else
                   $ok=2;
-            $query = $query."id in (".($id*3+$ok);
-            $query = $query.",".(114+$id*3+$ok);
-            $query = $query.",".(228+$id*3+$ok);
-            $query = $query.")";
-            echo $query;
+            $query = $query."id in ( ?,?,?)";
+            $arrayParam=[$id*3+$ok,114+$id*3+$ok,228+$id*3+$ok];
+            $types="ddd";
+            
           }
           else{
+              $ok=0;
               if($this->bmi=="pre-obese"){
                 $query=$query."id<114";
                 if($this->year==2008)
@@ -250,11 +258,17 @@ public function infoByFilter(){
                     else
                       $ok=230;
                 }
-            $query=$query." year in(".$ok;
-            for($i=$ok;$i<=$ok+114;$i+=3)
-              $query=$query.",".$i;
+                
+            $query=$query." and id in(?";
+            $arrayParam=[];
+            array_push($arrayParam,$ok);
+            $types="d";
+            for($i=$ok;$i<=$ok+114;$i+=3){
+              $query=$query.",?";
+              array_push($arrayParam,$i);
+              $types.="d";
+            }
             $query=$query.")";
-            echo $query;
           }
         }
         else
@@ -274,33 +288,40 @@ public function infoByFilter(){
                 if($this->bmi=="obese"){
                   $ok=228;
                 }
+            $arrayParam=[];
+            $types="s";
+            $query.="id=?";
             if($this->year==2008)
-              $query=$query."id = " . ($ok+$id*3);
+              array_push($arrayParam,$ok+$id*3);
             else
              if($this->year==2014)
-                $query=$query."id = " . ($ok+$id*3+1);
+              array_push($arrayParam,$ok+$id*3+1);
             else
-              $query=$query."id = " . ($ok+$id*3+2);
-            echo $query;
+              array_push($arrayParam,$ok+$id*3+2);
+              
           }
-        /*    
-        if ($this->conn->query($query)) {
-          printf("Table tutorials_tbl record deleted successfully.<br />");
-        }
-        if ($this->conn->errno) {
-          printf("Could not delete record from table: %s<br />", $this->conn->error);
-        }
-        */
+          var_dump($arrayParam);
+          echo $query;
+          try{
+            $stmt = mysqli_prepare($this->conn, $query);
+            mysqli_stmt_bind_param($stmt, $types, ...$arrayParam);
+            mysqli_stmt_execute($stmt);
+          }
+          catch(Exception $e){
+            var_dump("exceptie");
+          }
     }
 
 
     public function add (){
 
-      $query="Insert into valori values(";
+      $query="Insert into valori values(?,?)";
       $query1="Select id from geo where name='{$this->country[0]}'";
       $result = mysqli_query($this->conn, $query1);
       $row = mysqli_fetch_assoc($result);
       $id=$row["id"];
+      $arrayParam=[];
+      $types="dd";
       if($this->bmi=="pre-obese")
         $ok=0;
       else
@@ -310,15 +331,22 @@ public function infoByFilter(){
           if($this->bmi=="obese")
             $ok=228;
       if($this->year==2008)
-          $query=$query." " . ($ok+$id*3);
+          array_push($arrayParam,$ok+$id*3);
         else
           if($this->year==2014)
-              $query=$query." " . ($ok+$id*3+1);
+            array_push($arrayParam,$ok+$id*3+1);
           else
-              $query=$query." " . ($ok+$id*3+2);
-      $query=$query.",".$this->value;
-      $query=$query.")";
+            array_push($arrayParam,$ok+$id*3+2);
+      array_push($arrayParam,$this->value);
       echo $query;
+      try{
+        $stmt = mysqli_prepare($this->conn, $query);
+        mysqli_stmt_bind_param($stmt, $types, ...$arrayParam);
+        mysqli_stmt_execute($stmt);
+      }
+      catch(Exception $e){
+        var_dump("exceptie");
+      }
     }
   }
 
