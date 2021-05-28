@@ -2,7 +2,9 @@
 
 
 function mapChart() {
-    var img_svg = d3.select('#jpg-export');
+
+    var img_png = d3.select('#png-export');
+    var img_svg = d3.select('#svg-export');
 
             var item = document.getElementById('myChart');
             item.remove();
@@ -11,7 +13,6 @@ function mapChart() {
             console.log(tag);
             var element = document.getElementById('moo');
             element.appendChild(tag);
-            var img_svg=d3.select('#jpg-export');
 
             d3.csv('resources/data.csv', function(err, rows) {
                 function unpack(rows, key) {
@@ -42,7 +43,7 @@ function mapChart() {
                         line: {
                             color: 'rgb(180,180,180)',
                             width: 0.5,
-                            height : 800,
+                            height : 400,
                         }
                     },
                     tick0: 0,
@@ -60,23 +61,37 @@ function mapChart() {
                         projection: {
                             type: 'mercator'
                         }
-                    }
+                    },
+                //    autosize: true,
+                    width: 700,
+                    height: 700,
+                    autosize: true
+
                 };
-                Plotly.newPlot("myChart", data, layout, {
-                    showLink: false
+                var config = {responsive: true};
+
+     Plotly.newPlot("myChart", data, layout, config).then(
+            function(gd)
+            {
+            
+                Plotly.toImage(gd,{format:'png',height:900,width:900}).then(
+                    function(url)
+                {
+                    img_png.attr("src", url);
+                }
+                ).then(
+                    
+                    Plotly.toImage(gd,{format:'svg',height:900,width:900}).then(
+                        function(url)
+                    {
+                        img_svg.attr("src", url);
+                    }
+                    )
+                    
+                    )
+
+                
                 })
-                                }).then(
-    function(gd)
-     {
-      Plotly.toImage(gd,{height:900,width:900}).then(
-             function(url)
-         {
-            img_svg.attr("src", url);
-  Plotly.toImage(gd,{format:'svg',height:400,width:400});
-             console.log(url);
-         }
-         )
-         
-    });
+                                });
     }
 </script>
