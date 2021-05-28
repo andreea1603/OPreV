@@ -30,6 +30,7 @@ console.log(tag);
 var element = document.getElementById('moo');
 element.appendChild(tag);
 
+var config = {responsive: true}
 
 
 var names=<?php echo json_encode($labelswho); ?>;
@@ -50,9 +51,9 @@ width : 0.2
 var data = [trace1];
 
 var layout = {
-    autosize: false,
-    width : 900, 
-    height :600, 
+    autosize: true, 
+    width: 700,
+    height: 700,
 font:{
     family: 'Raleway, sans-serif'
 },
@@ -65,10 +66,12 @@ yaxis: {
     gridwidth: 2
 },
 bargap :0.2
-};
+};        
+var config = {responsive: true}
 
 
-Plotly.newPlot('myChart', data, layout).then(
+
+Plotly.newPlot('myChart', data, layout, config).then(
     function(gd)
      {
        

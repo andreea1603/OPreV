@@ -13,6 +13,8 @@ function mapChart() {
             console.log(tag);
             var element = document.getElementById('moo');
             element.appendChild(tag);
+            var config = {responsive: true}
+
 
             d3.csv('resources/data.csv', function(err, rows) {
                 function unpack(rows, key) {

@@ -94,3 +94,43 @@ body{
     }
 
 }
+@media only screen and (max-width:700px)
+{
+    .wrapper{
+        display:grid;
+        grid-template-columns: 1fr;
+        
+    }
+    .text-align{
+
+        margin: 10%;
+        text-align:justify;
+        font-size: 50%;
+    
+    }
+    .imgclass {
+        width: 80%;
+        margin: 0%;
+        margin-top: 30px;
+        height: 80%;
+    }
+    .head{
+
+        display: grid;
+        list-style-type: none;
+        padding: 0;
+        overflow: hidden;
+        background-color: #5876ee;
+        font-size:0.75em;    
+    }
+    .asTitle{
+        align-content: center;
+        font-size: 25px;
+        margin-bottom: 0px;
+    }
+
+    .footerAlign li {
+        float: left;
+        margin-right: 50px;
+    }
+}

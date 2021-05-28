@@ -49,7 +49,7 @@
         $category->country[0]=$object[3]["Country"];
         $category->year=$object[4]["Year"];
         $category->sex=$object[5]["Sex"];
-        $category->age="s".$object[6]["Age"];
+        $category->age='S'.$object[6]["Age"];
         $category->value=$object[7]["Value"];
         requestAPI4($object[1]["Method"], $category, $object[8]["New Value"],$object[2]["ModifyValue"]);
 

@@ -28,4 +28,6 @@
   if($result->eroare)
      $category->add();
 
+     echo "salut";
+     echo $category->age;
      ?>

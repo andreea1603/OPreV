@@ -182,7 +182,9 @@ else{
     $sex=null;
     $area = null;
     $year=$decode['data'][0]['year'];
-    echo $decode['data'][0]['sex'];
+
+    print_r($decode);
+    //echo $decode['data'][0]['sex'];
     if(isset($decode['data'][0]['sex']))
         $sex=$decode['data'][0]['sex'];
     if(isset($decode['data'][0]['age']))

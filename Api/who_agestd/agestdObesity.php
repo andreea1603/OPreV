@@ -99,7 +99,7 @@ class agestdObesity
 
         
         $query=$query." AND value>=?-0.01  AND value<=? "; 
-        $selectQuery=$selectQuery." AND value>=?-0.01 AND value<=? ";
+        $selectQuery=$selectQuery." AND value>=?-0.01 AND value<=?+0.01 ";
         array_push($arrayParam, $this->value);
         array_push($arrayParamSelect, $this->value);
         $types=$types.'d';
@@ -146,8 +146,8 @@ class agestdObesity
   
         }
         if($this->value!=null){
-          $query=$query." AND value>=?-0.01 AND value<=? ";
-          $selectQuery=$selectQuery." AND value>=?-0.01 AND value<=?";  
+          $query=$query." AND value>=?-0.01 AND value<=?+0.01 ";
+          $selectQuery=$selectQuery." AND value>=?-0.01 AND value<=?+0.01";  
 
             array_push($arrayParam, $this->value);
         array_push($arrayParamSelect, $this->value);
@@ -197,7 +197,7 @@ class agestdObesity
           }
           if($this->value!=null){
             $query=$query." AND value>=?-0.01 AND value<=? ";
-            $selectQuery=$selectQuery." AND value>=?-0.01 AND value<=?";  
+            $selectQuery=$selectQuery." AND value>=?-0.01 AND value<=?+0.01";  
   
               array_push($arrayParam, $this->value);
           array_push($arrayParamSelect, $this->value);
@@ -211,15 +211,25 @@ class agestdObesity
         }
         else 
           if($typeToBeModified=='Value'){
-            $query="UPDATE whoagestd SET value=? WHERE value=? ";
-            $selectQuery="SELECT id from whoagestd WHERE value=? ";
+            $query="UPDATE whoagestd SET value=? WHERE value>=?-0.01 AND value<=?+0.01  ";
+            $selectQuery="SELECT id from whoagestd WHERE value>=?-0.01 AND value<=?+0.01
+             ";
   
-              array_push($arrayParam, $newValue);
-          array_push($arrayParamSelect, $this->value);
-          $types=$types.'d';
-          $typesSelect=$typesSelect.'d';
+          array_push($arrayParam, $newValue);
           array_push($arrayParam, $this->value);
+          array_push($arrayParam, $this->value);
+
+          array_push($arrayParamSelect, $this->value);
+          array_push($arrayParamSelect, $this->value);
+
           $types=$types.'d';
+          $types=$types.'d';
+          $types=$types.'d';
+
+          $typesSelect=$typesSelect.'d';
+          $typesSelect=$typesSelect.'d';
+
+        
             
             if($this->country[0]!=null){
               $query=$query." AND country=? ";
@@ -257,7 +267,6 @@ class agestdObesity
         
 //AICI TREBUIE DECOMENTAT CA SA SE EXECUTE VERIFICAREA EXISTENTEI VALORILOR LA CARE DAU UPDATE
 
-
 $stmt = mysqli_prepare($this->conn, $selectQuery);
 
 mysqli_stmt_bind_param($stmt, $typesSelect, ...$arrayParamSelect);
@@ -267,6 +276,7 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 $num= mysqli_num_rows($result);
 
+echo $num;
 $ok=0;
 
 

@@ -3,6 +3,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../styles/style.css">
+        <link rel="stylesheet" href="../../styles/StatisticiEditWho.css">
+
         <link rel="stylesheet" href="../../styles/edit.css">
         <script src="../Statistici/functions.js"></script>
         <script src="functionsForEdit.js"></script>
@@ -25,7 +27,7 @@
                 <div>
                   <h3>Edit Who Data</h3>
                 </div>
-                <select id="indicatorCode" name="indicatorCode[]" onclick="getIndicator()">
+                <select id="indicatorCode" class="ic" name="indicatorCode[]" onclick="getIndicator()">
                     <option value="indicatorCode"  >Indicator code</option>
                     <option value="indicatorCode1" >Prevalence of obesity among children and adolescents</option>
                     <option value="indicatorCode2" >Obesity prevalence in non-pregnant women aged 15-49 years</option>

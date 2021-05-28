@@ -7,7 +7,6 @@ include('../../controller/functions1.php');
 include('../../controller/represent/barRepres.php');
 include('../../controller/represent/lineRepres.php');
 include('../../controller/represent/mapRepres.php');
-include('../../controller/represent/lineRepres2.php');
 
 
 $dir=__DIR__;

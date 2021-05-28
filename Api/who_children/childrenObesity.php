@@ -271,11 +271,12 @@ class childrenObesity
         ? , ? , ? , ? ) ";
   
       if ($stmt = mysqli_prepare($this->conn, $query)){
+        
           $first=$this->convertCountry($this->country[0]);
           $second= $this->value;
           $third= $this->year;
           $fourth=$this->convertSex($this->sex);
-          $fifth="s".$this->age;
+          $fifth=$this->age;
           $stmt->bind_param('sddss', $first, $second, $third, $fourth, $fifth);
           echo "Am adaugat cu succes";
       }
@@ -307,6 +308,7 @@ class childrenObesity
       //vreau sa modific tara
       // in this->camp avem valorile alese in formular
       $newValue = $this->convertCountry($newValue);
+
       $query = "UPDATE whoage SET country='{$newValue}' WHERE country='{$this->country[0]}' ";
       $selectQuery = "SELECT id from whoage WHERE country='{$this->country[0]} '";
 
@@ -319,8 +321,8 @@ class childrenObesity
         $selectQuery = $selectQuery . " AND sex='{$this->sex}' ";
       }
       if ($this->value != null) {
-        $query = $query . "   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
-        $selectQuery = $selectQuery . "   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
+        $query = $query . "   AND value>={$this->value}-0.01 AND value<={$this->value}+0.01   ";
+        $selectQuery = $selectQuery . "   AND value>={$this->value}-0.01 AND value<={$this->value}+0.01   ";
       }
       if ($this->age != null) {
         $query = $query . " AND age='{$this->age}' ";
@@ -340,8 +342,8 @@ class childrenObesity
           $selectQuery = $selectQuery . " AND sex='{$this->sex}' ";
         }
         if ($this->value != null) {
-          $query = $query . "   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
-          $selectQuery = $selectQuery . "   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
+          $query = $query . "   AND value>={$this->value}-0.01 AND value<={$this->value}+0.01   ";
+          $selectQuery = $selectQuery . "   AND value>={$this->value}-0.01 AND value<={$this->value}+0.01   ";
         }
         if ($this->age != null) {
           $query = $query . " AND age='{$this->age}' ";
@@ -362,8 +364,8 @@ class childrenObesity
             $selectQuery = $selectQuery . " AND year={$this->year} ";
           }
           if ($this->value != null) {
-            $query = $query . "   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
-            $selectQuery = $selectQuery . "   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
+            $query = $query . "   AND value>={$this->value}-0.01 AND value<={$this->value}+0.01   ";
+            $selectQuery = $selectQuery . "   AND value>={$this->value}-0.01 AND value<={$this->value}+0.01   ";
           }
           if ($this->age != null) {
             $query = $query . " AND age='{$this->age}' ";
@@ -371,8 +373,8 @@ class childrenObesity
           }
         } else 
         if ($typeToBeModified == 'Value') {
-          $query = "UPDATE whoage SET value={$newValue} WHERE value={$this->value} ";
-          $selectQuery = "SELECT id from whoage WHERE value={$this->value} ";
+          $query = "UPDATE whoage SET value={$newValue} WHERE value={$this->value}+0.01 ";
+          $selectQuery = "SELECT id from whoage WHERE value={$this->value}+0.01 ";
 
           if ($this->country[0] != null) {
             $query = $query . " AND country='{$this->country[0]}'";
@@ -408,12 +410,14 @@ class childrenObesity
             $selectQuery = $selectQuery . " AND year={$this->year} ";
           }
           if ($this->value != null) {
-            $query = $query . "   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
-            $selectQuery = $selectQuery . "   AND value>={$this->value}-0.01 AND value<={$this->value}   ";
+            $query = $query . "   AND value>={$this->value}-0.01 AND value<={$this->value}+0.01   ";
+            $selectQuery = $selectQuery . "   AND value>={$this->value}-0.01 AND value<={$this->value}+0.01   ";
           }
         }
       }
+    
     }
+
 
     $result = mysqli_query($this->conn, $selectQuery);
     $n = $result->num_rows;

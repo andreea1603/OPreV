@@ -21,15 +21,14 @@
         };
         
         var layout = {
-        autosize: false,
-        width : 900, 
-        height :600
+        autosize: true,
+
         };
 
         var data = [trace1];
+        var config = {responsive: true}
 
-
-        Plotly.newPlot('myChart', data, layout).then(
+        Plotly.newPlot('myChart', data, layout, config).then(
     function(gd)
      {       
         Plotly.toImage(gd,{format:'png',height:900,width:900}).then(
