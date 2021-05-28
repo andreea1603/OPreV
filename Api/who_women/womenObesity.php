@@ -208,6 +208,8 @@ class womenObesity{
           mysqli_stmt_bind_param($stmt, $param, ...$arrayParam);
     
           mysqli_stmt_execute($stmt);
+          
+          echo "Am sters cu succes";
       }
         public function checkIfExists(){
 
@@ -265,6 +267,7 @@ class womenObesity{
             $third= $this->year;
             $fourth=$this->area;
             $stmt->bind_param('sdds', $first, $second, $third, $fourth);
+            echo "Am adaugat cu succes";
         }
           mysqli_stmt_execute($stmt);
           $stmt->close();
@@ -305,9 +308,6 @@ class womenObesity{
     //$newValue='afg';
     $selectQuery=""; //pentru a verifica daca exista o interogare de genul asta
     //$this->country='romania';
-    print_r($this->country);
-    echo "lala <br>";
-    print_r($this->country[0]);
 
     $types='';
     $arrayParam=[];
@@ -523,22 +523,7 @@ class womenObesity{
     }
         
 //AICI TREBUIE DECOMENTAT CA SA SE EXECUTE VERIFICAREA EXISTENTEI VALORILOR LA CARE DAU UPDATE
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "salll";
 
-
-echo $selectQuery;
-echo "cfff";
-
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<br>";
-
-echo "<br>";
 $stmt = mysqli_prepare($this->conn, $selectQuery);
 
 mysqli_stmt_bind_param($stmt, $typesSelect, ...$arrayParamSelect);
@@ -552,15 +537,12 @@ $num= mysqli_num_rows($result);
 
 $ok=0;
 
-print_r($result);
-print_r($stmt);
 
 /// OK SE FACE 1 IN CAZUL IN CARE EXISTA INREGISTRARI
 if($num!=0)
     $ok=1;
 
     
-echo $ok;
     
 //AICI TREBUIE DECOMENTAT CA SA SE EXECUTE UPDATE-UL
 
@@ -571,9 +553,8 @@ if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
   mysqli_stmt_bind_param($stmt, $types, ...$arrayParam);
   
   mysqli_stmt_execute($stmt);
-  echo $query;
-
 }
+echo "Am actualizat ".$num." inregistrari";
   }
 
 }

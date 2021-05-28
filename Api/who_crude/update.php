@@ -9,7 +9,6 @@
 
   $dir=__DIR__;
   $path=substr($dir, 0, 0).'crudeObesity.php';
-  echo $path;
   include($path);
   $category=new crudeObesity($conn);
   $data = file_get_contents("php://input");
@@ -30,8 +29,6 @@
       return;
   }
       $typeToBeModified=$result->modify;
-  //if(isset($result->newValue))
-        $newValue=$result->newValue;
+    $newValue=$result->newValue;
+    if($result->eroare)
       $category->update($typeToBeModified, $newValue );
-
-      $category->update($typeToBeModified, $newValue);

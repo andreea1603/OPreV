@@ -32,6 +32,5 @@
       $typeToBeModified=$result->modify;
   //if(isset($result->newValue))
         $newValue=$result->newValue;
+    if($result->eroare)
       $category->update($typeToBeModified, $newValue );
-
-      $category->update($typeToBeModified, $newValue);

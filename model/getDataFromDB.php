@@ -17,11 +17,25 @@ function getCode(){
 function getCountries($country,$table){
     include('db-connect.php');
 
-    $query = "Select * from ".$table." where name =?";
+    $query = "Select * from ".$table." where country = (Select code3 from countries where nume=?)";
+    $typeOfParam='s';
+    
+    if ($stmt = mysqli_prepare($conn, $query)){
+        mysqli_stmt_bind_param($stmt, $typeOfParam, $country);
+        mysqli_stmt_execute($stmt);
+    }
+    $result = mysqli_stmt_get_result($stmt);
+    $num= mysqli_num_rows($result);
+    return $num;
+}
+function getYears($year,$table){
+    include('db-connect.php');
+    $query = "Select * from ".$table." where year =?";
+    
     $typeOfParam='s';
 
     if ($stmt = mysqli_prepare($conn, $query)){
-        mysqli_stmt_bind_param($stmt, $typeOfParam, $country);
+        mysqli_stmt_bind_param($stmt, $typeOfParam, $year);
         mysqli_stmt_execute($stmt);
     }
     $result = mysqli_stmt_get_result($stmt);

@@ -13,7 +13,6 @@
 
     $request=file_get_contents("php://input");
     $object=json_decode($request,true);
-
     if(isset($object[0]["IndicatorCode"])){
         if($object[0]["IndicatorCode"]=="indicatorCode4"){
         $category= new agestdObesity($conn);
@@ -50,9 +49,9 @@
         $category->country[0]=$object[3]["Country"];
         $category->year=$object[4]["Year"];
         $category->sex=$object[5]["Sex"];
-        $category->age=$object[6]["Age"];
+        $category->age="s".$object[6]["Age"];
         $category->value=$object[7]["Value"];
-        requestAPI4($object[1]["Method"], $category, $object[7]["New Value"],$object[2]["ModifyValue"]);
+        requestAPI4($object[1]["Method"], $category, $object[8]["New Value"],$object[2]["ModifyValue"]);
 
     }
 }

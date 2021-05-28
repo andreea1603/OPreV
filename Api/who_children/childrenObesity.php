@@ -172,7 +172,10 @@ class childrenObesity
       return 'FMLE';
     if (strtoupper($sex) == 'MALE')
       return 'MLE';
-    return 'BTSX';
+    if (strtoupper($sex) == 'BTSX')
+      return 'BTSX';
+    return $sex;
+    
   }
 
   public function convertCountry($country)
@@ -182,17 +185,18 @@ class childrenObesity
     $query = "SELECT code3 from countries where upper(nume)=upper('{$country2}')";
     $result = mysqli_query($this->conn, $query);
 
+    
 
     $code3 = [];
     $n = $result->num_rows;
-
     if ($n != 0) {
       if (mysqli_num_rows($result)) {
         if ($row = mysqli_fetch_assoc($result)) {
           array_push($code3, $row);
         }
       }
-    } else
+    } 
+    else
       return null;
     return ($code3[0]['code3']);
   }
@@ -253,6 +257,7 @@ class childrenObesity
       mysqli_stmt_bind_param($stmt, $param, ...$arrayParam);
 
       mysqli_stmt_execute($stmt);
+    echo "Am sters cu succes";
   }
 
   public function add()
@@ -260,20 +265,21 @@ class childrenObesity
     //se adauga si regiuni? :(
 
     if ($this->checkIfExists() == false) {
-      $id = $this->getIndex()+100;
+      $id = $this->getIndex()+1;
 
       $query = "INSERT INTO  whoage values ( {$id}, 'COUNTRY', ? ,
         ? , ? , ? , ? ) ";
   
       if ($stmt = mysqli_prepare($this->conn, $query)){
-      $first=$this->convertCountry($this->country[0]);
-      $second= $this->value;
-      $third= $this->year;
-      $fourth=$this->convertSex($this->sex);
-      $fifth=$this->age;
-      $stmt->bind_param('sddss', $first, $second, $third, $fourth, $fifth);
-  }
-
+          $first=$this->convertCountry($this->country[0]);
+          $second= $this->value;
+          $third= $this->year;
+          $fourth=$this->convertSex($this->sex);
+          $fifth="s".$this->age;
+          $stmt->bind_param('sddss', $first, $second, $third, $fourth, $fifth);
+          echo "Am adaugat cu succes";
+      }
+    var_dump($first, $second, $third, $fourth, $fifth);
     mysqli_stmt_execute($stmt);
     $stmt->close();
   
@@ -285,12 +291,7 @@ class childrenObesity
   public function update($typeToBeModified, $newValue)
   {
 
-    ///(update: verificam daca exista randul) -> pt add  warning daca exista
-
-    //$typeToBeModified='year';
-    //$newValue='afg';
     $selectQuery = ""; //pentru a verifica daca exista o interogare de genul asta
-    //$this->country='romania';
     if ($this->country[0] != null)
       if ($this->convertCountry($this->country[0]) == null)
         return "nu am gasit nimic";
@@ -428,31 +429,24 @@ class childrenObesity
       
       }
       if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
-        if (mysqli_query($this->conn, $query)) {
-          echo "Record updated successfully";
-         }
-         } else {
-          echo "Date introduse gresit";
-         }
-          }
+        mysqli_query($this->conn, $query);
+      }
+      echo "Am actualizat ".mysqli_num_rows($result)." inregistrari";
+    } 
 
   public function checkIfExists(){
 
-    //  $this->country='ROU';
+  $query="select id from whoage where country=? AND year=? AND sex=? AND age=?";
+  
+
+  if ($stmt = mysqli_prepare($this->conn, $query)){
+
+    $first=$this->convertCountry($this->country[0]);
+    $second=$this->year;
+    $third=$this->convertSex($this->sex);
+    $fourth="s".$this->age;
     
-      //$this->year=2010;
-      //$this->sex='FMLE';
-    
-      $query="select id from whoage where country=? AND year=? AND sex=?";
-     
-    
-      if ($stmt = mysqli_prepare($this->conn, $query)){
-    
-        $first=$this->convertCountry($this->country[0]);
-        $second=$this->year;
-        $third=$this->convertSex($this->sex);
-        
-        mysqli_stmt_bind_param($stmt, 'sds', $first, $second, $third);
+    mysqli_stmt_bind_param($stmt, 'sdss', $first, $second, $third,$fourth);
     }
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);

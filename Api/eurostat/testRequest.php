@@ -37,7 +37,7 @@ function requestAPI5($method, $category, $newValue, $modify)
     // Set the request data as JSON using json_encode function
     
 
-    if(!(codeCountry($data["country"][0]) && codeYears($data["year"]) && codeBmi($data["bmi"]) 
+    if(!(codeCountry($data["country"][0],"geo") && codeYears($data["year"],"geo") && codeBmi($data["bmi"]) 
         && codeValue($data["value"]) && codeValue($data["newValue"]))){
         http_response_code (400);
         $data["eroare"]=0;
@@ -49,18 +49,17 @@ function requestAPI5($method, $category, $newValue, $modify)
     echo $response . PHP_EOL;
 }
 
-function codeCountry($country){
-    echo "                                                        ".$country;
+function codeCountry($country,$table){
     if($country!=null)    
-        if(getCountries($country,"geo")==0){
+        if(getCountries($country,$table)==0){
             echo "Tara nu este in baza de date";
             return 0;
         }
     return 1;
 }
-function codeYears($year){
+function codeYears($year,$table){
     if($year!=null)   
-        if($year != 2008 && $year!= 2014 && $year != 2017){
+        if(getYears($year,$table)==0){
             echo "Anul nu este in baza de date";
             return 0;
         }
@@ -78,6 +77,14 @@ function codeSex($sex){
     if($sex!=null)   
         if($sex != "both" && $sex != "male"  && $sex != "female" ){
             echo "Sexul nu este in baza de date";
+            return 0;
+        }
+    return 1;
+}
+function codeAge($age){
+    if($age!=null)   
+        if($age != "05-19" && $age != "05-09"  && $age != "10-19" ){
+            echo "Age nu este in baza de date";
             return 0;
         }
     return 1;

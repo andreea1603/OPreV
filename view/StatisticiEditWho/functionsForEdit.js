@@ -38,16 +38,6 @@ if(text==="indicatorCode1"){
     tag.textContent="Year";
     element2.appendChild(tag);
 
-    var tag = document.createElement("input");
-    tag.setAttribute("type","checkbox");
-    tag.setAttribute("name","boxes[]");
-    tag.setAttribute("value","Sex");
-    tag.setAttribute("onclick","onlyOne(this,'boxes[]')");
-    tag.setAttribute("class","checkboxes");
-    element2.appendChild(tag);
-    var tag = document.createElement("label");
-    tag.textContent="Sex";
-    element2.appendChild(tag);
 
     var tag = document.createElement("input");
     tag.setAttribute("type","checkbox");
@@ -170,17 +160,6 @@ else
         element2.appendChild(tag);
         var tag = document.createElement("label");
         tag.textContent="Year";
-        element2.appendChild(tag);
-
-        var tag = document.createElement("input");
-        tag.setAttribute("type","checkbox");
-        tag.setAttribute("name","boxes[]");
-        tag.setAttribute("value","Sex");
-        tag.setAttribute("onclick","onlyOne(this,'boxes[]')");
-        tag.setAttribute("class","checkboxes");
-        element2.appendChild(tag);
-        var tag = document.createElement("label");
-        tag.textContent="Sex";
         element2.appendChild(tag);
 
         var tag = document.createElement("input");

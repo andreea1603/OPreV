@@ -24,7 +24,7 @@ if(isset($result->year))
 if(isset($result->value))
     $category->value=$result->value;
 
-
-$category->delete1();
+if($result->eroare)
+  $category->delete1();
 
 ?>

@@ -27,7 +27,7 @@ if(isset($result->value))
     $category->value=$result->value;
 if(isset($result->age))
     $category->age=$result->age;
-
-$category->delete1();
+if($result->eroare)
+  $category->delete1();
 
 ?>

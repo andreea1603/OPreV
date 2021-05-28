@@ -2,7 +2,6 @@
 include('../../model/db-connect.php');
 function requestAPI2($method, $category, $newValue, $modify)
 {
-    echo "bun";
     if ($method == "UPDATE")
         $url = 'http://localhost/proiect/OPreV/Api/who_women/update.php';
     else
@@ -19,10 +18,10 @@ function requestAPI2($method, $category, $newValue, $modify)
         'year' => $category->year,
         'newValue' => $newValue,
         'modify' => $modify,
-        'value'=>$category->value
+        'value'=>$category->value,
+        'eroare'=>1
     ];
 
-    echo json_encode($data);
 
     $curl = curl_init($url);
 
@@ -34,6 +33,18 @@ function requestAPI2($method, $category, $newValue, $modify)
         curl_setopt($curl, CURLOPT_POST, true);
 
     }
+    if(!($method=="ADD"))
+        if(!(codeCountry($data["country"][0],"whocrude") && codeYears($data["year"],"whocrude")
+         && codeValue($data["value"]))){
+            http_response_code (400);
+            $data["eroare"]=0;
+        }
+        else ;
+    else
+        if(!(codeValue($data["value"]) && codeValue($data["year"]))){
+            http_response_code (400);
+            $data["eroare"]=0;
+        }
     // Set the request data as JSON using json_encode function
     curl_setopt($curl, CURLOPT_POSTFIELDS,  json_encode($data));
     // Set custom headers for RapidAPI Auth and Content-Type header

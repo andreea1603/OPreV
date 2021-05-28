@@ -14,7 +14,7 @@
   $data = file_get_contents("php://input");
   
   $result=json_decode($data);
-  
+  var_dump($result);
   if(isset($result->sex))
     $category->sex=$result->sex;
   if(isset($result->country))
@@ -25,7 +25,7 @@
       $category->value=$result->value;
   if(isset($result->age))
       $category->age=$result->age;
- 
+  if($result->eroare)
      $category->add();
 
      ?>

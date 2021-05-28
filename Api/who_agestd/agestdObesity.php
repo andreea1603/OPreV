@@ -288,6 +288,7 @@ if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
 
 
 }
+echo "Am actualizat ".$num." inregistrari";
   }
   public function convertSex($sex){
       if(strtoupper($sex)=='FEMALE')
@@ -372,6 +373,7 @@ if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
       mysqli_stmt_bind_param($stmt, $param, ...$arrayParam);
 
       mysqli_stmt_execute($stmt);
+      echo "Am sters cu succes";
 
   }
 
@@ -392,8 +394,8 @@ public function add(){
         $third= $this->year;
         $fourth=$this->convertSex($this->sex);
         $stmt->bind_param('sdds', $first, $second, $third, $fourth);
+        echo "Am adaugat cu succes";
       }
-
       mysqli_stmt_execute($stmt);
       $stmt->close();
     }

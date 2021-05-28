@@ -315,15 +315,11 @@ public function infoByFilter(){
                 array_push($arrayParam,$ok+$id*3+2);
               
           }
-          try{
-            if($stmt = mysqli_prepare($this->conn, $query)){
-              mysqli_stmt_bind_param($stmt, $types, ...$arrayParam);
-              mysqli_stmt_execute($stmt);
-            }
+          if($stmt = mysqli_prepare($this->conn, $query)){
+            mysqli_stmt_bind_param($stmt, $types, ...$arrayParam);
+            mysqli_stmt_execute($stmt);
           }
-          catch(Exception $e){
-            var_dump( $e);
-          }
+          
     }
 
 

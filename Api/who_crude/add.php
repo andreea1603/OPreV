@@ -24,5 +24,5 @@
   if(isset($result->value))
       $category->value=$result->value;
   //if(isset($result->modify))
- 
+  if($result->eroare)
      $category->add();

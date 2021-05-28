@@ -26,7 +26,7 @@ if(isset($result->value))
 
 if(isset($result->area))
     $category->area=$result->area;
-
-$category->delete1();
+if($result->eroare)
+    $category->delete1();
 
 ?>

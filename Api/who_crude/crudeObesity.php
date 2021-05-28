@@ -220,13 +220,15 @@ class crudeObesity{
         mysqli_stmt_bind_param($stmt, $param, ...$arrayParam);
   
         mysqli_stmt_execute($stmt);
+        echo "Am sters cu succes";
     }
     public function convertSex($sex){
       if(strtoupper($sex)=='FEMALE')
         return 'FMLE';
       if(strtoupper($sex)=='MALE')
         return 'MLE';
-    return 'BTSX';
+      if(strtoupper($sex)=='BTSX')
+        return 'BTSX';
   }
 
     public function convertCountry($country){
@@ -269,8 +271,8 @@ class crudeObesity{
         $third= $this->year;
         $fourth=$this->convertSex($this->sex);
         $stmt->bind_param('sdds', $first, $second, $third, $fourth);
+        echo "Am adaugat cu succes";
     }
-  
       mysqli_stmt_execute($stmt);
       $stmt->close();
     
@@ -287,9 +289,6 @@ class crudeObesity{
     //$newValue='afg';
     $selectQuery=""; //pentru a verifica daca exista o interogare de genul asta
     //$this->country='romania';
-    print_r($this->country);
-    echo "lala <br>";
-    print_r($this->country[0]);
 
     $types='';
     $arrayParam=[];
@@ -378,8 +377,8 @@ class crudeObesity{
         if($this->country[0]!=null){
           $selectQuery=$selectQuery." AND country=? ";
           $query=$query." AND country=? ";
-          array_push($arrayParam, $this->country);
-          array_push($arrayParamSelect, $this->country);
+          array_push($arrayParam, $this->country[0]);
+          array_push($arrayParamSelect, $this->country[0]);
           $types=$types.'s';
           $typesSelect=$typesSelect.'s';
 
@@ -507,8 +506,6 @@ class crudeObesity{
 //AICI TREBUIE DECOMENTAT CA SA SE EXECUTE VERIFICAREA EXISTENTEI VALORILOR LA CARE DAU UPDATE
 
 
-echo $selectQuery;
-
 
 $stmt = mysqli_prepare($this->conn, $selectQuery);
 
@@ -521,15 +518,12 @@ $num= mysqli_num_rows($result);
 
 $ok=0;
 
-print_r($result);
-print_r($stmt);
 
 /// OK SE FACE 1 IN CAZUL IN CARE EXISTA INREGISTRARI
 if($num!=0)
     $ok=1;
 
     
-echo $ok;
     
 //AICI TREBUIE DECOMENTAT CA SA SE EXECUTE UPDATE-UL
 
@@ -540,11 +534,10 @@ if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
   mysqli_stmt_bind_param($stmt, $types, ...$arrayParam);
   
   mysqli_stmt_execute($stmt);
-  echo $query;
-
 
 
 }
+echo "Am actualizat ".$num." inregistrari";
   }
 
 
@@ -587,7 +580,7 @@ if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
           }
         }
         
-        return  $index[0]['maxim'];;
+        return  $index[0]['maxim'];
       
       }
 
