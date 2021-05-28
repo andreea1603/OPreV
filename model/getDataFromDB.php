@@ -14,9 +14,23 @@ function getCode(){
     return array($countries,$codes);
 }
 
+function getCountries($country,$table){
+    include('db-connect.php');
+
+    $query = "Select * from ".$table." where name =?";
+    $typeOfParam='s';
+
+    if ($stmt = mysqli_prepare($conn, $query)){
+        mysqli_stmt_bind_param($stmt, $typeOfParam, $country);
+        mysqli_stmt_execute($stmt);
+    }
+    $result = mysqli_stmt_get_result($stmt);
+    $num= mysqli_num_rows($result);
+    
+    return $num;
+}
 function getYearsByCode($code){
     include('db-connect.php');
-    echo $code;
     $years=array();
     
     if($code==1)
@@ -51,7 +65,6 @@ function getAgesByCode(){
     sort($ages);
     return $ages;
 }
-getAreasByCode();
 function getAreasByCode(){
     include('db-connect.php');
     $areas=array();

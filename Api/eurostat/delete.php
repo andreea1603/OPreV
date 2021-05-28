@@ -7,24 +7,23 @@
   include_once '../../model/db-connect.php';
   //include_once 'D:\Xamp\htdocs\proiect\OPreV\Api\who_agestd\agestdObesity.php';
   $dir=__DIR__;
-  $path=substr($dir, 0, 0).'agestdObesity.php';
+  $path=substr($dir, 0, 0).'eurostat.php';
   include($path);
 
-$category=new agestdObesity($conn);
+$category=new eurostat($conn);
 $data = file_get_contents("php://input");
 
 $result=json_decode($data);
 
-if(isset($result->sex))
-  $category->sex=$result->sex;
+if(isset($result->bmi))
+  $category->bmi=$result->bmi;
 if(isset($result->country))
     $category->country[0]=$result->country[0];
 if(isset($result->year))
     $category->year=$result->year;
 if(isset($result->value))
     $category->value=$result->value;
-
 if($result->eroare)
-  $category->delete1();
+  $category->Update(0);
 
 ?>

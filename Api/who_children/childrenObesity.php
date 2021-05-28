@@ -29,7 +29,6 @@ class childrenObesity
 
 
     $n = $result->num_rows;
-    echo $n;
 
     for ($i = 0; $i < $n; $i++)
       if (mysqli_num_rows($result)) {
@@ -420,7 +419,6 @@ class childrenObesity
     $ok=0;
     
     /// OK SE FACE 1 IN CAZUL IN CARE EXISTA INREGISTRARI
-      echo $query;
       if (mysqli_num_rows($result)) {
         if ($row = mysqli_fetch_assoc($result)) {
           if($row!=null)

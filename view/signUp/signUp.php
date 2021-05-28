@@ -3,6 +3,11 @@
    include('./../../model/functions.php');
    include('./../../model/init.php');
    include('./../../model/db-connect.php');
+   echo $_SESSION["conectat"];
+   if(!isset($_SESSION["conectat"])){
+      echo "cf ssefule";
+      header('Location:../login/login.php');
+   }
 ?>
 <html lang="en">
     <head>

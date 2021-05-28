@@ -112,7 +112,7 @@ public function infoByFilter(){
         return $result;
     
     }
-    public function Update($camp,$valoare){
+    public function Update($valoare){
 
         $query="Update valori set valoare={$valoare} WHERE ";
         $k=0;
@@ -125,10 +125,15 @@ public function infoByFilter(){
         if($this->bmi != ""){
           $k++;
         }
+        
         if($k==1){
           if($this->country[0]!=""){
-              $query1="Select id from geo where name='{$this->country[0]}'";
-              $result = mysqli_query($this->conn, $query1);
+              $query1="Select id from geo where name=? ";
+              $stmt = mysqli_prepare($this->conn, $query1);
+              mysqli_stmt_bind_param($stmt, 's', $this->country[0]);
+              mysqli_stmt_execute($stmt);
+        
+              $result = mysqli_stmt_get_result($stmt);
               $row = mysqli_fetch_assoc($result); 
               $id=$row["id"];
               $query = $query . "id in ( ?,?,?,?,?,?,?,?,?)";
@@ -187,8 +192,12 @@ public function infoByFilter(){
         else
         if($k==2){
           if($this->country[0]!="" && $this->bmi!=""){
-            $query1="Select id from geo where name='{$this->country[0]}'";
-            $result = mysqli_query($this->conn, $query1);
+            $query1="Select id from geo where name=? ";
+            $stmt = mysqli_prepare($this->conn, $query1);
+            mysqli_stmt_bind_param($stmt, 's', $this->country[0]);
+            mysqli_stmt_execute($stmt);
+      
+            $result = mysqli_stmt_get_result($stmt);
             $row = mysqli_fetch_assoc($result); 
             $id=$row["id"];
             if($this->bmi=="pre-obese"){
@@ -273,8 +282,13 @@ public function infoByFilter(){
         }
         else
           if($k==3){
-            $query1="Select id from geo where name='{$this->country[0]}'";
-            $result = mysqli_query($this->conn, $query1);
+            $query1="Select id from geo where name=?";
+
+            $stmt = mysqli_prepare($this->conn, $query1);
+            mysqli_stmt_bind_param($stmt, 's', $this->country[0]);
+            mysqli_stmt_execute($stmt);
+      
+            $result = mysqli_stmt_get_result($stmt);
             $row = mysqli_fetch_assoc($result); 
             $id=$row["id"];
             if($this->bmi=="pre-obese"){
@@ -297,18 +311,18 @@ public function infoByFilter(){
              if($this->year==2014)
               array_push($arrayParam,$ok+$id*3+1);
             else
-              array_push($arrayParam,$ok+$id*3+2);
+                if($this->year==2017)
+                array_push($arrayParam,$ok+$id*3+2);
               
           }
-          var_dump($arrayParam);
-          echo $query;
           try{
-            $stmt = mysqli_prepare($this->conn, $query);
-            mysqli_stmt_bind_param($stmt, $types, ...$arrayParam);
-            mysqli_stmt_execute($stmt);
+            if($stmt = mysqli_prepare($this->conn, $query)){
+              mysqli_stmt_bind_param($stmt, $types, ...$arrayParam);
+              mysqli_stmt_execute($stmt);
+            }
           }
           catch(Exception $e){
-            var_dump("exceptie");
+            var_dump( $e);
           }
     }
 
@@ -316,8 +330,14 @@ public function infoByFilter(){
     public function add (){
 
       $query="Insert into valori values(?,?)";
-      $query1="Select id from geo where name='{$this->country[0]}'";
-      $result = mysqli_query($this->conn, $query1);
+      $query1="Select id from geo where name=?";
+
+
+      $stmt = mysqli_prepare($this->conn, $query1);
+      mysqli_stmt_bind_param($stmt, 's', $this->country[0]);
+      mysqli_stmt_execute($stmt);
+
+      $result = mysqli_stmt_get_result($stmt);
       $row = mysqli_fetch_assoc($result);
       $id=$row["id"];
       $arrayParam=[];

@@ -17,8 +17,8 @@ function getCsv($countries_csv, $year_csv, $bmi_csv, $valori_csv){
     fwrite($fp,"\n");
     fwrite($fp,",");
 
-    fwrite($fp,$year_csv[0].",");
-    fwrite($fp,$bmi_csv[0].",");
+    fwrite($fp,$year_csv.",");
+    fwrite($fp,$bmi_csv.",");
 
     fwrite($fp,"\n");
 

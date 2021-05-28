@@ -38,42 +38,9 @@ class agestdObesity
 
     return $get_result;
   }
-  /*
-  public function updateCountry(){
-
-    //$value= GET('value');??
-    //$value2 =GET('value2');
-
-    ////si cautata in baza de date cu tari
-    //
-    $value='SDF';
-    $value2='sdf';
-
-    $query="UPDATE whoagestd SET country='{$value}' WHERE country='{$value2}'";
-
-    echo $query;
-    $stm= $this->conn->prepare($query);
-    if($stm->execute()){
-      echo "Actualizat cu succes";
-    }
-    else{
-      echo "Ceva e gresit";
-    }
-
-  }
-*/
-  
   public function update($typeToBeModified, $newValue){
 
-        ///(update: verificam daca exista randul) -> pt add  warning daca exista
-
-    //$typeToBeModified='year';
-    //$newValue='afg';
-    $selectQuery=""; //pentru a verifica daca exista o interogare de genul asta
-    //$this->country='romania';
-    print_r($this->country);
-    echo "lala <br>";
-    print_r($this->country[0]);
+    $selectQuery="";
 
     $types='';
     $arrayParam=[];
@@ -162,8 +129,8 @@ class agestdObesity
         if($this->country[0]!=null){
           $selectQuery=$selectQuery." AND country=? ";
           $query=$query." AND country=? ";
-          array_push($arrayParam, $this->country);
-          array_push($arrayParamSelect, $this->country);
+          array_push($arrayParam, $this->country[0]);
+          array_push($arrayParamSelect, $this->country[0]);
           $types=$types.'s';
           $typesSelect=$typesSelect.'s';
 
@@ -291,9 +258,6 @@ class agestdObesity
 //AICI TREBUIE DECOMENTAT CA SA SE EXECUTE VERIFICAREA EXISTENTEI VALORILOR LA CARE DAU UPDATE
 
 
-echo $selectQuery;
-
-
 $stmt = mysqli_prepare($this->conn, $selectQuery);
 
 mysqli_stmt_bind_param($stmt, $typesSelect, ...$arrayParamSelect);
@@ -305,15 +269,11 @@ $num= mysqli_num_rows($result);
 
 $ok=0;
 
-print_r($result);
-print_r($stmt);
 
 /// OK SE FACE 1 IN CAZUL IN CARE EXISTA INREGISTRARI
 if($num!=0)
     $ok=1;
 
-    
-echo $ok;
     
 //AICI TREBUIE DECOMENTAT CA SA SE EXECUTE UPDATE-UL
 
@@ -324,7 +284,6 @@ if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
   mysqli_stmt_bind_param($stmt, $types, ...$arrayParam);
   
   mysqli_stmt_execute($stmt);
-  echo $query;
 
 
 
@@ -335,12 +294,14 @@ if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
         return 'FMLE';
       if(strtoupper($sex)=='MALE')
         return 'MLE';
-    return 'BTSX';
+      if(strtoupper($sex)=='BTSX')
+        return 'BTSX';
+      return $sex;
+    
   }
 
   public function convertCountry($country){
 
-    print_r($country);
       $country2=strtoupper($country);
 
       $query="SELECT code3 from countries where upper(nume)=upper('{$country2}')";
@@ -419,24 +380,23 @@ public function add(){
 
     if($this->checkIfExists()==false)
     {
-      $id=$this->getIndex()+10;
+      $id=$this->getIndex()+1;
 
 
-    $query="INSERT INTO  whoagestd values ( {$id}, 'COUNTRY', ? ,
-      ?, ?, ?) ";
-    
-    if ($stmt = mysqli_prepare($this->conn, $query)){
-      $first=$this->convertCountry($this->country[0]);
-      $second= $this->value;
-      $third= $this->year;
-      $fourth=$this->convertSex($this->sex);
-      $stmt->bind_param('sdds', $first, $second, $third, $fourth);
-  }
+      $query="INSERT INTO  whoagestd values ( {$id}, 'COUNTRY', ? ,
+        ?, ?, ?) ";
+      
+      if ($stmt = mysqli_prepare($this->conn, $query)){
+        $first=$this->convertCountry($this->country[0]);
+        $second= $this->value;
+        $third= $this->year;
+        $fourth=$this->convertSex($this->sex);
+        $stmt->bind_param('sdds', $first, $second, $third, $fourth);
+      }
 
-    mysqli_stmt_execute($stmt);
-    $stmt->close();
-  
-  }
+      mysqli_stmt_execute($stmt);
+      $stmt->close();
+    }
     else{
       echo "exista deja o inregistrare asa, incercati un update!";
     }
@@ -444,11 +404,6 @@ public function add(){
   } 
 
 public function checkIfExists(){
-
-//  $this->country='ROU';
-
-  //$this->year=2010;
-  //$this->sex='FMLE';
 
   $query="select id from whoagestd where country=? AND year=? AND sex=?";
  
