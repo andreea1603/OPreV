@@ -10,7 +10,6 @@ function printSession() {
 }
 
 function register($email, $crypt, $firstname, $lastname){
-    include('init.php');
     include('db-connect.php');
     $query="INSERT INTO users (email, password, firstname, lastname) VALUES 
     ( ? , ? , ? , ? )";
@@ -31,7 +30,6 @@ function register($email, $crypt, $firstname, $lastname){
 
 
 function checkEmail($email){
-    include('init.php');
     include('db-connect.php');
     $query="SELECT * FROM `users` WHERE email=?";
     $typeOfParam='s';
@@ -50,7 +48,6 @@ function checkEmail($email){
 
 
 function login($email, $pass){
-    session_unset();
     include('db-connect.php');
 
     $query = "SELECT password FROM users WHERE email = ? ";
@@ -96,8 +93,12 @@ function setSession($email){
     $_SESSION['email']=$email;
     $_SESSION['conectat']=true;
 }
-function logout(){
-    session_unset();
-
-}
 ?>
+<script>
+
+    function add(){
+        console.log("am intrat aici");
+       
+s        
+    }
+</script>

@@ -1,3 +1,8 @@
+<?php
+ 
+if(!isset($_SESSION['conectat']))
+        header("Location: ../login/login.php");
+?>
 <html lang="en">
     <head>
         <meta charset="utf-8">

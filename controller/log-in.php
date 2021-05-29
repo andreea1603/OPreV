@@ -1,11 +1,9 @@
 <?php
 include('../model/functions.php');
-include('../model/init.php');
 include('../model/db-connect.php');
      
 if (!empty($_POST['email']) && !empty($_POST['password'])){
     
-    session_unset();
 
     $email = $_POST['email'];
     $pass = $_POST['password'];

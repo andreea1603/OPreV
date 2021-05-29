@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php
-include('../../model/init.php');
 include('../../model/db-connect.php');
 include('../../model/getbyICWho.php');
 include('../../controller/functions1.php');

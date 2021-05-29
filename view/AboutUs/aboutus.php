@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php
-include('../../model/init.php');
 include('../../model/functions.php');
 ?>
 <html lang="en">

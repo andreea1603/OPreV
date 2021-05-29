@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <?php
-include('../../model/init.php');
 include('../../model/functions.php');
 include('functionsEditEvents.php');
 include('functionsEvents.php');
+if(session_status() == PHP_SESSION_NONE){
+  //session has not started
+  session_start();
+}
+if(!isset($_SESSION['conectat'])) header("Location: ../login/login.php"); 
+
 ?>
 <html lang="en">
     <head>

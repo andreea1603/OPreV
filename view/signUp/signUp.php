@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
    include('./../../model/functions.php');
-   include('./../../model/init.php');
    include('./../../model/db-connect.php');
    echo $_SESSION["conectat"];
    if(!isset($_SESSION["conectat"])){

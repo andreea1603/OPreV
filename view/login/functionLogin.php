@@ -1,6 +1,5 @@
 <?php
 include('../../model/db-connect.php');
-include('../../model/init.php');
 
 $request=file_get_contents("php://input");
 $object=json_decode($request,true);
@@ -14,6 +13,8 @@ if($existaEmail!=0)
     }
     else
         echo 0;
+
+
 function checkEmail($email){
     include('../../model/db-connect.php');
     $query="SELECT * FROM `users` WHERE email=?";
@@ -31,7 +32,6 @@ function checkEmail($email){
     return 1;
 }
 function login($email, $pass){
-    session_unset();
     include('../../model/db-connect.php');
 
     $query = "SELECT password FROM users WHERE email = ? ";
@@ -76,5 +76,6 @@ function setSession($email){
     $_SESSION['lastname']=$lastname;
     $_SESSION['email']=$email;
     $_SESSION['conectat']=true;
+    echo "salut";
     }
 ?>

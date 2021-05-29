@@ -7,12 +7,7 @@
     width: 100%;
 
 }
-.butoane{
-    width: 60% !important;
-    align-content: center !important;
-    margin: 10px !important;
 
-}
 @media only screen and (max-width:700px)
 {
     .container{
@@ -31,17 +26,14 @@
     }
     #add{
         background-color: #292bc2;
-        width: 80% !important;
 
     }
     #modify{
         background-color: #0e991a;
-        width: 80% !important;
 
     }
     #delete{
         background-color: #ec2929;
-        width: 80% !important;
 
     } 
 }

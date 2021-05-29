@@ -1,6 +1,5 @@
 <?php
 include('db-connect.php');
-include('init.php');
 $ch= curl_init();
 
 $url ="http://ec.europa.eu/eurostat/wdds/rest/data/v2.1/json/en/sdg_02_10/";

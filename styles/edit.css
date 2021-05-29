@@ -12,7 +12,7 @@ body{
     background-color: #f2f2f2;
     padding: 20px;
   }
-/* .butoane{
+ .butoane{
     display: flex;
     justify-content: space-around;
     margin: 10%;
@@ -27,7 +27,7 @@ body{
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-  } */
+  } 
 #indicatorCode{
     margin-bottom: 20px;
 }

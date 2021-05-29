@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <?php
-include('../../model/init.php');
 include('../../model/functions.php');
+
+if(!isset($_SESSION['conectat']))
+        header("Location: ../login/login.php");
+
 ?>
 <html lang="en">
     <head>
@@ -64,7 +67,12 @@ include('../../model/functions.php');
                 <td><a href="../../view/StatisticiEditWho/statisticiEditWho.php">Editeaza date Who</a></td>
             </tr>
              <tr>                    <td></td>
-                <td><a href="../signUp/signUp.php"><?php session_unset(); ?> Log out</a></td>
+
+             <td>
+             <a href="logout.php">
+                    <button type="button" >Logout</button>
+                </a>             
+            </td>
             </tr>
         </table>
         </div>

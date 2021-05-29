@@ -2,7 +2,6 @@
 set_time_limit ( 360 );
 function set1(){
     include('db-connect.php');
-    include('init.php');
     $ch= curl_init();
     $url='https://ghoapi.azureedge.net/api/NCD_BMI_PLUS2C';
 
@@ -105,7 +104,6 @@ function getValues($text){
 
 function set2(){
     include('db-connect.php');
-    include('init.php');
     $ch= curl_init();
     $url="https://ghoapi.azureedge.net/api/NCD_BMI_30A";
     
@@ -140,7 +138,6 @@ function set2(){
 }
 function set3(){
     include('db-connect.php');
-    include('init.php');
     $ch= curl_init();
     $url="https://ghoapi.azureedge.net/api/NCD_BMI_30C";
     
@@ -176,7 +173,6 @@ function set3(){
 }
 function set4(){
     include('db-connect.php');
-    include('init.php');
     $ch= curl_init();
     $url="https://ghoapi.azureedge.net/api/obesewm";
     
@@ -210,7 +206,6 @@ function set4(){
 }
 function set5(){
     include('db-connect.php');
-    include('init.php');
     $index=1;
     $str = file_get_contents('tari.json');
     $json = json_decode($str, true);
