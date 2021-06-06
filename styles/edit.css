@@ -1,11 +1,15 @@
+
 body{
     font-family: 'Poppins', sans-serif;
    
 }
+
 .first{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 40px;
+
 }
 .container {
     border-radius: 5px;
@@ -25,9 +29,14 @@ body{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
     cursor: pointer;
+    display:inline-block;
+    padding:  0.3em 1.2em;
+    margin:  0.3em 0.3em 0;
+    border-radius: 2em;
+    box-sizing: border-box;
   } 
+
 #indicatorCode{
     margin-bottom: 20px;
 }
@@ -35,13 +44,16 @@ body{
     margin-left: 20px;
     margin-bottom: 20px;
 }
+
 .styled-table {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 80%;
+    height: 100%;
+    margin-left: 10%;
 }
 .styled-table tr {
     border-bottom: 1px solid #dddddd;
@@ -58,7 +70,10 @@ table tr:hover {
     padding: 12px 15px;
 }
 #add{
-    background-color: #292bc2;
+    background-color: #294ac2;
+}
+.textInit{
+    margin: 30px;
 }
 #modify{
     background-color: #0e991a;
@@ -66,3 +81,133 @@ table tr:hover {
 #delete{
     background-color: #ec2929;
 } 
+#loo{
+    height: 400px;
+    width: 650px;
+
+}
+@media only screen and (max-width:870px)
+{
+
+    .butoane div{
+        margin: 5px;
+        width: 70px;
+        height: 30px;
+    }
+    .butoane div a{
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 8px 5px;
+        text-decoration: none;
+        font-size:0.9em;
+    }
+    .container {
+        border-radius: 5px;
+        padding: 5px;
+        height: 100%;
+        width: 70%;
+      }
+      .first{
+          margin-top: 40px;
+      }
+      #loo{
+        height: 100%;
+        width: 100%;
+    
+    }
+    .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        width: 80%;
+        height: 100%;
+        margin-left: 10%;
+    }
+    }
+    
+@media only screen and (max-width:480px)
+{
+
+
+    .butoane div{
+        margin: 5px;
+        width: 70px;
+        height: 30px;
+    }
+    .butoane div a{
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 8px 5px;
+        text-decoration: none;
+        font-size:0.9em;
+    }
+    .container {
+    
+        border-radius: 5px;
+        padding: 5px;
+        height: 100%;
+        width: 100%;
+
+      }
+      .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        width: 80%;
+        height: 90%;
+        margin-left: 10%;
+    }
+    #loo{
+        height: 90%;
+        width: 90%;
+    }
+}
+
+ @media only screen and (max-width:390px)
+{
+
+    .butoane div{
+        margin: 5px;
+        width: 70px;
+        height: 30px;
+    }
+    .butoane div a{
+        display: block;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        font-size:0.9em;
+    }
+    .container {
+    
+        border-radius: 0px;
+        padding: 0px;
+    
+
+      }
+      #loo{
+        height: 90%;
+        width: 90%;
+    }
+      .styled-table {
+        border-collapse: collapse;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        width: 60%;
+        height: 90%;
+        margin-left: 10%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    .styled-table td {
+        padding: 12px 0px;
+    }
+
+
+} 
+

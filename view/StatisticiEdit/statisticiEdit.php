@@ -34,10 +34,10 @@ if(!isset($_SESSION['conectat']))
     </section>
     <section class="first">
             <div id="cont" class="container">
-                <div>
+                <div class="textInit">
                   <h3>Edit Eurostat Data</h3>
                 
-                
+                </div>
                 <div id="formClass" class="edit">
                   <div id="loo">
                         <input type="checkbox" name="boxes[]" value="Country" onclick="onlyOne(this,'boxes[]')" class="checkboxes">
@@ -98,7 +98,10 @@ if(!isset($_SESSION['conectat']))
                 <div id="error">
 
                 </div>
+            
             </div>
+            </div>
+        
         </section>
 </body>
 </html>

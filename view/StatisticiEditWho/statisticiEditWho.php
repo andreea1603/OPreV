@@ -1,7 +1,6 @@
 <?php
  
-if(!isset($_SESSION['conectat']))
-        header("Location: ../login/login.php");
+
 ?>
 <html lang="en">
     <head>
@@ -25,6 +24,7 @@ if(!isset($_SESSION['conectat']))
                 <li><a href="../AboutUs/aboutus.php">Despre noi</a></li>
                 <li><a href=<?php if(!isset($_SESSION['conectat'])) echo "../login/login.php"; else echo "../Admin/admin.php";?>>Contul meu</a></li>
             </ul>
+            
         </section>
 
         <section class="first">
