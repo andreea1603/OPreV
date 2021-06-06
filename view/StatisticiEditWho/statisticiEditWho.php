@@ -1,6 +1,10 @@
 <?php
- 
+include('../../model/functions.php');
+include('../../model/db-connect.php');
+include('../../model/functions_repres.php');
 
+if(!isset($_SESSION['conectat']))
+        header("Location: ../login/login.php");
 ?>
 <html lang="en">
     <head>
