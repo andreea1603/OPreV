@@ -19,7 +19,7 @@ tags:
   description: Operations available to regular developers
 
 paths:
-  /whoage:
+  /who_children/getByFilter.php:
     get:
       tags:
       - developers
@@ -32,23 +32,26 @@ paths:
       - application/json
       parameters:
       - in: query
-        name: searchString
+        name: year
         description: pass an optional search string for looking up datas
         required: false
+        type: integer
+      - in: query
+        name: sex
+        description: the sex of the persons
         type: string
-      - in: query
-        name: skip
-        description: number of records to skip for pagination
-        type: integer
-        format: int32
         minimum: 0
       - in: query
-        name: limit
-        description: maximum number of records to return
+        name: country
+        description: country's name
+        type: array
+        items:
+          type: string
+      - in: query
+        name: age
+        description: age segment
         type: integer
         format: int32
-        minimum: 0
-        maximum: 50
       responses:
         200:
           description: search results matching criteria
@@ -61,7 +64,7 @@ paths:
     post:
       tags:
       - admins
-      summary: adds an inventory item
+      summary: adds new values
       operationId: addInventory
       description: Adds an item to the system
       consumes:
@@ -70,10 +73,11 @@ paths:
       - application/json
       parameters:
       - in: body
-        name: inventoryItem
+        name: Country
         description: Inventory item to add
         schema:
           $ref: '#/definitions/whoage'
+        
       responses:
         201:
           description: item created
@@ -84,8 +88,8 @@ paths:
     delete:
       tags:
       - admins
-      summary: delete an inventory item
-      operationId: deletenventory
+      summary: delete values of this table 
+      operationId: deleteWhoAge
       description: Deletes an item to the system
       consumes:
       - application/json
@@ -104,12 +108,12 @@ paths:
           description: invalid input, object invalid
         409:
           description: this item does not exists
-  /whowomen:
+  /who_women/getByFilter.php:
     get:
       tags:
       - developers
       summary: searches data
-      operationId: searchData
+      operationId: searchData1
       description: |
         By passing in the appropriate options, you can search for
         available datas in the system
@@ -117,23 +121,24 @@ paths:
       - application/json
       parameters:
       - in: query
-        name: searchString
+        name: country
         description: pass an optional search string for looking up datas
-        required: false
+        
+        type: array
+        items: 
+          type: string
+              
+      - in: query
+        name: year
+        description: add the year
+        type: integer
+        format: int32
+        minimum: 0
+      - in: query
+        name: area
+        description: rur, urb, nhml, prml, shlm
         type: string
-      - in: query
-        name: skip
-        description: number of records to skip for pagination
-        type: integer
-        format: int32
-        minimum: 0
-      - in: query
-        name: limit
-        description: maximum number of records to return
-        type: integer
-        format: int32
-        minimum: 0
-        maximum: 50
+   
       responses:
         200:
           description: search results matching criteria
@@ -147,7 +152,7 @@ paths:
       tags:
       - admins
       summary: adds an inventory item
-      operationId: addInventory
+      operationId: addInventory12
       description: Adds an item to the system
       consumes:
       - application/json
@@ -169,8 +174,8 @@ paths:
     delete:
       tags:
       - admins
-      summary: delete an inventory item
-      operationId: deletenventory
+      summary: delete values of this table
+      operationId: deleteWomen
       description: Deletes an item to the system
       consumes:
       - application/json
@@ -179,7 +184,7 @@ paths:
       parameters:
       - in: body
         name: inventoryItem
-        description: Inventory item to delete
+        description:  item to delete
         schema:
           $ref: '#/definitions/whowomen'
       responses:
@@ -189,25 +194,28 @@ paths:
           description: invalid input, object invalid
         409:
           description: this item does not exists
-  /whoagestd:
+  /who_agestd/getByFilter.php:
     get:
       tags:
       - developers
       summary: searches data
-      operationId: searchData
+      operationId: searchData4
       description: |
         By passing in the appropriate options, you can search for
         available datas in the system
       produces:
       - application/json
+    
       parameters:
       - in: query
-        name: searchString
+        name: country
         description: pass an optional search string for looking up datas
-        required: false
-        type: string
+        type: array
+        items:
+              type: string
+
       - in: query
-        name: skip
+        name: year
         description: number of records to skip for pagination
         type: integer
         format: int32
@@ -232,7 +240,7 @@ paths:
       tags:
       - admins
       summary: adds an inventory item
-      operationId: addInventory
+      operationId: addInventory6
       description: Adds an item to the system
       consumes:
       - application/json
@@ -255,7 +263,7 @@ paths:
       tags:
       - admins
       summary: delete an inventory item
-      operationId: deletenventory
+      operationId: deletenventory7
       description: Deletes an item to the system
       consumes:
       - application/json
@@ -274,12 +282,12 @@ paths:
           description: invalid input, object invalid
         409:
           description: this item does not exists
-  /whocrude:
+  /who_crude/getByFilter.php:
     get:
       tags:
       - developers
       summary: searches data
-      operationId: searchData
+      operationId: searchData8
       description: |
         By passing in the appropriate options, you can search for
         available datas in the system
@@ -287,23 +295,24 @@ paths:
       - application/json
       parameters:
       - in: query
-        name: searchString
-        description: pass an optional search string for looking up datas
+        name: country
+        description: name of the country
         required: false
+        type: array
+        items: 
+          type: string
+            
+      - in: query
+        name: year
+        description: year
+        type: integer
+        format: int32
+        minimum: 0
+      - in: query
+        name: sex
+        description: the sex of the persons
         type: string
-      - in: query
-        name: skip
-        description: number of records to skip for pagination
-        type: integer
-        format: int32
-        minimum: 0
-      - in: query
-        name: limit
-        description: maximum number of records to return
-        type: integer
-        format: int32
-        minimum: 0
-        maximum: 50
+     
       responses:
         200:
           description: search results matching criteria
@@ -317,7 +326,7 @@ paths:
       tags:
       - admins
       summary: adds an inventory item
-      operationId: addInventory
+      operationId: addInventory9
       description: Adds an item to the system
       consumes:
       - application/json
@@ -339,8 +348,8 @@ paths:
     delete:
       tags:
       - admins
-      summary: delete an inventory item
-      operationId: deletenventory
+      summary: delete values of this table
+      operationId: deletenventory10
       description: Deletes an item to the system
       consumes:
       - application/json
@@ -349,7 +358,7 @@ paths:
       parameters:
       - in: body
         name: inventoryItem
-        description: Inventory item to delete
+        description:  item to deleted
         schema:
           $ref: '#/definitions/whocrude'
       responses:
@@ -373,14 +382,14 @@ definitions:
         format: uuid
         example: [Austria,Germany,Romania]
       Year:
-        type: integer
+        type: string
         example: 2000
       Sex:
         type: string
-        example: Male
+        example: MLE
       Age:
-        type: integer
-        example: 2000
+        type: string
+        example: S05-10
   whowomen:
     type: object
     required:
@@ -393,7 +402,7 @@ definitions:
         format: uuid
         example: [Austria,Germany,Romania]
       Year:
-        type: integer
+        type: string
         example: 2000
       Area:
         type: string
@@ -410,11 +419,11 @@ definitions:
         format: uuid
         example: [Austria,Germany,Romania]
       Year:
-        type: integer
+        type: string
         example: 2000
       Sex:
         type: string
-        example: Male
+        example: MLE
   whocrude:
     type: object
     required:
@@ -427,14 +436,14 @@ definitions:
         format: uuid
         example: [Austria,Germany,Romania]
       Year:
-        type: integer
+        type: string
         example: 2000
       Sex:
         type: string
-        example: Male
+        example: MLE
        
 # Added by API Auto Mocking Plugin
-host: virtserver.swaggerhub.com
-basePath: /GOvidiu20/OPrevApi/1.0.0
+host: localhost
+basePath: /proiect/OPrev/API/
 schemes:
  - http
