@@ -171,7 +171,7 @@ input[type=submit]:hover{
 input {
     margin: .4rem;
 }
-@media only screen and (max-width:850px)
+@media only screen and (max-width:1000px)
 {
     .head{
         display: grid;
@@ -207,7 +207,7 @@ input {
         font-size:1.2em;
     }
 }
-@media only screen and (max-width:700px)
+@media only screen and (max-width:750px)
 {
     .head{
         display: grid;
@@ -221,12 +221,13 @@ input {
         grid-gap: 0;
     }
     .leftmenu{
-        overflow-y: scroll;
-        overflow-x: hidden;
-        padding-top: 20px;
+        overflow-x: scroll;
+        padding-top: 5px;
         border-radius: 10px;
-        width: 170px;
+        width: 30%;
+        height: 500px;
         background-color: #0e74b8;
+        margin:auto;
     }
     .filter{
         max-width: 200px;
@@ -255,6 +256,26 @@ input {
         text-decoration: none;
         font-size:1.2em;
     }
+    .btn-group{
+        display: flex;
+        justify-content: center;
+        height: 70%;
+    }
+    .btn-group button {
+        background-color: #1a67cc;
+        border: 1px solid rgb(7, 2, 26); 
+        color: white; 
+        padding: 10px 24px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    #logo{
+        width: 30%;
+        height: 70px;
+    }
+    .right-part{
+        margin: auto;
+    }
 }
 
 @media only screen and (max-width:570px)
@@ -277,10 +298,10 @@ input {
         overflow-x: scroll;
         padding-top: 5px;
         border-radius: 10px;
-        width: 100%;
-        height: 100px;
-        background-color: #4D8FA9;
-        margin-left: 0px;
+        width: 45%;
+        height: 500px;
+        background-color: #0e74b8;
+        margin:auto;
     }
     .leftmenu h2{
         text-align: center;
@@ -314,6 +335,26 @@ input {
         text-decoration: none;
         font-size:0.9em;
     }
+    .btn-group{
+        display: flex;
+        justify-content: center;
+        height: 70%;
+    }
+    .btn-group button {
+        background-color: #1a67cc;
+        border: 1px solid rgb(7, 2, 26); 
+        color: white; 
+        padding: 10px 24px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    #logo{
+        width: 30%;
+        height: 70px;
+    }
+    .right-part{
+        margin: auto;
+    }
 }
 @media only screen and (max-width:420px)
 {
@@ -333,12 +374,13 @@ input {
         grid-gap:0;
     }
     .leftmenu{
-        overflow-y: scroll;
-        overflow-x: hidden;
-        padding-top: 20px;
+        overflow-x: scroll;
+        padding-top: 5px;
         border-radius: 10px;
-        width: 100%;
-        background-color: #4D8FA9;
+        width: 50%;
+        height: 500px;
+        background-color: #0e74b8;
+        margin:auto;
     }
     .leftmenu h2{
         text-align: center;
@@ -380,5 +422,25 @@ input {
     .footerAlign li {
         float: left;
         margin-right: 20px;
+    }
+    .btn-group{
+        display: flex;
+        justify-content: center;
+        height: 70%;
+    }
+    .btn-group button {
+        background-color: #1a67cc;
+        border: 1px solid rgb(7, 2, 26); 
+        color: white; 
+        padding: 10px 24px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    #logo{
+        width: 30%;
+        height: 70px;
+    }
+    .right-part{
+        margin: auto;
     }
 }
