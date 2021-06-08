@@ -318,6 +318,8 @@ public function infoByFilter(){
           if($stmt = mysqli_prepare($this->conn, $query)){
             mysqli_stmt_bind_param($stmt, $types, ...$arrayParam);
             mysqli_stmt_execute($stmt);
+            echo 'Ai editat cu succes';
+          
           }
           
     }
@@ -355,6 +357,7 @@ public function infoByFilter(){
             array_push($arrayParam,$ok+$id*3+2);
       array_push($arrayParam,$this->value);
       echo $query;
+      print_r($arrayParam);
       try{
         $stmt = mysqli_prepare($this->conn, $query);
         mysqli_stmt_bind_param($stmt, $types, ...$arrayParam);
@@ -365,5 +368,3 @@ public function infoByFilter(){
       }
     }
   }
-
-?>

@@ -17,7 +17,10 @@ function getCode(){
 function getCountries($country,$table){
     include('db-connect.php');
 
-    $query = "Select * from ".$table." where country = (Select code3 from countries where nume=?)";
+    if($table=='geo')
+        $query='Select * from geo where name = ?';
+    else
+        $query = "Select * from ".$table." where country = (Select code3 from countries where nume=?)";
     $typeOfParam='s';
     
     if ($stmt = mysqli_prepare($conn, $query)){
@@ -30,7 +33,10 @@ function getCountries($country,$table){
 }
 function getYears($year,$table){
     include('db-connect.php');
-    $query = "Select * from ".$table." where year =?";
+    if($table=='years')
+        $query="Select * from years where label=?";
+    else
+        $query = "Select * from ".$table." where year =?";
     
     $typeOfParam='s';
 
@@ -40,7 +46,6 @@ function getYears($year,$table){
     }
     $result = mysqli_stmt_get_result($stmt);
     $num= mysqli_num_rows($result);
-    
     return $num;
 }
 function getYearsByCode($code){
@@ -50,7 +55,7 @@ function getYearsByCode($code){
     if($code==1)
         $query="Select distinct(year) from whoage";
     else
-        if($code=2)
+        if($code==2)
             $query="Select distinct(year) from whowomen";
         else
             if($code==3)
@@ -93,11 +98,9 @@ function getAreasByCode(){
     sort($areas);
     return $areas;
 }
-
 function getSexByCode($code){
     include('db-connect.php');
     $sexes=array();
-    
     if($code==1)
         $query="Select distinct(sex) from whoage";
     else

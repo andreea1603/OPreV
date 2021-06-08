@@ -8,16 +8,11 @@ include('../../controller/representEurostat/linePlotly.php');
 include('../../controller/representEurostat/mapPlotly.php');
 include('../../controller/representEurostat/table.php');
 include('../../controller/downloadCsv-Svg.php');
-// include('table_repres.php');
-// include('map_repres.php');
-// include('line_Plotly.php');
-// include('bar_Plotly.php');
 
 $dir = __DIR__;
 $path = substr($dir, 0, -16) . '\model\putInCsv1.php';
 
 include($path);
-
 ?>
 <html lang="en">
 

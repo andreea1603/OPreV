@@ -175,7 +175,6 @@ class childrenObesity
     if (strtoupper($sex) == 'BTSX')
       return 'BTSX';
     return $sex;
-    
   }
 
   public function convertCountry($country)
@@ -185,7 +184,7 @@ class childrenObesity
     $query = "SELECT code3 from countries where upper(nume)=upper('{$country2}')";
     $result = mysqli_query($this->conn, $query);
 
-    
+
 
     $code3 = [];
     $n = $result->num_rows;
@@ -195,68 +194,63 @@ class childrenObesity
           array_push($code3, $row);
         }
       }
-    } 
-    else
+    } else
       return null;
     return ($code3[0]['code3']);
   }
   public function delete1()
   {
 
-    $query="DELETE FROM whoage WHERE ";
-    $k=0;
-    $arrayParam=[];
-    $arrayTypes=[];
-    $param='';
-    if($this->country[0] != null){
-      $query=$query." country=? ";
-      array_push($arrayParam,$this->convertCountry($this->country[0]) );
-      array_push($arrayTypes,'s');
-        $param=$param.'s';
-      $k=$k+1;
-
+    $query = "DELETE FROM whoage WHERE ";
+    $k = 0;
+    $arrayParam = [];
+    $arrayTypes = [];
+    $param = '';
+    if ($this->country[0] != null) {
+      $query = $query . " country=? ";
+      array_push($arrayParam, $this->convertCountry($this->country[0]));
+      array_push($arrayTypes, 's');
+      $param = $param . 's';
+      $k = $k + 1;
     }
-    if($this->year!=null){
-      if($k==0){
-        $query=$query." year=? ";
+    if ($this->year != null) {
+      if ($k == 0) {
+        $query = $query . " year=? ";
+      } else {
+        $query = $query . " and year=? ";
       }
-      else{
-        $query=$query." and year=? ";
-      }
-      array_push($arrayParam,$this->year );
-      array_push($arrayTypes,'d');
-      $param=$param.'d';
-      $k=$k+1;
+      array_push($arrayParam, $this->year);
+      array_push($arrayTypes, 'd');
+      $param = $param . 'd';
+      $k = $k + 1;
     }
-    if($this->sex!=null){
-      if($k==0){
-        $query=$query." sex=? ";
+    if ($this->sex != null) {
+      if ($k == 0) {
+        $query = $query . " sex=? ";
+      } else {
+        $query = $query . " and sex=? ";
       }
-      else{
-        $query=$query." and sex=? ";
-      }
-      $k=$k+1;
-      array_push($arrayParam,$this->convertSex($this->sex));
-      array_push($arrayTypes,'s');
-      $param=$param.'s';
+      $k = $k + 1;
+      array_push($arrayParam, $this->convertSex($this->sex));
+      array_push($arrayTypes, 's');
+      $param = $param . 's';
     }
-    if($this->age != null){
-      if($k==0)
-          $query=$query." age=? ";
-      else 
-          $query=$query." and age=? ";
+    if ($this->age != null) {
+      if ($k == 0)
+        $query = $query . " age=? ";
+      else
+        $query = $query . " and age=? ";
 
-      array_push($arrayParam,$this->age );
-      array_push($arrayTypes,'s');
-        $param=$param.'s';
-      $k=$k+1;
-
+      array_push($arrayParam, 'S' . $this->age);
+      array_push($arrayTypes, 's');
+      $param = $param . 's';
+      $k = $k + 1;
     }
     $stmt = mysqli_prepare($this->conn, $query);
 
-      mysqli_stmt_bind_param($stmt, $param, ...$arrayParam);
+    mysqli_stmt_bind_param($stmt, $param, ...$arrayParam);
 
-      mysqli_stmt_execute($stmt);
+    mysqli_stmt_execute($stmt);
     echo "Am sters cu succes";
   }
 
@@ -265,27 +259,27 @@ class childrenObesity
     //se adauga si regiuni? :(
 
     if ($this->checkIfExists() == false) {
-      $id = $this->getIndex()+1;
+      $id = $this->getIndex() + 1;
 
       $query = "INSERT INTO  whoage values ( {$id}, 'COUNTRY', ? ,
         ? , ? , ? , ? ) ";
-  
-      if ($stmt = mysqli_prepare($this->conn, $query)){
-        
-          $first=$this->convertCountry($this->country[0]);
-          $second= $this->value;
-          $third= $this->year;
-          $fourth=$this->convertSex($this->sex);
-          $fifth=$this->age;
-          $stmt->bind_param('sddss', $first, $second, $third, $fourth, $fifth);
+
+      if ($stmt = mysqli_prepare($this->conn, $query)) {
+
+        $first = $this->convertCountry($this->country[0]);
+        $second = $this->value;
+        $third = $this->year;
+        $fourth = $this->convertSex($this->sex);
+        $fifth = 'S' . $this->age;
+        $stmt->bind_param('sddss', $first, $second, $third, $fourth, $fifth);
+        if(mysqli_stmt_execute($stmt))
           echo "Am adaugat cu succes";
+        else
+          echo "Nu am adaugat";
+        $stmt->close();
       }
-    var_dump($first, $second, $third, $fourth, $fifth);
-    mysqli_stmt_execute($stmt);
-    $stmt->close();
-  
-  }
-    else{
+      
+    } else {
       echo "exista deja o inregistrare asa, incercati un update!";
     }
   }
@@ -303,6 +297,8 @@ class childrenObesity
     if ($this->sex != null)
       $this->sex = $this->convertSex($this->sex);
 
+    if ($this->age != null)
+      $this->age = 'S' . $this->age;
 
     if ($typeToBeModified == 'Country') {
       //vreau sa modific tara
@@ -394,6 +390,7 @@ class childrenObesity
           }
         } else
           if ($typeToBeModified == 'Age') {
+          $newValue = 'S' . $newValue;
           $query = "UPDATE whoage SET age='{$newValue}' WHERE age='{$this->age}' ";
           $selectQuery = "SELECT id from whoage WHERE age='{$this->age}' ";
 
@@ -415,53 +412,50 @@ class childrenObesity
           }
         }
       }
-    
     }
 
 
     $result = mysqli_query($this->conn, $selectQuery);
-    $n = $result->num_rows;
-    $ok=0;
-    
+    $ok = 0;
+
     /// OK SE FACE 1 IN CAZUL IN CARE EXISTA INREGISTRARI
-      if (mysqli_num_rows($result)) {
-        if ($row = mysqli_fetch_assoc($result)) {
-          if($row!=null)
-            if($row!=0)
-              $ok=1;
-        }
-      
+    if (mysqli_num_rows($result)) {
+      if ($row = mysqli_fetch_assoc($result)) {
+        if ($row != null)
+          if ($row != 0)
+            $ok = 1;
       }
-      if($ok==1){  //daca exista cel putin o inregistrare la care sa fac update
-        mysqli_query($this->conn, $query);
-      }
-      echo "Am actualizat ".mysqli_num_rows($result)." inregistrari";
-    } 
+    }
+    if ($ok == 1) {  //daca exista cel putin o inregistrare la care sa fac update
+      mysqli_query($this->conn, $query);
+    }
+    echo "Am actualizat " . mysqli_num_rows($result) . " inregistrari";
+  }
 
-  public function checkIfExists(){
+  public function checkIfExists()
+  {
 
-  $query="select id from whoage where country=? AND year=? AND sex=? AND age=?";
-  
+    $query = "select id from whoage where country=? AND year=? AND sex=? AND age=?";
 
-  if ($stmt = mysqli_prepare($this->conn, $query)){
 
-    $first=$this->convertCountry($this->country[0]);
-    $second=$this->year;
-    $third=$this->convertSex($this->sex);
-    $fourth="s".$this->age;
-    
-    mysqli_stmt_bind_param($stmt, 'sdss', $first, $second, $third,$fourth);
+    if ($stmt = mysqli_prepare($this->conn, $query)) {
+
+      $first = $this->convertCountry($this->country[0]);
+      $second = $this->year;
+      $third = $this->convertSex($this->sex);
+      $fourth = "s" . $this->age;
+
+      mysqli_stmt_bind_param($stmt, 'sdss', $first, $second, $third, $fourth);
     }
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
-    $num= mysqli_num_rows($result);
-    
-    if ($num>0) 
-         return "deja exista o inregistrare";
-    
-      return false;
-    
-    }
+    $num = mysqli_num_rows($result);
+
+    if ($num > 0)
+      return "deja exista o inregistrare";
+
+    return false;
+  }
   public function getIndex()
   {
 

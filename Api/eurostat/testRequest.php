@@ -37,7 +37,7 @@ function requestAPI5($method, $category, $newValue, $modify)
     // Set the request data as JSON using json_encode function
     
 
-    if(!(codeCountry($data["country"][0],"geo") && codeYears($data["year"],"geo") && codeBmi($data["bmi"]) 
+    if(!(codeCountry($data["country"][0],"geo") && codeYears($data["year"],"years") && codeBmi($data["bmi"]) 
         && codeValue($data["value"]) && codeValue($data["newValue"]))){
         http_response_code (400);
         $data["eroare"]=0;

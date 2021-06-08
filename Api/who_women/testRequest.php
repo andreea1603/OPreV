@@ -34,7 +34,7 @@ function requestAPI2($method, $category, $newValue, $modify)
 
     }
     if(!($method=="ADD"))
-        if(!(codeCountry($data["country"][0],"whocrude") && codeYears($data["year"],"whocrude")
+        if(!(codeCountry($data["country"][0],"whowomen") && codeYears($data["year"],"whowomen")
          && codeValue($data["value"]))){
             http_response_code (400);
             $data["eroare"]=0;

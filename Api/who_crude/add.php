@@ -5,7 +5,6 @@
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization,X-Requested-With');
 
   include_once '../../model/db-connect.php';
-  //include_once 'D:\Xamp\htdocs\proiect\OPreV\Api\who_crude\crudeObesity.php';
 
   $dir=__DIR__;
   $path=substr($dir, 0, 0).'crudeObesity.php';
@@ -23,6 +22,5 @@
       $category->year=$result->year;
   if(isset($result->value))
       $category->value=$result->value;
-  //if(isset($result->modify))
   if($result->eroare)
      $category->add();

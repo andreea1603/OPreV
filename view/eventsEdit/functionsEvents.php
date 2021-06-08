@@ -108,7 +108,7 @@
       xhr.onload = function() {
         console.log(this.responseText);
       }
-      xhr.open("POST", "functionsEditEvents.php");
+      xhr.open("POST", "../../model/functionsEditEvents.php");
       xhr.setRequestHeader("Content-type", "application/json");
       xhr.send(JSON.stringify(object));
     }
@@ -130,7 +130,7 @@
       xhr.onload = function() {
         console.log(this.responseText);
       }
-      xhr.open("POST", "functionsEditEvents.php");
+      xhr.open("POST", "../../model/functionsEditEvents.php");
       xhr.setRequestHeader("Content-type", "application/json");
       xhr.send(JSON.stringify(object));
     }
@@ -149,7 +149,7 @@
     xhr.onload = function() {
       console.log(this.responseText);
     }
-    xhr.open("POST", "functionsEditEvents.php");
+    xhr.open("POST", "../../model/functionsEditEvents.php");
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send(JSON.stringify(object));
   }

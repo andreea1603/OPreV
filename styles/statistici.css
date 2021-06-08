@@ -171,7 +171,7 @@ input[type=submit]:hover{
 input {
     margin: .4rem;
 }
-@media only screen and (max-width:1250px)
+@media only screen and (max-width:850px)
 {
     .head{
         display: grid;
@@ -190,7 +190,7 @@ input {
         padding-top: 20px;
         border-radius: 10px;
         width: 200px;
-        background-color: #4D8FA9;
+        background-color: #0e74b8;
     }
     .butoane div{
         background-color: crimson;
@@ -217,7 +217,7 @@ input {
     }
     .nested{
         display: grid;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr;
         grid-gap: 0;
     }
     .leftmenu{
@@ -226,7 +226,7 @@ input {
         padding-top: 20px;
         border-radius: 10px;
         width: 170px;
-        background-color: #4D8FA9;
+        background-color: #0e74b8;
     }
     .filter{
         max-width: 200px;

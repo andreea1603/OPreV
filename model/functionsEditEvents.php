@@ -23,7 +23,7 @@ class Event{
     public $descriereEvent;
 }
 function deleteEvent($object){
-    include('../../model/db-connect.php');
+    include('db-connect.php');
     $id=$object["id"];
     echo $id;
     $query = "Delete from evenimente where id='{$id}'";
@@ -31,7 +31,7 @@ function deleteEvent($object){
     //echo $result;
 }
 function addEvent($object){
-    include('../../model/db-connect.php');
+    include('db-connect.php');
     $image=$object["image"];
     $titlu=$object["titlu"];
     $descriere=$object["descriere"];
@@ -40,7 +40,7 @@ function addEvent($object){
     $result=mysqli_query($conn,$query);
 }
 function updateEvent($object){
-    include('../../model/db-connect.php');
+    include('db-connect.php');
     $id=$object["id"];
     $titlu=$object["titlu"];
     $descriere=$object["descriere"];
@@ -50,7 +50,7 @@ function updateEvent($object){
     echo $id;
 }
 function getEvents(){
-    include('../../model/db-connect.php');
+    include('db-connect.php');
     $event=new Event();
     $query='Select * from evenimente';
     $result = mysqli_query($conn, $query);
