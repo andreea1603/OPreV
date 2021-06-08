@@ -3,16 +3,18 @@
 include('../../model/functions.php');
 include('../../model/db-connect.php');
 include('../../model/functions_repres.php');
+include('../../controller/representEurostat/barPlotly.php');
+include('../../controller/representEurostat/linePlotly.php');
+include('../../controller/representEurostat/mapPlotly.php');
+include('../../controller/representEurostat/table.php');
+include('../../controller/downloadCsv-Svg.php');
+// include('table_repres.php');
+// include('map_repres.php');
+// include('line_Plotly.php');
+// include('bar_Plotly.php');
 
-include('bar_repres.php');
-include('line_repres.php');
-include('table_repres.php');
-include('map_repres.php');
-include('line_Plotly.php');
-include('bar_Plotly.php');
-
-$dir=__DIR__;
-$path=substr($dir, 0, -16).'\model\putInCsv1.php';
+$dir = __DIR__;
+$path = substr($dir, 0, -16) . '\model\putInCsv1.php';
 
 include($path);
 
@@ -24,7 +26,6 @@ include($path);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../styles/statistici.css">
     <link rel="stylesheet" href="../../styles/style.css">
-    <link rel="stylesheet" href="statistici.css">
 
 
     <link rel="shortcut icon" href="../../pictures/vector-creator.ico">
@@ -34,24 +35,11 @@ include($path);
     <script type="text/javascript" src="functions.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-    <title>OPreV</title> <script type="text/javascript"> 
-function prepHref(linkElement, ok) { 
-    if(ok===1){
-    var myDiv = document.getElementById('imagine'); 
-    var myImage = myDiv.children[0]; 
-    linkElement.href = myImage.src; 
-    }
-    else{
-        //linePlotlySvg();
-        var myDiv = document.getElementById('imagine1'); 
-        var myImage = myDiv.children[0]; 
-        linkElement.href = myImage.src; 
-    }
-} 
-</script> 
+    <title>OPreV</title>
 
 
 </head>
+
 <body>
     <section class="head">
         <ul>
@@ -259,23 +247,23 @@ function prepHref(linkElement, ok) {
             getCsv($labels, $year, $bmi, $datasets); ?>
             <div class="butoane">
                 <div>
-                    <a href="formdat.csv" download="data.csv">
+                    <a href="resources/formdat.csv" download="data.csv">
                         CSV
                     </a>
                 </div>
 
                 <div id="imagine">
-                    <img id="png-export" class="dispare">      
-                            <a href="#" onclick="prepHref(this, 1)" download> PNG
+                    <img id="png-export" class="dispare">
+                    <a href="#" onclick="prepHref(this, 1)" download> PNG
                     </a></img>
-                    </div>
+                </div>
 
-                    <div id="imagine1">
+                <div id="imagine1">
                     <img id="svg-export" class="dispare">
-                            <a href="#"  onclick="prepHref(this, 2)" download >SVG
-                    </a> 
-                    </img> 
-                    </div>
+                    <a href="#" onclick="prepHref(this, 2)" download>SVG
+                    </a>
+                    </img>
+                </div>
             </div>
         </div>
         <div class="right-part">

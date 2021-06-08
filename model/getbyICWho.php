@@ -181,17 +181,16 @@ else{
     $age=null;
     $sex=null;
     $area = null;
-    $year=$decode['data'][0]['year'];
-
-    print_r($decode);
-    //echo $decode['data'][0]['sex'];
+    $year = null;
+    if(isset($decode['data'][0]['year']))
+        $year=$decode['data'][0]['year'];
     if(isset($decode['data'][0]['sex']))
         $sex=$decode['data'][0]['sex'];
     if(isset($decode['data'][0]['age']))
         $age=$decode['data'][0]['age'];
     if(isset($decode['data'][0]['area']))
         $area=$decode['data'][0]['area'];
-
+        
     $type= checkMare("indicatorCode")[0];
     //print_r($decode['data']);
 
@@ -202,9 +201,10 @@ else{
             array_push($datasetswho,$decode['data'][$i]['value']);
         }
     //else TODO
-
+    
     }
 mapWho($labelswho,$datasetswho);
+
 getCsv1($type, $labelswho, $year, $sex, $age, $datasetswho, $area);
 function makeURL(){
 

@@ -6,7 +6,7 @@ include('../../controller/functions1.php');
 include('../../controller/represent/barRepres.php');
 include('../../controller/represent/lineRepres.php');
 include('../../controller/represent/mapRepres.php');
-
+include('../../controller/downloadCsv-Svg.php');
 
 $dir=__DIR__;
 $path=substr($dir, 0, -19).'\model\putInCsv1.php';
@@ -25,21 +25,6 @@ include($path);
         <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <link rel="shortcut icon" href="../../pictures/vector-creator.ico">
-        <script type="text/javascript"> 
-function prepHref(linkElement, ok) { 
-    if(ok===1){
-    var myDiv = document.getElementById('imagine'); 
-    var myImage = myDiv.children[0]; 
-    linkElement.href = myImage.src; 
-    }
-    else{
-        //linePlotlySvg();
-        var myDiv = document.getElementById('imagine1'); 
-        var myImage = myDiv.children[0]; 
-        linkElement.href = myImage.src; 
-    }
-} 
-</script> 
 
         <title>OPreV</title>
     </head>
@@ -102,7 +87,7 @@ function prepHref(linkElement, ok) {
             
                 <div class="butoane">
                     <div>
-                        <a href="formdat.csv" download="formdat.csv">
+                        <a href="resources/formdat.csv" download="resources/formdat.csv">
                             CSV
                         </a>
                     </div>

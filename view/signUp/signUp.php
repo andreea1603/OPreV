@@ -2,9 +2,8 @@
 <?php
    include('./../../model/functions.php');
    include('./../../model/db-connect.php');
-   echo $_SESSION["conectat"];
+   
    if(!isset($_SESSION["conectat"])){
-      echo "cf ssefule";
       header('Location:../login/login.php');
    }
 ?>

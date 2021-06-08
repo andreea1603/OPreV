@@ -2,7 +2,7 @@
 
 function getCsv1($indicatorCode, $countries_csv, $year_csv, $sex_csv, $age_csv, $valori_csv, $residence){
 
-  $fp = fopen("formdat.csv","w"); // $fp is now the file pointer to file $filename
+  $fp = fopen("resources/formdat.csv","w"); // $fp is now the file pointer to file $filename
 
     
     $i=0;
