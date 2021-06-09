@@ -279,8 +279,11 @@ include($path);
                     </a>
                 </li>
             </ul>
+        
         </div>
+    
     </footer>
+
 </body>
 
 </html>
