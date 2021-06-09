@@ -2,7 +2,7 @@
 $servername = "localhost";
 $database = "evenimente";
 $username = "root";
-$password = "ovidiu";
+$password = "";
 
 $connEvents = mysqli_connect($servername, $username, $password, $database);
   if (!$connEvents) {

@@ -2,7 +2,7 @@
 $servername = "localhost";
 $database = "eurostat";
 $username = "root";
-$password = "ovidiu";
+$password = "";
 
 $connEurostat = mysqli_connect($servername, $username, $password, $database);
   if (!$connEurostat) {
