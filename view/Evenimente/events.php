@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-include('../../model/functions.php');
+include('../../model/setSession.php');
 include('../../model/functionsEditEvents.php');
 include('../eventsEdit/functionsEvents.php')
 

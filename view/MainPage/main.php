@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-include('../../model/functions.php');
+include('../../model/setSession.php');
 ?>
 <html lang="en">
     <head>
@@ -20,7 +20,7 @@ include('../../model/functions.php');
             <ul>
                 <li><a href="../Evenimente/events.php">Evenimente</a></li>
                 <li><a href="../AboutUs/aboutus.php">Despre noi</a></li>
-                <li><a href="../scholarly.php">Documentatie</a></li>
+                <li><a href="../../Documentation/scholarly.html">Documentatie</a></li>
 
             </ul>
         </section>

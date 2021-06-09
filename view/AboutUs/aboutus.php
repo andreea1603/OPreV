@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-include('../../model/functions.php');
+include('../../model/setSession.php');
 ?>
 <html lang="en">
     <head>

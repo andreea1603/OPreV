@@ -369,8 +369,8 @@ class childrenObesity
           }
         } else 
         if ($typeToBeModified == 'Value') {
-          $query = "UPDATE whoage SET value={$newValue} WHERE value={$this->value}+0.01 ";
-          $selectQuery = "SELECT id from whoage WHERE value={$this->value}+0.01 ";
+          $query = "UPDATE whoage SET value={$newValue} WHERE value>={$this->value}-0.01 AND value<={$this->value}+0.01 ";
+          $selectQuery = "SELECT id from whoage WHERE value>={$this->value}-0.01 AND value<={$this->value}+0.01 ";
 
           if ($this->country[0] != null) {
             $query = $query . " AND country='{$this->country[0]}'";
@@ -413,7 +413,6 @@ class childrenObesity
         }
       }
     }
-
 
     $result = mysqli_query($this->conn, $selectQuery);
     $ok = 0;

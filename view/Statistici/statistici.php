@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
-include('../../model/functions.php');
+include('../../model/setSession.php');
 include('../../model/db-connect.php');
-include('../../model/functions_repres.php');
+include('../../model/urlBuilderEurostat.php');
 include('../../controller/representEurostat/barPlotly.php');
 include('../../controller/representEurostat/linePlotly.php');
 include('../../controller/representEurostat/mapPlotly.php');

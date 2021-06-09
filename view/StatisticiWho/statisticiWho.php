@@ -2,7 +2,7 @@
 <?php
 include('../../model/db-connect.php');
 include('../../model/getbyICWho.php');
-include('../../model/functions.php');
+include('../../model/setSession.php');
 include('../../controller/changeFiltersDynamic.php');
 include('../../controller/represent/barRepres.php');
 include('../../controller/represent/lineRepres.php');

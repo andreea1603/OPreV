@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-include('../../model/functions.php');
+include('../../model/setSession.php');
 include('../../model/functionsEditEvents.php');
 include('functionsEvents.php');
 if(session_status() == PHP_SESSION_NONE){

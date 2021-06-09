@@ -2,7 +2,7 @@
 $servername = "localhost";
 $database = "users";
 $username = "root";
-$password = "";
+$password = "ovidiu";
 
 $connUsers = mysqli_connect($servername, $username, $password, $database);
   if (!$connUsers) {
