@@ -37,35 +37,13 @@ function set1(){
 
 
             $query="INSERT INTO `whoage` VALUES ( {$i}, '{$spatial_dim}', '{$country}', {$value}, {$year}, '{$sex}', '{$age}' )";
-            //echo $query;
+            
             mysqli_query($conn, $query);
                 
         }
         curl_close($ch);
     }
 }
-// function get_Data_Filter(){
-//     include('db-connect.php');
-//     include('init.php');
-    
-//     $query_name = "select id, value, year from datewho where year=2007 and sex='MLE'  ";
-
-//     $result= mysqli_query($conn, $query_name);
-
-//     for( $i=0; $i< mysqli_num_rows($result); $i++)
-//     {
-//         if ($row = mysqli_fetch_assoc($result)) {
-           
-//             echo $row['value'];
-//             echo ", ";
-//             echo $row['id'];
-//             echo "<br>";
-        
-//     }
-//         echo "am iesit din bucla";
-//         echo "<br>";
-//     }
-// }
 function getValues($text){
 
         $firstValue='';
@@ -200,7 +178,6 @@ function set4(){
             $spatial_dim=$decode["value"][$i]["SpatialDimType"];
             $query="INSERT INTO `whowomen` VALUES ( {$i}, '{$spatial_dim}', '{$country}', {$value}, {$year}, '{$area}' )";
             mysqli_query($conn, $query);
-           // echo $query;
         }
    }
 }

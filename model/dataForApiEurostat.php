@@ -78,8 +78,6 @@ function getObeseY($countries, $year)
             }
         }
     }
-   // print_r($names);
-   // print_r($values);
 
     return array($names, $values);
 }

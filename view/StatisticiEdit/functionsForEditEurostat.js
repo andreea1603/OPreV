@@ -81,7 +81,6 @@ function editButton() {
                     object[i]=({ [cheie] : element.value});
                     i++;
                 })
-                console.log(object);
                 const jsonObject=JSON.stringify(object);
                 const xhr = new XMLHttpRequest();
                 
@@ -131,14 +130,12 @@ function deleteButton(){
                     object[i]=({ [cheie] : element.value});
                     i++;
                 })
-                console.log(object);
                 const jsonObject=JSON.stringify(object);
                 const xhr = new XMLHttpRequest();
                 
                 xhr.onload=function(){
                   errorPart(this.responseText);
                 }
-                console.log("saluut");
                 xhr.open("POST","../../Api/who_agestd/test.php");
                 xhr.setRequestHeader("Content-type","application/json");
                 xhr.send(jsonObject);

@@ -461,6 +461,22 @@
                         There exists a page where the administrator can change the events info, where he can add an event or remove an event or he can remove types of filter in case that there exists inconsistent data.
                     </p>
             </section>
+            <section id="SoftwareInterface">
+
+                <h3>  <span>3.3   </span>
+                Software Interfaces
+                </h3>
+                    <p>
+                        Our website is based on our own API Rest which communicate with all services.
+                        We use plotly library in order to display the statistics obtain
+                        from the datasets provided by WHO and Eurostat and that are reviewed by the admin.
+                        We also use this library in order to download the csv, with the data selected or
+                        the png and svg formats of the charts.
+
+
+                    </p>
+
+            </section>
    </section>
 
            <!-- partea a patra -->
@@ -487,7 +503,13 @@
             Editing data by the administrator
         </h3>
             <p>
-                The administration part of the site comes with a feature that gives the admin the ability to edit the filters in case a problem happens, to publish new events or delete the already finished ones.
+                The administration part of the site comes with a feature that gives the admin the ability to edit the filters
+                 in case a problem happens, to publish new events or delete the already finished ones. 
+                 There exists 4 pages in which the admin can modify data: 
+                    <li> eurostat edit: this is where the admin can add, delete or edit all the data present on the statistici page, with data provided by Eurostat.</li>
+                    <li> Who edit: this is where the admin can add, delete or edit all the data present on the statistici page, with data provided by WHO, by filter.</li>
+                    <li> Event: this is where the admin can add, delete or edit all Events present on the web application.</li>
+                    <li> Manage admin accounts: this is where the admin can create another account for admin</li>
 
             </p>
     </section>
@@ -506,10 +528,41 @@
                 Project splitting
             </h3>
                 <p>
-                    We split the pages in two parts: (1) login, event, statistics and (2) about us, register, my account, documentation. 
-                    The first part was taken by Gabor Ovidiu and the rest by Ciocan Andreea, but we collaborated and we also structured and finalized our
-                    ideas together. The design of the website was made by both of us. 
-                
+                    
+                    We worked individually and met every two days to discuss the mistakes and problems encountered, 
+                    we solved the bugs that appeared, so we each contributed to the page made by the other.
+                    For online source code management we used github,and for task management we used trello.
+                    We divided our tasks as follows :
+                    <ul>
+                        <li>
+                            Both of us :
+                            <ol>
+                                <li>Working at login/signup</li>
+                                <li>Working at edit page for database values for Eurostat and Who Pages</li>
+                                <li>MVC Structure</li>
+                                <li>Architecture based on microservices</li>
+                                <li>Charts Representation</li>
+                                <li>Export data</li>
+                            </ol>
+                        </li>
+                        <li>
+                            Andreea Ciocan :
+                            <ol>
+                                <li>Working at Api for Who Statistics Page</li> 
+                                <li>Collect data from external Apis</li>
+                                <li>Sql injection</li>
+                                <li>Cross Site Scripting</li>
+                            </ol>
+                        </li>
+                        <li>
+                            Ovidiu Gabor :
+                            <ol>
+                                <li>Working at Api for Eurostat Statistics Page</li>
+                                <li>Edit eveniments page</li>
+                                <li>Dynamic navbar for Eurostat and Who filters</li>
+                            </ol>
+                        </li>
+                    </ul>
                 </p>
         </section>
 </section>

@@ -3,7 +3,6 @@
 <script>
   function openForm() {
     document.getElementById("myForm").style.display = "block";
-    console.log("am apasat ");
   }
 
   function closeForm() {
@@ -13,7 +12,6 @@
   function getEventsForEdit() {
     var obj = JSON.parse(JSON.stringify(<?php $test = getEvents();
                                         echo json_encode($test); ?>));
-    //console.log(obj);
     var element = document.getElementById("events");
 
     for (let i = 0; i < obj.length; i++) {
@@ -38,7 +36,6 @@
   function getEvents() {
         var obj = JSON.parse(JSON.stringify(<?php $test = getEvents();
                                             echo json_encode($test); ?>));
-        console.log(obj);
         var element = document.getElementById("events");
 
         for (let i = 0; i < obj.length; i++) {
@@ -73,7 +70,6 @@
 
     var img = document.createElement("img");
     img.src = "../../pictures/" + object["imagePath"];
-    console.log(img.src);
     var tag1 = document.createElement("li");
     tag1.appendChild(img);
 
@@ -96,7 +92,6 @@
 
   function addEvent() {
     var elements = document.getElementsByName("informatii");
-    console.log(elements[0].value.substring(12, elements[0].value.length));
     if (elements[0].value != "" && elements[1].value != "" && elements[2].value != "") {
       const object = {
         "metoda": "add",
@@ -107,7 +102,6 @@
 
       const xhr = new XMLHttpRequest();
       xhr.onload = function() {
-        console.log(this.responseText);
       }
       xhr.open("POST", "../../model/functionsEditEvents.php");
       xhr.setRequestHeader("Content-type", "application/json");
@@ -129,7 +123,6 @@
       const xhr = new XMLHttpRequest();
 
       xhr.onload = function() {
-        console.log(this.responseText);
       }
       xhr.open("POST", "../../model/functionsEditEvents.php");
       xhr.setRequestHeader("Content-type", "application/json");
@@ -145,10 +138,8 @@
       "titlu": element[0].textContent,
       "descriere": element[1].textContent
     };
-    console.log(object);
     const xhr = new XMLHttpRequest();
     xhr.onload = function() {
-      console.log(this.responseText);
     }
     xhr.open("POST", "../../model/functionsEditEvents.php");
     xhr.setRequestHeader("Content-type", "application/json");

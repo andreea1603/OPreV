@@ -1,7 +1,6 @@
 function getIndicator(){
 var e = document.getElementById("indicatorCode");
 var text = e.options[e.selectedIndex].value;
-console.log(text);
 
 var element1 = document.getElementById('formClass');
 var item= document.getElementById('loo');
@@ -21,7 +20,6 @@ if(text==="indicatorCode1"){
     tag.setAttribute("value","Country");
     tag.setAttribute("onclick","onlyOne(this,'boxes[]')");
     tag.setAttribute("class","checkboxes");
-    console.log(tag);
     element2.appendChild(tag);
     var tag = document.createElement("label");
     tag.textContent="Country";
@@ -84,7 +82,6 @@ else
     tag.setAttribute("value","Country");
     tag.setAttribute("onclick","onlyOne(this,'boxes[]')");
     tag.setAttribute("class","checkboxes");
-    console.log(tag);
     element2.appendChild(tag);
     var tag = document.createElement("label");
     tag.textContent="Country";
@@ -135,7 +132,6 @@ else
     createLabel("Value",element3);
     createLabel("New Value",element3);
 
-    console.log(element1);
     }
     else
     if(text==="indicatorCode3" || text==="indicatorCode4"){
@@ -145,7 +141,6 @@ else
         tag.setAttribute("value","Country");
         tag.setAttribute("onclick","onlyOne(this,'boxes[]')");
         tag.setAttribute("class","checkboxes");
-        console.log(tag);
         element2.appendChild(tag);
         var tag = document.createElement("label");
         tag.textContent="Country";
@@ -185,7 +180,6 @@ else
         createLabel("Value",element3);
         createLabel("New Value",element3);
 
-        console.log(element3);
     }
 }
 
@@ -254,7 +248,6 @@ function addButton() {
         elements.forEach((element)=>{
             if(element.value==="" && element.parentElement.id!="New Value2"){
               ok=0;
-              console.log(element.parentElement.parentElement.id);
             }
         })
         if(ok===0)

@@ -5,7 +5,6 @@ $path1=substr($dir, 0, -5).'controller\statistici-model.php';
 include($path1);
 
 $raspuns=makeURL();
-//echo $raspuns;
 $url=$raspuns;
 
 
@@ -21,16 +20,12 @@ if($e=curl_error($ch)){
 
 else{
     
-    //$resp=returnQuery($url);
     $decode = json_decode($resp, true);
 
     $labels=null;
     $datasets=null;
     $labels=[];
     $datasets=[];
-    //echo "<br>";
-    //print_r($decode);
-   // echo "ossssafa";
     if(isset($decode['data']))
         for($i=0;$i<count($decode['data']);$i++){
             array_push($labels,$decode['data'][$i]['country']);
@@ -43,7 +38,6 @@ $bmi=$result_bmi[0];
 $result_year=checkYear();
 $year=$result_year[0];
 map($labels, $datasets);
-//print_r($labels);
 
 function makeURL(){
     
