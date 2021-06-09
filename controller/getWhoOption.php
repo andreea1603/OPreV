@@ -5,8 +5,8 @@ include($path);
 
 function getOption($filter){
 
-        if(isset($_GET[$filter]))
-                return $_GET[$filter];
+        if(isset(htmlspecialchars($_GET[$filter])))
+                return htmlspecialchars($_GET[$filter]);
         return null;
 }
 ?>

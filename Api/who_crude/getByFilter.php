@@ -82,9 +82,10 @@ function split($country)
 }
 function verificareParam($parametrii)
 {
+
   $validParam = array('spatialdim','country', 'sex', 'year', 'value', 'id');
   foreach ($parametrii as $key => $value) {
-    if (!in_array($key, $validParam))
+    if (!in_array(htmlspecialchars($key), $validParam))
       return 0;
   }
   return 1;
