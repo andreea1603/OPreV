@@ -8,6 +8,13 @@ include_once 'crudeObesity.php';
 
 $category = new crudeObesity($conn);
 
+if (!verificareParam($_GET)){
+  echo json_encode(
+    array('message' => 'Incorect Parameters')
+  );
+  http_response_code(400);
+}
+else {
 $category->id = getOption('id');
 $category->spatial = getOption('spatialdim');
 $category->value = getOption('value');
@@ -51,6 +58,7 @@ if ($num > 0) {
     array('message' => 'No Categories Found')
   );
 }
+}
 
 function split($country)
 {
@@ -71,4 +79,13 @@ function split($country)
     }
   }
   return $countries;
+}
+function verificareParam($parametrii)
+{
+  $validParam = array('spatialdim','country', 'sex', 'year', 'value', 'id');
+  foreach ($parametrii as $key => $value) {
+    if (!in_array($key, $validParam))
+      return 0;
+  }
+  return 1;
 }

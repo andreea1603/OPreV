@@ -13,7 +13,13 @@ include_once 'womenObesity.php';
   $category = new womenObesity($conn);
 
 
-
+  if (!verificareParam($_GET)){
+    echo json_encode(
+      array('message' => 'Incorect Parameters')
+    );
+    http_response_code(400);
+  }
+  else {
   $category->id = getOption('id');
   $category->area =getOption('area');
   $category->value = getOption('value');
@@ -61,7 +67,7 @@ include_once 'womenObesity.php';
       array('message' => 'No Categories Found')
     );
   }
-
+}
   function split($country)
 {
   $countries = [];
@@ -82,4 +88,12 @@ include_once 'womenObesity.php';
   }
   return $countries;
 }
-  ?>
+function verificareParam($parametrii)
+{
+  $validParam = array('country', 'area', 'year', 'value', 'id');
+  foreach ($parametrii as $key => $value) {
+    if (!in_array($key, $validParam))
+      return 0;
+  }
+  return 1;
+}

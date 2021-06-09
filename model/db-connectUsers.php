@@ -1,6 +1,6 @@
-  <?php
+<?php
 $servername = "localhost";
-$database = "tw";
+$database = "users";
 $username = "root";
 $password = "ovidiu";
 
