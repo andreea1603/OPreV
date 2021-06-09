@@ -1,11 +1,11 @@
 <?php
-include('db-connect.php');
+include('db-connectUsers.php');
 
 function register($object)
 {
-    include('db-connect.php');
+    include('db-connectUsers.php');
     $query = "select email from users";
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($connUsers, $query);
     $ok = 1;
     while ($row = $result->fetch_assoc()) {
         if ($row["email"] == $object["email"][0]) {
@@ -18,7 +18,7 @@ function register($object)
     } else {
         $crypt = password_hash($object["password"][0], PASSWORD_BCRYPT);
         $query = "INSERT INTO users (firstname, lastname,email, password) VALUES ( ? , ? , ? , ? )";
-        if ($stmt = mysqli_prepare($conn, $query)) {
+        if ($stmt = mysqli_prepare($connUsers, $query)) {
             $stmt->bind_param('ssss', $object["firstName"][0], $object["lastName"][0], $object["email"][0], $crypt);
         }
         mysqli_stmt_execute($stmt);
@@ -28,11 +28,11 @@ function register($object)
 }
 
 function checkEmail($email){
-    include('db-connect.php');
+    include('db-connectUsers.php');
     $query="SELECT * FROM `users` WHERE email=?";
     $typeOfParam='s';
 
-    if ($stmt = mysqli_prepare($conn, $query)){
+    if ($stmt = mysqli_prepare($connUsers, $query)){
         mysqli_stmt_bind_param($stmt, $typeOfParam, $email);
     }
     mysqli_stmt_execute($stmt);
@@ -44,12 +44,12 @@ function checkEmail($email){
     return 1;
 }
 function login($email, $pass){
-    include('db-connect.php');
+    include('db-connectUsers.php');
 
     $query = "SELECT password FROM users WHERE email = ? ";
 
 
-    if ($stmt = mysqli_prepare($conn, $query)){
+    if ($stmt = mysqli_prepare($connUsers, $query)){
 
         mysqli_stmt_bind_param($stmt, 's', $email);
     }        
@@ -69,10 +69,10 @@ function login($email, $pass){
 }
 function setSession($email){
 
-    include('db-connect.php');
+    include('db-connectUsers.php');
     $query = "SELECT firstname, lastname FROM users WHERE email= ?";
 
-    if ($stmt = mysqli_prepare($conn, $query)){
+    if ($stmt = mysqli_prepare($connUsers, $query)){
 
         mysqli_stmt_bind_param($stmt, 's', $email);
     }        

@@ -3,14 +3,12 @@
 $request=file_get_contents("php://input");
 $object=json_decode($request,true);
 
-//print_r($object);
 if(isset($object))
     if($object["metoda"]=="add")//add
         addEvent($object);
     else
         if($object["metoda"]=="delete"){//delete
             deleteEvent($object);
-            echo "salut";
         }
         else
             if($object["metoda"]=="edit")//edit
@@ -23,37 +21,33 @@ class Event{
     public $descriereEvent;
 }
 function deleteEvent($object){
-    include('db-connect.php');
+    include('db-connectEvents.php');
     $id=$object["id"];
-    echo $id;
     $query = "Delete from evenimente where id='{$id}'";
-    $result=mysqli_query($conn,$query);
-    //echo $result;
+    $result=mysqli_query($connEvents,$query);
 }
 function addEvent($object){
-    include('db-connect.php');
+    include('db-connectEvents.php');
     $image=$object["image"];
     $titlu=$object["titlu"];
     $descriere=$object["descriere"];
-    //echo $image;
     $query = "Insert into evenimente (imagePath,titluEvent,descriereEvent) values ('{$image}','{$titlu}' , '{$descriere}')";
-    $result=mysqli_query($conn,$query);
+    $result=mysqli_query($connEvents,$query);
 }
 function updateEvent($object){
-    include('db-connect.php');
+    include('db-connectEvents.php');
     $id=$object["id"];
     $titlu=$object["titlu"];
     $descriere=$object["descriere"];
     
     $query = "Update evenimente set titluEvent='{$titlu}' , descriereEvent='{$descriere}' where id='{$id}'";
-    $result=mysqli_query($conn,$query);
-    echo $id;
+    $result=mysqli_query($connEvents,$query);
 }
 function getEvents(){
-    include('db-connect.php');
+    include('db-connectEvents.php');
     $event=new Event();
     $query='Select * from evenimente';
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($connEvents, $query);
     $events=array();
     while ($row = $result->fetch_assoc()) {
         $event=new Event();
@@ -63,7 +57,6 @@ function getEvents(){
         $event->descriereEvent=$row['descriereEvent'];
         array_push($events,$event);
     }
-    //print_r($events);
     return $events;
 }
 ?>

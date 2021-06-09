@@ -4,8 +4,8 @@ $database = "eurostat";
 $username = "root";
 $password = "ovidiu";
 
-$conn = mysqli_connect($servername, $username, $password, $database);
-  if (!$conn) {
+$connEurostat = mysqli_connect($servername, $username, $password, $database);
+  if (!$connEurostat) {
       die('Could not connect: '. $mysqli -> error);
   }
   if(session_status() == PHP_SESSION_NONE){

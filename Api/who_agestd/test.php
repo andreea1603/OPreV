@@ -1,6 +1,7 @@
 <?php
     include('agestdObesity.php');
     include('../who_crude/crudeObesity.php');
+    include('../../model/db-connectEurostat.php');
     include('../../model/db-connect.php');
     include('../who_women/womenObesity.php');
     include('../who_children/childrenObesity.php');
@@ -57,7 +58,7 @@
 }
 else{//aici eurostat
 
-    $category=new eurostat($conn);    
+    $category=new eurostat($connEurostat);    
     $category->country[0]=$object[2]["Country"];
     $category->bmi=$object[4]["BMI"];
     $category->value=$object[5]["Value"];

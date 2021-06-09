@@ -46,6 +46,8 @@ if(!isset($_SESSION['conectat']))
                         <label for=""> BMI </label>
                         <input type="checkbox" name="boxes[]" value="Year" onclick="onlyOne(this,'boxes[]')" class="checkboxes">
                         <label for=""> Year </label>
+                        <input type="checkbox" name="boxes[]" value="Value" onclick="onlyOne(this,'boxes[]')" class="checkboxes">
+                        <label for=""> Value </label>
                         <table id="table" class="styled-table">
                             <tr id="Country">
                                 <td id="Country1">

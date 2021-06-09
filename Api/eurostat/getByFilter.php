@@ -2,11 +2,11 @@
 
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-include('../../model/db-connect.php');
+include('../../model/db-connectEurostat.php');
 include_once 'eurostat.php';
 
 
-$category = new eurostat($conn);
+$category = new eurostat($connEurostat);
 if (!verificareParam($_GET)) {
   echo json_encode(
     array('message' => 'Incorect Parameters')

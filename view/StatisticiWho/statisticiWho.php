@@ -2,7 +2,8 @@
 <?php
 include('../../model/db-connect.php');
 include('../../model/getbyICWho.php');
-include('../../controller/functions1.php');
+include('../../model/functions.php');
+include('../../controller/changeFiltersDynamic.php');
 include('../../controller/represent/barRepres.php');
 include('../../controller/represent/lineRepres.php');
 include('../../controller/represent/mapRepres.php');

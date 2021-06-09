@@ -3,6 +3,7 @@
 <script>
   function openForm() {
     document.getElementById("myForm").style.display = "block";
+    console.log("am apasat ");
   }
 
   function closeForm() {

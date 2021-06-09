@@ -1,7 +1,7 @@
 <?php
 
 //include ('../../model/functions_repres.php');
-include ('../../model/db-connect.php');
+include ('../../model/db-connectEurostat.php');
 include('../../controller/getWhoOption.php');
 include('../../model/dataForApiEurostat.php');
 

@@ -4,13 +4,13 @@
   header('Access-Control-Allow-Methods: DELETE');
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization,X-Requested-With');
 
-  include_once '../../model/db-connect.php';
+  include_once '../../model/db-connectEurostat.php';
   //include_once 'D:\Xamp\htdocs\proiect\OPreV\Api\who_agestd\agestdObesity.php';
   $dir=__DIR__;
   $path=substr($dir, 0, 0).'eurostat.php';
   include($path);
 
-$category=new eurostat($conn);
+$category=new eurostat($connEurostat);
 $data = file_get_contents("php://input");
 
 $result=json_decode($data);

@@ -1,11 +1,11 @@
 <?php
 $servername = "localhost";
-$database = "users";
+$database = "evenimente";
 $username = "root";
 $password = "ovidiu";
 
-$connUsers = mysqli_connect($servername, $username, $password, $database);
-  if (!$connUsers) {
+$connEvents = mysqli_connect($servername, $username, $password, $database);
+  if (!$connEvents) {
       die('Could not connect: '. $mysqli -> error);
   }
   if(session_status() == PHP_SESSION_NONE){

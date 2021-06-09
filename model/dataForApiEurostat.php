@@ -1,7 +1,7 @@
 <?php
 function getOverweightY($countries, $year)
 {
-    include ('db-connect.php');
+    include ('db-connectEurostat.php');
    
     $query = "";
     if ($year == 2008) {
@@ -18,7 +18,7 @@ function getOverweightY($countries, $year)
         valori.id= 2 +((select count(*) from geo)+geo.id)*3";
     }
 
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($connEurostat, $query);
     $names = array();
     $values = array();
 
@@ -42,7 +42,7 @@ function getOverweightY($countries, $year)
 
 function getObeseY($countries, $year)
 {
-    include ('db-connect.php');
+    include ('db-connectEurostat.php');
 
 
     $query = "";
@@ -60,7 +60,7 @@ function getObeseY($countries, $year)
         valori.id=geo.id*3+2";
     }
 
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($connEurostat, $query);
     $names = array();
     $values = array();
 
@@ -86,7 +86,7 @@ function getObeseY($countries, $year)
 
 function getPreobeseY($countries, $year)
 {
-    include ('db-connect.php');
+    include ('db-connectEurostat.php');
   
     $query = "";
     if ($year == 2008) {
@@ -103,7 +103,7 @@ function getPreobeseY($countries, $year)
         valori.id=( 2 +(select count(*) from geo)*6+ geo.id*3)";
     }
 
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($connEurostat, $query);
     $names = array();
     $values = array();
 
@@ -127,7 +127,7 @@ function getPreobeseY($countries, $year)
 
 function getOverweight($countries)
 {
-    include ('db-connect.php');
+    include ('db-connectEurostat.php');
 
     $query_name = "select geo.name, geo.id  from  geo ";
 
@@ -138,11 +138,11 @@ function getOverweight($countries)
     $query_pre2017 = "select geo.name, valori.valoare, geo.id from  geo, valori where 
     valori.id= 2 +((select count(*) from geo)+geo.id)*3";
 
-    $result_pre_2008 = mysqli_query($conn, $query_pre2008);
-    $result_pre_2014 = mysqli_query($conn, $query_pre2014);
-    $result_pre_2017 = mysqli_query($conn, $query_pre2017);
+    $result_pre_2008 = mysqli_query($connEurostat, $query_pre2008);
+    $result_pre_2014 = mysqli_query($connEurostat, $query_pre2014);
+    $result_pre_2017 = mysqli_query($connEurostat, $query_pre2017);
 
-    $result_name = mysqli_query($conn, $query_name);
+    $result_name = mysqli_query($connEurostat, $query_name);
     $pre2008 = array();
     $pre2017 = array();
     $pre2014 = array();
@@ -197,7 +197,7 @@ function getOverweight($countries)
 
 function getPreobesity($countries)
 {
-    include ('db-connect.php');
+    include ('db-connectEurostat.php');
 
     $query_name = "select geo.name, geo.id  from  geo ";
 
@@ -208,11 +208,11 @@ function getPreobesity($countries)
     $query_pre2017 = "select geo.name, valori.valoare, geo.id from  geo, valori where 
     valori.id=geo.id*3+2";
 
-    $result_pre_2008 = mysqli_query($conn, $query_pre2008);
-    $result_pre_2014 = mysqli_query($conn, $query_pre2014);
-    $result_pre_2017 = mysqli_query($conn, $query_pre2017);
+    $result_pre_2008 = mysqli_query($connEurostat, $query_pre2008);
+    $result_pre_2014 = mysqli_query($connEurostat, $query_pre2014);
+    $result_pre_2017 = mysqli_query($connEurostat, $query_pre2017);
 
-    $result_name = mysqli_query($conn, $query_name);
+    $result_name = mysqli_query($connEurostat, $query_name);
     $pre2008 = array();
     $pre2017 = array();
     $pre2014 = array();
@@ -281,7 +281,7 @@ function check($countries, $country)
 
 function getObese($countries)
 {
-    include ('db-connect.php');
+    include ('db-connectEurostat.php');
 
     $query_name = "select geo.name, geo.id  from  geo ";
 
@@ -292,11 +292,11 @@ function getObese($countries)
     $query_pre2017 = "select geo.name, valori.valoare, geo.id from  geo, valori where 
     valori.id=( 2 +(select count(*) from geo)*6+ geo.id*3)";
 
-    $result_pre_2008 = mysqli_query($conn, $query_pre2008);
-    $result_pre_2014 = mysqli_query($conn, $query_pre2014);
-    $result_pre_2017 = mysqli_query($conn, $query_pre2017);
+    $result_pre_2008 = mysqli_query($connEurostat, $query_pre2008);
+    $result_pre_2014 = mysqli_query($connEurostat, $query_pre2014);
+    $result_pre_2017 = mysqli_query($connEurostat, $query_pre2017);
 
-    $result_name = mysqli_query($conn, $query_name);
+    $result_name = mysqli_query($connEurostat, $query_name);
     $pre2008 = array();
     $pre2017 = array();
     $pre2014 = array();
