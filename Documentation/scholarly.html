@@ -1,305 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../styles/scholarly.css">
-        <link rel="shortcut icon" href="../pictures/vector-creator.ico">
 
-        <title>OPreV</title>
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/scholarly.css">
+    <link rel="shortcut icon" href="../pictures/vector-creator.ico">
 
-        <header>
-            <h1>Software Requirements Specification OPrev</h1>
-            <div>
-                <section typeof="sa:AuthorsList">
-                    <h2>Authors</h2>
-                    <ul>
-                        <li typeof="sa:ContributorRole" property="schema:author">
-                            <span typeof="schema:Person">
-                                <meta property="schema:givenName" content="Ovidiu">
-                                <meta property="schema:familyName" content="Gabor">
-                                <span property="schema:name">Gabor Ovidiu</span>
-                            </span>
-                            <ul>
-                                <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
-                                    <a href="mailto:ovidiu.gabor@info.uaic.ro"
+    <title>OPreV</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Software Requirements Specification OPrev</h1>
+        <div>
+            <section typeof="sa:AuthorsList">
+                <h2>Authors</h2>
+                <ul>
+                    <li typeof="sa:ContributorRole" property="schema:author">
+                        <span typeof="schema:Person">
+                            <meta property="schema:givenName" content="Ovidiu">
+                            <meta property="schema:familyName" content="Gabor">
+                            <span property="schema:name">Gabor Ovidiu</span>
+                        </span>
+                        <ul>
+                            <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                                <a href="mailto:ovidiu.gabor@info.uaic.ro"
                                     property="schema:email">ovidiu.gabor@info.uaic.ro</a>
-                                </li>
-                                <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
-                                    <a href="fax:+0733098595" property="schema:faxNumber">0733098595</a>
-                                </li>
-                            </ul>
                             </li>
-                            <li typeof="sa:ContributorRole" property="schema:author">
-                            <span typeof="schema:Person">
-                                <meta property="schema:givenName" content="Andreea">
-                                <meta property="schema:familyName" content="Ciocan">
-                                <span property="schema:name">Ciocan Andreea</span>
-                            </span>
-                            <ul>
-                                <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
-                                    <a href="mailto:andreea.ciocan@info.uaic.ro"
+                            <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                                <a href="fax:+0733098595" property="schema:faxNumber">0733098595</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li typeof="sa:ContributorRole" property="schema:author">
+                        <span typeof="schema:Person">
+                            <meta property="schema:givenName" content="Andreea">
+                            <meta property="schema:familyName" content="Ciocan">
+                            <span property="schema:name">Ciocan Andreea</span>
+                        </span>
+                        <ul>
+                            <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                                <a href="mailto:andreea.ciocan@info.uaic.ro"
                                     property="schema:email">andreea.ciocan@info.uaic.ro</a>
-                                </li>
-                                <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
-                                    <a href="fax:+0768766596" property="schema:faxNumber">0768766596</a>
-                                </li>
-                                </ul>
-                            </ul>
-                </section>
-            </div>
-        </header>
+                            </li>
+                            <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                                <a href="fax:+0768766596" property="schema:faxNumber">0768766596</a>
+                            </li>
+                        </ul>
+                </ul>
+            </section>
+        </div>
+    </header>
 
-        <section typeof="sa:Abstract" id="cuprins">
-            <h2>Content</h2>
-            <ol style="list-style-type: none;">
-                <li><a href="#Introduction">
-                        <span>1.</span>
-                        Introduction
-                    </a>
-                    <ol style="list-style-type: none;">
-                        <li>
-                            <a href="#Purpose">
+    <section typeof="sa:Abstract" id="cuprins">
+        <h2>Content</h2>
+        <ol style="list-style-type: none;">
+            <li><a href="#Introduction">
+                    <span>1.</span>
+                    Introduction
+                </a>
+                <ol style="list-style-type: none;">
+                    <li>
+                        <a href="#Purpose">
                             <span>1.1</span>
                             Purpose
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#DocumentConvention">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#DocumentConvention">
                             <span>1.2</span>
                             Document Convention
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#Intented">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#Intented">
                             <span>1.3</span>
                             Intented Audience and Reading Suggestions
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#ProductScope">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#ProductScope">
                             <span>1.4</span>
                             Product Scope
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#References">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#References">
                             <span>1.5</span>
                             References
-                            </a>
-                        </li>
-                    </ol>
-                </li>
-                <li><a href="#OverallDescription">
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <li><a href="#OverallDescription">
                     <span>2.</span>
                     Overall Description
-                    </a>
-                    <ol style="list-style-type: none;">
-                        <li>
-                            <a href="#ProductPerspective">
+                </a>
+                <ol style="list-style-type: none;">
+                    <li>
+                        <a href="#ProductPerspective">
                             <span>2.1</span>
                             Product Perspective
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#ProductFunctions">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#ProductFunctions">
                             <span>2.2</span>
                             Product Functions
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#UserClasses">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#UserClasses">
                             <span>2.3</span>
                             User Classes and Characteristics
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#OperatingEnvironment">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#OperatingEnvironment">
                             <span>2.4</span>
                             Operating Environment
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#Design">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#Design">
                             <span>2.5</span>
                             Design and Implementation Constraints
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#UserDocumentation">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#UserDocumentation">
                             <span>2.6</span>
                             User Documentation
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#AssumptionsDependencies">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#AssumptionsDependencies">
                             <span>2.7</span>
                             Assumptions and Dependencies
-                            </a>
-                        </li>
-                    </ol>
-                </li>
-                <li><a href="#ExternalInterface">
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <li><a href="#ExternalInterface">
                     <span>3.</span>
                     External Interface Requirements
-                    </a>
-                    <ol style="list-style-type: none;">
-                        <li>
-                            <a href="#UserInterfaces">
+                </a>
+                <ol style="list-style-type: none;">
+                    <li>
+                        <a href="#UserInterfaces">
                             <span>3.1</span>
                             User Interfaces
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#SoftwareInterface">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#SoftwareInterface">
                             <span>3.3</span>
                             Software Interface
-                            </a>
-                        </li>
-                    </ol>
-                    <li><a href="#SystemFeatures">
-                        <span>4.</span>
-                        System Features
                         </a>
-                        <ol style="list-style-type: none;">
-                            <li>
-                                <a href="#StatisticsManagement">
-                                <span>4.1</span>
-                                Statistics Management
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#EditingData">
-                                <span>4.1</span>
-                                Editing Data by the Administrator
-                                </a>
-                            </li>
-                        </ol>
                     </li>
-                    <li><a href="#ProjectSplitting">
-                        <span>5.</span>
-                        Project Splitting
+                </ol>
+            <li><a href="#SystemFeatures">
+                    <span>4.</span>
+                    System Features
+                </a>
+                <ol style="list-style-type: none;">
+                    <li>
+                        <a href="#StatisticsManagement">
+                            <span>4.1</span>
+                            Statistics Management
                         </a>
-                        <ol style="list-style-type: none;">
-                            <li>
-                                <a href="#StatisticsManagement">
-                                <span>5.1</span>
-                                Project Splitting
-                                </a>
-                            </li>
-                        </ol>
                     </li>
-            </ol>
+                    <li>
+                        <a href="#EditingData">
+                            <span>4.1</span>
+                            Editing Data by the Administrator
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <li><a href="#ProjectSplitting">
+                    <span>5.</span>
+                    Project Splitting
+                </a>
+                <ol style="list-style-type: none;">
+                    <li>
+                        <a href="#StatisticsManagement">
+                            <span>5.1</span>
+                            Project Splitting
+                        </a>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+    </section>
+
+
+    <section role="doc-introduction" id="Introduction">
+        <h2>
+            <span>1.</span>
+            Introduction
+        </h2>
+
+        <section id="Purpose">
+
+            <h3> <span>1.1 </span>
+                Purpose
+            </h3>
+            <p>
+                The scope of the product is to provide information to the user on
+                the situation of obesity cases all over the world. On the site, the statistics
+                are displayed according to certain criteria chosen by the user.
+            </p>
+            <p>
+                The main objective of this document is to describe the web application Obesity Prevalence Visualizer,
+                giving details
+                about product scope, functions, the interface, the system features, etc.
+            </p>
+        </section>
+
+        <section id="DocumentConvention">
+
+            <h3> <span>1.2 </span>
+                Document Convention
+            </h3>
+            <p>
+                The documentation for this project respects the IEE System Requirements Specification Template.
+            </p>
+        </section>
+
+        <section id="Intented">
+
+            <h3> <span>1.3 </span>
+                Intended Audience and Reading Suggestions
+            </h3>
+            <p>
+                This project is useful for any person who is interested in seeing statistics
+                about obesity cases in their country or any other country and documentation for an
+                user who would like to understand better the application and its purposes.
+
+            <p> Also, this documentation is useful for programmers who are interested in improving this application.
+            </p>
+            <p>
+                For an user, the most important section of this documentation is the introduction part and the user
+                interface
+                part.
+                For a programmer, it is important to read the whole document in order to understand better the scope and
+                the
+                organization of implementation
+
+            </p>
+
+        </section>
+
+        <section id="ProductScope">
+
+            <h3> <span>1.4 </span>
+                Product Scope
+
+            </h3>
+            <p>
+                OPreV (Obesity Prevalence Visualizer) is a web application that helps the people to see the latest
+                statistics available about
+                obesity rate in certain countries, the data being selected after some criteria that the user is
+                choosing, for example
+                country, sex, age, etc. Here, the user can view the data in different modes and can download
+                it, in certain formats : csv, png and svg.
+            </p>
+            <p>Also, the application
+                has a special page, in order to help people who need motivation by announcing them about events that may
+                help them.
+
+            </p>
         </section>
 
 
-        <section role="doc-introduction" id="Introduction">
-                <h2>
-                    <span>1.</span>
-                    Introduction
-                </h2>
+        <section id="References">
 
-                <section id="Purpose">
+            <h3> <span>1.5 </span>
+                References
 
-                    <h3>  <span>1.1   </span>
-                    Purpose
-                    </h3>
-                        <p>
-                            The scope of the product is to provide information to the user on 
-                            the situation of obesity cases all over the world. On the site, the statistics
-                             are displayed according to certain criteria chosen by the user.
-                             </p>
-                             <p>
-                            The main objective of this document is to describe the web application Obesity Prevalence Visualizer, giving details 
-                            about product scope, functions, the interface, the system features,  etc.
-                            </p>
-                </section>
+            </h3>
+            <p>
+                User's guide:
+                <a href="../Documentation/ghidDeUtilizare/scholarly.html">Open guide</a>
 
-                <section id="DocumentConvention">
+            </p>
+            <p>
+                API documentation:
+                <a href="../Documentation/openApiDoc.html">Open API doc</a>
 
-                    <h3>  <span>1.2   </span>
-                    Document Convention
-                    </h3>
-                        <p>
-                            The documentation for this project respects the IEE System Requirements Specification Template.
-                        </p>
-                </section>
+            </p>
+            <p>
+                OPreV’s github page:
+                <a href="https://github.com/andreea1603/OPreV"> GitHub </a>
+            </p>
+            <p>
+                Use case diagram :
+                <a href="https://app.creately.com/diagram/zPLEbQlxpv7/edit"> Open Use Case</a>
+            </p>
+            <p>
+                Design:
+                <a href="https://drive.google.com/file/d/1aksXK5XZUE42tsBuOHsO-nQLBPKFEQ_k/view?usp=sharing">Open
+                    Design</a>
 
-                <section id="Intented">
+            </p>
+            <p>
+                C4 diagrams:
+                <a href="https://app.diagrams.net/#G1Y_jAFJVYmkxEMFfvQ70iJ3xCNC7G8i2r">Open Design</a>
 
-                    <h3>  <span>1.3   </span>
-                        Intended Audience and Reading Suggestions
-                    </h3>
-                        <p>
-                            This project is useful for any person who is interested in seeing statistics
-                             about obesity cases in their country or any other country  and documentation for an
-                             user who would like to understand better the application and its purposes.
-                          
-                        <p>   Also, this documentation is useful for programmers  who are interested in improving this application.
-                        </p>
-                           <p>
-                           For an user, the most important section of this documentation is the introduction part and the user interface
-                           part.
-                           For a programmer, it is important to read the whole document in order to understand better the scope and the 
-                           organization of implementation
-
-                           </p>
-
-                </section>
-
-                <section id="ProductScope">
-
-                    <h3>  <span>1.4   </span>
-                        Product Scope
-
-                    </h3>
-                        <p>
-                            OPreV (Obesity Prevalence Visualizer) is a web application that helps the people to see the latest statistics available about
-                            obesity rate in certain countries, the data being selected after some criteria that the user is choosing, for example
-                            country, sex, age, etc. Here, the user can view the data in different modes and can download
-                            it, in certain formats : csv, png and svg.
-                            </p>
-                            <p>Also, the application
-                            has a special page, in order to help people who need motivation by announcing them about events that may help them.
-                         
-                        </p>
-                </section>
+            </p>
 
 
-                <section id="References">
+        </section>
 
-                    <h3>  <span>1.5   </span>
-                        References
-
-                    </h3>
-                        <p>
-                            OPreV’s github page: 
-                            <a href="https://github.com/andreea1603/OPreV"> GitHub </a>
-                        </p>
-                        <p>
-                            Use case diagram :
-                            <a href="https://app.creately.com/diagram/zPLEbQlxpv7/edit"> Open Use Case</a>
-                        </p>
-                        <p >
-                            Design: 
-                            <a href="https://drive.google.com/file/d/1aksXK5XZUE42tsBuOHsO-nQLBPKFEQ_k/view?usp=sharing">Open Design</a>
-                            
-                        </p>
-                        <p >
-                            C4 diagrams:
-                            <a href="https://app.diagrams.net/#G1Y_jAFJVYmkxEMFfvQ70iJ3xCNC7G8i2r">Open Design</a>
-                            
-                        </p>
-
-       
-                </section>
-
-       </section>
+    </section>
 
 
-       <section role="contentinfo" id="OverallDescription">
+    <section role="contentinfo" id="OverallDescription">
         <h2>
             <span>2.</span>
             Overall Description
@@ -307,15 +326,15 @@
 
         <section id="ProductPerspective">
 
-            <h3>  <span>2.1   </span>
+            <h3> <span>2.1 </span>
                 Product Perspective
             </h3>
             <p>
-                The OPreV is an application for everyone who is interested in overweight statistics and events 
-                related to that field. 
+                The OPreV is an application for everyone who is interested in overweight statistics and events
+                related to that field.
             </p>
-                <p>
-                    The OPreV is following the example of  eurostat and who, websites that 
+            <p>
+                The OPreV is following the example of eurostat and who, websites that
                 displays statistics for a lot of topics, and reproduces the topic about overweight cases over
                 the world.
             </p>
@@ -323,248 +342,270 @@
 
         <section id="ProductFunctions">
 
-            <h3>  <span>2.2   </span>
+            <h3> <span>2.2 </span>
                 Product Functions
             </h3>
-            <p>The application will let the user to choose some filters(for example: age, country, sex) 
+            <p>The application will let the user to choose some filters(for example: age, country, sex)
                 in order to see the distribution of the obesity cases and view them in different formats, then
-                there exists the possibility of download them. Also, the application will inform the user about new events all 
-                 over the world(online or on site) in order to motivate him/her to have a healthy life.
+                there exists the possibility of download them. Also, the application will inform the user about new
+                events all
+                over the world(online or on site) in order to motivate him/her to have a healthy life.
             </p>
             <p>
                 Also, the user can see information about the main scope of the application.
-                For an administrator, there will be two functions in plus; he will be able to add or to erase events 
+                For an administrator, there will be two functions in plus; he will be able to add or to erase events
                 or filters and to see information about his own account.
             </p>
         </section>
 
         <section id="UserClasses">
 
-            <h3>  <span>2.3   </span>
+            <h3> <span>2.3 </span>
                 User Classes and Characteristics
             </h3>
             <p>
                 There are two types of users who use the application :
-                <ul>
-                <li>typical user, a person who is interested in knowing more about the rate of obesity or events related to this problem;</li>
+            <ul>
+                <li>typical user, a person who is interested in knowing more about the rate of obesity or events related
+                    to this problem;</li>
 
-                <li>administrator, that has permission to edit data in order to keep the information accurate and to be sure that there are no mistakes, for example, he can add events, remove event, add types of filters or delete types of filter;
-            </li>
+                <li>administrator, that has permission to edit data in order to keep the information accurate and to be
+                    sure that there are no mistakes, for example, he can add events, remove event, add types of filters
+                    or delete types of filter;
+                </li>
             </ul>
-  
+
         </section>
 
         <section id="OperatingEnvironment">
 
-            <h3>  <span>2.4   </span>
+            <h3> <span>2.4 </span>
                 Operating Environment
 
             </h3>
             <p>
-             <ul>
-                 <li>
+            <ul>
+                <li>
                     database: phpmyadmin, sql
-                 </li>
-                 <li>
+                </li>
+                <li>
                     operating system: Windows
-                 </li>
-                 <li>
+                </li>
+                <li>
                     platform: Php
-                 </li>
-             </ul>
+                </li>
+            </ul>
         </section>
 
         <section id="Design">
 
-            <h3>  <span>2.5   </span>
+            <h3> <span>2.5 </span>
                 Design and Implementation Constraints
 
             </h3>
             <p>
 
                 The application is written in php, plus its useful tools for the backend part
-                 and the frontend part is in css and html. 
-   
+                and the frontend part is in css and html.
+
         </section>
 
         <section id="UserDocumentation">
 
-            <h3>  <span>2.6   </span>
+            <h3> <span>2.6 </span>
                 User Documentation
 
             </h3>
             <p>
-                <ul>
-                    <li>
-                        https://profs.info.uaic.ro/~andrei.panu/
-                    </li>
-                    <li>
-                        https://github.com/rick4470/IEEE-SRS-Tempate
-                    </li>
-                    <li>
-                        https://profs.info.uaic.ro/~busaco/
-                    </li>
-                </ul>
+            <ul>
+                <li>
+                    https://profs.info.uaic.ro/~andrei.panu/
+                </li>
+                <li>
+                    https://github.com/rick4470/IEEE-SRS-Tempate
+                </li>
+                <li>
+                    https://profs.info.uaic.ro/~busaco/
+                </li>
+            </ul>
 
         </section>
 
         <section id="AssumptionsDependencies">
 
-            <h3>  <span>2.7   </span>
+            <h3> <span>2.7 </span>
                 Assumptions and Dependencies
 
             </h3>
             <p>
 
-                We assume that the application will be used on mobile phone, tablets and on computers, but 
-                but mostly on computers and tablets, such as the statistics are displayed more clearly, 
-                so it will be easier to analyze.  
+                We assume that the application will be used on mobile phone, tablets and on computers, but
+                but mostly on computers and tablets, such as the statistics are displayed more clearly,
+                so it will be easier to analyze.
 
             </p>
         </section>
 
-   </section>
+    </section>
 
-        <section role="contentinfo" id="ExternalInterface">
-            <h2>
-                <span>3.</span>
-                External Interface Requirements
-            </h2>
+    <section role="contentinfo" id="ExternalInterface">
+        <h2>
+            <span>3.</span>
+            External Interface Requirements
+        </h2>
 
-            <section id="UserInterfaces">
+        <section id="UserInterfaces">
 
-                <h3>  <span>3.1   </span>
+            <h3> <span>3.1 </span>
                 User Interfaces
-                </h3>
-                    <p>
-                        On each page, besides the login page, has a menu, in order to help the user to navigate between the pages. The menu buttons are “Statistici”, “Evenimente”, “Despre noi” and “Contul meu”. 
-                    </p>
-                    <p>
-                        The main page is the statistics page, where the user has at his disposal a wide variety of filters, in order to see the rate of obesity in the world (examples of filters: age, sex, country, etc..). The user can download this data in various formats such as : svg, png, csv and can also change the display format. 
-                    </p>
-                    <p>
-                        The event page contains information about eveniments taking place online or on site, in order to help a person who is overweight, obese or a person who would like to have a healthy life style to get motivated.
-                    </p>
-                    <p>
-                        The about us page has some basic information about our purpose stages of obesity  and some recommendations.
-                    </p>
-                    <p>
-                        The login page is the page where the administrator can sign in; he has to introduce the email and the password.
-                    </p>
-                    <p>
-                        The register page is a page where an administrator cand sign up, he has to wait for the principal administrator to accept his request. 
-                    </p>
-                    <p>
-                        Another page is the one where the administrator can see the information about his account and also has buttons for editing data on the website and one for log out.                        
-                    </p>
-                    <p>
-                        There exists a page where the administrator can change the events info, where he can add an event or remove an event or he can remove types of filter in case that there exists inconsistent data.
-                    </p>
-            </section>
-            <section id="SoftwareInterface">
+            </h3>
+            <p>
+                On each page, besides the login page, has a menu, in order to help the user to navigate between the
+                pages. The menu buttons are “Statistici”, “Evenimente”, “Despre noi” and “Contul meu”.
+            </p>
+            <p>
+                The main page is the statistics page, where the user has at his disposal a wide variety of filters, in
+                order to see the rate of obesity in the world (examples of filters: age, sex, country, etc..). The user
+                can download this data in various formats such as : svg, png, csv and can also change the display
+                format.
+            </p>
+            <p>
+                The event page contains information about eveniments taking place online or on site, in order to help a
+                person who is overweight, obese or a person who would like to have a healthy life style to get
+                motivated.
+            </p>
+            <p>
+                The about us page has some basic information about our purpose stages of obesity and some
+                recommendations.
+            </p>
+            <p>
+                The login page is the page where the administrator can sign in; he has to introduce the email and the
+                password.
+            </p>
+            <p>
+                The register page is a page where an administrator cand sign up, he has to wait for the principal
+                administrator to accept his request.
+            </p>
+            <p>
+                Another page is the one where the administrator can see the information about his account and also has
+                buttons for editing data on the website and one for log out.
+            </p>
+            <p>
+                There exists a page where the administrator can change the events info, where he can add an event or
+                remove an event or he can remove types of filter in case that there exists inconsistent data.
+            </p>
+        </section>
+        <section id="SoftwareInterface">
 
-                <h3>  <span>3.3   </span>
+            <h3> <span>3.3 </span>
                 Software Interfaces
-                </h3>
-                    <p>
-                        Our website is based on our own API Rest which communicate with all services.
-                        We use plotly library in order to display the statistics obtain
-                        from the datasets provided by WHO and Eurostat and that are reviewed by the admin.
-                        We also use this library in order to download the csv, with the data selected or
-                        the png and svg formats of the charts.
-
-
-                    </p>
-
-            </section>
-   </section>
-
-           <!-- partea a patra -->
-
-   <section role="contentinfo" id="#SystemFeatures">
-    <h2>
-        <span>4.</span>
-        System Features
-    </h2>
-
-    <section id="StatisticsManagement">
-
-        <h3>  <span>4.1   </span>
-            Statistics Management
-        </h3>
+            </h3>
             <p>
-                The site is equipped with a data filtering section, so that each person who accesses can download statistics based 
-                on the filters they have chosen. Moreover, the data can be viewed in several ways such as PDF , PNG, CSV so that it is easier for the user to manage the received data.
-            </p>
-    </section>
-    <section id="EditingData">
+                Our website is based on our own API Rest which communicate with all services.
+                We use plotly library in order to display the statistics obtain
+                from the datasets provided by WHO and Eurostat and that are reviewed by the admin.
+                We also use this library in order to download the csv, with the data selected or
+                the png and svg formats of the charts.
 
-        <h3>  <span>4.2   </span>
-            Editing data by the administrator
-        </h3>
-            <p>
-                The administration part of the site comes with a feature that gives the admin the ability to edit the filters
-                 in case a problem happens, to publish new events or delete the already finished ones. 
-                 There exists 4 pages in which the admin can modify data: 
-                    <li> eurostat edit: this is where the admin can add, delete or edit all the data present on the statistici page, with data provided by Eurostat.</li>
-                    <li> Who edit: this is where the admin can add, delete or edit all the data present on the statistici page, with data provided by WHO, by filter.</li>
-                    <li> Event: this is where the admin can add, delete or edit all Events present on the web application.</li>
-                    <li> Manage admin accounts: this is where the admin can create another account for admin</li>
 
             </p>
+
+        </section>
     </section>
+
+    <!-- partea a patra -->
+
+    <section role="contentinfo" id="#SystemFeatures">
+        <h2>
+            <span>4.</span>
+            System Features
+        </h2>
+
+        <section id="StatisticsManagement">
+
+            <h3> <span>4.1 </span>
+                Statistics Management
+            </h3>
+            <p>
+                The site is equipped with a data filtering section, so that each person who accesses can download
+                statistics based
+                on the filters they have chosen. Moreover, the data can be viewed in several ways such as PDF , PNG, CSV
+                so that it is easier for the user to manage the received data.
+            </p>
+        </section>
+        <section id="EditingData">
+
+            <h3> <span>4.2 </span>
+                Editing data by the administrator
+            </h3>
+            <p>
+                The administration part of the site comes with a feature that gives the admin the ability to edit the
+                filters
+                in case a problem happens, to publish new events or delete the already finished ones.
+                There exists 4 pages in which the admin can modify data:
+                <li> eurostat edit: this is where the admin can add, delete or edit all the data present on the
+                    statistici page, with data provided by Eurostat.</li>
+                <li> Who edit: this is where the admin can add, delete or edit all the data present on the statistici
+                    page, with data provided by WHO, by filter.</li>
+                <li> Event: this is where the admin can add, delete or edit all Events present on the web application.
+                </li>
+                <li> Manage admin accounts: this is where the admin can create another account for admin</li>
+
+            </p>
+        </section>
     </section>
-     <!-- partea a 5a -->
+    <!-- partea a 5a -->
 
     <section role="contentinfo" id="#collaboration">
         <h2>
             <span>5.</span>
             Project splitting
         </h2>
-    
+
         <section id="ProjectSplitting">
-    
-            <h3>  <span>5.1   </span>
+
+            <h3> <span>5.1 </span>
                 Project splitting
             </h3>
-                <p>
-                    
-                    We worked individually and met every two days to discuss the mistakes and problems encountered, 
-                    we solved the bugs that appeared, so we each contributed to the page made by the other.
-                    For online source code management we used github,and for task management we used trello.
-                    We divided our tasks as follows :
-                    <ul>
-                        <li>
-                            Both of us :
-                            <ol>
-                                <li>Working at login/signup</li>
-                                <li>Working at edit page for database values for Eurostat and Who Pages</li>
-                                <li>MVC Structure</li>
-                                <li>Architecture based on microservices</li>
-                                <li>Charts Representation</li>
-                                <li>Export data</li>
-                            </ol>
-                        </li>
-                        <li>
-                            Andreea Ciocan :
-                            <ol>
-                                <li>Working at Api for Who Statistics Page</li> 
-                                <li>Collect data from external Apis</li>
-                                <li>Sql injection</li>
-                                <li>Cross Site Scripting</li>
-                            </ol>
-                        </li>
-                        <li>
-                            Ovidiu Gabor :
-                            <ol>
-                                <li>Working at Api for Eurostat Statistics Page</li>
-                                <li>Edit eveniments page</li>
-                                <li>Dynamic navbar for Eurostat and Who filters</li>
-                            </ol>
-                        </li>
-                    </ul>
-                </p>
+            <p>
+
+                We worked individually and met every two days to discuss the mistakes and problems encountered,
+                we solved the bugs that appeared, so we each contributed to the page made by the other.
+                For online source code management we used github,and for task management we used trello.
+                We divided our tasks as follows :
+            <ul>
+                <li>
+                    Both of us :
+                    <ol>
+                        <li>Working at login/signup</li>
+                        <li>Working at edit page for database values for Eurostat and Who Pages</li>
+                        <li>MVC Structure</li>
+                        <li>Architecture based on microservices</li>
+                        <li>Charts Representation</li>
+                        <li>Export data</li>
+                    </ol>
+                </li>
+                <li>
+                    Andreea Ciocan :
+                    <ol>
+                        <li>Working at Api for Who Statistics Page</li>
+                        <li>Collect data from external Apis</li>
+                        <li>Sql injection</li>
+                        <li>Cross Site Scripting</li>
+                    </ol>
+                </li>
+                <li>
+                    Ovidiu Gabor :
+                    <ol>
+                        <li>Working at Api for Eurostat Statistics Page</li>
+                        <li>Edit eveniments page</li>
+                        <li>Dynamic navbar for Eurostat and Who filters</li>
+                    </ol>
+                </li>
+            </ul>
+            </p>
         </section>
-</section>
-    </body>
+    </section>
+</body>
+
 </html>
